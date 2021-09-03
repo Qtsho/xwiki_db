@@ -1,0 +1,419 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.WebHome" locale="">
+  <web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.FredericKovacs</creator>
+  <creationDate>1538124600000</creationDate>
+  <versions>head	9.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+9.1
+date	2018.11.06.13.56.55;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	8.1;
+
+8.1
+date	2018.11.06.13.56.05;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	7.1;
+
+7.1
+date	2018.11.06.13.55.42;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2018.11.06.13.54.51;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2018.11.06.13.54.13;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	4.2;
+
+4.2
+date	2018.10.31.09.37.57;	author XWiki_2ESvenHoyer;	state full;
+branches;
+next	4.1;
+
+4.1
+date	2018.10.02.15.07.44;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2018.09.28.08.52.15;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2018.09.28.08.50.12;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.09.28.08.50.00;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+9.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1538124600000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1541512615000&lt;/date>
+  &lt;contentUpdateDate>1541512615000&lt;/contentUpdateDate>
+  &lt;version>9.1&lt;/version>
+  &lt;title>Step 4: Getting started with ROS in Simulink&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+= **Introduction** =&amp;#xd;
+&amp;#xd;
+Even though it seems easier to create ROS-Nodes in Simulink there are still some sticking points and limitations that should be mentioned and worked around.&amp;#xd;
+&amp;#xd;
+The limitations mostly concern the handling of ROS-Messages:&amp;#xd;
+&amp;#xd;
+* Constants are not supported, and are excluded from the Simulink bus.&amp;#xd;
+&amp;#xd;
+* 64-bit Integers (ROS types int64 and uint64) are converted to doubles in the Simulink bus, as Simulink does not natively support 64-bit integer datatypes.&amp;#xd;
+&amp;#xd;
+* Variable-length arrays (ROS type ...[]) are converted to fixed-length array with customizable maximum lengths. By default, the fixed length is 128 for primitive types (e.g., uint8[], float32[]), and 16 for nested arrays of messages (e.g., geometry_msgs/Point[]).&amp;#xd;
+&amp;#xd;
+* Strings (ROS type string) are converted to fixed-length uint8 arrays with customizable maximum lengths, with a default maximum length of 128 characters.&amp;#xd;
+&amp;#xd;
+* String arrays (ROS type string[]) are converted to a fixed-length array of std_msgs/String with a customizable maximum length.     The default maximum length is 16 strings.&amp;#xd;
+&amp;#xd;
+We'll not working through each of these obstacles but if you work with ROS on Simulink you'll have to face them sooner or later.&amp;#xd;
+Also the Simulink Robotics Toolbox does not support:&amp;#xd;
+&amp;#xd;
+* ROS Services&amp;#xd;
+&amp;#xd;
+* ROS Actions&amp;#xd;
+&amp;#xd;
+* Transformation trees&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+In this tutorial we will create a Subscriber and Publisher that communicates with our ROS-nodes on the VM.&lt;/content>
+&lt;/xwikidoc>@
+
+
+8.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1541512565000&lt;/date>
+  &lt;contentUpdateDate>1541512565000&lt;/contentUpdateDate>
+  &lt;version>8.1&lt;/version>
+a32 1
+(% style="list-style-type: square" %)&amp;#xd;
+d37 1
+a37 3
+1. Variable-length arrays (ROS type ...[]) are converted to fixed-length array with customizable maximum lengths. By default, the fixed length is 128 for primitive types (e.g., uint8[], float32[]), and 16 for nested arrays of messages (e.g., geometry_msgs/Point[]).&amp;#xd;
+1. Strings (ROS type string) are converted to fixed-length uint8 arrays with customizable maximum lengths, with a default maximum length of 128 characters.&amp;#xd;
+1. String arrays (ROS type string[]) are converted to a fixed-length array of std_msgs/String with a customizable maximum length.     The default maximum length is 16 strings.&amp;#xd;
+d39 4
+d46 1
+a46 1
+1. ROS Services&amp;#xd;
+d48 1
+a48 1
+1. ROS Actions&amp;#xd;
+d50 1
+a50 1
+1. Transformation trees&amp;#xd;
+@
+
+
+7.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1541512542000&lt;/date>
+  &lt;contentUpdateDate>1541512542000&lt;/contentUpdateDate>
+  &lt;version>7.1&lt;/version>
+d34 1
+a34 1
+*Constants are not supported, and are excluded from the Simulink bus.&amp;#xd;
+d36 2
+a37 1
+*64-bit Integers (ROS types int64 and uint64) are converted to doubles in the Simulink bus, as Simulink does not natively support 64-bit integer datatypes.&amp;#xd;
+@
+
+
+6.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1541512491000&lt;/date>
+  &lt;contentUpdateDate>1541512491000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+d33 4
+a36 2
+1. Constants are not supported, and are excluded from the Simulink bus.&amp;#xd;
+1. 64-bit Integers (ROS types int64 and uint64) are converted to doubles in the Simulink bus, as Simulink does not natively support 64-bit integer datatypes.&amp;#xd;
+@
+
+
+5.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1541512453000&lt;/date>
+  &lt;contentUpdateDate>1541512453000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+a33 1
+&amp;#xd;
+a34 1
+&amp;#xd;
+a35 1
+&amp;#xd;
+a36 1
+&amp;#xd;
+@
+
+
+4.2
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1538124600000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.SvenHoyer&lt;/author>
+  &lt;contentAuthor>XWiki.SvenHoyer&lt;/contentAuthor>
+  &lt;date>1540978677000&lt;/date>
+  &lt;contentUpdateDate>1540978677000&lt;/contentUpdateDate>
+  &lt;version>4.2&lt;/version>
+  &lt;title>Step 4: Getting started with ROS in Simulink&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{velocity}}
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}
+{{/velocity}}
+
+----
+
+= **Introduction** =
+
+Even though it seems easier to create ROS-Nodes in Simulink there are still some sticking points and limitations that should be mentioned and worked around.
+
+The limitations mostly concern the handling of ROS-Messages:
+
+1. Constants are not supported, and are excluded from the Simulink bus.
+
+2. 64-bit Integers (ROS types int64 and uint64) are converted to doubles in the Simulink bus, as Simulink does not natively support 64-bit integer datatypes.
+
+3.Variable-length arrays (ROS type ...[]) are converted to fixed-length array with customizable maximum lengths. By default, the fixed length is 128 for primitive types (e.g., uint8[], float32[]), and 16 for nested arrays of messages (e.g., geometry_msgs/Point[]).
+
+4.Strings (ROS type string) are converted to fixed-length uint8 arrays with customizable maximum lengths, with a default maximum length of 128 characters.
+
+5. String arrays (ROS type string[]) are converted to a fixed-length array of std_msgs/String with a customizable maximum length. The default maximum length is 16 strings.
+
+We'll not working through each of these obstacles but if you work with ROS on Simulink you'll have to face them sooner or later.
+Also the Simulink Robotics Toolbox does not support:
+
+1. ROS Services
+
+2. ROS Actions
+
+3. Transformation trees
+
+----
+
+In this tutorial we will create a Subscriber and Publisher that communicates with our ROS-nodes on the VM.&lt;/content>
+&lt;/xwikidoc>@
+
+
+4.1
+log
+@@
+text
+@d6 1
+a6 1
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+d11 5
+a15 5
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1538492864000&lt;/date>
+  &lt;contentUpdateDate>1538492864000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d21 33
+a53 33
+  &lt;content>{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+= **Introduction** =&amp;#xd;
+&amp;#xd;
+Even though it seems easier to create ROS-Nodes in Simulink there are still some sticking points and limitations that should be mentioned and worked around.&amp;#xd;
+&amp;#xd;
+The limitations mostly concern the handling of ROS-Messages:&amp;#xd;
+&amp;#xd;
+1. Constants are not supported, and are excluded from the Simulink bus.&amp;#xd;
+&amp;#xd;
+2. 64-bit Integers (ROS types int64 and uint64) are converted to doubles in the Simulink bus, as Simulink does not natively support 64-bit integer datatypes.&amp;#xd;
+&amp;#xd;
+3.Variable-length arrays (ROS type ...[]) are converted to fixed-length array with customizable maximum lengths. By default, the fixed length is 128 for primitive types (e.g., uint8[], float32[]), and 16 for nested arrays of messages (e.g., geometry_msgs/Point[]).&amp;#xd;
+&amp;#xd;
+4.Strings (ROS type string) are converted to fixed-length uint8 arrays with customizable maximum lengths, with a default maximum length of 128 characters.&amp;#xd;
+&amp;#xd;
+5. String arrays (ROS type string[]) are converted to a fixed-length array of std_msgs/String with a customizable maximum length. The default maximum length is 16 strings.&amp;#xd;
+&amp;#xd;
+We'll not working through each of these obstacles but if you work with ROS on Simulink you'll have to face them sooner or later.&amp;#xd;
+Also the Simulink Robotics Toolbox does not support:&amp;#xd;
+&amp;#xd;
+1. ROS Services&amp;#xd;
+&amp;#xd;
+2. ROS Actions&amp;#xd;
+&amp;#xd;
+3. Transformation trees&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1538124735000&lt;/date>
+  &lt;contentUpdateDate>1538124735000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d27 28
+a54 1
+= **Introduction** =&lt;/content>
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1538124612000&lt;/date>
+  &lt;contentUpdateDate>1538124612000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d21 7
+a27 1
+  &lt;content/>
+@
+
+
+1.1
+log
+@@
+text
+@d13 4
+a16 4
+  &lt;date>1538124600000&lt;/date>
+  &lt;contentUpdateDate>1538124600000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+  &lt;title>Step4: Getting started with ROS in Simulink&lt;/title>
+@
+</versions>
+  <parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome</parent>
+  <author>XWiki.FredericKovacs</author>
+  <contentAuthor>XWiki.FredericKovacs</contentAuthor>
+  <date>1541512615000</date>
+  <contentUpdateDate>1541512615000</contentUpdateDate>
+  <version>9.1</version>
+  <title>Step 4: Getting started with ROS in Simulink</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>{{velocity}}&#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&#xd;
+{{/velocity}}&#xd;
+&#xd;
+----&#xd;
+&#xd;
+= **Introduction** =&#xd;
+&#xd;
+Even though it seems easier to create ROS-Nodes in Simulink there are still some sticking points and limitations that should be mentioned and worked around.&#xd;
+&#xd;
+The limitations mostly concern the handling of ROS-Messages:&#xd;
+&#xd;
+* Constants are not supported, and are excluded from the Simulink bus.&#xd;
+&#xd;
+* 64-bit Integers (ROS types int64 and uint64) are converted to doubles in the Simulink bus, as Simulink does not natively support 64-bit integer datatypes.&#xd;
+&#xd;
+* Variable-length arrays (ROS type ...[]) are converted to fixed-length array with customizable maximum lengths. By default, the fixed length is 128 for primitive types (e.g., uint8[], float32[]), and 16 for nested arrays of messages (e.g., geometry_msgs/Point[]).&#xd;
+&#xd;
+* Strings (ROS type string) are converted to fixed-length uint8 arrays with customizable maximum lengths, with a default maximum length of 128 characters.&#xd;
+&#xd;
+* String arrays (ROS type string[]) are converted to a fixed-length array of std_msgs/String with a customizable maximum length.     The default maximum length is 16 strings.&#xd;
+&#xd;
+We'll not working through each of these obstacles but if you work with ROS on Simulink you'll have to face them sooner or later.&#xd;
+Also the Simulink Robotics Toolbox does not support:&#xd;
+&#xd;
+* ROS Services&#xd;
+&#xd;
+* ROS Actions&#xd;
+&#xd;
+* Transformation trees&#xd;
+&#xd;
+----&#xd;
+&#xd;
+In this tutorial we will create a Subscriber and Publisher that communicates with our ROS-nodes on the VM.</content>
+</xwikidoc>

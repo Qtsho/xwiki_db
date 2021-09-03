@@ -1,0 +1,4866 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Create a ROS-program.WebHome" locale="">
+  <web>Projects.MoRoP.ROS GettingStarted.Create a ROS-program</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.DavidDudzik</creator>
+  <creationDate>1543916227000</creationDate>
+  <versions>head	27.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+27.1
+date	2019.02.21.11.40.58;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	26.1;
+
+26.1
+date	2019.02.21.10.21.31;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	25.1;
+
+25.1
+date	2019.02.21.10.14.03;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	24.1;
+
+24.1
+date	2019.02.21.10.12.50;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	23.1;
+
+23.1
+date	2019.02.21.10.04.36;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	22.3;
+
+22.3
+date	2019.02.21.10.04.33;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	22.2;
+
+22.2
+date	2019.02.21.09.59.16;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	22.1;
+
+22.1
+date	2019.02.21.08.42.48;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	21.1;
+
+21.1
+date	2019.02.21.08.42.08;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	20.2;
+
+20.2
+date	2019.02.21.08.42.03;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	20.1;
+
+20.1
+date	2019.02.21.08.41.15;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	19.1;
+
+19.1
+date	2019.02.21.08.38.36;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	18.1;
+
+18.1
+date	2019.02.21.08.37.56;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	17.1;
+
+17.1
+date	2019.02.21.08.35.06;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	16.1;
+
+16.1
+date	2018.12.19.13.04.48;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	15.1;
+
+15.1
+date	2018.12.19.12.54.42;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	14.3;
+
+14.3
+date	2018.12.19.12.54.39;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	14.2;
+
+14.2
+date	2018.12.19.10.28.01;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	14.1;
+
+14.1
+date	2018.12.18.13.17.25;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	13.1;
+
+13.1
+date	2018.12.18.13.17.21;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	12.1;
+
+12.1
+date	2018.12.18.13.13.23;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	11.2;
+
+11.2
+date	2018.12.18.13.12.03;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	11.1;
+
+11.1
+date	2018.12.13.08.32.41;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	10.1;
+
+10.1
+date	2018.12.04.16.50.08;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	9.1;
+
+9.1
+date	2018.12.04.16.47.00;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	8.5;
+
+8.5
+date	2018.12.04.16.46.58;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	8.4;
+
+8.4
+date	2018.12.04.16.44.20;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	8.3;
+
+8.3
+date	2018.12.04.16.42.29;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	8.2;
+
+8.2
+date	2018.12.04.16.33.52;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	8.1;
+
+8.1
+date	2018.12.04.13.06.05;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	7.1;
+
+7.1
+date	2018.12.04.11.37.10;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2018.12.04.11.30.19;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2018.12.04.11.21.55;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	4.1;
+
+4.1
+date	2018.12.04.11.11.39;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2018.12.04.09.48.26;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2018.12.04.09.44.56;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.12.04.09.37.07;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+27.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Create a ROS-program.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Create a ROS-program&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1543916227000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1550749258000&lt;/date>
+  &lt;contentUpdateDate>1550749258000&lt;/contentUpdateDate>
+  &lt;version>27.1&lt;/version>
+  &lt;title>Create a ROS-program&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>**Sitemap**
+
+----
+
+{{toc/}}
+
+
+
+= Create a ROS-program =
+
+----
+
+
+
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.
+
+
+= catkin Workspace =
+
+----
+
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.
+
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.
+
+First create the Folder:
+
+{{code}}
+$ mkdir -p ~~/catkin_ws/src
+{{/code}}
+
+
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.
+
+After the creation, change to the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ cd ~~/catkin_ws/src
+)))
+
+Do **not** change to the folder ~~/catkin_ws
+
+
+and initialize the workspace with
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_init_workspace
+)))
+
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//
+
+
+Then switch one level above and execute the following command:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^
+
+Now the workspace is ready to build own-written code.
+
+
+
+= Example 2: hello-word.cpp =
+
+----
+
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.
+
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg &amp;lt;package-name> [depend1] [depend2] [depend3]
+)))
+
+Execute this command at the path ~~/catkin_ws/src.
+
+For this example, the command is obtained as follows:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg hello_world roscpp
+)))
+
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.
+
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).
+
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command
+
+
+(% class="box infomessage" %)
+(((
+$ touch &amp;lt;new_file-name>
+)))
+
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp
+)))
+
+Now the C++-source-code can be entered.
+
+With the goal in mind, the source-code can be something like:
+
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+int main(int argc, char~*~* argv){
+ros::init(argc, argv, "hello_world");
+ros::NodeHandle handle;
+ROS_INFO_STREAM("Hello, World!");
+}
+)))
+
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.
+
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.
+So type in:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt
+)))
+
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:
+
+
+(% class="box infomessage" %)
+(((
+cmake_minimum_required(VERSION 2.8.3)
+project(hello_world)
+\\find_package(catkin REQUIRED COMPONENTS
+roscpp
+)
+\\include_directories(
+${catkin_INCLUDE_DIRS}
+)
+\\add_executable(hello_world src/hello_world.cpp)
+target_link_libraries(hello_world ${catkin_LIBRARIES})
+)))
+
+
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].
+
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.
+
+However, change to the path ~~/catkin_ws and execute this:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.
+
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:
+
+
+(% class="box infomessage" %)
+(((
+source ~~/catkin_ws/devel/setup.bash
+)))
+
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:
+
+
+(% class="box infomessage" %)
+(((
+echo "source ~~/catkin_ws/devel/setup.bash" >> ~~/.bashrc
+)))
+
+ However, after sourcing the bash (shell) run the command,
+
+
+
+(% class="box infomessage" %)
+(((
+echo $ROS_PATH_PACKAGE
+)))
+
+to check if has succeeded. The output should look like this:
+
+(% class="box infomessage" %)
+(((
+$ echo $ROS_PACKAGE_PATH
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share
+)))
+
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun hello_world hello_world
+)))
+
+If everything went fine, there should be an output like:
+
+(% class="box infomessage" %)
+(((
+[ INFO] [1501663171.068434266]: Hello, World!
+)))
+
+(% class="mark" %)Note: The output will be almost the same. The timestamp 3 in the second column will differ for sure.
+
+You can get the entrie package here.
+
+
+= Example 3: Counter =
+
+----
+
+The third example is going to expand the things learn in the previous example. This time, the goal will be to create a publisher, which publishes and increments an integer-value every second.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+#include &amp;lt;std_msgs/Int64.h>
+
+int main(int argc, char ~*~*argv)
+{   ros::init(argc, argv, "counter");
+    ros::NodeHandle handle; 
+    ros::Publisher counter_pub = handle.advertise&amp;lt;std_msgs::Int64>("counter", 10); 
+    ros::Rate loop_rate(1); 
+    long long int count = 0;   
+    std_msgs::Int64 msg; 
+    while (ros::ok()) {       
+      msg.data = count;
+      counter_pub.publish(msg);
+      loop_rate.sleep();
+      ++count;
+}
+return 0;}
+ 
+)))
+
+At first the necassary libraries are included. The library (% class="mark" %)&amp;lt;ros/ros.h>(%%) is required every time when the ROS-C++-API is used. Further, the other ROS related library is(% class="mark" %) &amp;lt;std_msgs/String.h>(%%). This one provides the message type, that is used to publish the data.
+Then, the node is created with(% class="mark" %) ros::init() (%%)and the nodehandle with (% class="mark" %)ros::NodeHandle(%%) (as in the above example).
+In the next line the publisher-object named "counter_pub" is generated by using a method of the handle-object4. The message-type in this case is (% class="mark" %)std_msgs::Int64(%%) a 64-bit long integer.
+In general the command looks like this:
+
+(% class="box infomessage" %)
+(((
+ros::Publisher pub = handle.advertise&amp;lt;msg_type>("my_topic", 1);
+)))
+
+Note: The integer, in this case '1', defines the queue size of the publisher. Generating messages is mostly much faster than publishing them.
+
+The following line makes it possible to publish the data by a desired frequency. The frequency in this example is 1 Hz.
+Before the loop starts, an object of type std_msgs/Int64 is created.
+The while-loop runs as long as its argument is true. In this case, the node should run until the master dies.
+There are four cases for ros::ok() returning a false:
+
+
+1. A **SIGINT **(signal interrupt) is detected (**Ctrl**+**C**)
+1. A new node with the same name appears
+1. ros::shutdown() is called
+1. Calling(% class="mark" %) $ rosnode kill &amp;lt;this_node>
+
+Inside the loop, the ll-integer count passes its value to the data part of the object msg. Afterwards the method (% class="mark" %)publish (%%)of the object counter_pub is called.
+(% class="mark" %)loop_rate.sleep()(%%) is called to calculate the waiting time for the next run, to keep in the frequency of 1 Hz
+
+
+= Example 4: Subscriber =
+
+----
+
+In this example, a subscriber will be created, which fits to the previous publisher.
+
+
+The general procedure for creating a package follows the structure in example 2.
+
+
+The main difference between a publisher and a subscriber is, that a subscriber does not know when a message will arrive.
+
+This is why the code, that is going to be executed when a new message arrives, is wrapped in a callback-function. The structure inside the programm will be
+
+
+(% class="box infomessage" %)
+(((
+void cb_func(const &amp;lt;class>::&amp;lt;message-type> &amp;amp;msg)
+{
+...
+}
+int main(){
+...
+ros::Subscriber sub = handle.subscribe("my_topic", 1, &amp;amp;cb_func);
+}
+)))
+
+
+At first a callback-function is defined. The function takes as arguments the message-type (includes the class) as constant reference.
+The subscriber object is created in the main-function. The object sub is initialized with the handle method subscribe. This method takes three arguments. At first the related topic, then the queue-size and at last the reference to the callback-function.
+The subscriber in this example will print the received data to the terminal.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h> 
+#include &amp;lt;std_msgs/Int64.h> 
+
+void sub_callback(const std_msgs::Int64 &amp;amp;msg){
+        ROS_INFO_STREAM("I heard: " &amp;lt;&amp;lt; msg.data); 
+}
+
+int main(int argc, char ~*~*argv) 
+{ ros::init(argc, argv, "sub_counter");
+  ros::NodeHandle handle;
+    ros::Subscriber sub = handle.subscribe("counter", 10, &amp;amp;sub_callback);
+    ros::spin();
+  return 0;
+
+
+}
+ 
+)))
+
+As usual the necessary headers and libraries are included with preprocessor directives. Then, the definition of the callback-function follows. However, it is also possible to declare the function at first and than define it later
+
+Inside the main-function the node is created and initialized as also known. Then, the subscriber is created as described above.
+
+The other new feautre in this short programm is the member-function (% class="mark" %)ros::spin().(%%) It is necessary to pass the control over this node to ROS. So, ROS waits for new mesasges arriving and than executes the callback-function [^ros_spin].
+
+1. For futher information visit: http:~/~/wiki.ros.org/catkin/workspaces ↩
+
+1. There are many editors provided by Linux (not necessarily by Linux itself). Advanced users often use vim, while beginners usually use nano. ↩
+
+1. The timestamp is shown in the typical unix-format. ↩
+
+1. For detailed description see: http:~/~/docs.ros.org/kinetic/api/roscpp/html/classros_1_1NodeHandle.html#a6b655c04f32c4c967d49799ff9312ac6 ↩&lt;/content>
+&lt;/xwikidoc>@
+
+
+26.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550744491000&lt;/date>
+  &lt;contentUpdateDate>1550744491000&lt;/contentUpdateDate>
+  &lt;version>26.1&lt;/version>
+d21 343
+a363 337
+  &lt;content>{{toc/}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= Create a ROS-program =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= catkin Workspace =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.&amp;#xd;
+&amp;#xd;
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.&amp;#xd;
+&amp;#xd;
+First create the Folder:&amp;#xd;
+&amp;#xd;
+{{code}}&amp;#xd;
+$ mkdir -p ~~/catkin_ws/src{{/code}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.&amp;#xd;
+&amp;#xd;
+After the creation, change to the Folder:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ cd ~~/catkin_ws/src&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Do **not** change to the folder ~~/catkin_ws&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+and initialize the workspace with&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_init_workspace&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Then switch one level above and execute the following command:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_make&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^&amp;#xd;
+&amp;#xd;
+Now the workspace is ready to build own-written code.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= Example 2: hello-word.cpp =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.&amp;#xd;
+&amp;#xd;
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_create_pkg &amp;lt;package-name> [depend1] [depend2] [depend3]&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Execute this command at the path ~~/catkin_ws/src.&amp;#xd;
+&amp;#xd;
+For this example, the command is obtained as follows:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_create_pkg hello_world roscpp&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.&amp;#xd;
+&amp;#xd;
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).&amp;#xd;
+&amp;#xd;
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ touch &amp;lt;new_file-name>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Now the C++-source-code can be entered.&amp;#xd;
+&amp;#xd;
+With the goal in mind, the source-code can be something like:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+#include &amp;lt;ros/ros.h>&amp;#xd;
+int main(int argc, char~*~* argv){&amp;#xd;
+ros::init(argc, argv, "hello_world");&amp;#xd;
+ros::NodeHandle handle;&amp;#xd;
+ROS_INFO_STREAM("Hello, World!");&amp;#xd;
+}&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.&amp;#xd;
+&amp;#xd;
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.&amp;#xd;
+So type in:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+cmake_minimum_required(VERSION 2.8.3)&amp;#xd;
+project(hello_world)&amp;#xd;
+\\find_package(catkin REQUIRED COMPONENTS&amp;#xd;
+roscpp&amp;#xd;
+)&amp;#xd;
+\\include_directories(&amp;#xd;
+${catkin_INCLUDE_DIRS}&amp;#xd;
+)&amp;#xd;
+\\add_executable(hello_world src/hello_world.cpp)&amp;#xd;
+target_link_libraries(hello_world ${catkin_LIBRARIES})&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].&amp;#xd;
+&amp;#xd;
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.&amp;#xd;
+&amp;#xd;
+However, change to the path ~~/catkin_ws and execute this:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_make&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.&amp;#xd;
+&amp;#xd;
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+source ~~/catkin_ws/devel/setup.bash&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+echo "source ~~/catkin_ws/devel/setup.bash" >> ~~/.bashrc&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ However, after sourcing the bash (shell) run the command,&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+echo $ROS_PATH_PACKAGE&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+to check if has succeeded. The output should look like this:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ echo $ROS_PACKAGE_PATH&amp;#xd;
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun hello_world hello_world&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+If everything went fine, there should be an output like:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+[ INFO] [1501663171.068434266]: Hello, World!&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="mark" %)Note: The output will be almost the same. The timestamp 3 in the second column will differ for sure.&amp;#xd;
+&amp;#xd;
+You can get the entrie package here.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= Example 3: Counter =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+The third example is going to expand the things learn in the previous example. This time, the goal will be to create a publisher, which publishes and increments an integer-value every second.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+#include &amp;lt;ros/ros.h>&amp;#xd;
+#include &amp;lt;std_msgs/Int64.h>&amp;#xd;
+&amp;#xd;
+int main(int argc, char ~*~*argv)&amp;#xd;
+{   ros::init(argc, argv, "counter");&amp;#xd;
+    ros::NodeHandle handle; &amp;#xd;
+    ros::Publisher counter_pub = handle.advertise&amp;lt;std_msgs::Int64>("counter", 10); &amp;#xd;
+    ros::Rate loop_rate(1); &amp;#xd;
+    long long int count = 0;   &amp;#xd;
+    std_msgs::Int64 msg; &amp;#xd;
+    while (ros::ok()) {       &amp;#xd;
+      msg.data = count;&amp;#xd;
+      counter_pub.publish(msg);&amp;#xd;
+      loop_rate.sleep();&amp;#xd;
+      ++count;&amp;#xd;
+}&amp;#xd;
+return 0;}&amp;#xd;
+ &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+At first the necassary libraries are included. The library (% class="mark" %)&amp;lt;ros/ros.h>(%%) is required every time when the ROS-C++-API is used. Further, the other ROS related library is(% class="mark" %) &amp;lt;std_msgs/String.h>(%%). This one provides the message type, that is used to publish the data.&amp;#xd;
+Then, the node is created with(% class="mark" %) ros::init() (%%)and the nodehandle with (% class="mark" %)ros::NodeHandle(%%) (as in the above example).&amp;#xd;
+In the next line the publisher-object named "counter_pub" is generated by using a method of the handle-object4. The message-type in this case is (% class="mark" %)std_msgs::Int64(%%) a 64-bit long integer.&amp;#xd;
+In general the command looks like this:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ros::Publisher pub = handle.advertise&amp;lt;msg_type>("my_topic", 1);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Note: The integer, in this case '1', defines the queue size of the publisher. Generating messages is mostly much faster than publishing them.&amp;#xd;
+&amp;#xd;
+The following line makes it possible to publish the data by a desired frequency. The frequency in this example is 1 Hz.&amp;#xd;
+Before the loop starts, an object of type std_msgs/Int64 is created.&amp;#xd;
+The while-loop runs as long as its argument is true. In this case, the node should run until the master dies.&amp;#xd;
+There are four cases for ros::ok() returning a false:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+1. A **SIGINT **(signal interrupt) is detected (**Ctrl**+**C**)&amp;#xd;
+1. A new node with the same name appears&amp;#xd;
+1. ros::shutdown() is called&amp;#xd;
+1. Calling(% class="mark" %) $ rosnode kill &amp;lt;this_node>&amp;#xd;
+&amp;#xd;
+Inside the loop, the ll-integer count passes its value to the data part of the object msg. Afterwards the method (% class="mark" %)publish (%%)of the object counter_pub is called.&amp;#xd;
+(% class="mark" %)loop_rate.sleep()(%%) is called to calculate the waiting time for the next run, to keep in the frequency of 1 Hz&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= Example 4: Subscriber =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+In this example, a subscriber will be created, which fits to the previous publisher.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The general procedure for creating a package follows the structure in example 2.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The main difference between a publisher and a subscriber is, that a subscriber does not know when a message will arrive.&amp;#xd;
+&amp;#xd;
+This is why the code, that is going to be executed when a new message arrives, is wrapped in a callback-function. The structure inside the programm will be&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+void cb_func(const &amp;lt;class>::&amp;lt;message-type> &amp;amp;msg)&amp;#xd;
+{&amp;#xd;
+...&amp;#xd;
+}&amp;#xd;
+int main(){&amp;#xd;
+...&amp;#xd;
+ros::Subscriber sub = handle.subscribe("my_topic", 1, &amp;amp;cb_func);&amp;#xd;
+}&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+At first a callback-function is defined. The function takes as arguments the message-type (includes the class) as constant reference.&amp;#xd;
+The subscriber object is created in the main-function. The object sub is initialized with the handle method subscribe. This method takes three arguments. At first the related topic, then the queue-size and at last the reference to the callback-function.&amp;#xd;
+The subscriber in this example will print the received data to the terminal.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+#include &amp;lt;ros/ros.h> &amp;#xd;
+#include &amp;lt;std_msgs/Int64.h> &amp;#xd;
+&amp;#xd;
+void sub_callback(const std_msgs::Int64 &amp;amp;msg){&amp;#xd;
+        ROS_INFO_STREAM("I heard: " &amp;lt;&amp;lt; msg.data); &amp;#xd;
+}&amp;#xd;
+&amp;#xd;
+int main(int argc, char ~*~*argv) &amp;#xd;
+{ ros::init(argc, argv, "sub_counter");&amp;#xd;
+  ros::NodeHandle handle;&amp;#xd;
+    ros::Subscriber sub = handle.subscribe("counter", 10, &amp;amp;sub_callback);&amp;#xd;
+    ros::spin();&amp;#xd;
+  return 0;&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+}&amp;#xd;
+ &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+As usual the necessary headers and libraries are included with preprocessor directives. Then, the definition of the callback-function follows. However, it is also possible to declare the function at first and than define it later&amp;#xd;
+&amp;#xd;
+Inside the main-function the node is created and initialized as also known. Then, the subscriber is created as described above.&amp;#xd;
+&amp;#xd;
+The other new feautre in this short programm is the member-function (% class="mark" %)ros::spin().(%%) It is necessary to pass the control over this node to ROS. So, ROS waits for new mesasges arriving and than executes the callback-function [^ros_spin].&amp;#xd;
+&amp;#xd;
+1. For futher information visit: http:~/~/wiki.ros.org/catkin/workspaces ↩&amp;#xd;
+&amp;#xd;
+1. There are many editors provided by Linux (not necessarily by Linux itself). Advanced users often use vim, while beginners usually use nano. ↩&amp;#xd;
+&amp;#xd;
+1. The timestamp is shown in the typical unix-format. ↩&amp;#xd;
+&amp;#xd;
+@
+
+
+25.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Create a ROS-program.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Create a ROS-program&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1543916227000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1550744043000&lt;/date>
+  &lt;contentUpdateDate>1550744043000&lt;/contentUpdateDate>
+  &lt;version>25.1&lt;/version>
+  &lt;title>Create a ROS-program&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{toc/}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= Create a ROS-program =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= catkin Workspace =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.&amp;#xd;
+&amp;#xd;
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.&amp;#xd;
+&amp;#xd;
+First create the Folder:&amp;#xd;
+&amp;#xd;
+{{code}}$ mkdir -p ~~/catkin_ws/src{{/code}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.&amp;#xd;
+&amp;#xd;
+After the creation, change to the Folder:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ cd ~~/catkin_ws/src&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Do **not** change to the folder ~~/catkin_ws&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+and initialize the workspace with&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_init_workspace&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Then switch one level above and execute the following command:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_make&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^&amp;#xd;
+&amp;#xd;
+Now the workspace is ready to build own-written code.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= Example 2: hello-word.cpp =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.&amp;#xd;
+&amp;#xd;
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_create_pkg &amp;lt;package-name> [depend1] [depend2] [depend3]&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Execute this command at the path ~~/catkin_ws/src.&amp;#xd;
+&amp;#xd;
+For this example, the command is obtained as follows:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_create_pkg hello_world roscpp&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.&amp;#xd;
+&amp;#xd;
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).&amp;#xd;
+&amp;#xd;
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ touch &amp;lt;new_file-name>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Now the C++-source-code can be entered.&amp;#xd;
+&amp;#xd;
+With the goal in mind, the source-code can be something like:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+#include &amp;lt;ros/ros.h>&amp;#xd;
+int main(int argc, char~*~* argv){&amp;#xd;
+ros::init(argc, argv, "hello_world");&amp;#xd;
+ros::NodeHandle handle;&amp;#xd;
+ROS_INFO_STREAM("Hello, World!");&amp;#xd;
+}&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.&amp;#xd;
+&amp;#xd;
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.&amp;#xd;
+So type in:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+cmake_minimum_required(VERSION 2.8.3)&amp;#xd;
+project(hello_world)&amp;#xd;
+\\find_package(catkin REQUIRED COMPONENTS&amp;#xd;
+roscpp&amp;#xd;
+)&amp;#xd;
+\\include_directories(&amp;#xd;
+${catkin_INCLUDE_DIRS}&amp;#xd;
+)&amp;#xd;
+\\add_executable(hello_world src/hello_world.cpp)&amp;#xd;
+target_link_libraries(hello_world ${catkin_LIBRARIES})&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].&amp;#xd;
+&amp;#xd;
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.&amp;#xd;
+&amp;#xd;
+However, change to the path ~~/catkin_ws and execute this:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_make&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.&amp;#xd;
+&amp;#xd;
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+source ~~/catkin_ws/devel/setup.bash&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+echo "source ~~/catkin_ws/devel/setup.bash" >> ~~/.bashrc&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ However, after sourcing the bash (shell) run the command,&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+echo $ROS_PATH_PACKAGE&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+to check if has succeeded. The output should look like this:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ echo $ROS_PACKAGE_PATH&amp;#xd;
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun hello_world hello_world&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+If everything went fine, there should be an output like:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+[ INFO] [1501663171.068434266]: Hello, World!&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="mark" %)Note: The output will be almost the same. The timestamp 3 in the second column will differ for sure.&amp;#xd;
+&amp;#xd;
+You can get the entrie package here.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= Example 3: Counter =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+The third example is going to expand the things learn in the previous example. This time, the goal will be to create a publisher, which publishes and increments an integer-value every second.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+#include &amp;lt;ros/ros.h>&amp;#xd;
+#include &amp;lt;std_msgs/Int64.h>&amp;#xd;
+&amp;#xd;
+int main(int argc, char ~*~*argv)&amp;#xd;
+{   ros::init(argc, argv, "counter");&amp;#xd;
+    ros::NodeHandle handle; &amp;#xd;
+    ros::Publisher counter_pub = handle.advertise&amp;lt;std_msgs::Int64>("counter", 10); &amp;#xd;
+    ros::Rate loop_rate(1); &amp;#xd;
+    long long int count = 0;   &amp;#xd;
+    std_msgs::Int64 msg; &amp;#xd;
+    while (ros::ok()) {       &amp;#xd;
+      msg.data = count;&amp;#xd;
+      counter_pub.publish(msg);&amp;#xd;
+      loop_rate.sleep();&amp;#xd;
+      ++count;&amp;#xd;
+}&amp;#xd;
+return 0;}&amp;#xd;
+ &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+At first the necassary libraries are included. The library (% class="mark" %)&amp;lt;ros/ros.h>(%%) is required every time when the ROS-C++-API is used. Further, the other ROS related library is(% class="mark" %) &amp;lt;std_msgs/String.h>(%%). This one provides the message type, that is used to publish the data.&amp;#xd;
+Then, the node is created with(% class="mark" %) ros::init() (%%)and the nodehandle with (% class="mark" %)ros::NodeHandle(%%) (as in the above example).&amp;#xd;
+In the next line the publisher-object named "counter_pub" is generated by using a method of the handle-object4. The message-type in this case is (% class="mark" %)std_msgs::Int64(%%) a 64-bit long integer.&amp;#xd;
+In general the command looks like this:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ros::Publisher pub = handle.advertise&amp;lt;msg_type>("my_topic", 1);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Note: The integer, in this case '1', defines the queue size of the publisher. Generating messages is mostly much faster than publishing them.&amp;#xd;
+&amp;#xd;
+The following line makes it possible to publish the data by a desired frequency. The frequency in this example is 1 Hz.&amp;#xd;
+Before the loop starts, an object of type std_msgs/Int64 is created.&amp;#xd;
+The while-loop runs as long as its argument is true. In this case, the node should run until the master dies.&amp;#xd;
+There are four cases for ros::ok() returning a false:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+1. A **SIGINT **(signal interrupt) is detected (**Ctrl**+**C**)&amp;#xd;
+1. A new node with the same name appears&amp;#xd;
+1. ros::shutdown() is called&amp;#xd;
+1. Calling(% class="mark" %) $ rosnode kill &amp;lt;this_node>&amp;#xd;
+&amp;#xd;
+Inside the loop, the ll-integer count passes its value to the data part of the object msg. Afterwards the method (% class="mark" %)publish (%%)of the object counter_pub is called.&amp;#xd;
+(% class="mark" %)loop_rate.sleep()(%%) is called to calculate the waiting time for the next run, to keep in the frequency of 1 Hz&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= Example 4: Subscriber =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+In this example, a subscriber will be created, which fits to the previous publisher.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The general procedure for creating a package follows the structure in example 2.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The main difference between a publisher and a subscriber is, that a subscriber does not know when a message will arrive.&amp;#xd;
+&amp;#xd;
+This is why the code, that is going to be executed when a new message arrives, is wrapped in a callback-function. The structure inside the programm will be&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+void cb_func(const &amp;lt;class>::&amp;lt;message-type> &amp;amp;msg)&amp;#xd;
+{&amp;#xd;
+...&amp;#xd;
+}&amp;#xd;
+int main(){&amp;#xd;
+...&amp;#xd;
+ros::Subscriber sub = handle.subscribe("my_topic", 1, &amp;amp;cb_func);&amp;#xd;
+}&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+At first a callback-function is defined. The function takes as arguments the message-type (includes the class) as constant reference.&amp;#xd;
+The subscriber object is created in the main-function. The object sub is initialized with the handle method subscribe. This method takes three arguments. At first the related topic, then the queue-size and at last the reference to the callback-function.&amp;#xd;
+The subscriber in this example will print the received data to the terminal.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+#include &amp;lt;ros/ros.h> &amp;#xd;
+#include &amp;lt;std_msgs/Int64.h> &amp;#xd;
+&amp;#xd;
+void sub_callback(const std_msgs::Int64 &amp;amp;msg){&amp;#xd;
+        ROS_INFO_STREAM("I heard: " &amp;lt;&amp;lt; msg.data); &amp;#xd;
+}&amp;#xd;
+&amp;#xd;
+int main(int argc, char ~*~*argv) &amp;#xd;
+{ ros::init(argc, argv, "sub_counter");&amp;#xd;
+  ros::NodeHandle handle;&amp;#xd;
+    ros::Subscriber sub = handle.subscribe("counter", 10, &amp;amp;sub_callback);&amp;#xd;
+    ros::spin();&amp;#xd;
+  return 0;&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+}&amp;#xd;
+ &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+As usual the necessary headers and libraries are included with preprocessor directives. Then, the definition of the callback-function follows. However, it is also possible to declare the function at first and than define it later&amp;#xd;
+&amp;#xd;
+Inside the main-function the node is created and initialized as also known. Then, the subscriber is created as described above.&amp;#xd;
+&amp;#xd;
+The other new feautre in this short programm is the member-function (% class="mark" %)ros::spin().(%%) It is necessary to pass the control over this node to ROS. So, ROS waits for new mesasges arriving and than executes the callback-function [^ros_spin].&amp;#xd;
+&amp;#xd;
+1. For futher information visit: http:~/~/wiki.ros.org/catkin/workspaces ↩&amp;#xd;
+&amp;#xd;
+1. There are many editors provided by Linux (not necessarily by Linux itself). Advanced users often use vim, while beginners usually use nano. ↩&amp;#xd;
+&amp;#xd;
+1. The timestamp is shown in the typical unix-format. ↩&amp;#xd;
+&amp;#xd;
+1. For detailed description see: http:~/~/docs.ros.org/kinetic/api/roscpp/html/classros_1_1NodeHandle.html#a6b655c04f32c4c967d49799ff9312ac6 ↩&lt;/content>
+&lt;/xwikidoc>@
+
+
+24.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550743970000&lt;/date>
+  &lt;contentUpdateDate>1550743970000&lt;/contentUpdateDate>
+  &lt;version>24.1&lt;/version>
+d41 1
+a41 1
+{{/code}}$ mkdir -p ~~/catkin_ws/src{{/code}}&amp;#xd;
+d44 1
+@
+
+
+23.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550743476000&lt;/date>
+  &lt;contentUpdateDate>1550743473000&lt;/contentUpdateDate>
+  &lt;version>23.1&lt;/version>
+a30 2
+{{code}}$core{{/code}}&amp;#xd;
+&amp;#xd;
+d41 1
+a41 3
+{{code}}&amp;#xd;
+$mkdir -p ~/catkin_ws/src &amp;#xd;
+{{/code}}&amp;#xd;
+a43 7
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ mkdir -p ~~/catkin_ws/src&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+@
+
+
+22.3
+log
+@@
+text
+@d13 1
+a13 1
+  &lt;date>1550743473000&lt;/date>
+d15 1
+a15 1
+  &lt;version>22.3&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+@
+
+
+22.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550743156000&lt;/date>
+  &lt;contentUpdateDate>1550743156000&lt;/contentUpdateDate>
+  &lt;version>22.2&lt;/version>
+d21 345
+a365 344
+  &lt;content>{{toc/}}
+
+
+= Create a ROS-program =
+
+----
+
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.
+
+
+
+= catkin Workspace =
+
+----
+
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.
+
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.
+
+First create the Folder:
+
+{{code}}
+$mkdir -p ~/catkin_ws/src 
+{{/code}}
+
+
+(% class="box infomessage" %)
+(((
+$ mkdir -p ~~/catkin_ws/src
+)))
+
+
+
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.
+
+After the creation, change to the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ cd ~~/catkin_ws/src
+)))
+
+Do **not** change to the folder ~~/catkin_ws
+
+
+and initialize the workspace with
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_init_workspace
+)))
+
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//
+
+
+Then switch one level above and execute the following command:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^
+
+Now the workspace is ready to build own-written code.
+
+
+
+= Example 2: hello-word.cpp =
+
+----
+
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.
+
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg &amp;lt;package-name> [depend1] [depend2] [depend3]
+)))
+
+Execute this command at the path ~~/catkin_ws/src.
+
+For this example, the command is obtained as follows:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg hello_world roscpp
+)))
+
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.
+
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).
+
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command
+
+
+(% class="box infomessage" %)
+(((
+$ touch &amp;lt;new_file-name>
+)))
+
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp
+)))
+
+Now the C++-source-code can be entered.
+
+With the goal in mind, the source-code can be something like:
+
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+int main(int argc, char~*~* argv){
+ros::init(argc, argv, "hello_world");
+ros::NodeHandle handle;
+ROS_INFO_STREAM("Hello, World!");
+}
+)))
+
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.
+
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.
+So type in:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt
+)))
+
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:
+
+
+(% class="box infomessage" %)
+(((
+cmake_minimum_required(VERSION 2.8.3)
+project(hello_world)
+\\find_package(catkin REQUIRED COMPONENTS
+roscpp
+)
+\\include_directories(
+${catkin_INCLUDE_DIRS}
+)
+\\add_executable(hello_world src/hello_world.cpp)
+target_link_libraries(hello_world ${catkin_LIBRARIES})
+)))
+
+
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].
+
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.
+
+However, change to the path ~~/catkin_ws and execute this:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.
+
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:
+
+
+(% class="box infomessage" %)
+(((
+source ~~/catkin_ws/devel/setup.bash
+)))
+
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:
+
+
+(% class="box infomessage" %)
+(((
+echo "source ~~/catkin_ws/devel/setup.bash" >> ~~/.bashrc
+)))
+
+ However, after sourcing the bash (shell) run the command,
+
+
+
+(% class="box infomessage" %)
+(((
+echo $ROS_PATH_PACKAGE
+)))
+
+to check if has succeeded. The output should look like this:
+
+(% class="box infomessage" %)
+(((
+$ echo $ROS_PACKAGE_PATH
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share
+)))
+
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun hello_world hello_world
+)))
+
+If everything went fine, there should be an output like:
+
+(% class="box infomessage" %)
+(((
+[ INFO] [1501663171.068434266]: Hello, World!
+)))
+
+(% class="mark" %)Note: The output will be almost the same. The timestamp 3 in the second column will differ for sure.
+
+You can get the entrie package here.
+
+
+= Example 3: Counter =
+
+----
+
+The third example is going to expand the things learn in the previous example. This time, the goal will be to create a publisher, which publishes and increments an integer-value every second.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+#include &amp;lt;std_msgs/Int64.h>
+
+int main(int argc, char ~*~*argv)
+{   ros::init(argc, argv, "counter");
+    ros::NodeHandle handle; 
+    ros::Publisher counter_pub = handle.advertise&amp;lt;std_msgs::Int64>("counter", 10); 
+    ros::Rate loop_rate(1); 
+    long long int count = 0;   
+    std_msgs::Int64 msg; 
+    while (ros::ok()) {       
+      msg.data = count;
+      counter_pub.publish(msg);
+      loop_rate.sleep();
+      ++count;
+}
+return 0;}
+ 
+)))
+
+At first the necassary libraries are included. The library (% class="mark" %)&amp;lt;ros/ros.h>(%%) is required every time when the ROS-C++-API is used. Further, the other ROS related library is(% class="mark" %) &amp;lt;std_msgs/String.h>(%%). This one provides the message type, that is used to publish the data.
+Then, the node is created with(% class="mark" %) ros::init() (%%)and the nodehandle with (% class="mark" %)ros::NodeHandle(%%) (as in the above example).
+In the next line the publisher-object named "counter_pub" is generated by using a method of the handle-object4. The message-type in this case is (% class="mark" %)std_msgs::Int64(%%) a 64-bit long integer.
+In general the command looks like this:
+
+(% class="box infomessage" %)
+(((
+ros::Publisher pub = handle.advertise&amp;lt;msg_type>("my_topic", 1);
+)))
+
+Note: The integer, in this case '1', defines the queue size of the publisher. Generating messages is mostly much faster than publishing them.
+
+The following line makes it possible to publish the data by a desired frequency. The frequency in this example is 1 Hz.
+Before the loop starts, an object of type std_msgs/Int64 is created.
+The while-loop runs as long as its argument is true. In this case, the node should run until the master dies.
+There are four cases for ros::ok() returning a false:
+
+
+1. A **SIGINT **(signal interrupt) is detected (**Ctrl**+**C**)
+1. A new node with the same name appears
+1. ros::shutdown() is called
+1. Calling(% class="mark" %) $ rosnode kill &amp;lt;this_node>
+
+Inside the loop, the ll-integer count passes its value to the data part of the object msg. Afterwards the method (% class="mark" %)publish (%%)of the object counter_pub is called.
+(% class="mark" %)loop_rate.sleep()(%%) is called to calculate the waiting time for the next run, to keep in the frequency of 1 Hz
+
+
+= Example 4: Subscriber =
+
+----
+
+In this example, a subscriber will be created, which fits to the previous publisher.
+
+
+The general procedure for creating a package follows the structure in example 2.
+
+
+The main difference between a publisher and a subscriber is, that a subscriber does not know when a message will arrive.
+
+This is why the code, that is going to be executed when a new message arrives, is wrapped in a callback-function. The structure inside the programm will be
+
+
+(% class="box infomessage" %)
+(((
+void cb_func(const &amp;lt;class>::&amp;lt;message-type> &amp;amp;msg)
+{
+...
+}
+int main(){
+...
+ros::Subscriber sub = handle.subscribe("my_topic", 1, &amp;amp;cb_func);
+}
+)))
+
+
+At first a callback-function is defined. The function takes as arguments the message-type (includes the class) as constant reference.
+The subscriber object is created in the main-function. The object sub is initialized with the handle method subscribe. This method takes three arguments. At first the related topic, then the queue-size and at last the reference to the callback-function.
+The subscriber in this example will print the received data to the terminal.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h> 
+#include &amp;lt;std_msgs/Int64.h> 
+
+void sub_callback(const std_msgs::Int64 &amp;amp;msg){
+        ROS_INFO_STREAM("I heard: " &amp;lt;&amp;lt; msg.data); 
+}
+
+int main(int argc, char ~*~*argv) 
+{ ros::init(argc, argv, "sub_counter");
+  ros::NodeHandle handle;
+    ros::Subscriber sub = handle.subscribe("counter", 10, &amp;amp;sub_callback);
+    ros::spin();
+  return 0;
+
+
+}
+ 
+)))
+
+As usual the necessary headers and libraries are included with preprocessor directives. Then, the definition of the callback-function follows. However, it is also possible to declare the function at first and than define it later
+
+Inside the main-function the node is created and initialized as also known. Then, the subscriber is created as described above.
+
+The other new feautre in this short programm is the member-function (% class="mark" %)ros::spin().(%%) It is necessary to pass the control over this node to ROS. So, ROS waits for new mesasges arriving and than executes the callback-function [^ros_spin].
+
+1. For futher information visit: http:~/~/wiki.ros.org/catkin/workspaces ↩
+
+1. There are many editors provided by Linux (not necessarily by Linux itself). Advanced users often use vim, while beginners usually use nano. ↩
+
+1. The timestamp is shown in the typical unix-format. ↩
+
+@
+
+
+22.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Create a ROS-program.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Create a ROS-program&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1543916227000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1550738568000&lt;/date>
+  &lt;contentUpdateDate>1550738568000&lt;/contentUpdateDate>
+  &lt;version>22.1&lt;/version>
+  &lt;title>Create a ROS-program&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{toc/}}
+
+
+= Create a ROS-program =
+
+----
+
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.
+
+
+
+= catkin Workspace =
+
+----
+
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.
+
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.
+
+First create the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ mkdir -p ~~/catkin_ws/src
+)))
+
+
+
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.
+
+After the creation, change to the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ cd ~~/catkin_ws/src
+)))
+
+Do **not** change to the folder ~~/catkin_ws
+
+
+and initialize the workspace with
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_init_workspace
+)))
+
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//
+
+
+Then switch one level above and execute the following command:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^
+
+Now the workspace is ready to build own-written code.
+
+
+
+= Example 2: hello-word.cpp =
+
+----
+
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.
+
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg &amp;lt;package-name> [depend1] [depend2] [depend3]
+)))
+
+Execute this command at the path ~~/catkin_ws/src.
+
+For this example, the command is obtained as follows:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg hello_world roscpp
+)))
+
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.
+
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).
+
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command
+
+
+(% class="box infomessage" %)
+(((
+$ touch &amp;lt;new_file-name>
+)))
+
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp
+)))
+
+Now the C++-source-code can be entered.
+
+With the goal in mind, the source-code can be something like:
+
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+int main(int argc, char~*~* argv){
+ros::init(argc, argv, "hello_world");
+ros::NodeHandle handle;
+ROS_INFO_STREAM("Hello, World!");
+}
+)))
+
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.
+
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.
+So type in:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt
+)))
+
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:
+
+
+(% class="box infomessage" %)
+(((
+cmake_minimum_required(VERSION 2.8.3)
+project(hello_world)
+\\find_package(catkin REQUIRED COMPONENTS
+roscpp
+)
+\\include_directories(
+${catkin_INCLUDE_DIRS}
+)
+\\add_executable(hello_world src/hello_world.cpp)
+target_link_libraries(hello_world ${catkin_LIBRARIES})
+)))
+
+
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].
+
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.
+
+However, change to the path ~~/catkin_ws and execute this:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.
+
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:
+
+
+(% class="box infomessage" %)
+(((
+source ~~/catkin_ws/devel/setup.bash
+)))
+
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:
+
+
+(% class="box infomessage" %)
+(((
+echo "source ~~/catkin_ws/devel/setup.bash" >> ~~/.bashrc
+)))
+
+ However, after sourcing the bash (shell) run the command,
+
+
+
+(% class="box infomessage" %)
+(((
+echo $ROS_PATH_PACKAGE
+)))
+
+to check if has succeeded. The output should look like this:
+
+(% class="box infomessage" %)
+(((
+$ echo $ROS_PACKAGE_PATH
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share
+)))
+
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun hello_world hello_world
+)))
+
+If everything went fine, there should be an output like:
+
+(% class="box infomessage" %)
+(((
+[ INFO] [1501663171.068434266]: Hello, World!
+)))
+
+(% class="mark" %)Note: The output will be almost the same. The timestamp 3 in the second column will differ for sure.
+
+You can get the entrie package here.
+
+
+= Example 3: Counter =
+
+----
+
+The third example is going to expand the things learn in the previous example. This time, the goal will be to create a publisher, which publishes and increments an integer-value every second.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+#include &amp;lt;std_msgs/Int64.h>
+
+int main(int argc, char ~*~*argv)
+{   ros::init(argc, argv, "counter");
+    ros::NodeHandle handle; 
+    ros::Publisher counter_pub = handle.advertise&amp;lt;std_msgs::Int64>("counter", 10); 
+    ros::Rate loop_rate(1); 
+    long long int count = 0;   
+    std_msgs::Int64 msg; 
+    while (ros::ok()) {       
+      msg.data = count;
+      counter_pub.publish(msg);
+      loop_rate.sleep();
+      ++count;
+}
+return 0;}
+ 
+)))
+
+At first the necassary libraries are included. The library (% class="mark" %)&amp;lt;ros/ros.h>(%%) is required every time when the ROS-C++-API is used. Further, the other ROS related library is(% class="mark" %) &amp;lt;std_msgs/String.h>(%%). This one provides the message type, that is used to publish the data.
+Then, the node is created with(% class="mark" %) ros::init() (%%)and the nodehandle with (% class="mark" %)ros::NodeHandle(%%) (as in the above example).
+In the next line the publisher-object named "counter_pub" is generated by using a method of the handle-object4. The message-type in this case is (% class="mark" %)std_msgs::Int64(%%) a 64-bit long integer.
+In general the command looks like this:
+
+(% class="box infomessage" %)
+(((
+ros::Publisher pub = handle.advertise&amp;lt;msg_type>("my_topic", 1);
+)))
+
+Note: The integer, in this case '1', defines the queue size of the publisher. Generating messages is mostly much faster than publishing them.
+
+The following line makes it possible to publish the data by a desired frequency. The frequency in this example is 1 Hz.
+Before the loop starts, an object of type std_msgs/Int64 is created.
+The while-loop runs as long as its argument is true. In this case, the node should run until the master dies.
+There are four cases for ros::ok() returning a false:
+
+
+1. A **SIGINT **(signal interrupt) is detected (**Ctrl**+**C**)
+1. A new node with the same name appears
+1. ros::shutdown() is called
+1. Calling(% class="mark" %) $ rosnode kill &amp;lt;this_node>
+
+Inside the loop, the ll-integer count passes its value to the data part of the object msg. Afterwards the method (% class="mark" %)publish (%%)of the object counter_pub is called.
+(% class="mark" %)loop_rate.sleep()(%%) is called to calculate the waiting time for the next run, to keep in the frequency of 1 Hz
+
+
+= Example 4: Subscriber =
+
+----
+
+In this example, a subscriber will be created, which fits to the previous publisher.
+
+
+The general procedure for creating a package follows the structure in example 2.
+
+
+The main difference between a publisher and a subscriber is, that a subscriber does not know when a message will arrive.
+
+This is why the code, that is going to be executed when a new message arrives, is wrapped in a callback-function. The structure inside the programm will be
+
+
+(% class="box infomessage" %)
+(((
+void cb_func(const &amp;lt;class>::&amp;lt;message-type> &amp;amp;msg)
+{
+...
+}
+int main(){
+...
+ros::Subscriber sub = handle.subscribe("my_topic", 1, &amp;amp;cb_func);
+}
+)))
+
+
+At first a callback-function is defined. The function takes as arguments the message-type (includes the class) as constant reference.
+The subscriber object is created in the main-function. The object sub is initialized with the handle method subscribe. This method takes three arguments. At first the related topic, then the queue-size and at last the reference to the callback-function.
+The subscriber in this example will print the received data to the terminal.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h> 
+#include &amp;lt;std_msgs/Int64.h> 
+
+void sub_callback(const std_msgs::Int64 &amp;amp;msg){
+        ROS_INFO_STREAM("I heard: " &amp;lt;&amp;lt; msg.data); 
+}
+
+int main(int argc, char ~*~*argv) 
+{ ros::init(argc, argv, "sub_counter");
+  ros::NodeHandle handle;
+    ros::Subscriber sub = handle.subscribe("counter", 10, &amp;amp;sub_callback);
+    ros::spin();
+  return 0;
+
+
+}
+ 
+)))
+
+As usual the necessary headers and libraries are included with preprocessor directives. Then, the definition of the callback-function follows. However, it is also possible to declare the function at first and than define it later
+
+Inside the main-function the node is created and initialized as also known. Then, the subscriber is created as described above.
+
+The other new feautre in this short programm is the member-function (% class="mark" %)ros::spin().(%%) It is necessary to pass the control over this node to ROS. So, ROS waits for new mesasges arriving and than executes the callback-function [^ros_spin].
+
+1. For futher information visit: http:~/~/wiki.ros.org/catkin/workspaces ↩
+
+1. There are many editors provided by Linux (not necessarily by Linux itself). Advanced users often use vim, while beginners usually use nano. ↩
+
+1. The timestamp is shown in the typical unix-format. ↩
+
+1. For detailed description see: http:~/~/docs.ros.org/kinetic/api/roscpp/html/classros_1_1NodeHandle.html#a6b655c04f32c4c967d49799ff9312ac6 ↩&lt;/content>
+&lt;/xwikidoc>@
+
+
+21.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550738528000&lt;/date>
+  &lt;contentUpdateDate>1550738523000&lt;/contentUpdateDate>
+  &lt;version>21.1&lt;/version>
+d88 1
+a88 1
+= 2. Example 2: hello-word.cpp =
+@
+
+
+20.2
+log
+@@
+text
+@d13 1
+a13 1
+  &lt;date>1550738523000&lt;/date>
+d15 1
+a15 1
+  &lt;version>20.2&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+@
+
+
+20.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550738475000&lt;/date&gt;
+  &lt;contentUpdateDate>1550738475000&lt;/contentUpdateDate>
+  &lt;version>20.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d24 1
+a24 1
+= 1. Create a ROS-program =
+d32 1
+a32 1
+= 1.1 catkin Workspace =
+d241 1
+a241 1
+= 2.1 Example 3: Counter =
+d296 1
+a296 1
+= 2.2 Example 4: Subscriber =
+@
+
+
+19.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550738316000&lt;/date>
+  &lt;contentUpdateDate>1550738316000&lt;/contentUpdateDate>
+  &lt;version>19.1&lt;/version>
+d21 1
+a21 1
+  &lt;content>=====   =====
+a22 1
+{{toc/}}
+d24 1
+a25 2
+= Create a ROS-program =
+
+d32 1
+a32 1
+= catkin Workspace =
+d88 1
+a88 1
+= Example 2: hello-word.cpp =
+d241 1
+a241 1
+= Example 3: Counter =
+d296 1
+a296 1
+= Example 4: Subscriber =
+@
+
+
+18.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Create a ROS-program.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Create a ROS-program&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1543916227000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1550738276000&lt;/date>
+  &lt;contentUpdateDate>1550738276000&lt;/contentUpdateDate>
+  &lt;version>18.1&lt;/version>
+  &lt;title>Create a ROS-program&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>===== Sitemap =====
+
+
+
+{{toc/}}
+
+
+= Create a ROS-program =
+
+----
+
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.
+
+
+
+= catkin Workspace =
+
+----
+
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.
+
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.
+
+First create the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ mkdir -p ~~/catkin_ws/src
+)))
+
+
+
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.
+
+After the creation, change to the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ cd ~~/catkin_ws/src
+)))
+
+Do **not** change to the folder ~~/catkin_ws
+
+
+and initialize the workspace with
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_init_workspace
+)))
+
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//
+
+
+Then switch one level above and execute the following command:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^
+
+Now the workspace is ready to build own-written code.
+
+
+
+= Example 2: hello-word.cpp =
+
+----
+
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.
+
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg &amp;lt;package-name> [depend1] [depend2] [depend3]
+)))
+
+Execute this command at the path ~~/catkin_ws/src.
+
+For this example, the command is obtained as follows:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg hello_world roscpp
+)))
+
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.
+
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).
+
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command
+
+
+(% class="box infomessage" %)
+(((
+$ touch &amp;lt;new_file-name>
+)))
+
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp
+)))
+
+Now the C++-source-code can be entered.
+
+With the goal in mind, the source-code can be something like:
+
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+int main(int argc, char~*~* argv){
+ros::init(argc, argv, "hello_world");
+ros::NodeHandle handle;
+ROS_INFO_STREAM("Hello, World!");
+}
+)))
+
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.
+
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.
+So type in:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt
+)))
+
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:
+
+
+(% class="box infomessage" %)
+(((
+cmake_minimum_required(VERSION 2.8.3)
+project(hello_world)
+\\find_package(catkin REQUIRED COMPONENTS
+roscpp
+)
+\\include_directories(
+${catkin_INCLUDE_DIRS}
+)
+\\add_executable(hello_world src/hello_world.cpp)
+target_link_libraries(hello_world ${catkin_LIBRARIES})
+)))
+
+
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].
+
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.
+
+However, change to the path ~~/catkin_ws and execute this:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.
+
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:
+
+
+(% class="box infomessage" %)
+(((
+source ~~/catkin_ws/devel/setup.bash
+)))
+
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:
+
+
+(% class="box infomessage" %)
+(((
+echo "source ~~/catkin_ws/devel/setup.bash" >> ~~/.bashrc
+)))
+
+ However, after sourcing the bash (shell) run the command,
+
+
+
+(% class="box infomessage" %)
+(((
+echo $ROS_PATH_PACKAGE
+)))
+
+to check if has succeeded. The output should look like this:
+
+(% class="box infomessage" %)
+(((
+$ echo $ROS_PACKAGE_PATH
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share
+)))
+
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun hello_world hello_world
+)))
+
+If everything went fine, there should be an output like:
+
+(% class="box infomessage" %)
+(((
+[ INFO] [1501663171.068434266]: Hello, World!
+)))
+
+(% class="mark" %)Note: The output will be almost the same. The timestamp 3 in the second column will differ for sure.
+
+You can get the entrie package here.
+
+
+= Example 3: Counter =
+
+----
+
+The third example is going to expand the things learn in the previous example. This time, the goal will be to create a publisher, which publishes and increments an integer-value every second.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+#include &amp;lt;std_msgs/Int64.h>
+
+int main(int argc, char ~*~*argv)
+{   ros::init(argc, argv, "counter");
+    ros::NodeHandle handle; 
+    ros::Publisher counter_pub = handle.advertise&amp;lt;std_msgs::Int64>("counter", 10); 
+    ros::Rate loop_rate(1); 
+    long long int count = 0;   
+    std_msgs::Int64 msg; 
+    while (ros::ok()) {       
+      msg.data = count;
+      counter_pub.publish(msg);
+      loop_rate.sleep();
+      ++count;
+}
+return 0;}
+ 
+)))
+
+At first the necassary libraries are included. The library (% class="mark" %)&amp;lt;ros/ros.h>(%%) is required every time when the ROS-C++-API is used. Further, the other ROS related library is(% class="mark" %) &amp;lt;std_msgs/String.h>(%%). This one provides the message type, that is used to publish the data.
+Then, the node is created with(% class="mark" %) ros::init() (%%)and the nodehandle with (% class="mark" %)ros::NodeHandle(%%) (as in the above example).
+In the next line the publisher-object named "counter_pub" is generated by using a method of the handle-object4. The message-type in this case is (% class="mark" %)std_msgs::Int64(%%) a 64-bit long integer.
+In general the command looks like this:
+
+(% class="box infomessage" %)
+(((
+ros::Publisher pub = handle.advertise&amp;lt;msg_type>("my_topic", 1);
+)))
+
+Note: The integer, in this case '1', defines the queue size of the publisher. Generating messages is mostly much faster than publishing them.
+
+The following line makes it possible to publish the data by a desired frequency. The frequency in this example is 1 Hz.
+Before the loop starts, an object of type std_msgs/Int64 is created.
+The while-loop runs as long as its argument is true. In this case, the node should run until the master dies.
+There are four cases for ros::ok() returning a false:
+
+
+1. A **SIGINT **(signal interrupt) is detected (**Ctrl**+**C**)
+1. A new node with the same name appears
+1. ros::shutdown() is called
+1. Calling(% class="mark" %) $ rosnode kill &amp;lt;this_node>
+
+Inside the loop, the ll-integer count passes its value to the data part of the object msg. Afterwards the method (% class="mark" %)publish (%%)of the object counter_pub is called.
+(% class="mark" %)loop_rate.sleep()(%%) is called to calculate the waiting time for the next run, to keep in the frequency of 1 Hz
+
+
+= Example 4: Subscriber =
+
+----
+
+In this example, a subscriber will be created, which fits to the previous publisher.
+
+
+The general procedure for creating a package follows the structure in example 2.
+
+
+The main difference between a publisher and a subscriber is, that a subscriber does not know when a message will arrive.
+
+This is why the code, that is going to be executed when a new message arrives, is wrapped in a callback-function. The structure inside the programm will be
+
+
+(% class="box infomessage" %)
+(((
+void cb_func(const &amp;lt;class>::&amp;lt;message-type> &amp;amp;msg)
+{
+...
+}
+int main(){
+...
+ros::Subscriber sub = handle.subscribe("my_topic", 1, &amp;amp;cb_func);
+}
+)))
+
+
+At first a callback-function is defined. The function takes as arguments the message-type (includes the class) as constant reference.
+The subscriber object is created in the main-function. The object sub is initialized with the handle method subscribe. This method takes three arguments. At first the related topic, then the queue-size and at last the reference to the callback-function.
+The subscriber in this example will print the received data to the terminal.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h> 
+#include &amp;lt;std_msgs/Int64.h> 
+
+void sub_callback(const std_msgs::Int64 &amp;amp;msg){
+        ROS_INFO_STREAM("I heard: " &amp;lt;&amp;lt; msg.data); 
+}
+
+int main(int argc, char ~*~*argv) 
+{ ros::init(argc, argv, "sub_counter");
+  ros::NodeHandle handle;
+    ros::Subscriber sub = handle.subscribe("counter", 10, &amp;amp;sub_callback);
+    ros::spin();
+  return 0;
+
+
+}
+ 
+)))
+
+As usual the necessary headers and libraries are included with preprocessor directives. Then, the definition of the callback-function follows. However, it is also possible to declare the function at first and than define it later
+
+Inside the main-function the node is created and initialized as also known. Then, the subscriber is created as described above.
+
+The other new feautre in this short programm is the member-function (% class="mark" %)ros::spin().(%%) It is necessary to pass the control over this node to ROS. So, ROS waits for new mesasges arriving and than executes the callback-function [^ros_spin].
+
+1. For futher information visit: http:~/~/wiki.ros.org/catkin/workspaces ↩
+
+1. There are many editors provided by Linux (not necessarily by Linux itself). Advanced users often use vim, while beginners usually use nano. ↩
+
+1. The timestamp is shown in the typical unix-format. ↩
+
+1. For detailed description see: http:~/~/docs.ros.org/kinetic/api/roscpp/html/classros_1_1NodeHandle.html#a6b655c04f32c4c967d49799ff9312ac6 ↩&lt;/content>
+&lt;/xwikidoc>@
+
+
+17.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550738106000&lt;/date>
+  &lt;contentUpdateDate>1550738106000&lt;/contentUpdateDate>
+  &lt;version>17.1&lt;/version>
+d21 1
+a21 1
+  &lt;content>{{toc/}}
+d24 4
+@
+
+
+16.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1545224688000&lt;/date>
+  &lt;contentUpdateDate>1545224688000&lt;/contentUpdateDate>
+  &lt;version>16.1&lt;/version>
+d21 1
+a21 1
+  &lt;content>= Create a ROS-program =
+a22 1
+----
+a23 15
+===== Sitemap =====
+
+* (((
+====== [[Create a ROS-program>>doc:||queryString="Create a ROS-program" target="CreateaROS-program"]] ======
+
+* [[type the link label>>]]
+* Example 2: hello-world.cpp
+* Example 3: Counter
+* Example 4: Subscriber
+)))
+
+=   =
+
+=   =
+
+d361 1
+a361 3
+1. For detailed description see: http:~/~/docs.ros.org/kinetic/api/roscpp/html/classros_1_1NodeHandle.html#a6b655c04f32c4c967d49799ff9312ac6 ↩
+
+ &lt;/content>
+@
+
+
+15.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1545224082000&lt;/date>
+  &lt;contentUpdateDate>1545224079000&lt;/contentUpdateDate>
+  &lt;version>15.1&lt;/version>
+d30 1
+a30 1
+* [[catkin workspace>>catkin workspace]]
+@
+
+
+14.3
+log
+@@
+text
+@d13 1
+a13 1
+  &lt;date>1545224079000&lt;/date>
+d15 1
+a15 1
+  &lt;version>14.3&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+@
+
+
+14.2
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Create a ROS-program.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Create a ROS-program&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1543916227000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1545215281000&lt;/date>
+  &lt;contentUpdateDate>1545215281000&lt;/contentUpdateDate>
+  &lt;version>14.2&lt;/version>
+  &lt;title>Create a ROS-program&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Create a ROS-program =
+
+----
+
+===== Sitemap =====
+
+* (((
+====== [[Create a ROS-program>>doc:||queryString="Create a ROS-program" target="CreateaROS-program"]] ======
+
+* [[catkin workspace>>catkin workspace]]
+* Example 2: hello-world.cpp
+* Example 3: Counter
+* Example 4: Subscriber
+)))
+
+=   =
+
+=   =
+
+= Create a ROS-program =
+
+----
+
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.
+
+
+
+= catkin Workspace =
+
+----
+
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.
+
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.
+
+First create the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ mkdir -p ~~/catkin_ws/src
+)))
+
+
+
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.
+
+After the creation, change to the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ cd ~~/catkin_ws/src
+)))
+
+Do **not** change to the folder ~~/catkin_ws
+
+
+and initialize the workspace with
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_init_workspace
+)))
+
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//
+
+
+Then switch one level above and execute the following command:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^
+
+Now the workspace is ready to build own-written code.
+
+
+
+= Example 2: hello-word.cpp =
+
+----
+
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.
+
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg &amp;lt;package-name> [depend1] [depend2] [depend3]
+)))
+
+Execute this command at the path ~~/catkin_ws/src.
+
+For this example, the command is obtained as follows:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg hello_world roscpp
+)))
+
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.
+
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).
+
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command
+
+
+(% class="box infomessage" %)
+(((
+$ touch &amp;lt;new_file-name>
+)))
+
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp
+)))
+
+Now the C++-source-code can be entered.
+
+With the goal in mind, the source-code can be something like:
+
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+int main(int argc, char~*~* argv){
+ros::init(argc, argv, "hello_world");
+ros::NodeHandle handle;
+ROS_INFO_STREAM("Hello, World!");
+}
+)))
+
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.
+
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.
+So type in:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt
+)))
+
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:
+
+
+(% class="box infomessage" %)
+(((
+cmake_minimum_required(VERSION 2.8.3)
+project(hello_world)
+\\find_package(catkin REQUIRED COMPONENTS
+roscpp
+)
+\\include_directories(
+${catkin_INCLUDE_DIRS}
+)
+\\add_executable(hello_world src/hello_world.cpp)
+target_link_libraries(hello_world ${catkin_LIBRARIES})
+)))
+
+
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].
+
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.
+
+However, change to the path ~~/catkin_ws and execute this:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.
+
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:
+
+
+(% class="box infomessage" %)
+(((
+source ~~/catkin_ws/devel/setup.bash
+)))
+
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:
+
+
+(% class="box infomessage" %)
+(((
+echo "source ~~/catkin_ws/devel/setup.bash" >> ~~/.bashrc
+)))
+
+ However, after sourcing the bash (shell) run the command,
+
+
+
+(% class="box infomessage" %)
+(((
+echo $ROS_PATH_PACKAGE
+)))
+
+to check if has succeeded. The output should look like this:
+
+(% class="box infomessage" %)
+(((
+$ echo $ROS_PACKAGE_PATH
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share
+)))
+
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun hello_world hello_world
+)))
+
+If everything went fine, there should be an output like:
+
+(% class="box infomessage" %)
+(((
+[ INFO] [1501663171.068434266]: Hello, World!
+)))
+
+(% class="mark" %)Note: The output will be almost the same. The timestamp 3 in the second column will differ for sure.
+
+(% class="mark" %)You can get the entrie package here.
+
+= (% class="mark" %)Example 3: Counter(%%) =
+
+----
+
+(% class="mark" %)The third example is going to expand the things learn in the previous example. This time, the goal will be to create a publisher, which publishes and increments an integer-value every second.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+#include &amp;lt;std_msgs/Int64.h>
+
+int main(int argc, char ~*~*argv)
+{   ros::init(argc, argv, "counter");
+    ros::NodeHandle handle; 
+    ros::Publisher counter_pub = handle.advertise&amp;lt;std_msgs::Int64>("counter", 10); 
+    ros::Rate loop_rate(1); 
+    long long int count = 0;   
+    std_msgs::Int64 msg; 
+    while (ros::ok()) {       
+      msg.data = count;
+      counter_pub.publish(msg);
+      loop_rate.sleep();
+      ++count;
+}
+return 0;}
+ 
+)))
+
+At first the necassary libraries are included. The library (% class="mark" %)&amp;lt;ros/ros.h>(%%) is required every time when the ROS-C++-API is used. Further, the other ROS related library is(% class="mark" %) &amp;lt;std_msgs/String.h>(%%). This one provides the message type, that is used to publish the data.
+Then, the node is created with(% class="mark" %) ros::init() (%%)and the nodehandle with (% class="mark" %)ros::NodeHandle(%%) (as in the above example).
+In the next line the publisher-object named "counter_pub" is generated by using a method of the handle-object4. The message-type in this case is (% class="mark" %)std_msgs::Int64(%%) a 64-bit long integer.
+In general the command looks like this:
+
+(% class="box infomessage" %)
+(((
+ros::Publisher pub = handle.advertise&amp;lt;msg_type>("my_topic", 1);
+)))
+
+Note: The integer, in this case '1', defines the queue size of the publisher. Generating messages is mostly much faster than publishing them.
+
+The following line makes it possible to publish the data by a desired frequency. The frequency in this example is 1 Hz.
+Before the loop starts, an object of type std_msgs/Int64 is created.
+The while-loop runs as long as its argument is true. In this case, the node should run until the master dies.
+There are four cases for ros::ok() returning a false:
+
+
+1. A **SIGINT **(signal interrupt) is detected (**Ctrl**+**C**)
+1. A new node with the same name appears
+1. ros::shutdown() is called
+1. Calling(% class="mark" %) $ rosnode kill &amp;lt;this_node>
+
+Inside the loop, the ll-integer count passes its value to the data part of the object msg. Afterwards the method (% class="mark" %)publish (%%)of the object counter_pub is called.
+(% class="mark" %)loop_rate.sleep()(%%) is called to calculate the waiting time for the next run, to keep in the frequency of 1 Hz
+
+
+= Example 4: Subscriber =
+
+----
+
+In this example, a subscriber will be created, which fits to the previous publisher.
+
+
+The general procedure for creating a package follows the structure in example 2.
+
+
+The main difference between a publisher and a subscriber is, that a subscriber does not know when a message will arrive.
+
+This is why the code, that is going to be executed when a new message arrives, is wrapped in a callback-function. The structure inside the programm will be
+
+
+(% class="box infomessage" %)
+(((
+void cb_func(const &amp;lt;class>::&amp;lt;message-type> &amp;amp;msg)
+{
+...
+}
+int main(){
+...
+ros::Subscriber sub = handle.subscribe("my_topic", 1, &amp;amp;cb_func);
+}
+)))
+
+
+At first a callback-function is defined. The function takes as arguments the message-type (includes the class) as constant reference.
+The subscriber object is created in the main-function. The object sub is initialized with the handle method subscribe. This method takes three arguments. At first the related topic, then the queue-size and at last the reference to the callback-function.
+The subscriber in this example will print the received data to the terminal.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h> 
+#include &amp;lt;std_msgs/Int64.h> 
+
+void sub_callback(const std_msgs::Int64 &amp;amp;msg){
+        ROS_INFO_STREAM("I heard: " &amp;lt;&amp;lt; msg.data); 
+}
+
+int main(int argc, char ~*~*argv) 
+{ ros::init(argc, argv, "sub_counter");
+  ros::NodeHandle handle;
+    ros::Subscriber sub = handle.subscribe("counter", 10, &amp;amp;sub_callback);
+    ros::spin();
+  return 0;
+
+
+}
+ 
+)))
+
+As usual the necessary headers and libraries are included with preprocessor directives. Then, the definition of the callback-function follows. However, it is also possible to declare the function at first and than define it later
+
+Inside the main-function the node is created and initialized as also known. Then, the subscriber is created as described above.
+
+The other new feautre in this short programm is the member-function (% class="mark" %)ros::spin().(%%) It is necessary to pass the control over this node to ROS. So, ROS waits for new mesasges arriving and than executes the callback-function [^ros_spin].
+
+1. For futher information visit: http:~/~/wiki.ros.org/catkin/workspaces ↩
+
+1. There are many editors provided by Linux (not necessarily by Linux itself). Advanced users often use vim, while beginners usually use nano. ↩
+
+1. The timestamp is shown in the typical unix-format. ↩
+
+1. For detailed description see: http:~/~/docs.ros.org/kinetic/api/roscpp/html/classros_1_1NodeHandle.html#a6b655c04f32c4c967d49799ff9312ac6 ↩
+
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+14.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1545139045000&lt;/date>
+  &lt;contentUpdateDate>1545139041000&lt;/contentUpdateDate>
+  &lt;version>14.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d30 1
+a30 1
+* [[catkin workspace>>catkin workspace||target="_top"]]
+@
+
+
+13.1
+log
+@@
+text
+@d13 1
+a13 1
+  &lt;date>1545139041000&lt;/date>
+d15 1
+a15 1
+  &lt;version>13.1&lt;/version>
+@
+
+
+12.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1545138803000&lt;/date>
+  &lt;contentUpdateDate>1545138803000&lt;/contentUpdateDate>
+  &lt;version>12.1&lt;/version>
+d30 1
+a30 1
+* [[catkin workspace>>catkin workspace||target="_self"]]
+@
+
+
+11.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1545138723000&lt;/date>
+  &lt;contentUpdateDate>1545138723000&lt;/contentUpdateDate>
+  &lt;version>11.2&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+d30 4
+a33 1
+*  
+@
+
+
+11.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Create a ROS-program.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Create a ROS-program&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1543916227000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1544689961000&lt;/date>
+  &lt;contentUpdateDate>1544689961000&lt;/contentUpdateDate>
+  &lt;version>11.1&lt;/version>
+  &lt;title>Create a ROS-program&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>(% class="wikigeneratedid" %)
+= Create a ROS-program =
+
+----
+
+(% class="wikigeneratedid" %)
+===== Sitemap =====
+
+* (((
+(% class="wikigeneratedid" %)
+====== [[Create a ROS-program>>doc:||queryString="Create a ROS-program" target="CreateaROS-program"]] ======
+
+*  
+)))
+
+(% class="wikigeneratedid" %)
+=   =
+
+(% class="wikigeneratedid" %)
+=   =
+
+= Create a ROS-program =
+
+----
+
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.
+
+
+
+= catkin Workspace =
+
+----
+
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.
+
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.
+
+First create the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ mkdir -p ~~/catkin_ws/src
+)))
+
+
+
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.
+
+After the creation, change to the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ cd ~~/catkin_ws/src
+)))
+
+Do **not** change to the folder ~~/catkin_ws
+
+
+and initialize the workspace with
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_init_workspace
+)))
+
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//
+
+
+Then switch one level above and execute the following command:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^
+
+Now the workspace is ready to build own-written code.
+
+
+
+= Example 2: hello-word.cpp =
+
+----
+
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.
+
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg &amp;lt;package-name> [depend1] [depend2] [depend3]
+)))
+
+Execute this command at the path ~~/catkin_ws/src.
+
+For this example, the command is obtained as follows:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg hello_world roscpp
+)))
+
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.
+
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).
+
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command
+
+
+(% class="box infomessage" %)
+(((
+$ touch &amp;lt;new_file-name>
+)))
+
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp
+)))
+
+Now the C++-source-code can be entered.
+
+With the goal in mind, the source-code can be something like:
+
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+int main(int argc, char~*~* argv){
+ros::init(argc, argv, "hello_world");
+ros::NodeHandle handle;
+ROS_INFO_STREAM("Hello, World!");
+}
+)))
+
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.
+
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.
+So type in:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt
+)))
+
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:
+
+
+(% class="box infomessage" %)
+(((
+cmake_minimum_required(VERSION 2.8.3)
+project(hello_world)
+\\find_package(catkin REQUIRED COMPONENTS
+roscpp
+)
+\\include_directories(
+${catkin_INCLUDE_DIRS}
+)
+\\add_executable(hello_world src/hello_world.cpp)
+target_link_libraries(hello_world ${catkin_LIBRARIES})
+)))
+
+
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].
+
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.
+
+However, change to the path ~~/catkin_ws and execute this:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.
+
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:
+
+
+(% class="box infomessage" %)
+(((
+source ~~/catkin_ws/devel/setup.bash
+)))
+
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:
+
+
+(% class="box infomessage" %)
+(((
+echo "source ~~/catkin_ws/devel/setup.bash" >> ~~/.bashrc
+)))
+
+ However, after sourcing the bash (shell) run the command,
+
+
+
+(% class="box infomessage" %)
+(((
+echo $ROS_PATH_PACKAGE
+)))
+
+to check if has succeeded. The output should look like this:
+
+(% class="box infomessage" %)
+(((
+$ echo $ROS_PACKAGE_PATH
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share
+)))
+
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun hello_world hello_world
+)))
+
+If everything went fine, there should be an output like:
+
+(% class="box infomessage" %)
+(((
+[ INFO] [1501663171.068434266]: Hello, World!
+)))
+
+(% class="mark" %)Note: The output will be almost the same. The timestamp 3 in the second column will differ for sure.
+
+(% class="mark" %)You can get the entrie package here.
+
+= (% class="mark" %)Example 3: Counter(%%) =
+
+----
+
+(% class="mark" %)The third example is going to expand the things learn in the previous example. This time, the goal will be to create a publisher, which publishes and increments an integer-value every second.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+#include &amp;lt;std_msgs/Int64.h>
+
+int main(int argc, char ~*~*argv)
+{   ros::init(argc, argv, "counter");
+    ros::NodeHandle handle; 
+    ros::Publisher counter_pub = handle.advertise&amp;lt;std_msgs::Int64>("counter", 10); 
+    ros::Rate loop_rate(1); 
+    long long int count = 0;   
+    std_msgs::Int64 msg; 
+    while (ros::ok()) {       
+      msg.data = count;
+      counter_pub.publish(msg);
+      loop_rate.sleep();
+      ++count;
+}
+return 0;}
+ 
+)))
+
+At first the necassary libraries are included. The library (% class="mark" %)&amp;lt;ros/ros.h>(%%) is required every time when the ROS-C++-API is used. Further, the other ROS related library is(% class="mark" %) &amp;lt;std_msgs/String.h>(%%). This one provides the message type, that is used to publish the data.
+Then, the node is created with(% class="mark" %) ros::init() (%%)and the nodehandle with (% class="mark" %)ros::NodeHandle(%%) (as in the above example).
+In the next line the publisher-object named "counter_pub" is generated by using a method of the handle-object4. The message-type in this case is (% class="mark" %)std_msgs::Int64(%%) a 64-bit long integer.
+In general the command looks like this:
+
+(% class="box infomessage" %)
+(((
+ros::Publisher pub = handle.advertise&amp;lt;msg_type>("my_topic", 1);
+)))
+
+Note: The integer, in this case '1', defines the queue size of the publisher. Generating messages is mostly much faster than publishing them.
+
+The following line makes it possible to publish the data by a desired frequency. The frequency in this example is 1 Hz.
+Before the loop starts, an object of type std_msgs/Int64 is created.
+The while-loop runs as long as its argument is true. In this case, the node should run until the master dies.
+There are four cases for ros::ok() returning a false:
+
+
+1. A **SIGINT **(signal interrupt) is detected (**Ctrl**+**C**)
+1. A new node with the same name appears
+1. ros::shutdown() is called
+1. Calling(% class="mark" %) $ rosnode kill &amp;lt;this_node>
+
+Inside the loop, the ll-integer count passes its value to the data part of the object msg. Afterwards the method (% class="mark" %)publish (%%)of the object counter_pub is called.
+(% class="mark" %)loop_rate.sleep()(%%) is called to calculate the waiting time for the next run, to keep in the frequency of 1 Hz
+
+
+= Example 4: Subscriber =
+
+----
+
+In this example, a subscriber will be created, which fits to the previous publisher.
+
+
+The general procedure for creating a package follows the structure in example 2.
+
+
+The main difference between a publisher and a subscriber is, that a subscriber does not know when a message will arrive.
+
+This is why the code, that is going to be executed when a new message arrives, is wrapped in a callback-function. The structure inside the programm will be
+
+
+(% class="box infomessage" %)
+(((
+void cb_func(const &amp;lt;class>::&amp;lt;message-type> &amp;amp;msg)
+{
+...
+}
+int main(){
+...
+ros::Subscriber sub = handle.subscribe("my_topic", 1, &amp;amp;cb_func);
+}
+)))
+
+
+At first a callback-function is defined. The function takes as arguments the message-type (includes the class) as constant reference.
+The subscriber object is created in the main-function. The object sub is initialized with the handle method subscribe. This method takes three arguments. At first the related topic, then the queue-size and at last the reference to the callback-function.
+The subscriber in this example will print the received data to the terminal.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h> 
+#include &amp;lt;std_msgs/Int64.h> 
+
+void sub_callback(const std_msgs::Int64 &amp;amp;msg){
+        ROS_INFO_STREAM("I heard: " &amp;lt;&amp;lt; msg.data); 
+}
+
+int main(int argc, char ~*~*argv) 
+{ ros::init(argc, argv, "sub_counter");
+  ros::NodeHandle handle;
+    ros::Subscriber sub = handle.subscribe("counter", 10, &amp;amp;sub_callback);
+    ros::spin();
+  return 0;
+
+
+}
+ 
+)))
+
+As usual the necessary headers and libraries are included with preprocessor directives. Then, the definition of the callback-function follows. However, it is also possible to declare the function at first and than define it later
+
+Inside the main-function the node is created and initialized as also known. Then, the subscriber is created as described above.
+
+The other new feautre in this short programm is the member-function (% class="mark" %)ros::spin().(%%) It is necessary to pass the control over this node to ROS. So, ROS waits for new mesasges arriving and than executes the callback-function [^ros_spin].
+
+1. For futher information visit: http:~/~/wiki.ros.org/catkin/workspaces ↩
+
+1. There are many editors provided by Linux (not necessarily by Linux itself). Advanced users often use vim, while beginners usually use nano. ↩
+
+1. The timestamp is shown in the typical unix-format. ↩
+
+1. For detailed description see: http:~/~/docs.ros.org/kinetic/api/roscpp/html/classros_1_1NodeHandle.html#a6b655c04f32c4c967d49799ff9312ac6 ↩
+
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+10.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1543942208000&lt;/date>
+  &lt;contentUpdateDate>1543942208000&lt;/contentUpdateDate>
+  &lt;version>10.1&lt;/version>
+d21 2
+a22 1
+  &lt;content>= Create a ROS-program =
+d26 20
+a379 1
+
+@
+
+
+9.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1543942020000&lt;/date>
+  &lt;contentUpdateDate>1543942018000&lt;/contentUpdateDate>
+  &lt;version>9.1&lt;/version>
+a46 2
+
+
+a359 1
+
+@
+
+
+8.5
+log
+@@
+text
+@d13 1
+a13 1
+  &lt;date>1543942018000&lt;/date>
+d15 1
+a15 1
+  &lt;version>8.5&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+@
+
+
+8.4
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1543941860000&lt;/date>
+  &lt;contentUpdateDate>1543941860000&lt;/contentUpdateDate>
+  &lt;version>8.4&lt;/version>
+d267 2
+a268 2
+At first the necassary libraries are included. The library (% class="mark" %)&amp;lt;ros/ros.h>(%%) is required every time when the ROS-C++-API is used. Further, the other ROS related library is(% class="mark" %) &amp;lt;std_msgs/String.h>(%%). This one provides the message type, that is used to publish the data.
+Then, the node is created with(% class="mark" %) ros::init() (%%)and the nodehandle with (% class="mark" %)ros::NodeHandle(%%) (as in the above example).
+d288 1
+a288 1
+1. Calling(% class="mark" %) $ rosnode kill &amp;lt;this_node>
+d308 1
+d321 1
+d326 4
+d331 3
+d335 6
+d343 3
+d347 16
+@
+
+
+8.3
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Create a ROS-program.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Create a ROS-program&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1543916227000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1543941749000&lt;/date>
+  &lt;contentUpdateDate>1543941749000&lt;/contentUpdateDate>
+  &lt;version>8.3&lt;/version>
+  &lt;title>Create a ROS-program&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Create a ROS-program =
+
+----
+
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.
+
+
+
+= catkin Workspace =
+
+----
+
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.
+
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.
+
+First create the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ mkdir -p ~~/catkin_ws/src
+)))
+
+
+
+
+
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.
+
+After the creation, change to the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ cd ~~/catkin_ws/src
+)))
+
+Do **not** change to the folder ~~/catkin_ws
+
+
+and initialize the workspace with
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_init_workspace
+)))
+
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//
+
+
+Then switch one level above and execute the following command:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^
+
+Now the workspace is ready to build own-written code.
+
+
+
+= Example 2: hello-word.cpp =
+
+----
+
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.
+
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg &amp;lt;package-name> [depend1] [depend2] [depend3]
+)))
+
+Execute this command at the path ~~/catkin_ws/src.
+
+For this example, the command is obtained as follows:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg hello_world roscpp
+)))
+
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.
+
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).
+
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command
+
+
+(% class="box infomessage" %)
+(((
+$ touch &amp;lt;new_file-name>
+)))
+
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp
+)))
+
+Now the C++-source-code can be entered.
+
+With the goal in mind, the source-code can be something like:
+
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+int main(int argc, char~*~* argv){
+ros::init(argc, argv, "hello_world");
+ros::NodeHandle handle;
+ROS_INFO_STREAM("Hello, World!");
+}
+)))
+
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.
+
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.
+So type in:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt
+)))
+
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:
+
+
+(% class="box infomessage" %)
+(((
+cmake_minimum_required(VERSION 2.8.3)
+project(hello_world)
+\\find_package(catkin REQUIRED COMPONENTS
+roscpp
+)
+\\include_directories(
+${catkin_INCLUDE_DIRS}
+)
+\\add_executable(hello_world src/hello_world.cpp)
+target_link_libraries(hello_world ${catkin_LIBRARIES})
+)))
+
+
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].
+
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.
+
+However, change to the path ~~/catkin_ws and execute this:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.
+
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:
+
+
+(% class="box infomessage" %)
+(((
+source ~~/catkin_ws/devel/setup.bash
+)))
+
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:
+
+
+(% class="box infomessage" %)
+(((
+echo "source ~~/catkin_ws/devel/setup.bash" >> ~~/.bashrc
+)))
+
+ However, after sourcing the bash (shell) run the command,
+
+
+
+(% class="box infomessage" %)
+(((
+echo $ROS_PATH_PACKAGE
+)))
+
+to check if has succeeded. The output should look like this:
+
+(% class="box infomessage" %)
+(((
+$ echo $ROS_PACKAGE_PATH
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share
+)))
+
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun hello_world hello_world
+)))
+
+If everything went fine, there should be an output like:
+
+(% class="box infomessage" %)
+(((
+[ INFO] [1501663171.068434266]: Hello, World!
+)))
+
+(% class="mark" %)Note: The output will be almost the same. The timestamp 3 in the second column will differ for sure.
+
+(% class="mark" %)You can get the entrie package here.
+
+= (% class="mark" %)Example 3: Counter(%%) =
+
+----
+
+(% class="mark" %)The third example is going to expand the things learn in the previous example. This time, the goal will be to create a publisher, which publishes and increments an integer-value every second.
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+#include &amp;lt;std_msgs/Int64.h>
+
+int main(int argc, char ~*~*argv)
+{   ros::init(argc, argv, "counter");
+    ros::NodeHandle handle; 
+    ros::Publisher counter_pub = handle.advertise&amp;lt;std_msgs::Int64>("counter", 10); 
+    ros::Rate loop_rate(1); 
+    long long int count = 0;   
+    std_msgs::Int64 msg; 
+    while (ros::ok()) {       
+      msg.data = count;
+      counter_pub.publish(msg);
+      loop_rate.sleep();
+      ++count;
+}
+return 0;}
+ 
+)))
+
+At first the necassary libraries are included. The library (% class="mark" %)&amp;lt;ros/ros.h>(%%) is required every time when the ROS-C++-API is used. Further, the other ROS related library is(% class="mark" %) &amp;lt;std_msgs/String.h>(%%). This one provides the message type, that is used to publish the data.
+Then, the node is created with(% class="mark" %) ros::init() (%%)and the nodehandle with (% class="mark" %)ros::NodeHandle(%%) (as in the above example).
+In the next line the publisher-object named "counter_pub" is generated by using a method of the handle-object4. The message-type in this case is (% class="mark" %)std_msgs::Int64(%%) a 64-bit long integer.
+In general the command looks like this:
+
+(% class="box infomessage" %)
+(((
+ros::Publisher pub = handle.advertise&amp;lt;msg_type>("my_topic", 1);
+)))
+
+Note: The integer, in this case '1', defines the queue size of the publisher. Generating messages is mostly much faster than publishing them.
+
+The following line makes it possible to publish the data by a desired frequency. The frequency in this example is 1 Hz.
+Before the loop starts, an object of type std_msgs/Int64 is created.
+The while-loop runs as long as its argument is true. In this case, the node should run until the master dies.
+There are four cases for ros::ok() returning a false:
+
+
+1. A **SIGINT **(signal interrupt) is detected (**Ctrl**+**C**)
+1. A new node with the same name appears
+1. ros::shutdown() is called
+1. Calling(% class="mark" %) $ rosnode kill &amp;lt;this_node>
+
+Inside the loop, the ll-integer count passes its value to the data part of the object msg. Afterwards the method (% class="mark" %)publish (%%)of the object counter_pub is called.
+(% class="mark" %)loop_rate.sleep()(%%) is called to calculate the waiting time for the next run, to keep in the frequency of 1 Hz
+
+
+= Example 4: Subscriber =
+
+----
+
+=   =
+
+= 
+  =
+
+
+
+
+
+
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+8.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1543941232000&lt;/date>
+  &lt;contentUpdateDate>1543941232000&lt;/contentUpdateDate>
+  &lt;version>8.2&lt;/version>
+d21 287
+a307 251
+  &lt;content>= Create a ROS-program =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= catkin Workspace =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.&amp;#xd;
+&amp;#xd;
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.&amp;#xd;
+&amp;#xd;
+First create the Folder:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ mkdir -p ~~/catkin_ws/src&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.&amp;#xd;
+&amp;#xd;
+After the creation, change to the Folder:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ cd ~~/catkin_ws/src&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Do **not** change to the folder ~~/catkin_ws&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+and initialize the workspace with&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_init_workspace&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Then switch one level above and execute the following command:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_make&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^&amp;#xd;
+&amp;#xd;
+Now the workspace is ready to build own-written code.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= Example 2: hello-word.cpp =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.&amp;#xd;
+&amp;#xd;
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_create_pkg &amp;lt;package-name> [depend1] [depend2] [depend3]&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Execute this command at the path ~~/catkin_ws/src.&amp;#xd;
+&amp;#xd;
+For this example, the command is obtained as follows:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_create_pkg hello_world roscpp&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.&amp;#xd;
+&amp;#xd;
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).&amp;#xd;
+&amp;#xd;
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ touch &amp;lt;new_file-name>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Now the C++-source-code can be entered.&amp;#xd;
+&amp;#xd;
+With the goal in mind, the source-code can be something like:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+#include &amp;lt;ros/ros.h>&amp;#xd;
+int main(int argc, char~*~* argv){&amp;#xd;
+ros::init(argc, argv, "hello_world");&amp;#xd;
+ros::NodeHandle handle;&amp;#xd;
+ROS_INFO_STREAM("Hello, World!");&amp;#xd;
+}&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.&amp;#xd;
+&amp;#xd;
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.&amp;#xd;
+So type in:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+cmake_minimum_required(VERSION 2.8.3)&amp;#xd;
+project(hello_world)&amp;#xd;
+\\find_package(catkin REQUIRED COMPONENTS&amp;#xd;
+roscpp&amp;#xd;
+)&amp;#xd;
+\\include_directories(&amp;#xd;
+${catkin_INCLUDE_DIRS}&amp;#xd;
+)&amp;#xd;
+\\add_executable(hello_world src/hello_world.cpp)&amp;#xd;
+target_link_libraries(hello_world ${catkin_LIBRARIES})&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].&amp;#xd;
+&amp;#xd;
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.&amp;#xd;
+&amp;#xd;
+However, change to the path ~~/catkin_ws and execute this:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ catkin_make&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.&amp;#xd;
+&amp;#xd;
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+source ~~/catkin_ws/devel/setup.bash&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+echo "source ~~/catkin_ws/devel/setup.bash" >> ~~/.bashrc&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ However, after sourcing the bash (shell) run the command,&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+echo $ROS_PATH_PACKAGE&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+to check if has succeeded. The output should look like this:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ echo $ROS_PACKAGE_PATH&amp;#xd;
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun hello_world hello_world&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+If everything went fine, there should be an output like:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+[ INFO] [1501663171.068434266]: Hello, World!&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="mark" %)Note: The output will be almost the same. The timestamp 3 in the second column will differ for sure.&amp;#xd;
+&amp;#xd;
+(% class="mark" %)You can get the entrie package here.&amp;#xd;
+&amp;#xd;
+= (% class="mark" %)Example 3: Counter(%%) =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+(% class="mark" %)The third example is going to expand the things learn in the previous example. This time, the goal will be to create a publisher, which publishes and increments an integer-value every second.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+#include &amp;lt;ros/ros.h>&amp;#xd;
+#include &amp;lt;std_msgs/Int64.h>&amp;#xd;
+&amp;#xd;
+int main(int argc, char ~*~*argv)&amp;#xd;
+{   ros::init(argc, argv, "counter");&amp;#xd;
+    ros::NodeHandle handle; &amp;#xd;
+    ros::Publisher counter_pub = handle.advertise&amp;lt;std_msgs::Int64>("counter", 10); &amp;#xd;
+    ros::Rate loop_rate(1); &amp;#xd;
+    long long int count = 0;   &amp;#xd;
+    std_msgs::Int64 msg; &amp;#xd;
+    while (ros::ok()) {       &amp;#xd;
+      msg.data = count;&amp;#xd;
+      counter_pub.publish(msg);&amp;#xd;
+      loop_rate.sleep();&amp;#xd;
+      ++count;&amp;#xd;
+}&amp;#xd;
+return 0;}&amp;#xd;
+ &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+@
+
+
+8.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1543928765000&lt;/date>
+  &lt;contentUpdateDate>1543928765000&lt;/contentUpdateDate>
+  &lt;version>8.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d21 251
+a271 203
+  &lt;content>= Create a ROS-program =
+
+----
+
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.
+
+
+
+= catkin Workspace =
+
+----
+
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.
+
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.
+
+First create the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ mkdir -p ~~/catkin_ws/src
+)))
+
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.
+
+After the creation, change to the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ cd ~~/catkin_ws/src
+)))
+
+Do **not** change to the folder ~~/catkin_ws
+
+
+and initialize the workspace with
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_init_workspace
+)))
+
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//
+
+
+Then switch one level above and execute the following command:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^
+
+Now the workspace is ready to build own-written code.
+
+
+
+= Example 2: hello-word.cpp =
+
+----
+
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.
+
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg &amp;lt;package-name> [depend1] [depend2] [depend3]
+)))
+
+Execute this command at the path ~~/catkin_ws/src.
+
+For this example, the command is obtained as follows:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg hello_world roscpp
+)))
+
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.
+
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).
+
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command
+
+
+(% class="box infomessage" %)
+(((
+$ touch &amp;lt;new_file-name>
+)))
+
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp
+)))
+
+Now the C++-source-code can be entered.
+
+With the goal in mind, the source-code can be something like:
+
+
+(% class="box infomessage" %)
+(((
+#include &amp;lt;ros/ros.h>
+int main(int argc, char~*~* argv){
+ros::init(argc, argv, "hello_world");
+ros::NodeHandle handle;
+ROS_INFO_STREAM("Hello, World!");
+}
+)))
+
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.
+
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.
+So type in:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt
+)))
+
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:
+
+
+(% class="box infomessage" %)
+(((
+cmake_minimum_required(VERSION 2.8.3)
+project(hello_world)
+\\find_package(catkin REQUIRED COMPONENTS
+roscpp
+)
+\\include_directories(
+${catkin_INCLUDE_DIRS}
+)
+\\add_executable(hello_world src/hello_world.cpp)
+target_link_libraries(hello_world ${catkin_LIBRARIES})
+)))
+
+
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].
+
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.
+
+However, change to the path ~~/catkin_ws and execute this:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.
+
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:
+
+
+(% class="box infomessage" %)
+(((
+source ~~/catkin_ws/devel/setup.bash
+)))
+
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:
+
+
+(% class="box infomessage" %)
+(((
+echo "source ~~/catkin_ws/devel/setup.bash" >&gt; ~~/.bashrc
+)))
+
+ However, after sourcing the bash (shell) run the command,
+
+
+
+(% class="box infomessage" %)
+(((
+echo $ROS_PATH_PACKAGE
+)))
+
+to check if has succeeded. The output should look like this:
+
+(% class="box infomessage" %)
+(((
+$ echo $ROS_PACKAGE_PATH
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share
+)))
+
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun hello_world hello_world
+)))
+
+@
+
+
+7.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1543923430000&lt;/date>
+  &lt;contentUpdateDate>1543923430000&lt;/contentUpdateDate>
+  &lt;version>7.1&lt;/version>
+d197 28
+a224 1
+)))&lt;/content>
+@
+
+
+6.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1543923019000&lt;/date>
+  &lt;contentUpdateDate>1543923019000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+d117 80
+@
+
+
+5.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Create a ROS-program.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Create a ROS-program&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1543916227000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1543922515000&lt;/date>
+  &lt;contentUpdateDate>1543922515000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+  &lt;title>Create a ROS-program&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Create a ROS-program =
+
+----
+
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.
+
+
+
+= catkin Workspace =
+
+----
+
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.
+
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.
+
+First create the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ mkdir -p ~~/catkin_ws/src
+)))
+
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.
+
+After the creation, change to the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ cd ~~/catkin_ws/src
+)))
+
+Do **not** change to the folder ~~/catkin_ws
+
+
+and initialize the workspace with
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_init_workspace
+)))
+
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//
+
+
+Then switch one level above and execute the following command:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]]^^.
+
+
+
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+4.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1543921899000&lt;/date>
+  &lt;contentUpdateDate>1543921899000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+d66 1
+a66 1
+Note: The name of the folder //catkin_ws// is random and has no relation to any command provided by catkin.
+d69 12
+@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1543916906000&lt;/date>
+  &lt;contentUpdateDate>1543916906000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d45 1
+d47 1
+d49 20
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1543916696000&lt;/date>
+  &lt;contentUpdateDate>1543916696000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d40 7
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1543916227000&lt;/date>
+  &lt;contentUpdateDate>1543916227000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d28 12
+@
+</versions>
+  <parent>Projects.MoRoP.ROS GettingStarted.WebHome</parent>
+  <author>XWiki.DavidDudzik</author>
+  <contentAuthor>XWiki.DavidDudzik</contentAuthor>
+  <date>1550749258000</date>
+  <contentUpdateDate>1550749258000</contentUpdateDate>
+  <version>27.1</version>
+  <title>Create a ROS-program</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>**Sitemap**
+
+----
+
+{{toc/}}
+
+
+
+= Create a ROS-program =
+
+----
+
+
+
+After the start-up with a pre-build package, in this chapter the first program is going to be written and build. Before starting with writing code, a so-called worksapce is needed. A workspace is part of the ROS-concept and will help to organize and build the packages.
+
+
+= catkin Workspace =
+
+----
+
+Before initializing a workspace a folder for the workspace has to be created. It is not important where the folder is located or how it is named.
+
+In adoption that the new folder is going to be created in the homefolder of the user, the following method will work.
+
+First create the Folder:
+
+{{code}}
+$ mkdir -p ~~/catkin_ws/src
+{{/code}}
+
+
+This command creates a folder //catkin_ws// in the homefolder which contains a subfolder //src//. The -p Option only means that a folder will be created only if there is no other folder in its place.
+
+After the creation, change to the Folder:
+
+
+(% class="box infomessage" %)
+(((
+$ cd ~~/catkin_ws/src
+)))
+
+Do **not** change to the folder ~~/catkin_ws
+
+
+and initialize the workspace with
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_init_workspace
+)))
+
+//Note: The name of the folder catkin_ws is random and has no relation to any command provided by catkin.//
+
+
+Then switch one level above and execute the following command:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+catkin_make starts the build-process^^[[__1__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn1]].^^
+
+Now the workspace is ready to build own-written code.
+
+
+
+= Example 2: hello-word.cpp =
+
+----
+
+A short program will be written for the beginning, to get the fundumental build process clear. Goal of the program is to print //hello world// in the terminal.
+
+Following the concept of ROS, at first a package has to be build. This can be done by a command provided by ROS.
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg &lt;package-name> [depend1] [depend2] [depend3]
+)))
+
+Execute this command at the path ~~/catkin_ws/src.
+
+For this example, the command is obtained as follows:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_create_pkg hello_world roscpp
+)))
+
+The dependency //std_msgs// is needed for the standard message-types and //roscpp// provides the C++-API in ROS.
+
+However, a new folder with the name //hello_world// is created at the path ~~/catkin_ws/src. In this folder the known structure of a ROS-package can be found (see ROS package).
+
+The next steps is writing the source-code. But before this, a file for the source-code is needed. To create a new file, use the command
+
+
+(% class="box infomessage" %)
+(((
+$ touch &lt;new_file-name>
+)))
+
+ or just use an editor^^[[__2__>>url:http://git.lit.fh-dortmund.de/matthias.domnik/ROS_getting-started/wikis/create-a-ros-program#fn2]]^^ to create it with:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/src/hello_world.cpp
+)))
+
+Now the C++-source-code can be entered.
+
+With the goal in mind, the source-code can be something like:
+
+
+(% class="box infomessage" %)
+(((
+#include &lt;ros/ros.h>
+int main(int argc, char~*~* argv){
+ros::init(argc, argv, "hello_world");
+ros::NodeHandle handle;
+ROS_INFO_STREAM("Hello, World!");
+}
+)))
+
+In the first line, a headerfile, which allows it to use the ROS-specific commands, is included. After that, the main function begins, that can get the two arguments //argc// and //argv// from the commandline. Then, the ROS-node is going to be initialized with ros::init(argc, argv, "hello_world"). So, the node will be called "hello_world" from now. After this the nodehandle //handle// is created. A node handle provides the opportunity to create services, topics and similar things. These things will be part of the following chapters. With the last command ROS_INFO_STREAM("Hello, World!") the goal is rechead and //Hello, World!// is printed in the terminal. The command ROS_INFO_STREAM() is not familiar so far, but it will be discussed in a later section.
+
+After saving the work and closing the editor, the file //CMakeLists.txt// in ~~/catkin_ws/src/hello_world has to be edited.
+So type in:
+
+(% class="box infomessage" %)
+(((
+$ gedit ~~/catkin_ws/src/hello_world/CMakeLists.txt
+)))
+
+ In this file the executables, which should be build, have to be declared. In the actual case only one executable has to be build, so the //CMakeLists.txt// will look like this:
+
+
+(% class="box infomessage" %)
+(((
+cmake_minimum_required(VERSION 2.8.3)
+project(hello_world)
+\\find_package(catkin REQUIRED COMPONENTS
+roscpp
+)
+\\include_directories(
+${catkin_INCLUDE_DIRS}
+)
+\\add_executable(hello_world src/hello_world.cpp)
+target_link_libraries(hello_world ${catkin_LIBRARIES})
+)))
+
+
+A very good and detailed description of //CMakeLists.txt// can be found under: [[__http:~~/~~/wiki.ros.org/catkin/CMakeLists.txt__>>url:http://wiki.ros.org/catkin/CMakeLists.txt]].
+
+By now there is no need to edit //package.xml//, because the required dependencies were linked through the command above.
+
+However, change to the path ~~/catkin_ws and execute this:
+
+
+(% class="box infomessage" %)
+(((
+$ catkin_make
+)))
+
+The build-process will start and (hopefully) end with **[100%] Built target hello_world**.
+
+The first self-made program is ready to be executed. But the shell is not ready so far. To overlay the acutal workspace, use the command:
+
+
+(% class="box infomessage" %)
+(((
+source ~~/catkin_ws/devel/setup.bash
+)))
+
+ This command has to be executed everytime a new package (or executable within a package) has been build. To automate this, use the following command to store this operation in the //.bashrc//-file:
+
+
+(% class="box infomessage" %)
+(((
+echo "source ~~/catkin_ws/devel/setup.bash" >> ~~/.bashrc
+)))
+
+ However, after sourcing the bash (shell) run the command,
+
+
+
+(% class="box infomessage" %)
+(((
+echo $ROS_PATH_PACKAGE
+)))
+
+to check if has succeeded. The output should look like this:
+
+(% class="box infomessage" %)
+(((
+$ echo $ROS_PACKAGE_PATH
+/home/ros_user/catkin_ws/src:/opt/ros/kinetic/share
+)))
+
+ If the the previous steps are finished, the roscore has to be started. Afterwards open a second terminal and type:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun hello_world hello_world
+)))
+
+If everything went fine, there should be an output like:
+
+(% class="box infomessage" %)
+(((
+[ INFO] [1501663171.068434266]: Hello, World!
+)))
+
+(% class="mark" %)Note: The output will be almost the same. The timestamp 3 in the second column will differ for sure.
+
+You can get the entrie package here.
+
+
+= Example 3: Counter =
+
+----
+
+The third example is going to expand the things learn in the previous example. This time, the goal will be to create a publisher, which publishes and increments an integer-value every second.
+
+(% class="box infomessage" %)
+(((
+#include &lt;ros/ros.h>
+#include &lt;std_msgs/Int64.h>
+
+int main(int argc, char ~*~*argv)
+{   ros::init(argc, argv, "counter");
+    ros::NodeHandle handle; 
+    ros::Publisher counter_pub = handle.advertise&lt;std_msgs::Int64>("counter", 10); 
+    ros::Rate loop_rate(1); 
+    long long int count = 0;   
+    std_msgs::Int64 msg; 
+    while (ros::ok()) {       
+      msg.data = count;
+      counter_pub.publish(msg);
+      loop_rate.sleep();
+      ++count;
+}
+return 0;}
+ 
+)))
+
+At first the necassary libraries are included. The library (% class="mark" %)&lt;ros/ros.h>(%%) is required every time when the ROS-C++-API is used. Further, the other ROS related library is(% class="mark" %) &lt;std_msgs/String.h>(%%). This one provides the message type, that is used to publish the data.
+Then, the node is created with(% class="mark" %) ros::init() (%%)and the nodehandle with (% class="mark" %)ros::NodeHandle(%%) (as in the above example).
+In the next line the publisher-object named "counter_pub" is generated by using a method of the handle-object4. The message-type in this case is (% class="mark" %)std_msgs::Int64(%%) a 64-bit long integer.
+In general the command looks like this:
+
+(% class="box infomessage" %)
+(((
+ros::Publisher pub = handle.advertise&lt;msg_type>("my_topic", 1);
+)))
+
+Note: The integer, in this case '1', defines the queue size of the publisher. Generating messages is mostly much faster than publishing them.
+
+The following line makes it possible to publish the data by a desired frequency. The frequency in this example is 1 Hz.
+Before the loop starts, an object of type std_msgs/Int64 is created.
+The while-loop runs as long as its argument is true. In this case, the node should run until the master dies.
+There are four cases for ros::ok() returning a false:
+
+
+1. A **SIGINT **(signal interrupt) is detected (**Ctrl**+**C**)
+1. A new node with the same name appears
+1. ros::shutdown() is called
+1. Calling(% class="mark" %) $ rosnode kill &lt;this_node>
+
+Inside the loop, the ll-integer count passes its value to the data part of the object msg. Afterwards the method (% class="mark" %)publish (%%)of the object counter_pub is called.
+(% class="mark" %)loop_rate.sleep()(%%) is called to calculate the waiting time for the next run, to keep in the frequency of 1 Hz
+
+
+= Example 4: Subscriber =
+
+----
+
+In this example, a subscriber will be created, which fits to the previous publisher.
+
+
+The general procedure for creating a package follows the structure in example 2.
+
+
+The main difference between a publisher and a subscriber is, that a subscriber does not know when a message will arrive.
+
+This is why the code, that is going to be executed when a new message arrives, is wrapped in a callback-function. The structure inside the programm will be
+
+
+(% class="box infomessage" %)
+(((
+void cb_func(const &lt;class>::&lt;message-type> &amp;msg)
+{
+...
+}
+int main(){
+...
+ros::Subscriber sub = handle.subscribe("my_topic", 1, &amp;cb_func);
+}
+)))
+
+
+At first a callback-function is defined. The function takes as arguments the message-type (includes the class) as constant reference.
+The subscriber object is created in the main-function. The object sub is initialized with the handle method subscribe. This method takes three arguments. At first the related topic, then the queue-size and at last the reference to the callback-function.
+The subscriber in this example will print the received data to the terminal.
+
+(% class="box infomessage" %)
+(((
+#include &lt;ros/ros.h> 
+#include &lt;std_msgs/Int64.h> 
+
+void sub_callback(const std_msgs::Int64 &amp;msg){
+        ROS_INFO_STREAM("I heard: " &lt;&lt; msg.data); 
+}
+
+int main(int argc, char ~*~*argv) 
+{ ros::init(argc, argv, "sub_counter");
+  ros::NodeHandle handle;
+    ros::Subscriber sub = handle.subscribe("counter", 10, &amp;sub_callback);
+    ros::spin();
+  return 0;
+
+
+}
+ 
+)))
+
+As usual the necessary headers and libraries are included with preprocessor directives. Then, the definition of the callback-function follows. However, it is also possible to declare the function at first and than define it later
+
+Inside the main-function the node is created and initialized as also known. Then, the subscriber is created as described above.
+
+The other new feautre in this short programm is the member-function (% class="mark" %)ros::spin().(%%) It is necessary to pass the control over this node to ROS. So, ROS waits for new mesasges arriving and than executes the callback-function [^ros_spin].
+
+1. For futher information visit: http:~/~/wiki.ros.org/catkin/workspaces ↩
+
+1. There are many editors provided by Linux (not necessarily by Linux itself). Advanced users often use vim, while beginners usually use nano. ↩
+
+1. The timestamp is shown in the typical unix-format. ↩
+
+1. For detailed description see: http:~/~/docs.ros.org/kinetic/api/roscpp/html/classros_1_1NodeHandle.html#a6b655c04f32c4c967d49799ff9312ac6 ↩</content>
+</xwikidoc>

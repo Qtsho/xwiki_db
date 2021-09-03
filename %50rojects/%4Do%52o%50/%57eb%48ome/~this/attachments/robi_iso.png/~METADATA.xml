@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attachment-list serializer="attachment-list-meta/1.0">
+ <attachment serializer="attachment-meta/1.0">
+  <filename>robi_iso.png</filename>
+  <filesize>279235</filesize>
+  <author>XWiki.SvenHoyer</author>
+  <version>1.2</version>
+  <comment></comment>
+  <date>1538026769000</date>
+ </attachment>
+</attachment-list>

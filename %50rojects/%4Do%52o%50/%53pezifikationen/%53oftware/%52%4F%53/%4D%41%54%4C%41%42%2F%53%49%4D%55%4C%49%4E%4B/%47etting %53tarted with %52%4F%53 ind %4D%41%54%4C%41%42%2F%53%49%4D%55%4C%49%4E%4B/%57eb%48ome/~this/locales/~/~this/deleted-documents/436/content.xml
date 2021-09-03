@@ -1,0 +1,1227 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome" locale="">
+  <web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.FredericKovacs</creator>
+  <creationDate>1536841383000</creationDate>
+  <versions>head	26.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+26.2
+date	2019.11.12.09.19.15;	author XWiki_2ESvenHoyer;	state full;
+branches;
+next	26.1;
+
+26.1
+date	2018.11.22.07.17.15;	author XWiki_2ESvenHoyer;	state full;
+branches;
+next	25.2;
+
+25.2
+date	2018.10.31.09.36.01;	author XWiki_2ESvenHoyer;	state diff;
+branches;
+next	25.1;
+
+25.1
+date	2018.09.18.06.18.37;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	24.1;
+
+24.1
+date	2018.09.13.14.37.36;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	23.1;
+
+23.1
+date	2018.09.13.14.36.50;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	22.1;
+
+22.1
+date	2018.09.13.14.36.17;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	21.1;
+
+21.1
+date	2018.09.13.14.35.56;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	20.1;
+
+20.1
+date	2018.09.13.14.34.28;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	19.1;
+
+19.1
+date	2018.09.13.14.30.36;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	18.1;
+
+18.1
+date	2018.09.13.14.18.42;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	17.4;
+
+17.4
+date	2018.09.13.14.16.05;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	17.3;
+
+17.3
+date	2018.09.13.14.14.41;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	17.2;
+
+17.2
+date	2018.09.13.14.02.57;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	17.1;
+
+17.1
+date	2018.09.13.13.59.52;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	16.6;
+
+16.6
+date	2018.09.13.13.59.44;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	16.5;
+
+16.5
+date	2018.09.13.13.59.11;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	16.4;
+
+16.4
+date	2018.09.13.13.58.42;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	16.3;
+
+16.3
+date	2018.09.13.13.57.30;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	16.2;
+
+16.2
+date	2018.09.13.13.54.52;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	16.1;
+
+16.1
+date	2018.09.13.13.53.59;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	15.1;
+
+15.1
+date	2018.09.13.13.53.46;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	14.1;
+
+14.1
+date	2018.09.13.13.52.37;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	13.1;
+
+13.1
+date	2018.09.13.13.51.25;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	12.1;
+
+12.1
+date	2018.09.13.13.50.19;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	11.1;
+
+11.1
+date	2018.09.13.13.50.04;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	10.1;
+
+10.1
+date	2018.09.13.13.48.37;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	9.1;
+
+9.1
+date	2018.09.13.13.47.41;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	8.1;
+
+8.1
+date	2018.09.13.13.40.48;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	7.1;
+
+7.1
+date	2018.09.13.13.39.59;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2018.09.13.13.14.56;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2018.09.13.13.13.47;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	4.1;
+
+4.1
+date	2018.09.13.13.13.27;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2018.09.13.12.27.13;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2018.09.13.12.23.25;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.09.13.12.23.03;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+26.2
+log
+@Updated parent field.
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1536841383000&lt;/creationDate>
+  &lt;parent>xwiki:Allgemein.Hilfestellungen.ROS.ROS Advanced.ROS + Matlab.WebHome&lt;/parent>
+  &lt;author>XWiki.SvenHoyer&lt;/author>
+  &lt;contentAuthor>XWiki.SvenHoyer&lt;/contentAuthor>
+  &lt;date>1573550355000&lt;/date>
+  &lt;contentUpdateDate>1540978561000&lt;/contentUpdateDate>
+  &lt;version>26.2&lt;/version>
+  &lt;title>Getting Started with ROS in MATLAB/SIMULINK&lt;/title>
+  &lt;comment>Updated parent field.&lt;/comment>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>image:HeaderROSMathworks.PNG
+
+{{velocity}}
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}
+{{/velocity}}
+
+= **Introduction** =
+
+----
+
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.
+
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink. And how to let your ROS-nodes communicate with each other when they are located on different platforms. (We use MATLAB but start our ROS-core and other nodes in a Virtual machine.)
+
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed. It's recommended to work through [[ROSGettingStarted>>http://wiki.lit.fh-dortmund.de/bin/view/Projects/MoRoP/ROS%20GettingStarted/]] previous to this Tutorial.
+Additional you can work through the tutorials provided in the MathWorks documentation:
+[[MathWorks - Get started with ROS>>https://de.mathworks.com/help/robotics/examples/get-started-with-ros.html]] and the subsequent tutorials.
+Those tutorials focus on the solely Work with MATLAB/SIMULINK without the use of other platforms.
+
+In the beginning we will start a simple ROS network with our roscore on a virtual Linux-machine and a global MATLAB-node on our Host-System and will create a simple Publisher and Subscriber who will perform cross-platform communication.
+
+
+ &lt;/content>
+  &lt;attachment>
+    &lt;filename>HeaderROSMathworks.PNG&lt;/filename>
+    &lt;mimetype>image/png&lt;/mimetype>
+    &lt;author>XWiki.SvenHoyer&lt;/author>
+    &lt;date>1542871035000&lt;/date>
+    &lt;version>1.3&lt;/version>
+    &lt;comment/>
+    &lt;filesize>12769&lt;/filesize>
+  &lt;/attachment>
+&lt;/xwikidoc>@
+
+
+26.1
+log
+@Neues Bild HeaderROSMathworks.PNG hochladen
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1536841383000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.SvenHoyer&lt;/author>
+  &lt;contentAuthor>XWiki.SvenHoyer&lt;/contentAuthor>
+  &lt;date>1542871035000&lt;/date>
+  &lt;contentUpdateDate>1540978561000&lt;/contentUpdateDate>
+  &lt;version>26.1&lt;/version>
+  &lt;title>Getting Started with ROS in MATLAB/SIMULINK&lt;/title>
+  &lt;comment>Neues Bild HeaderROSMathworks.PNG hochladen&lt;/comment>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>image:HeaderROSMathworks.PNG
+
+{{velocity}}
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}
+{{/velocity}}
+
+= **Introduction** =
+
+----
+
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.
+
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink. And how to let your ROS-nodes communicate with each other when they are located on different platforms. (We use MATLAB but start our ROS-core and other nodes in a Virtual machine.)
+
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed. It's recommended to work through [[ROSGettingStarted>>http://wiki.lit.fh-dortmund.de/bin/view/Projects/MoRoP/ROS%20GettingStarted/]] previous to this Tutorial.
+Additional you can work through the tutorials provided in the MathWorks documentation:
+[[MathWorks - Get started with ROS>>https://de.mathworks.com/help/robotics/examples/get-started-with-ros.html]] and the subsequent tutorials.
+Those tutorials focus on the solely Work with MATLAB/SIMULINK without the use of other platforms.
+
+In the beginning we will start a simple ROS network with our roscore on a virtual Linux-machine and a global MATLAB-node on our Host-System and will create a simple Publisher and Subscriber who will perform cross-platform communication.
+
+
+ &lt;/content>
+  &lt;attachment>
+    &lt;filename>HeaderROSMathworks.PNG&lt;/filename>
+    &lt;mimetype>image/png&lt;/mimetype>
+    &lt;author>XWiki.SvenHoyer&lt;/author>
+    &lt;date>1542871035000&lt;/date>
+    &lt;version>1.3&lt;/version>
+    &lt;comment/>
+    &lt;filesize>12769&lt;/filesize>
+  &lt;/attachment>
+&lt;/xwikidoc>@
+
+
+25.2
+log
+@@
+text
+@d13 1
+a13 1
+  &lt;date>1540978561000&lt;/date>
+d15 1
+a15 1
+  &lt;version>25.2&lt;/version>
+d17 2
+a18 2
+  &lt;comment/>
+  &lt;minorEdit>true&lt;/minorEdit>
+d47 3
+a49 3
+    &lt;author>XWiki.FredericKovacs&lt;/author>
+    &lt;date>1537251517000&lt;/date>
+    &lt;version>1.2&lt;/version>
+d51 1
+@
+
+
+25.1
+log
+@Neues Bild HeaderROSMathworks.PNG hochladen
+@
+text
+@d6 1
+a6 1
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+d11 5
+a15 5
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1537251517000&lt;/date>
+  &lt;contentUpdateDate>1536849456000&lt;/contentUpdateDate>
+  &lt;version>25.1&lt;/version>
+d17 2
+a18 2
+  &lt;comment>Neues Bild HeaderROSMathworks.PNG hochladen&lt;/comment>
+  &lt;minorEdit>false&lt;/minorEdit>
+d21 22
+a42 22
+  &lt;content>image:HeaderROSMathworks.PNG&amp;#xd;
+&amp;#xd;
+{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+= **Introduction** =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.&amp;#xd;
+&amp;#xd;
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink. And how to let your ROS-nodes communicate with each other when they are located on different platforms. (We use MATLAB but start our ROS-core and other nodes in a Virtual machine.)&amp;#xd;
+&amp;#xd;
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed. It's recommended to work through [[ROSGettingStarted>>http://wiki.lit.fh-dortmund.de/bin/view/Projects/MoRoP/ROS%20GettingStarted/]] previous to this Tutorial.&amp;#xd;
+Additional you can work through the tutorials provided in the MathWorks documentation:&amp;#xd;
+[[MathWorks - Get started with ROS>>https://de.mathworks.com/help/robotics/examples/get-started-with-ros.html]] and the subsequent tutorials.&amp;#xd;
+Those tutorials focus on the solely Work with MATLAB/SIMULINK without the use of other platforms.&amp;#xd;
+&amp;#xd;
+In the beginning we will start a simple ROS network with our roscore on a virtual Linux-machine and a global MATLAB-node on our Host-System and will create a simple Publisher and Subscriber who will perform cross-platform communication.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+@
+
+
+24.1
+log
+@@
+text
+@d13 1
+a13 1
+  &lt;date>1536849456000&lt;/date>
+d15 1
+a15 1
+  &lt;version>24.1&lt;/version>
+d17 1
+a17 1
+  &lt;comment/>
+d48 2
+a49 2
+    &lt;date>1536849410000&lt;/date>
+    &lt;version>1.1&lt;/version>
+@
+
+
+23.1
+log
+@Neues Bild HeaderROSMathworks.PNG hochladen
+@
+text
+@d13 3
+a15 3
+  &lt;date>1536849410000&lt;/date>
+  &lt;contentUpdateDate>1536849356000&lt;/contentUpdateDate>
+  &lt;version>23.1&lt;/version>
+d17 1
+a17 1
+  &lt;comment>Neues Bild HeaderROSMathworks.PNG hochladen&lt;/comment>
+d21 1
+a21 1
+  &lt;content>image:Header ROS_Mathworks.png&amp;#xd;
+@
+
+
+22.1
+log
+@Löschung des Bildes Header ROS_Mathworks.PNG
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1536841383000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1536849377000&lt;/date>
+  &lt;contentUpdateDate>1536849356000&lt;/contentUpdateDate>
+  &lt;version>22.1&lt;/version>
+  &lt;title>Getting Started with ROS in MATLAB/SIMULINK&lt;/title>
+  &lt;comment>Löschung des Bildes Header ROS_Mathworks.PNG&lt;/comment>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>image:Header ROS_Mathworks.png&amp;#xd;
+&amp;#xd;
+{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+= **Introduction** =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.&amp;#xd;
+&amp;#xd;
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink. And how to let your ROS-nodes communicate with each other when they are located on different platforms. (We use MATLAB but start our ROS-core and other nodes in a Virtual machine.)&amp;#xd;
+&amp;#xd;
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed. It's recommended to work through [[ROSGettingStarted>>http://wiki.lit.fh-dortmund.de/bin/view/Projects/MoRoP/ROS%20GettingStarted/]] previous to this Tutorial.&amp;#xd;
+Additional you can work through the tutorials provided in the MathWorks documentation:&amp;#xd;
+[[MathWorks - Get started with ROS>>https://de.mathworks.com/help/robotics/examples/get-started-with-ros.html]] and the subsequent tutorials.&amp;#xd;
+Those tutorials focus on the solely Work with MATLAB/SIMULINK without the use of other platforms.&amp;#xd;
+&amp;#xd;
+In the beginning we will start a simple ROS network with our roscore on a virtual Linux-machine and a global MATLAB-node on our Host-System and will create a simple Publisher and Subscriber who will perform cross-platform communication.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+21.1
+log
+@@
+text
+@d13 1
+a13 1
+  &lt;date>1536849356000&lt;/date>
+d15 1
+a15 1
+  &lt;version>21.1&lt;/version>
+d17 1
+a17 1
+  &lt;comment/>
+a43 8
+  &lt;attachment>
+    &lt;filename>Header ROS_Mathworks.PNG&lt;/filename>
+    &lt;mimetype>image/png&lt;/mimetype>
+    &lt;author>XWiki.FredericKovacs&lt;/author>
+    &lt;date>1536849268000&lt;/date>
+    &lt;version>1.1&lt;/version>
+    &lt;comment/>
+  &lt;/attachment>
+@
+
+
+20.1
+log
+@Neues Bild Header ROS_Mathworks.PNG hochladen
+@
+text
+@d13 3
+a15 3
+  &lt;date>1536849268000&lt;/date>
+  &lt;contentUpdateDate>1536849036000&lt;/contentUpdateDate>
+  &lt;version>20.1&lt;/version>
+d17 1
+a17 1
+  &lt;comment>Neues Bild Header ROS_Mathworks.PNG hochladen&lt;/comment>
+d21 22
+a42 20
+  &lt;content>{{velocity}}
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}
+{{/velocity}}
+
+= **Introduction** =
+
+----
+
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.
+
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink. And how to let your ROS-nodes communicate with each other when they are located on different platforms. (We use MATLAB but start our ROS-core and other nodes in a Virtual machine.)
+
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed. It's recommended to work through [[ROSGettingStarted>>http://wiki.lit.fh-dortmund.de/bin/view/Projects/MoRoP/ROS%20GettingStarted/]] previous to this Tutorial.
+Additional you can work through the tutorials provided in the MathWorks documentation:
+[[MathWorks - Get started with ROS>>https://de.mathworks.com/help/robotics/examples/get-started-with-ros.html]] and the subsequent tutorials.
+Those tutorials focus on the solely Work with MATLAB/SIMULINK without the use of other platforms.
+
+In the beginning we will start a simple ROS network with our roscore on a virtual Linux-machine and a global MATLAB-node on our Host-System and will create a simple Publisher and Subscriber who will perform cross-platform communication.
+
+
+@
+
+
+19.1
+log
+@@
+text
+@d13 1
+a13 1
+  &lt;date>1536849036000&lt;/date>
+d15 1
+a15 1
+  &lt;version>19.1&lt;/version>
+d17 1
+a17 1
+  &lt;comment/>
+d42 8
+@
+
+
+18.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536848322000&lt;/date>
+  &lt;contentUpdateDate>1536848322000&lt;/contentUpdateDate>
+  &lt;version>18.1&lt;/version>
+d38 1
+d40 1
+@
+
+
+17.4
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1536841383000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1536848165000&lt;/date>
+  &lt;contentUpdateDate>1536848165000&lt;/contentUpdateDate>
+  &lt;version>17.4&lt;/version>
+  &lt;title>Getting Started with ROS in MATLAB/SIMULINK&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{velocity}}
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}
+{{/velocity}}
+
+= **Introduction** =
+
+----
+
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.
+
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink. And how to let your ROS-nodes communicate with each other when they are located on different platforms. (We use MATLAB but start our ROS-core and other nodes in a Virtual machine.)
+
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed. It's recommended to work through [[ROSGettingStarted>>http://wiki.lit.fh-dortmund.de/bin/view/Projects/MoRoP/ROS%20GettingStarted/]] previous to this Tutorial.
+Additional you can work through the Tutorials provided in the MathWorks Documentation:
+[[MathWorks - Get started with ROS>>https://de.mathworks.com/help/robotics/examples/get-started-with-ros.html]]
+Those Tutorials focus on the solely Work with MATLAB/SIMULINK without the use of other platforms.
+
+
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+17.3
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536848081000&lt;/date>
+  &lt;contentUpdateDate>1536848081000&lt;/contentUpdateDate>
+  &lt;version>17.3&lt;/version>
+d31 1
+a31 1
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink. And how to let your ROS-nodes communicate with each other when they are located on different platforms. We use MATLAB but start our ROS-core and other nodes in a Virtual machine.
+d33 1
+a33 1
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed.It's recommended to work through [[ROSGettingStarted>>http://wiki.lit.fh-dortmund.de/bin/view/Projects/MoRoP/ROS%20GettingStarted/]] previous to this Tutorial.
+d35 2
+a36 1
+[[MathWorks - Get started with ROS>>https://de.mathworks.com/help/robotics/examples/get-started-with-ros.html]] Those Tutorials focus on the solely Work with MATLAB/SIMULINK withou
+@
+
+
+17.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536847377000&lt;/date>
+  &lt;contentUpdateDate>1536847377000&lt;/contentUpdateDate>
+  &lt;version>17.2&lt;/version>
+d21 17
+a37 17
+  &lt;content>{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+= **Introduction** =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.&amp;#xd;
+&amp;#xd;
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink.&amp;#xd;
+And how to let your ROS-nodes communicate with each other when they are located on different platforms.&amp;#xd;
+&amp;#xd;
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed.&amp;#xd;
+It's recommended to work through [[ROSGettingStarted>>http://wiki.lit.fh-dortmund.de/bin/view/Projects/MoRoP/ROS%20GettingStarted/]] previous to this Tutorial.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+@
+
+
+17.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536847192000&lt;/date>
+  &lt;contentUpdateDate>1536847192000&lt;/contentUpdateDate>
+  &lt;version>17.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d35 1
+a35 1
+It's recommended to work through [[projects]] previous to this Tutorial.&amp;#xd;
+@
+
+
+16.6
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536847184000&lt;/date>
+  &lt;contentUpdateDate>1536847184000&lt;/contentUpdateDate>
+  &lt;version>16.6&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+d35 1
+a35 1
+It's recommended to work through [[Projects]] previous to this Tutorial.&amp;#xd;
+@
+
+
+16.5
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1536841383000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1536847151000&lt;/date>
+  &lt;contentUpdateDate>1536847151000&lt;/contentUpdateDate>
+  &lt;version>16.5&lt;/version>
+  &lt;title>Getting Started with ROS in MATLAB/SIMULINK&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+= **Introduction** =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.&amp;#xd;
+&amp;#xd;
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink.&amp;#xd;
+And how to let your ROS-nodes communicate with each other when they are located on different platforms.&amp;#xd;
+&amp;#xd;
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed.&amp;#xd;
+It's recommended to work through [[Projekte]] previous to this Tutorial.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+16.4
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536847122000&lt;/date>
+  &lt;contentUpdateDate>1536847122000&lt;/contentUpdateDate>
+  &lt;version>16.4&lt;/version>
+d35 1
+a35 1
+It's recommended to work through [[Projects]] previous to this Tutorial.&amp;#xd;
+@
+
+
+16.3
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536847050000&lt;/date>
+  &lt;contentUpdateDate>1536847050000&lt;/contentUpdateDate>
+  &lt;version>16.3&lt;/version>
+d35 1
+a35 1
+It's recommended to work through [[subwiki:Projects]] previous to this Tutorial.&amp;#xd;
+@
+
+
+16.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536846892000&lt;/date>
+  &lt;contentUpdateDate>1536846892000&lt;/contentUpdateDate>
+  &lt;version>16.2&lt;/version>
+d35 1
+a35 1
+It's recommended to work through [[Projects]] previous to this Tutorial.&amp;#xd;
+@
+
+
+16.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536846839000&lt;/date>
+  &lt;contentUpdateDate>1536846839000&lt;/contentUpdateDate>
+  &lt;version>16.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d35 1
+a35 1
+It's recommended to work through [[Main]] previous to this Tutorial.&amp;#xd;
+@
+
+
+15.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1536841383000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1536846826000&lt;/date>
+  &lt;contentUpdateDate>1536846826000&lt;/contentUpdateDate>
+  &lt;version>15.1&lt;/version>
+  &lt;title>Getting Started with ROS in MATLAB/SIMULINK&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+= **Introduction** =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.&amp;#xd;
+&amp;#xd;
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink.&amp;#xd;
+And how to let your ROS-nodes communicate with each other when they are located on different platforms.&amp;#xd;
+&amp;#xd;
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed.&amp;#xd;
+It's recommended to work through [[MAIN]] previous to this Tutorial.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+14.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536846757000&lt;/date>
+  &lt;contentUpdateDate>1536846757000&lt;/contentUpdateDate>
+  &lt;version>14.1&lt;/version>
+d21 17
+a37 17
+  &lt;content>{{velocity}}
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}
+{{/velocity}}
+
+= **Introduction** =
+
+----
+
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.
+
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink.
+And how to let your ROS-nodes communicate with each other when they are located on different platforms.
+
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed.
+It's recommended to work through [[Main.Projekte.MoRoP.ROS GettingStarted]] previous to this Tutorial.
+
+
+@
+
+
+13.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536846685000&lt;/date>
+  &lt;contentUpdateDate>1536846685000&lt;/contentUpdateDate>
+  &lt;version>13.1&lt;/version>
+d21 17
+a37 17
+  &lt;content>{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+= **Introduction** =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.&amp;#xd;
+&amp;#xd;
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink.&amp;#xd;
+And how to let your ROS-nodes communicate with each other when they are located on different platforms.&amp;#xd;
+&amp;#xd;
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed.&amp;#xd;
+It's recommended to work through [[Projekte.MoRoP.ROS GettingStarted]] previous to this Tutorial.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+@
+
+
+12.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536846619000&lt;/date>
+  &lt;contentUpdateDate>1536846619000&lt;/contentUpdateDate>
+  &lt;version>12.1&lt;/version>
+d35 1
+a35 1
+It's recommended to work through [[Projekte.MoRoP.ROSGettingStarted]] previous to this Tutorial.&amp;#xd;
+@
+
+
+11.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536846604000&lt;/date>
+  &lt;contentUpdateDate>1536846604000&lt;/contentUpdateDate>
+  &lt;version>11.1&lt;/version>
+d35 1
+a35 1
+It's recommended to work through [[Projekte.MoRoP.ROS GettingStarted]] previous to this Tutorial.&amp;#xd;
+@
+
+
+10.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1536841383000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1536846517000&lt;/date>
+  &lt;contentUpdateDate>1536846517000&lt;/contentUpdateDate>
+  &lt;version>10.1&lt;/version>
+  &lt;title>Getting Started with ROS in MATLAB/SIMULINK&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+= **Introduction** =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.&amp;#xd;
+&amp;#xd;
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink.&amp;#xd;
+And how to let your ROS-nodes communicate with each other when they are located on different platforms.&amp;#xd;
+&amp;#xd;
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed.&amp;#xd;
+It's recommended to work through [[ ROS GettingStarted ]] previous to this Tutorial.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+9.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536846461000&lt;/date>
+  &lt;contentUpdateDate>1536846461000&lt;/contentUpdateDate>
+  &lt;version>9.1&lt;/version>
+d35 1
+a35 1
+It's recommended to work through [[ROS GettingStarted]] previous to this Tutorial.&amp;#xd;
+@
+
+
+8.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536846048000&lt;/date>
+  &lt;contentUpdateDate>1536846048000&lt;/contentUpdateDate>
+  &lt;version>8.1&lt;/version>
+d21 17
+a37 16
+  &lt;content>{{velocity}}
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}
+{{/velocity}}
+
+= **Introduction** =
+
+----
+
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.
+
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink.
+And how to let your ROS-nodes communicate with each other when they are located on different platforms.
+
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed.
+
+
+@
+
+
+7.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536845999000&lt;/date&gt;
+  &lt;contentUpdateDate>1536845999000&lt;/contentUpdateDate>
+  &lt;version>7.1&lt;/version>
+d21 17
+a37 16
+  &lt;content>{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+= **Introduction** =&amp;#xd;
+&amp;#xd;
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.&amp;#xd;
+&amp;#xd;
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink.&amp;#xd;
+And how to let your ROS-nodes communicate with each other when they are located on different platforms.&amp;#xd;
+&amp;#xd;
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&lt;/content>
+@
+
+
+6.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536844496000&lt;/date>
+  &lt;contentUpdateDate>1536844496000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+d25 12
+a36 1
+=**Introduction**=&lt;/content>
+@
+
+
+5.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation&gt;
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1536841383000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1536844427000&lt;/date>
+  &lt;contentUpdateDate>1536844427000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+  &lt;title>Getting Started with ROS in MATLAB/SIMULINK&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+_Introduction_&lt;/content>
+&lt;/xwikidoc>@
+
+
+4.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536844407000&lt;/date>
+  &lt;contentUpdateDate>1536844407000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+d21 1
+a21 2
+  &lt;content>&amp;#xd;
+{{velocity}}&amp;#xd;
+d25 1
+a25 1
+--Introduction--&lt;/content>
+@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536841633000&lt;/date>
+  &lt;contentUpdateDate>1536841633000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d21 6
+a26 1
+  &lt;content>TEST&lt;/content>
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536841405000&lt;/date>
+  &lt;contentUpdateDate>1536841405000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d21 1
+a21 1
+  &lt;content/>
+@
+
+
+1.1
+log
+@@
+text
+@d13 4
+a16 4
+  &lt;date>1536841383000&lt;/date>
+  &lt;contentUpdateDate>1536841383000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+  &lt;title>Getting Started with ROS ind MATLAB/SIMULINK&lt;/title>
+@
+</versions>
+  <parent>xwiki:Allgemein.Hilfestellungen.ROS.ROS Advanced.ROS + Matlab.WebHome</parent>
+  <author>XWiki.SvenHoyer</author>
+  <contentAuthor>XWiki.SvenHoyer</contentAuthor>
+  <date>1573550355000</date>
+  <contentUpdateDate>1540978561000</contentUpdateDate>
+  <version>26.2</version>
+  <title>Getting Started with ROS in MATLAB/SIMULINK</title>
+  <comment>Updated parent field.</comment>
+  <minorEdit>true</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>image:HeaderROSMathworks.PNG
+
+{{velocity}}
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}
+{{/velocity}}
+
+= **Introduction** =
+
+----
+
+With all the available tools and possibilities which come with ROS. MATLAB/SIMULINK gives us an additional range of solutions for testing and implementing new ROS nodes in our ROS environment. Also the handling of ROS Nodes with MATLAB/SIMULINK is a little less abstract.
+
+What we will do in this Tutorial to get a good idea of how ROS Works with Matlab and Simulink. And how to let your ROS-nodes communicate with each other when they are located on different platforms. (We use MATLAB but start our ROS-core and other nodes in a Virtual machine.)
+
+To perform this Tutorial the official "Robotics System Toolbox" from MATLAB/SIMULINK needs to be installed. It's recommended to work through [[ROSGettingStarted>>http://wiki.lit.fh-dortmund.de/bin/view/Projects/MoRoP/ROS%20GettingStarted/]] previous to this Tutorial.
+Additional you can work through the tutorials provided in the MathWorks documentation:
+[[MathWorks - Get started with ROS>>https://de.mathworks.com/help/robotics/examples/get-started-with-ros.html]] and the subsequent tutorials.
+Those tutorials focus on the solely Work with MATLAB/SIMULINK without the use of other platforms.
+
+In the beginning we will start a simple ROS network with our roscore on a virtual Linux-machine and a global MATLAB-node on our Host-System and will create a simple Publisher and Subscriber who will perform cross-platform communication.
+
+
+ </content>
+  <attachment>
+    <filename>HeaderROSMathworks.PNG</filename>
+    <versions/>
+    <mimetype>image/png</mimetype>
+    <author>XWiki.SvenHoyer</author>
+    <date>1542871035000</date>
+    <version>1.3</version>
+    <comment/>
+    <content/>
+    <filesize>0</filesize>
+  </attachment>
+</xwikidoc>

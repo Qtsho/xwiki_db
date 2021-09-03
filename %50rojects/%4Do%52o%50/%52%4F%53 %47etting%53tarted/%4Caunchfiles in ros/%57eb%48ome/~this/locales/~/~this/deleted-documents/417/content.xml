@@ -1,0 +1,1131 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Launchfiles in ros.WebHome" locale="">
+  <web>Projects.MoRoP.ROS GettingStarted.Launchfiles in ros</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.DavidDudzik</creator>
+  <creationDate>1547555484000</creationDate>
+  <versions>head	15.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+15.1
+date	2019.02.21.11.34.56;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	14.1;
+
+14.1
+date	2019.02.21.09.04.56;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	13.1;
+
+13.1
+date	2019.02.21.09.03.46;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	12.1;
+
+12.1
+date	2019.02.21.09.03.23;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	11.1;
+
+11.1
+date	2019.02.21.08.57.45;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	10.1;
+
+10.1
+date	2019.02.21.08.55.58;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	9.1;
+
+9.1
+date	2019.02.21.08.55.13;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	8.1;
+
+8.1
+date	2019.02.21.08.54.06;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	7.1;
+
+7.1
+date	2019.02.21.08.53.38;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2019.02.21.08.44.48;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2019.01.15.13.16.21;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	4.1;
+
+4.1
+date	2019.01.15.12.47.03;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	3.3;
+
+3.3
+date	2019.01.15.12.45.50;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	3.2;
+
+3.2
+date	2019.01.15.12.43.28;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2019.01.15.12.38.21;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2019.01.15.12.33.18;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2019.01.15.12.31.24;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+15.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Launchfiles in ros.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Launchfiles in ros&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1547555484000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1550748896000&lt;/date>
+  &lt;contentUpdateDate>1550748896000&lt;/contentUpdateDate>
+  &lt;version>15.1&lt;/version>
+  &lt;title>Launchfiles in ros&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>**Sitemap**
+
+----
+
+{{toc start="1" depth="6" numbered="false" scope="page"/}}
+
+
+
+
+
+= Launchfiles in ROS =
+
+----
+
+When many nodes have to be launched at the same time, eg starting a complex robot, it can get very confusing and unhandy to do this all by hand. It is not only about launching all the nodes, further more it is about to pass a correct  configuration to the nodes. For this case, ROS provides so called launchfiles. These are XML-files in which the start procedure is written down.
+
+
+(% class="box" %)
+(((
+Note: A launch file does not need a running master, because the launching-mechanism checks if there is a master or not. If no master is detected, it launches one.
+)))
+
+An active launch file-process is stopped by pressing **[Ctrl]+[C] **in the approprichiate terminal.
+
+
+All further feautures of launchfiles are going to be discussed in the following examples. 
+
+
+== Example 6: Adjusting the Namespace ==
+
+----
+
+To stick to the previous section, this one starts with the adjustment of the namespace of a node and the remapping of a service. So far, there are two options known (in the terminal and in the source-code). This example, even it seems trival, should not be underestimated, because remapping, switching between namespaces and assign other node-names requires excat workig, especially in lager networks. Even one mistake can bring down the whole network when an important node can not be assigned.
+
+For demonstration purpose the two nodes from the example "server-client-adder" are used. The goal will be to launch the server in a new namespace, but talk to the service without changing setting of the client. This means, a remapping of the service will be necessary.
+
+The XML-file, respectively the launchfile, can be stored anywhere. Nevertheless it makes sense to stick to the ROS structure and store the launchfile in a related package folder.
+
+Following, the source-code, that will fit to the previous Goals.
+
+
+(% class="box infomessage" %)
+(((
+&amp;lt;launch>
+    &amp;lt;node   pkg = "calculator" type = "server" name = "CalcServer" ns = "another_namespace/in_just_another">
+        &amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />
+    &amp;lt;/node>
+&amp;lt;/launch>
+ 
+)))
+
+(% class="box" %)
+(((
+note:  
+         pgk =   "package-name"
+         type=   "executable-name"
+         name= "node-name"
+)))
+
+
+Every launchfile has to beginn with (% class="mark" %)&amp;lt;launch> (%%)and to end with(% class="mark" %) &amp;lt;/launch>(%%). In this example, a node is called first. The specification is made with the declaration of the package, the type (the executable) and the Name.
+
+These three arguments are the minimum requirements. Further, additional parameters can be set, for example the specification of the namespace, like in the above code snippet. This command will launch a node called "CalcServer" from type "server", provided by the package "calculator", in the namespace "another_namepace/in_just_another". This means, the service "calculate" will be availible under ""/another_namespace/in_just_another/CalcServer/calculate". The client node will be launched in the default namespace and will not be able to acsess the service without a remapping operation from the commandline. To reverse namespace changing for the service, a remap will be executed for the service of the Server.
+
+
+The operation is located between (% class="mark" %)&amp;lt;node>(%%) and (% class="mark" %)&amp;lt;/node>(%%). The generic structure is:
+
+(% class="box infomessage" %)
+(((
+&amp;lt;remap from = "namespace_X/object" to = "namespace_Y/object"/>
+)))
+
+In this case, the service, or more generic, the object should be remapped from the namespace "/another_namespace/in_just_another/CalcServer/" to the default namespace "/".
+
+
+(% class="box infomessage" %)
+(((
+&amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />
+)))
+
+ Now, the client node can be used without any issues or modifing Parameters.&lt;/content>
+&lt;/xwikidoc>@
+
+
+14.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550739896000&lt;/date>
+  &lt;contentUpdateDate>1550739896000&lt;/contentUpdateDate>
+  &lt;version>14.1&lt;/version>
+d21 80
+a100 76
+  &lt;content>{{toc start="1" depth="6" numbered="false" scope="page"/}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= Launchfiles in ROS =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+When many nodes have to be launched at the same time, eg starting a complex robot, it can get very confusing and unhandy to do this all by hand. It is not only about launching all the nodes, further more it is about to pass a correct  configuration to the nodes. For this case, ROS provides so called launchfiles. These are XML-files in which the start procedure is written down.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+Note: A launch file does not need a running master, because the launching-mechanism checks if there is a master or not. If no master is detected, it launches one.&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+An active launch file-process is stopped by pressing **[Ctrl]+[C] **in the approprichiate terminal.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+All further feautures of launchfiles are going to be discussed in the following examples. &amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== Example 6: Adjusting the Namespace ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+To stick to the previous section, this one starts with the adjustment of the namespace of a node and the remapping of a service. So far, there are two options known (in the terminal and in the source-code). This example, even it seems trival, should not be underestimated, because remapping, switching between namespaces and assign other node-names requires excat workig, especially in lager networks. Even one mistake can bring down the whole network when an important node can not be assigned.&amp;#xd;
+&amp;#xd;
+For demonstration purpose the two nodes from the example "server-client-adder" are used. The goal will be to launch the server in a new namespace, but talk to the service without changing setting of the client. This means, a remapping of the service will be necessary.&amp;#xd;
+&amp;#xd;
+The XML-file, respectively the launchfile, can be stored anywhere. Nevertheless it makes sense to stick to the ROS structure and store the launchfile in a related package folder.&amp;#xd;
+&amp;#xd;
+Following, the source-code, that will fit to the previous Goals.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+&amp;lt;launch>&amp;#xd;
+    &amp;lt;node   pkg = "calculator" type = "server" name = "CalcServer" ns = "another_namespace/in_just_another">&amp;#xd;
+        &amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />&amp;#xd;
+    &amp;lt;/node>&amp;#xd;
+&amp;lt;/launch>&amp;#xd;
+ &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+note:  &amp;#xd;
+         pgk =   "package-name"&amp;#xd;
+         type=   "executable-name"&amp;#xd;
+         name= "node-name"&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Every launchfile has to beginn with (% class="mark" %)&amp;lt;launch> (%%)and to end with(% class="mark" %) &amp;lt;/launch>(%%). In this example, a node is called first. The specification is made with the declaration of the package, the type (the executable) and the Name.&amp;#xd;
+&amp;#xd;
+These three arguments are the minimum requirements. Further, additional parameters can be set, for example the specification of the namespace, like in the above code snippet. This command will launch a node called "CalcServer" from type "server", provided by the package "calculator", in the namespace "another_namepace/in_just_another". This means, the service "calculate" will be availible under ""/another_namespace/in_just_another/CalcServer/calculate". The client node will be launched in the default namespace and will not be able to acsess the service without a remapping operation from the commandline. To reverse namespace changing for the service, a remap will be executed for the service of the Server.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The operation is located between (% class="mark" %)&amp;lt;node>(%%) and (% class="mark" %)&amp;lt;/node>(%%). The generic structure is:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+&amp;lt;remap from = "namespace_X/object" to = "namespace_Y/object"/>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+In this case, the service, or more generic, the object should be remapped from the namespace "/another_namespace/in_just_another/CalcServer/" to the default namespace "/".&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+&amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+@
+
+
+13.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Launchfiles in ros.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Launchfiles in ros&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1547555484000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1550739826000&lt;/date>
+  &lt;contentUpdateDate>1550739826000&lt;/contentUpdateDate>
+  &lt;version>13.1&lt;/version>
+  &lt;title>Launchfiles in ros&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{toc start="2" depth="6" numbered="false" scope="page"/}}
+
+ 
+
+ 
+
+
+
+= Launchfiles in ROS =
+
+----
+
+When many nodes have to be launched at the same time, eg starting a complex robot, it can get very confusing and unhandy to do this all by hand. It is not only about launching all the nodes, further more it is about to pass a correct  configuration to the nodes. For this case, ROS provides so called launchfiles. These are XML-files in which the start procedure is written down.
+
+
+(% class="box" %)
+(((
+Note: A launch file does not need a running master, because the launching-mechanism checks if there is a master or not. If no master is detected, it launches one.
+)))
+
+An active launch file-process is stopped by pressing **[Ctrl]+[C] **in the approprichiate terminal.
+
+
+All further feautures of launchfiles are going to be discussed in the following examples. 
+
+
+== Example 6: Adjusting the Namespace ==
+
+----
+
+To stick to the previous section, this one starts with the adjustment of the namespace of a node and the remapping of a service. So far, there are two options known (in the terminal and in the source-code). This example, even it seems trival, should not be underestimated, because remapping, switching between namespaces and assign other node-names requires excat workig, especially in lager networks. Even one mistake can bring down the whole network when an important node can not be assigned.
+
+For demonstration purpose the two nodes from the example "server-client-adder" are used. The goal will be to launch the server in a new namespace, but talk to the service without changing setting of the client. This means, a remapping of the service will be necessary.
+
+The XML-file, respectively the launchfile, can be stored anywhere. Nevertheless it makes sense to stick to the ROS structure and store the launchfile in a related package folder.
+
+Following, the source-code, that will fit to the previous Goals.
+
+
+(% class="box infomessage" %)
+(((
+&amp;lt;launch>
+    &amp;lt;node   pkg = "calculator" type = "server" name = "CalcServer" ns = "another_namespace/in_just_another">
+        &amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />
+    &amp;lt;/node>
+&amp;lt;/launch>
+ 
+)))
+
+(% class="box" %)
+(((
+note:  
+         pgk =   "package-name"
+         type=   "executable-name"
+         name= "node-name"
+)))
+
+
+Every launchfile has to beginn with (% class="mark" %)&amp;lt;launch> (%%)and to end with(% class="mark" %) &amp;lt;/launch>(%%). In this example, a node is called first. The specification is made with the declaration of the package, the type (the executable) and the Name.
+
+These three arguments are the minimum requirements. Further, additional parameters can be set, for example the specification of the namespace, like in the above code snippet. This command will launch a node called "CalcServer" from type "server", provided by the package "calculator", in the namespace "another_namepace/in_just_another". This means, the service "calculate" will be availible under ""/another_namespace/in_just_another/CalcServer/calculate". The client node will be launched in the default namespace and will not be able to acsess the service without a remapping operation from the commandline. To reverse namespace changing for the service, a remap will be executed for the service of the Server.
+
+
+The operation is located between (% class="mark" %)&amp;lt;node>(%%) and (% class="mark" %)&amp;lt;/node>(%%). The generic structure is:
+
+(% class="box infomessage" %)
+(((
+&amp;lt;remap from = "namespace_X/object" to = "namespace_Y/object"/>
+)))
+
+In this case, the service, or more generic, the object should be remapped from the namespace "/another_namespace/in_just_another/CalcServer/" to the default namespace "/".
+
+
+(% class="box infomessage" %)
+(((
+&amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />
+)))
+
+ Now, the client node can be used without any issues or modifing Parameters.&lt;/content>
+&lt;/xwikidoc>@
+
+
+12.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550739803000&lt;/date>
+  &lt;contentUpdateDate>1550739803000&lt;/contentUpdateDate>
+  &lt;version>12.1&lt;/version>
+d21 78
+a98 78
+  &lt;content>{{toc start=2 depth=6 numbered=false scope=page /}}&amp;#xd;
+= Launchfiles in ROS&amp;#xd;
+== Example 6: Adjusting the Namespace&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= Launchfiles in ROS =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+When many nodes have to be launched at the same time, eg starting a complex robot, it can get very confusing and unhandy to do this all by hand. It is not only about launching all the nodes, further more it is about to pass a correct  configuration to the nodes. For this case, ROS provides so called launchfiles. These are XML-files in which the start procedure is written down.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+Note: A launch file does not need a running master, because the launching-mechanism checks if there is a master or not. If no master is detected, it launches one.&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+An active launch file-process is stopped by pressing **[Ctrl]+[C] **in the approprichiate terminal.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+All further feautures of launchfiles are going to be discussed in the following examples. &amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== Example 6: Adjusting the Namespace ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+To stick to the previous section, this one starts with the adjustment of the namespace of a node and the remapping of a service. So far, there are two options known (in the terminal and in the source-code). This example, even it seems trival, should not be underestimated, because remapping, switching between namespaces and assign other node-names requires excat workig, especially in lager networks. Even one mistake can bring down the whole network when an important node can not be assigned.&amp;#xd;
+&amp;#xd;
+For demonstration purpose the two nodes from the example "server-client-adder" are used. The goal will be to launch the server in a new namespace, but talk to the service without changing setting of the client. This means, a remapping of the service will be necessary.&amp;#xd;
+&amp;#xd;
+The XML-file, respectively the launchfile, can be stored anywhere. Nevertheless it makes sense to stick to the ROS structure and store the launchfile in a related package folder.&amp;#xd;
+&amp;#xd;
+Following, the source-code, that will fit to the previous Goals.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+&amp;lt;launch>&amp;#xd;
+    &amp;lt;node   pkg = "calculator" type = "server" name = "CalcServer" ns = "another_namespace/in_just_another">&amp;#xd;
+        &amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />&amp;#xd;
+    &amp;lt;/node>&amp;#xd;
+&amp;lt;/launch>&amp;#xd;
+ &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+note:  &amp;#xd;
+         pgk =   "package-name"&amp;#xd;
+         type=   "executable-name"&amp;#xd;
+         name= "node-name"&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Every launchfile has to beginn with (% class="mark" %)&amp;lt;launch> (%%)and to end with(% class="mark" %) &amp;lt;/launch>(%%). In this example, a node is called first. The specification is made with the declaration of the package, the type (the executable) and the Name.&amp;#xd;
+&amp;#xd;
+These three arguments are the minimum requirements. Further, additional parameters can be set, for example the specification of the namespace, like in the above code snippet. This command will launch a node called "CalcServer" from type "server", provided by the package "calculator", in the namespace "another_namepace/in_just_another". This means, the service "calculate" will be availible under ""/another_namespace/in_just_another/CalcServer/calculate". The client node will be launched in the default namespace and will not be able to acsess the service without a remapping operation from the commandline. To reverse namespace changing for the service, a remap will be executed for the service of the Server.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The operation is located between (% class="mark" %)&amp;lt;node>(%%) and (% class="mark" %)&amp;lt;/node>(%%). The generic structure is:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+&amp;lt;remap from = "namespace_X/object" to = "namespace_Y/object"/>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+In this case, the service, or more generic, the object should be remapped from the namespace "/another_namespace/in_just_another/CalcServer/" to the default namespace "/".&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+&amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+@
+
+
+11.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550739465000&lt;/date>
+  &lt;contentUpdateDate>1550739465000&lt;/contentUpdateDate>
+  &lt;version>11.1&lt;/version>
+d21 78
+a98 74
+  &lt;content>{{toc depth="2"/}}
+
+=   =
+
+= Launchfiles in ROS =
+
+----
+
+When many nodes have to be launched at the same time, eg starting a complex robot, it can get very confusing and unhandy to do this all by hand. It is not only about launching all the nodes, further more it is about to pass a correct  configuration to the nodes. For this case, ROS provides so called launchfiles. These are XML-files in which the start procedure is written down.
+
+
+(% class="box" %)
+(((
+Note: A launch file does not need a running master, because the launching-mechanism checks if there is a master or not. If no master is detected, it launches one.
+)))
+
+An active launch file-process is stopped by pressing **[Ctrl]+[C] **in the approprichiate terminal.
+
+
+All further feautures of launchfiles are going to be discussed in the following examples. 
+
+
+== Example 6: Adjusting the Namespace ==
+
+----
+
+To stick to the previous section, this one starts with the adjustment of the namespace of a node and the remapping of a service. So far, there are two options known (in the terminal and in the source-code). This example, even it seems trival, should not be underestimated, because remapping, switching between namespaces and assign other node-names requires excat workig, especially in lager networks. Even one mistake can bring down the whole network when an important node can not be assigned.
+
+For demonstration purpose the two nodes from the example "server-client-adder" are used. The goal will be to launch the server in a new namespace, but talk to the service without changing setting of the client. This means, a remapping of the service will be necessary.
+
+The XML-file, respectively the launchfile, can be stored anywhere. Nevertheless it makes sense to stick to the ROS structure and store the launchfile in a related package folder.
+
+Following, the source-code, that will fit to the previous Goals.
+
+
+(% class="box infomessage" %)
+(((
+&amp;lt;launch>
+    &amp;lt;node   pkg = "calculator" type = "server" name = "CalcServer" ns = "another_namespace/in_just_another">
+        &amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />
+    &amp;lt;/node>
+&amp;lt;/launch>
+ 
+)))
+
+(% class="box" %)
+(((
+note:  
+         pgk =   "package-name"
+         type=   "executable-name"
+         name= "node-name"
+)))
+
+
+Every launchfile has to beginn with (% class="mark" %)&amp;lt;launch> (%%)and to end with(% class="mark" %) &amp;lt;/launch>(%%). In this example, a node is called first. The specification is made with the declaration of the package, the type (the executable) and the Name.
+
+These three arguments are the minimum requirements. Further, additional parameters can be set, for example the specification of the namespace, like in the above code snippet. This command will launch a node called "CalcServer" from type "server", provided by the package "calculator", in the namespace "another_namepace/in_just_another". This means, the service "calculate" will be availible under ""/another_namespace/in_just_another/CalcServer/calculate". The client node will be launched in the default namespace and will not be able to acsess the service without a remapping operation from the commandline. To reverse namespace changing for the service, a remap will be executed for the service of the Server.
+
+
+The operation is located between (% class="mark" %)&amp;lt;node>(%%) and (% class="mark" %)&amp;lt;/node>(%%). The generic structure is:
+
+(% class="box infomessage" %)
+(((
+&amp;lt;remap from = "namespace_X/object" to = "namespace_Y/object"/>
+)))
+
+In this case, the service, or more generic, the object should be remapped from the namespace "/another_namespace/in_just_another/CalcServer/" to the default namespace "/".
+
+
+(% class="box infomessage" %)
+(((
+&amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />
+)))
+
+@
+
+
+10.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550739358000&lt;/date>
+  &lt;contentUpdateDate>1550739358000&lt;/contentUpdateDate>
+  &lt;version>10.1&lt;/version>
+d21 1
+a21 1
+  &lt;content>{{toc/}}
+a22 1
+(% class="wikigeneratedid" %)
+@
+
+
+9.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550739313000&lt;/date>
+  &lt;contentUpdateDate>1550739313000&lt;/contentUpdateDate>
+  &lt;version>9.1&lt;/version>
+d21 75
+a95 74
+  &lt;content>{{toc/}}&amp;#xd;
+&amp;#xd;
+= Launchfiles in ROS =&amp;#xd;
+&amp;#xd;
+== Example 6: Adjusting the Namespace&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+When many nodes have to be launched at the same time, eg starting a complex robot, it can get very confusing and unhandy to do this all by hand. It is not only about launching all the nodes, further more it is about to pass a correct  configuration to the nodes. For this case, ROS provides so called launchfiles. These are XML-files in which the start procedure is written down.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+Note: A launch file does not need a running master, because the launching-mechanism checks if there is a master or not. If no master is detected, it launches one.&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+An active launch file-process is stopped by pressing **[Ctrl]+[C] **in the approprichiate terminal.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+All further feautures of launchfiles are going to be discussed in the following examples. &amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== Example 6: Adjusting the Namespace ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+To stick to the previous section, this one starts with the adjustment of the namespace of a node and the remapping of a service. So far, there are two options known (in the terminal and in the source-code). This example, even it seems trival, should not be underestimated, because remapping, switching between namespaces and assign other node-names requires excat workig, especially in lager networks. Even one mistake can bring down the whole network when an important node can not be assigned.&amp;#xd;
+&amp;#xd;
+For demonstration purpose the two nodes from the example "server-client-adder" are used. The goal will be to launch the server in a new namespace, but talk to the service without changing setting of the client. This means, a remapping of the service will be necessary.&amp;#xd;
+&amp;#xd;
+The XML-file, respectively the launchfile, can be stored anywhere. Nevertheless it makes sense to stick to the ROS structure and store the launchfile in a related package folder.&amp;#xd;
+&amp;#xd;
+Following, the source-code, that will fit to the previous Goals.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+&amp;lt;launch>&amp;#xd;
+    &amp;lt;node   pkg = "calculator" type = "server" name = "CalcServer" ns = "another_namespace/in_just_another">&amp;#xd;
+        &amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />&amp;#xd;
+    &amp;lt;/node>&amp;#xd;
+&amp;lt;/launch>&amp;#xd;
+ &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+note:  &amp;#xd;
+         pgk =   "package-name"&amp;#xd;
+         type=   "executable-name"&amp;#xd;
+         name= "node-name"&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Every launchfile has to beginn with (% class="mark" %)&amp;lt;launch> (%%)and to end with(% class="mark" %) &amp;lt;/launch>(%%). In this example, a node is called first. The specification is made with the declaration of the package, the type (the executable) and the Name.&amp;#xd;
+&amp;#xd;
+These three arguments are the minimum requirements. Further, additional parameters can be set, for example the specification of the namespace, like in the above code snippet. This command will launch a node called "CalcServer" from type "server", provided by the package "calculator", in the namespace "another_namepace/in_just_another". This means, the service "calculate" will be availible under ""/another_namespace/in_just_another/CalcServer/calculate". The client node will be launched in the default namespace and will not be able to acsess the service without a remapping operation from the commandline. To reverse namespace changing for the service, a remap will be executed for the service of the Server.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The operation is located between (% class="mark" %)&amp;lt;node>(%%) and (% class="mark" %)&amp;lt;/node>(%%). The generic structure is:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+&amp;lt;remap from = "namespace_X/object" to = "namespace_Y/object"/>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+In this case, the service, or more generic, the object should be remapped from the namespace "/another_namespace/in_just_another/CalcServer/" to the default namespace "/".&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+&amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+@
+
+
+8.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Launchfiles in ros.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Launchfiles in ros&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1547555484000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1550739246000&lt;/date>
+  &lt;contentUpdateDate>1550739246000&lt;/contentUpdateDate>
+  &lt;version>8.1&lt;/version>
+  &lt;title>Launchfiles in ros&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{toc/}}
+
+= Launchfiles in ROS =
+
+== Example 6: Adjusting the Namespace ==
+
+----
+
+When many nodes have to be launched at the same time, eg starting a complex robot, it can get very confusing and unhandy to do this all by hand. It is not only about launching all the nodes, further more it is about to pass a correct  configuration to the nodes. For this case, ROS provides so called launchfiles. These are XML-files in which the start procedure is written down.
+
+
+(% class="box" %)
+(((
+Note: A launch file does not need a running master, because the launching-mechanism checks if there is a master or not. If no master is detected, it launches one.
+)))
+
+An active launch file-process is stopped by pressing **[Ctrl]+[C] **in the approprichiate terminal.
+
+
+All further feautures of launchfiles are going to be discussed in the following examples. 
+
+
+== Example 6: Adjusting the Namespace ==
+
+----
+
+To stick to the previous section, this one starts with the adjustment of the namespace of a node and the remapping of a service. So far, there are two options known (in the terminal and in the source-code). This example, even it seems trival, should not be underestimated, because remapping, switching between namespaces and assign other node-names requires excat workig, especially in lager networks. Even one mistake can bring down the whole network when an important node can not be assigned.
+
+For demonstration purpose the two nodes from the example "server-client-adder" are used. The goal will be to launch the server in a new namespace, but talk to the service without changing setting of the client. This means, a remapping of the service will be necessary.
+
+The XML-file, respectively the launchfile, can be stored anywhere. Nevertheless it makes sense to stick to the ROS structure and store the launchfile in a related package folder.
+
+Following, the source-code, that will fit to the previous Goals.
+
+
+(% class="box infomessage" %)
+(((
+&amp;lt;launch>
+    &amp;lt;node   pkg = "calculator" type = "server" name = "CalcServer" ns = "another_namespace/in_just_another">
+        &amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />
+    &amp;lt;/node>
+&amp;lt;/launch>
+ 
+)))
+
+(% class="box" %)
+(((
+note:  
+         pgk =   "package-name"
+         type=   "executable-name"
+         name= "node-name"
+)))
+
+
+Every launchfile has to beginn with (% class="mark" %)&amp;lt;launch> (%%)and to end with(% class="mark" %) &amp;lt;/launch>(%%). In this example, a node is called first. The specification is made with the declaration of the package, the type (the executable) and the Name.
+
+These three arguments are the minimum requirements. Further, additional parameters can be set, for example the specification of the namespace, like in the above code snippet. This command will launch a node called "CalcServer" from type "server", provided by the package "calculator", in the namespace "another_namepace/in_just_another". This means, the service "calculate" will be availible under ""/another_namespace/in_just_another/CalcServer/calculate". The client node will be launched in the default namespace and will not be able to acsess the service without a remapping operation from the commandline. To reverse namespace changing for the service, a remap will be executed for the service of the Server.
+
+
+The operation is located between (% class="mark" %)&amp;lt;node>(%%) and (% class="mark" %)&amp;lt;/node>(%%). The generic structure is:
+
+(% class="box infomessage" %)
+(((
+&amp;lt;remap from = "namespace_X/object" to = "namespace_Y/object"/>
+)))
+
+In this case, the service, or more generic, the object should be remapped from the namespace "/another_namespace/in_just_another/CalcServer/" to the default namespace "/".
+
+
+(% class="box infomessage" %)
+(((
+&amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />
+)))
+
+ Now, the client node can be used without any issues or modifing Parameters.&lt;/content>
+&lt;/xwikidoc>@
+
+
+7.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550739218000&lt;/date>
+  &lt;contentUpdateDate>1550739218000&lt;/contentUpdateDate>
+  &lt;version>7.1&lt;/version>
+d21 1
+a21 2
+  &lt;content>
+{{toc start="2" depth="6" numbered="fase" scope="page"/}}
+a22 2
+{{toc/}}
+
+@
+
+
+6.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550738688000&lt;/date>
+  &lt;contentUpdateDate>1550738688000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+d21 2
+a22 1
+  &lt;content> 
+a23 2
+
+
+d26 1
+d28 1
+a31 6
+
+
+== Launchfiles in ROS ==
+
+----
+
+@
+
+
+5.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1547558181000&lt;/date>
+  &lt;contentUpdateDate>1547558181000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+a22 1
+**Sitemap**
+d25 1
+a25 2
+* [[Launchfiles in ROS>>attach:Launchfiles in ROS]]
+** Example 6: Adjusting the Namespace
+d27 2
+@
+
+
+4.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1547556423000&lt;/date>
+  &lt;contentUpdateDate>1547556423000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+d74 7
+a80 1
+Every launchfile has to beginn with (% class="mark" %)&amp;lt;launch> (%%)and to end with(% class="mark" %) &amp;lt;/launch>(%%). In this example, a node is called first. The specification is made with the declaration of the package, the type (the executable) and the Name.
+d82 3
+@
+
+
+3.3
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Launchfiles in ros.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Launchfiles in ros&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1547555484000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1547556350000&lt;/date>
+  &lt;contentUpdateDate>1547556350000&lt;/contentUpdateDate>
+  &lt;version>3.3&lt;/version>
+  &lt;title>Launchfiles in ros&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content> 
+
+**Sitemap**
+
+
+* [[Launchfiles in ROS>>attach:Launchfiles in ROS]]
+** Example 6: Adjusting the Namespace
+
+----
+
+
+
+== Launchfiles in ROS ==
+
+----
+
+When many nodes have to be launched at the same time, eg starting a complex robot, it can get very confusing and unhandy to do this all by hand. It is not only about launching all the nodes, further more it is about to pass a correct  configuration to the nodes. For this case, ROS provides so called launchfiles. These are XML-files in which the start procedure is written down.
+
+
+(% class="box" %)
+(((
+Note: A launch file does not need a running master, because the launching-mechanism checks if there is a master or not. If no master is detected, it launches one.
+)))
+
+An active launch file-process is stopped by pressing **[Ctrl]+[C] **in the approprichiate terminal.
+
+
+All further feautures of launchfiles are going to be discussed in the following examples. 
+
+
+== Example 6: Adjusting the Namespace ==
+
+----
+
+To stick to the previous section, this one starts with the adjustment of the namespace of a node and the remapping of a service. So far, there are two options known (in the terminal and in the source-code). This example, even it seems trival, should not be underestimated, because remapping, switching between namespaces and assign other node-names requires excat workig, especially in lager networks. Even one mistake can bring down the whole network when an important node can not be assigned.
+
+For demonstration purpose the two nodes from the example "server-client-adder" are used. The goal will be to launch the server in a new namespace, but talk to the service without changing setting of the client. This means, a remapping of the service will be necessary.
+
+The XML-file, respectively the launchfile, can be stored anywhere. Nevertheless it makes sense to stick to the ROS structure and store the launchfile in a related package folder.
+
+Following, the source-code, that will fit to the previous Goals.
+
+
+(% class="box infomessage" %)
+(((
+&amp;lt;launch>
+    &amp;lt;node   pkg = "calculator" type = "server" name = "CalcServer" ns = "another_namespace/in_just_another">
+        &amp;lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />
+    &amp;lt;/node>
+&amp;lt;/launch>
+ 
+)))
+
+Every launchfile has to beginn with (% class="mark" %)&amp;lt;launch> (%%)and to end with(% class="mark" %) &amp;lt;/launch>(%%). In this example, a node is called first. The specification is made with the declaration of the package, the type (the executable) and the Name.
+
+These three arguments are the minimum requirements. Further, additional parameters can be set, for example the specification of the namespace, like in the above code snippet. This command will launch a node called "CalcServer" from type "server", provided by the package "calculator", in the namespace "another_namepace/in_just_another". This means, the service "calculate" will be availible under ""/another_namespace/in_just_another/CalcServer/calculate". The client node will be launched in the default namespace and will not be able to acsess the service without a remapping operation from the commandline. To reverse namespace changing for the service, a remap will be executed for the service of the Server.
+
+
+The operation is located between (% class="mark" %)&amp;lt;node>(%%) and (% class="mark" %)&amp;lt;/node>(%%). The generic structure is:&lt;/content>
+&lt;/xwikidoc>@
+
+
+3.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1547556208000&lt;/date>
+  &lt;contentUpdateDate>1547556208000&lt;/contentUpdateDate>
+  &lt;version>3.2&lt;/version>
+d56 1
+d58 1
+d60 1
+d64 16
+a79 1
+ &lt;/content>
+@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1547555901000&lt;/date>
+  &lt;contentUpdateDate>1547555901000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d33 1
+a34 2
+== (% style="color:#007950" %)__Launchfiles in ROS __(%%) ==
+
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1547555598000&lt;/date>
+  &lt;contentUpdateDate>1547555598000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d26 1
+a26 1
+* Launchfiles in ROS
+d34 1
+a34 1
+== Launchfiles in ROS ==
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1547555484000&lt;/date>
+  &lt;contentUpdateDate>1547555484000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+a28 1
+
+d52 11
+a62 1
+Example 6: Adjusting the namespace&lt;/content>
+@
+</versions>
+  <parent>Projects.MoRoP.ROS GettingStarted.WebHome</parent>
+  <author>XWiki.DavidDudzik</author>
+  <contentAuthor>XWiki.DavidDudzik</contentAuthor>
+  <date>1550748896000</date>
+  <contentUpdateDate>1550748896000</contentUpdateDate>
+  <version>15.1</version>
+  <title>Launchfiles in ros</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>**Sitemap**
+
+----
+
+{{toc start="1" depth="6" numbered="false" scope="page"/}}
+
+
+
+
+
+= Launchfiles in ROS =
+
+----
+
+When many nodes have to be launched at the same time, eg starting a complex robot, it can get very confusing and unhandy to do this all by hand. It is not only about launching all the nodes, further more it is about to pass a correct  configuration to the nodes. For this case, ROS provides so called launchfiles. These are XML-files in which the start procedure is written down.
+
+
+(% class="box" %)
+(((
+Note: A launch file does not need a running master, because the launching-mechanism checks if there is a master or not. If no master is detected, it launches one.
+)))
+
+An active launch file-process is stopped by pressing **[Ctrl]+[C] **in the approprichiate terminal.
+
+
+All further feautures of launchfiles are going to be discussed in the following examples. 
+
+
+== Example 6: Adjusting the Namespace ==
+
+----
+
+To stick to the previous section, this one starts with the adjustment of the namespace of a node and the remapping of a service. So far, there are two options known (in the terminal and in the source-code). This example, even it seems trival, should not be underestimated, because remapping, switching between namespaces and assign other node-names requires excat workig, especially in lager networks. Even one mistake can bring down the whole network when an important node can not be assigned.
+
+For demonstration purpose the two nodes from the example "server-client-adder" are used. The goal will be to launch the server in a new namespace, but talk to the service without changing setting of the client. This means, a remapping of the service will be necessary.
+
+The XML-file, respectively the launchfile, can be stored anywhere. Nevertheless it makes sense to stick to the ROS structure and store the launchfile in a related package folder.
+
+Following, the source-code, that will fit to the previous Goals.
+
+
+(% class="box infomessage" %)
+(((
+&lt;launch>
+    &lt;node   pkg = "calculator" type = "server" name = "CalcServer" ns = "another_namespace/in_just_another">
+        &lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />
+    &lt;/node>
+&lt;/launch>
+ 
+)))
+
+(% class="box" %)
+(((
+note:  
+         pgk =   "package-name"
+         type=   "executable-name"
+         name= "node-name"
+)))
+
+
+Every launchfile has to beginn with (% class="mark" %)&lt;launch> (%%)and to end with(% class="mark" %) &lt;/launch>(%%). In this example, a node is called first. The specification is made with the declaration of the package, the type (the executable) and the Name.
+
+These three arguments are the minimum requirements. Further, additional parameters can be set, for example the specification of the namespace, like in the above code snippet. This command will launch a node called "CalcServer" from type "server", provided by the package "calculator", in the namespace "another_namepace/in_just_another". This means, the service "calculate" will be availible under ""/another_namespace/in_just_another/CalcServer/calculate". The client node will be launched in the default namespace and will not be able to acsess the service without a remapping operation from the commandline. To reverse namespace changing for the service, a remap will be executed for the service of the Server.
+
+
+The operation is located between (% class="mark" %)&lt;node>(%%) and (% class="mark" %)&lt;/node>(%%). The generic structure is:
+
+(% class="box infomessage" %)
+(((
+&lt;remap from = "namespace_X/object" to = "namespace_Y/object"/>
+)))
+
+In this case, the service, or more generic, the object should be remapped from the namespace "/another_namespace/in_just_another/CalcServer/" to the default namespace "/".
+
+
+(% class="box infomessage" %)
+(((
+&lt;remap from = "/another_namespace/in_just_another/CalcServer/calculate" to = "/calculate" />
+)))
+
+ Now, the client node can be used without any issues or modifing Parameters.</content>
+</xwikidoc>

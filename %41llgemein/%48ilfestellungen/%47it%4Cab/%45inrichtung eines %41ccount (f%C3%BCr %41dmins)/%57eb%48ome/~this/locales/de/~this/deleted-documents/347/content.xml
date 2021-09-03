@@ -1,0 +1,652 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Allgemein.Hilfestellungen.GitLab.Einrichtung eines Account (für Admins).WebHome" locale="de">
+  <web>Allgemein.Hilfestellungen.GitLab.Einrichtung eines Account (für Admins)</web>
+  <name>WebHome</name>
+  <language>de</language>
+  <defaultLanguage/>
+  <translation>1</translation>
+  <creator>XWiki.JoergThiem</creator>
+  <creationDate>1560329890000</creationDate>
+  <versions>head	10.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+10.1
+date	2019.06.12.08.58.10;	author XWiki_2EJoergThiem;	state full;
+branches;
+next	9.2;
+
+9.2
+date	2019.05.21.14.03.36;	author XWiki_2Edesch_30_32_33;	state full;
+branches;
+next	9.1;
+
+9.1
+date	2019.05.21.11.00.02;	author XWiki_2EJoergThiem;	state diff;
+branches;
+next	8.1;
+
+8.1
+date	2019.05.21.10.45.15;	author XWiki_2EJoergThiem;	state diff;
+branches;
+next	7.1;
+
+7.1
+date	2019.05.21.10.44.59;	author XWiki_2EJoergThiem;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2019.05.21.10.44.14;	author XWiki_2EJoergThiem;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2019.05.21.10.41.41;	author XWiki_2EJoergThiem;	state full;
+branches;
+next	4.1;
+
+4.1
+date	2019.05.21.10.41.14;	author XWiki_2EJoergThiem;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2019.05.21.08.04.54;	author XWiki_2Edesch_30_32_33;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2019.05.21.08.04.29;	author XWiki_2Edesch_30_32_33;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2019.05.20.11.13.36;	author XWiki_2ESvenHoyer;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+10.1
+log
+@Copied from xwiki:Allgemein.Hilfestellungen.GitLab.Account Einrichtung (Admin).WebHome
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Allgemein.Hilfestellungen.GitLab.Einrichtung eines Account (für Admins).WebHome" locale="de">
+  &lt;web>Allgemein.Hilfestellungen.GitLab.Einrichtung eines Account (für Admins)&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language>de&lt;/language>
+  &lt;defaultLanguage/>
+  &lt;translation>1&lt;/translation>
+  &lt;creator>XWiki.JoergThiem&lt;/creator>
+  &lt;creationDate>1560329890000&lt;/creationDate>
+  &lt;author>XWiki.JoergThiem&lt;/author>
+  &lt;contentAuthor>XWiki.JoergThiem&lt;/contentAuthor>
+  &lt;date>1560329890000&lt;/date>
+  &lt;contentUpdateDate>1560329890000&lt;/contentUpdateDate>
+  &lt;version>10.1&lt;/version>
+  &lt;title>Einrichtung eines Account (für Admins)&lt;/title>
+  &lt;comment>Copied from xwiki:Allgemein.Hilfestellungen.GitLab.Account Einrichtung (Admin).WebHome&lt;/comment>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Account einrichten =
+
+**Anlegen von neuen Usern**
+
+Für das anlegen von Accounts, werden Admin Rechte benötigt. Aktuelle Personen mit Adminrechten sind Matthias Domnik, Dennis Schuldt und Jörg Thiem.
+
+Um neue User anzulegen oder bestehende Settings für User zu ändern, muss man in die "Admin Area" wechseln. Anschließend findet man unter Overview->Users eine Übersicht aller aktuell im System vorhandenen User. Mit einen Klick auf "New User" öffnet die folgende Seite:
+
+[[image:https://wiki.lit.fh-dortmund.de/bin/download/Allgemein/Hilfestellungen/GitLab/Account%20Einrichtung%20(Admin)/WebHome/new_user.jpg?width=400&amp;amp;height=713||alt="new_user.jpg" height="713" width="400"]]
+
+**Access Level für Mitarbeiter:**
+
+Es sind entsprechend die Daten des neuen Users einzutragen (Name, E-Mail). Es muss zwingend darauf geachtet werden, dass das Projekt Limit entsprechend der Nutzungsregeln angepasst wird (siehe Link Nutzungsregeln TBD). Desweiteren muss der Haken bei "can create groups" entfernt werden. Das Access Level muss auf der Standard Einstellung "Regular" belassen werden. Nur in Ausnahmefällen und in Absprache mit Prof. Thiem sind Admin Accounts anzulegen.
+
+Somit haben Mitarbeiter Zugriff auf **alle **öffentlichen Projekte im Gitlab!
+
+**Access Level für Studenten:**
+
+Für "Studenten" Accounts gelt die gleichen Einstellungen wie für Mitarbeiter, allerdings **muss **das Project Limit auf 0 und der Haken bei "external" gesetzt werden.
+
+Damit können Studenten keine eigenen Projekte anlegen und sehen nur Projekte die explizit für sie freigegeben worden sind.
+
+**Access Level für externe Partner (Kooperationspartner etc.):**
+
+Für "externe Partner" Accounts gelten die gleichen Regeln wie für Studenten.
+
+Damit können externe Partner keine eigenen Projekte anlegen und sehen nur Projekte die explizit für sie freigegeben worden sind.
+
+**Anmerkungen:**
+
+Abweichungen zu den oben genannten Einstellungen zum Anlegen von User Accounts **müssen **mit Prof. Thiem abgesprochen werden!
+
+
+
+**2) Projekt Freigaben**
+
+Damit die angelegten User Zugriff auf ein Projekt bekommen, müssen die Projekte freigeben werden. Hierfür sind keine Adminrechte notwendig, das heißt ein Besitzer eines Projekts kann weitere Nutzer zu dem Projekt einladen.
+
+Dies wird in den Projekt Settings gemacht (Projekt öffnen -> Settings -> Member). Beispielhaft sieht dies wie folgt aus:
+
+[[image:https://wiki.lit.fh-dortmund.de/bin/download/Allgemein/Hilfestellungen/GitLab/Account%20Einrichtung%20(Admin)/WebHome/project_member.png?width=600&amp;amp;height=384||alt="project_member.png" height="384" width="600"]]
+
+Hier kann der Benutzer ausgewählt werden, ihm eine Rolle zugewiesen werden und optional ein Ablaufdatum der Freigabe eingetragen werden.
+
+**WICHTIG!**
+
+Es sind **nur **die Rollen, Guest, Reporter oder Developer zu vergeben.
+
+Für **Studenten **sind nur Guest oder Reporter Rollen zu vergeben. Ausnahmen sind möglich, **müssen **aber mit Prof. Thiem **vorab **abgesprochen werden!
+
+Kurzübersicht der verschiedenen Rollen (detailierte Übersicht [[https:~~/~~/docs.gitlab.com/ee/user/permissions.html>>url:https://docs.gitlab.com/ee/user/permissions.html]])
+
+**Guest:**
+
+- kein Zugriff auf Code
+
+- Wiki und Issue Tracker Zugriff 
+
+**Reporter:**
+
+- den kompletten code sehen (alle branches)
+- Projekt download
+- pull Projekt
+- Zugriff commit history
+- issues anlegen
+- Kommentare schreiben
+- Wiki Zugriff
+- Projekt Statistik sehen
+
+**Developer:**
+
+- wie Reporter
+
+- branches, tags anlegen
+
+- code pushen
+
+
+=   =&lt;/content>
+&lt;/xwikidoc>@
+
+
+9.2
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Allgemein.Hilfestellungen.GitLab.Account Einrichtung (Admin).WebHome" locale="de">
+  &lt;web>Allgemein.Hilfestellungen.GitLab.Account Einrichtung (Admin)&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language>de&lt;/language>
+  &lt;defaultLanguage/>
+  &lt;translation>1&lt;/translation>
+  &lt;creator>XWiki.JoergThiem&lt;/creator>
+  &lt;creationDate>1558435515000&lt;/creationDate>
+  &lt;author>XWiki.desch023&lt;/author>
+  &lt;contentAuthor>XWiki.desch023&lt;/contentAuthor>
+  &lt;date>1558447416000&lt;/date>
+  &lt;contentUpdateDate>1558447416000&lt;/contentUpdateDate>
+  &lt;version>9.2&lt;/version>
+  &lt;title>Account Einrichtung (Admin)&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Account einrichten =
+
+**Anlegen von neuen Usern**
+
+Für das anlegen von Accounts, werden Admin Rechte benötigt. Aktuelle Personen mit Adminrechten sind Matthias Domnik, Dennis Schuldt und Jörg Thiem.
+
+Um neue User anzulegen oder bestehende Settings für User zu ändern, muss man in die "Admin Area" wechseln. Anschließend findet man unter Overview->Users eine Übersicht aller aktuell im System vorhandenen User. Mit einen Klick auf "New User" öffnet die folgende Seite:
+
+[[image:https://wiki.lit.fh-dortmund.de/bin/download/Allgemein/Hilfestellungen/GitLab/Account%20Einrichtung%20(Admin)/WebHome/new_user.jpg?width=400&amp;amp;height=713||alt="new_user.jpg" height="713" width="400"]]
+
+**Access Level für Mitarbeiter:**
+
+Es sind entsprechend die Daten des neuen Users einzutragen (Name, E-Mail). Es muss zwingend darauf geachtet werden, dass das Projekt Limit entsprechend der Nutzungsregeln angepasst wird (siehe Link Nutzungsregeln TBD). Desweiteren muss der Haken bei "can create groups" entfernt werden. Das Access Level muss auf der Standard Einstellung "Regular" belassen werden. Nur in Ausnahmefällen und in Absprache mit Prof. Thiem sind Admin Accounts anzulegen.
+
+Somit haben Mitarbeiter Zugriff auf **alle **öffentlichen Projekte im Gitlab!
+
+**Access Level für Studenten:**
+
+Für "Studenten" Accounts gelt die gleichen Einstellungen wie für Mitarbeiter, allerdings **muss **das Project Limit auf 0 und der Haken bei "external" gesetzt werden.
+
+Damit können Studenten keine eigenen Projekte anlegen und sehen nur Projekte die explizit für sie freigegeben worden sind.
+
+**Access Level für externe Partner (Kooperationspartner etc.):**
+
+Für "externe Partner" Accounts gelten die gleichen Regeln wie für Studenten.
+
+Damit können externe Partner keine eigenen Projekte anlegen und sehen nur Projekte die explizit für sie freigegeben worden sind.
+
+**Anmerkungen:**
+
+Abweichungen zu den oben genannten Einstellungen zum Anlegen von User Accounts **müssen **mit Prof. Thiem abgesprochen werden!
+
+
+
+**2) Projekt Freigaben**
+
+Damit die angelegten User Zugriff auf ein Projekt bekommen, müssen die Projekte freigeben werden. Hierfür sind keine Adminrechte notwendig, das heißt ein Besitzer eines Projekts kann weitere Nutzer zu dem Projekt einladen.
+
+Dies wird in den Projekt Settings gemacht (Projekt öffnen -> Settings -> Member). Beispielhaft sieht dies wie folgt aus:
+
+[[image:https://wiki.lit.fh-dortmund.de/bin/download/Allgemein/Hilfestellungen/GitLab/Account%20Einrichtung%20(Admin)/WebHome/project_member.png?width=600&amp;amp;height=384||alt="project_member.png" height="384" width="600"]]
+
+Hier kann der Benutzer ausgewählt werden, ihm eine Rolle zugewiesen werden und optional ein Ablaufdatum der Freigabe eingetragen werden.
+
+**WICHTIG!**
+
+Es sind **nur **die Rollen, Guest, Reporter oder Developer zu vergeben.
+
+Für **Studenten **sind nur Guest oder Reporter Rollen zu vergeben. Ausnahmen sind möglich, **müssen **aber mit Prof. Thiem **vorab **abgesprochen werden!
+
+Kurzübersicht der verschiedenen Rollen (detailierte Übersicht [[https:~~/~~/docs.gitlab.com/ee/user/permissions.html>>url:https://docs.gitlab.com/ee/user/permissions.html]])
+
+**Guest:**
+
+- kein Zugriff auf Code
+
+- Wiki und Issue Tracker Zugriff 
+
+**Reporter:**
+
+- den kompletten code sehen (alle branches)
+- Projekt download
+- pull Projekt
+- Zugriff commit history
+- issues anlegen
+- Kommentare schreiben
+- Wiki Zugriff
+- Projekt Statistik sehen
+
+**Developer:**
+
+- wie Reporter
+
+- branches, tags anlegen
+
+- code pushen
+
+
+=   =&lt;/content>
+&lt;/xwikidoc>@
+
+
+9.1
+log
+@@
+text
+@d10 5
+a14 5
+  &lt;author>XWiki.JoergThiem&lt;/author>
+  &lt;contentAuthor>XWiki.JoergThiem&lt;/contentAuthor>
+  &lt;date>1558436402000&lt;/date>
+  &lt;contentUpdateDate>1558436402000&lt;/contentUpdateDate>
+  &lt;version>9.1&lt;/version>
+d17 1
+a17 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d28 1
+a28 1
+[[image:https://wiki.lit.fh-dortmund.de/bin/download/Allgemein/Hilfestellungen/GitLab/Account%20Einrichtung%20und%20Spielregeln/WebHome/new_user.jpg?width=400&amp;amp;height=713||alt="new_user.jpg" height="713" width="400"]]
+d60 1
+a60 1
+[[image:https://wiki.lit.fh-dortmund.de/bin/download/Allgemein/Hilfestellungen/GitLab/Account%20Einrichtung%20und%20Spielregeln/WebHome/project_member.png?width=600&amp;amp;height=384||alt="project_member.png" height="384" width="600"]]
+@
+
+
+8.1
+log
+@Copied from xwiki:Allgemein.Hilfestellungen.GitLab.Account Einrichtung.WebHome
+@
+text
+@d12 3
+a14 3
+  &lt;date>1558435515000&lt;/date>
+  &lt;contentUpdateDate>1558435515000&lt;/contentUpdateDate>
+  &lt;version>8.1&lt;/version>
+d16 1
+a16 1
+  &lt;comment>Copied from xwiki:Allgemein.Hilfestellungen.GitLab.Account Einrichtung.WebHome&lt;/comment>
+d68 1
+a68 1
+Für **Studenten **und **externe Partner** sind nur Guest oder Reporter Rollen zu vergeben. Ausnahmen sind möglich, **müssen **aber mit Prof. Thiem **vorab **abgesprochen werden!
+@
+
+
+7.1
+log
+@Copied from xwiki:Allgemein.Hilfestellungen.GitLab. Account Einrichtung.WebHome
+@
+text
+@d2 2
+a3 2
+&lt;xwikidoc version="1.3" reference="Allgemein.Hilfestellungen.GitLab.Account Einrichtung.WebHome" locale="de">
+  &lt;web>Allgemein.Hilfestellungen.GitLab.Account Einrichtung&lt;/web>
+d9 1
+a9 1
+  &lt;creationDate>1558435499000&lt;/creationDate>
+d12 5
+a16 5
+  &lt;date>1558435499000&lt;/date>
+  &lt;contentUpdateDate>1558435499000&lt;/contentUpdateDate>
+  &lt;version>7.1&lt;/version>
+  &lt;title>Account Einrichtung&lt;/title>
+  &lt;comment>Copied from xwiki:Allgemein.Hilfestellungen.GitLab. Account Einrichtung.WebHome&lt;/comment>
+@
+
+
+6.1
+log
+@Copied from xwiki:Allgemein.Hilfestellungen.GitLab.Account Einrichtung.WebHome
+@
+text
+@d2 2
+a3 2
+&lt;xwikidoc version="1.3" reference="Allgemein.Hilfestellungen.GitLab. Account Einrichtung.WebHome" locale="de">
+  &lt;web>Allgemein.Hilfestellungen.GitLab. Account Einrichtung&lt;/web>
+d9 1
+a9 1
+  &lt;creationDate>1558435454000&lt;/creationDate>
+d12 5
+a16 5
+  &lt;date>1558435454000&lt;/date>
+  &lt;contentUpdateDate>1558435454000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+  &lt;title> Account Einrichtung&lt;/title>
+  &lt;comment>Copied from xwiki:Allgemein.Hilfestellungen.GitLab.Account Einrichtung.WebHome&lt;/comment>
+@
+
+
+5.1
+log
+@Copied from xwiki:Allgemein.Hilfestellungen.GitLab.Account Einrichtung und Spielregeln.WebHome
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Allgemein.Hilfestellungen.GitLab.Account Einrichtung.WebHome" locale="de">
+  &lt;web>Allgemein.Hilfestellungen.GitLab.Account Einrichtung&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language>de&lt;/language>
+  &lt;defaultLanguage/>
+  &lt;translation>1&lt;/translation&gt;
+  &lt;creator>XWiki.JoergThiem&lt;/creator>
+  &lt;creationDate>1558435301000&lt;/creationDate>
+  &lt;author>XWiki.JoergThiem&lt;/author>
+  &lt;contentAuthor>XWiki.JoergThiem&lt;/contentAuthor>
+  &lt;date>1558435301000&lt;/date>
+  &lt;contentUpdateDate>1558435301000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+  &lt;title>Account Einrichtung&lt;/title>
+  &lt;comment>Copied from xwiki:Allgemein.Hilfestellungen.GitLab.Account Einrichtung und Spielregeln.WebHome&lt;/comment>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Account einrichten =
+
+**Anlegen von neuen Usern**
+
+Für das anlegen von Accounts, werden Admin Rechte benötigt. Aktuelle Personen mit Adminrechten sind Matthias Domnik, Dennis Schuldt und Jörg Thiem.
+
+Um neue User anzulegen oder bestehende Settings für User zu ändern, muss man in die "Admin Area" wechseln. Anschließend findet man unter Overview->Users eine Übersicht aller aktuell im System vorhandenen User. Mit einen Klick auf "New User" öffnet die folgende Seite:
+
+[[image:https://wiki.lit.fh-dortmund.de/bin/download/Allgemein/Hilfestellungen/GitLab/Account%20Einrichtung%20und%20Spielregeln/WebHome/new_user.jpg?width=400&amp;amp;height=713||alt="new_user.jpg" height="713" width="400"]]
+
+**Access Level für Mitarbeiter:**
+
+Es sind entsprechend die Daten des neuen Users einzutragen (Name, E-Mail). Es muss zwingend darauf geachtet werden, dass das Projekt Limit entsprechend der Nutzungsregeln angepasst wird (siehe Link Nutzungsregeln TBD). Desweiteren muss der Haken bei "can create groups" entfernt werden. Das Access Level muss auf der Standard Einstellung "Regular" belassen werden. Nur in Ausnahmefällen und in Absprache mit Prof. Thiem sind Admin Accounts anzulegen.
+
+Somit haben Mitarbeiter Zugriff auf **alle **öffentlichen Projekte im Gitlab!
+
+**Access Level für Studenten:**
+
+Für "Studenten" Accounts gelt die gleichen Einstellungen wie für Mitarbeiter, allerdings **muss **das Project Limit auf 0 und der Haken bei "external" gesetzt werden.
+
+Damit können Studenten keine eigenen Projekte anlegen und sehen nur Projekte die explizit für sie freigegeben worden sind.
+
+**Access Level für externe Partner (Kooperationspartner etc.):**
+
+Für "externe Partner" Accounts gelten die gleichen Regeln wie für Studenten.
+
+Damit können externe Partner keine eigenen Projekte anlegen und sehen nur Projekte die explizit für sie freigegeben worden sind.
+
+**Anmerkungen:**
+
+Abweichungen zu den oben genannten Einstellungen zum Anlegen von User Accounts **müssen **mit Prof. Thiem abgesprochen werden!
+
+
+
+**2) Projekt Freigaben**
+
+Damit die angelegten User Zugriff auf ein Projekt bekommen, müssen die Projekte freigeben werden. Hierfür sind keine Adminrechte notwendig, das heißt ein Besitzer eines Projekts kann weitere Nutzer zu dem Projekt einladen.
+
+Dies wird in den Projekt Settings gemacht (Projekt öffnen -> Settings -> Member). Beispielhaft sieht dies wie folgt aus:
+
+[[image:https://wiki.lit.fh-dortmund.de/bin/download/Allgemein/Hilfestellungen/GitLab/Account%20Einrichtung%20und%20Spielregeln/WebHome/project_member.png?width=600&amp;amp;height=384||alt="project_member.png" height="384" width="600"]]
+
+Hier kann der Benutzer ausgewählt werden, ihm eine Rolle zugewiesen werden und optional ein Ablaufdatum der Freigabe eingetragen werden.
+
+**WICHTIG!**
+
+Es sind **nur **die Rollen, Guest, Reporter oder Developer zu vergeben.
+
+Für **Studenten **und **externe Partner** sind nur Guest oder Reporter Rollen zu vergeben. Ausnahmen sind möglich, **müssen **aber mit Prof. Thiem **vorab **abgesprochen werden!
+
+Kurzübersicht der verschiedenen Rollen (detailierte Übersicht [[https:~~/~~/docs.gitlab.com/ee/user/permissions.html>>url:https://docs.gitlab.com/ee/user/permissions.html]])
+
+**Guest:**
+
+- kein Zugriff auf Code
+
+- Wiki und Issue Tracker Zugriff 
+
+**Reporter:**
+
+- den kompletten code sehen (alle branches)
+- Projekt download
+- pull Projekt
+- Zugriff commit history
+- issues anlegen
+- Kommentare schreiben
+- Wiki Zugriff
+- Projekt Statistik sehen
+
+**Developer:**
+
+- wie Reporter
+
+- branches, tags anlegen
+
+- code pushen
+
+
+=   =&lt;/content>
+&lt;/xwikidoc&gt;@
+
+
+4.1
+log
+@@
+text
+@d2 2
+a3 2
+&lt;xwikidoc version="1.3" reference="Allgemein.Hilfestellungen.GitLab.Account Einrichtung und Spielregeln.WebHome" locale="de">
+  &lt;web>Allgemein.Hilfestellungen.GitLab.Account Einrichtung und Spielregeln&lt;/web>
+d8 2
+a9 2
+  &lt;creator>XWiki.SvenHoyer&lt;/creator>
+  &lt;creationDate>1558350816000&lt;/creationDate>
+d12 5
+a16 5
+  &lt;date>1558435274000&lt;/date>
+  &lt;contentUpdateDate>1558435274000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+  &lt;title>Account Einrichtung und Spielregeln&lt;/title>
+  &lt;comment/>
+@
+
+
+3.1
+log
+@@
+text
+@d10 5
+a14 5
+  &lt;author>XWiki.desch023&lt;/author>
+  &lt;contentAuthor>XWiki.desch023&lt;/contentAuthor>
+  &lt;date>1558425894000&lt;/date>
+  &lt;contentUpdateDate>1558425894000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d98 1
+a98 9
+= Spielregeln =
+
+Um das GitLab nutzen zu können, müssen folgende Nutzungsbedingungen eingehalten werden.
+
+* Das GitLab ist für die Quellcode-Verwaltung, also der Entwicklung von Software ausgelegt (Serverspeicher ist limitiert).
+Daher sollen nur die Dateien in den Repos abgelegt und verwaltet werden, die für das Software-Projekt unbedingt erforderlich sind.
+Kleinere Binärdateien können abgelegt werden, wenn Sie für das Projekt zwingend erforderlich sind.
+Größere Dateien (auch Office-Dokumente) sind in einer Dateiablage (z.B. Sciebo) abzulegen. Auf diese Dateien kann in der Beschreibung der Repos verlinkt werden.
+* Für allgemeine Tests kann das Testprojekt genutzt werden, welches regelmäßig gelöscht wird.&lt;/content>
+@
+
+
+2.1
+log
+@@
+text
+@d12 3
+a14 3
+  &lt;date>1558425869000&lt;/date>
+  &lt;contentUpdateDate>1558425869000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d52 2
+@
+
+
+1.1
+log
+@@
+text
+@d10 5
+a14 5
+  &lt;author>XWiki.SvenHoyer&lt;/author>
+  &lt;contentAuthor>XWiki.SvenHoyer&lt;/contentAuthor>
+  &lt;date>1558350816000&lt;/date>
+  &lt;contentUpdateDate>1558350816000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d22 1
+a22 1
+Email an Jörg Thiem
+d24 1
+a24 4
+* Wer soll einen Zugang? (Email-Adressen, Sciebo-ID)
+* Welche Rolle sollen die User erhalten?
+* Wie soll das Projekt heißen?
+* Kurzbeschreibung zum Projekt 2-3 Sätze
+d26 70
+@
+</versions>
+  <author>XWiki.JoergThiem</author>
+  <contentAuthor>XWiki.JoergThiem</contentAuthor>
+  <date>1560329890000</date>
+  <contentUpdateDate>1560329890000</contentUpdateDate>
+  <version>10.1</version>
+  <title>Einrichtung eines Account (für Admins)</title>
+  <comment>Copied from xwiki:Allgemein.Hilfestellungen.GitLab.Account Einrichtung (Admin).WebHome</comment>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>= Account einrichten =
+
+**Anlegen von neuen Usern**
+
+Für das anlegen von Accounts, werden Admin Rechte benötigt. Aktuelle Personen mit Adminrechten sind Matthias Domnik, Dennis Schuldt und Jörg Thiem.
+
+Um neue User anzulegen oder bestehende Settings für User zu ändern, muss man in die "Admin Area" wechseln. Anschließend findet man unter Overview->Users eine Übersicht aller aktuell im System vorhandenen User. Mit einen Klick auf "New User" öffnet die folgende Seite:
+
+[[image:https://wiki.lit.fh-dortmund.de/bin/download/Allgemein/Hilfestellungen/GitLab/Account%20Einrichtung%20(Admin)/WebHome/new_user.jpg?width=400&amp;height=713||alt="new_user.jpg" height="713" width="400"]]
+
+**Access Level für Mitarbeiter:**
+
+Es sind entsprechend die Daten des neuen Users einzutragen (Name, E-Mail). Es muss zwingend darauf geachtet werden, dass das Projekt Limit entsprechend der Nutzungsregeln angepasst wird (siehe Link Nutzungsregeln TBD). Desweiteren muss der Haken bei "can create groups" entfernt werden. Das Access Level muss auf der Standard Einstellung "Regular" belassen werden. Nur in Ausnahmefällen und in Absprache mit Prof. Thiem sind Admin Accounts anzulegen.
+
+Somit haben Mitarbeiter Zugriff auf **alle **öffentlichen Projekte im Gitlab!
+
+**Access Level für Studenten:**
+
+Für "Studenten" Accounts gelt die gleichen Einstellungen wie für Mitarbeiter, allerdings **muss **das Project Limit auf 0 und der Haken bei "external" gesetzt werden.
+
+Damit können Studenten keine eigenen Projekte anlegen und sehen nur Projekte die explizit für sie freigegeben worden sind.
+
+**Access Level für externe Partner (Kooperationspartner etc.):**
+
+Für "externe Partner" Accounts gelten die gleichen Regeln wie für Studenten.
+
+Damit können externe Partner keine eigenen Projekte anlegen und sehen nur Projekte die explizit für sie freigegeben worden sind.
+
+**Anmerkungen:**
+
+Abweichungen zu den oben genannten Einstellungen zum Anlegen von User Accounts **müssen **mit Prof. Thiem abgesprochen werden!
+
+
+
+**2) Projekt Freigaben**
+
+Damit die angelegten User Zugriff auf ein Projekt bekommen, müssen die Projekte freigeben werden. Hierfür sind keine Adminrechte notwendig, das heißt ein Besitzer eines Projekts kann weitere Nutzer zu dem Projekt einladen.
+
+Dies wird in den Projekt Settings gemacht (Projekt öffnen -> Settings -> Member). Beispielhaft sieht dies wie folgt aus:
+
+[[image:https://wiki.lit.fh-dortmund.de/bin/download/Allgemein/Hilfestellungen/GitLab/Account%20Einrichtung%20(Admin)/WebHome/project_member.png?width=600&amp;height=384||alt="project_member.png" height="384" width="600"]]
+
+Hier kann der Benutzer ausgewählt werden, ihm eine Rolle zugewiesen werden und optional ein Ablaufdatum der Freigabe eingetragen werden.
+
+**WICHTIG!**
+
+Es sind **nur **die Rollen, Guest, Reporter oder Developer zu vergeben.
+
+Für **Studenten **sind nur Guest oder Reporter Rollen zu vergeben. Ausnahmen sind möglich, **müssen **aber mit Prof. Thiem **vorab **abgesprochen werden!
+
+Kurzübersicht der verschiedenen Rollen (detailierte Übersicht [[https:~~/~~/docs.gitlab.com/ee/user/permissions.html>>url:https://docs.gitlab.com/ee/user/permissions.html]])
+
+**Guest:**
+
+- kein Zugriff auf Code
+
+- Wiki und Issue Tracker Zugriff 
+
+**Reporter:**
+
+- den kompletten code sehen (alle branches)
+- Projekt download
+- pull Projekt
+- Zugriff commit history
+- issues anlegen
+- Kommentare schreiben
+- Wiki Zugriff
+- Projekt Statistik sehen
+
+**Developer:**
+
+- wie Reporter
+
+- branches, tags anlegen
+
+- code pushen
+
+
+=   =</content>
+</xwikidoc>

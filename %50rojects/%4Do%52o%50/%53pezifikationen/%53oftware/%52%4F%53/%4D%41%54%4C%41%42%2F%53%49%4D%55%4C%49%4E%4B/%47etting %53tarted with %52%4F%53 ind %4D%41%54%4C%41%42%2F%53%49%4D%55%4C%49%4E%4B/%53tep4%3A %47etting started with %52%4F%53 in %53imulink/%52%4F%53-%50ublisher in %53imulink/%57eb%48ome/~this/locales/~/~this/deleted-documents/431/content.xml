@@ -1,0 +1,654 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.ROS-Publisher in Simulink.WebHome" locale="">
+  <web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.ROS-Publisher in Simulink</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>de</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.FredericKovacs</creator>
+  <creationDate>1538492141000</creationDate>
+  <versions>head	8.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+8.1
+date	2018.11.14.16.15.43;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	7.1;
+
+7.1
+date	2018.11.14.16.15.14;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2018.11.14.16.14.01;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2018.11.14.16.13.01;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	4.2;
+
+4.2
+date	2018.11.14.16.04.09;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	4.1;
+
+4.1
+date	2018.11.08.16.35.21;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	3.1;
+
+3.1
+date	2018.11.08.16.34.14;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	2.2;
+
+2.2
+date	2018.11.08.16.29.27;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2018.10.02.14.56.04;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.10.02.14.55.41;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+8.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.ROS-Publisher in Simulink.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.ROS-Publisher in Simulink&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1538492141000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1542212143000&lt;/date>
+  &lt;contentUpdateDate>1542212143000&lt;/contentUpdateDate>
+  &lt;version>8.1&lt;/version>
+  &lt;title>02 - ROS-Publisher in Simulink&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>//Note you need to finish the superior ROS Tutorial(Link) before you perform this Tutorial, Because you'll need some of the nodes you've written in the general ROS_GettingStarted//&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+== **Create a ROS-Publisher in a Model** ==&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+DummyLine&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+* Start your VM, the ROS-Core and run the Counter Subscription node on your Linux VM.&amp;#xd;
+* Connect Matlab to your ROS-Core&amp;#xd;
+* Open a Blank Simulink Model.&amp;#xd;
+&amp;#xd;
+When you want to Publish a Message to a Topic you need to know which kind of message.&amp;#xd;
+To check which kind of message has to be published to the Topic you can use the command:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rostopic info {/TOPIC}&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+So we execute to identify the messagtype that can be published to the Topic we already subscribed to.&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rostopic info counter&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">Type: std_msgs/Int64&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2"> &amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">Publishers: None&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2"> &amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">Subscribers: &amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2"> * /sub_counter (http://host-VirtualBox:11111/)&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+To create a message you need to generate a blank ROS-Message of a specific message Type and provide content for the containing BUS-Elements.&amp;#xd;
+&amp;#xd;
+* Open your Simulink Libary Browser and navigate to "Robotic System Toolbox">>"ROS"&amp;#xd;
+* Drag and Drop the "BlankMessage"-Block in your Model.&amp;#xd;
+* Double Click the BlankMessage Block and set the Message Type to INT64&amp;#xd;
+&amp;#xd;
+(Picture)&amp;#xd;
+&amp;#xd;
+Now you have an empty ROS-Message with one Bus-Element and you need to fill the Bus-Element "Data" with content.&amp;#xd;
+&amp;#xd;
+In the previous Tutorial we used the "Bus-Selector"-Block now we need the "Bus-Assignment"-Block.&amp;#xd;
+Drag and Drop it in your model from "Simulink">>"Signal Routing".&amp;#xd;
+&amp;#xd;
+* Connect your Blank Message to the BUS-Input.&amp;#xd;
+* Double Click the "Bus-Assignment"-block and delete the default "signal1"&amp;#xd;
+* Select the "Data"-signal and add it to the "Signals that are being assigned"&amp;#xd;
+&amp;#xd;
+(Picture)&amp;#xd;
+&amp;#xd;
+Now we need to create a counter that increments one time per second.&amp;#xd;
+There are different solutions to this problem in Simulink and I will refer to it as Counter Subsystem.&amp;#xd;
+Connect your Counter-Subsystem to the Data-Port of your Bus Assignment Block.&amp;#xd;
+&amp;#xd;
+We have created a ROS-Message and filled it with content but haven't published it yet.&amp;#xd;
+To do so we need to implement a Publish-Block from the ROS-Libary in the Simulink Libary Browser.&amp;#xd;
+&amp;#xd;
+* Drag and Drop it in your model.&amp;#xd;
+* Connect the Output-Port of your Bus-Assignement-Block with your Publish-Block.&amp;#xd;
+* Select the Topic "/counter" as Topic to publish to from "Select from ROS-Network" and the block will automaticly assign the correct message-type.&amp;#xd;
+&amp;#xd;
+Your model should look similar to this:&amp;#xd;
+&amp;#xd;
+(Picture)&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+**Counter Block**&amp;#xd;
+&amp;#xd;
+//This is not to be seen as overall solution because when you create a standalone Note for e.g. a Raspberry you'll have to consider the devices CPU clock while creating your model.//&amp;#xd;
+&amp;#xd;
+Because a Simulink-Model doesn't work in realtime but with the clock which is available on the platform a normal counter will count much faster than one time per second.&amp;#xd;
+One Solution is to create a Loop with a Fuction which just returns the Input to the output with a Delay of 1 second and an incrementation Block.&amp;#xd;
+You have to add a (very short) discrete Delay between those two otherwise it wont work in Simulink.&amp;#xd;
+&amp;#xd;
+(Picture)&lt;/content>
+&lt;/xwikidoc>@
+
+
+7.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1542212114000&lt;/date>
+  &lt;contentUpdateDate>1542212114000&lt;/contentUpdateDate>
+  &lt;version>7.1&lt;/version>
+a26 1
+Dummy Text&amp;#xd;
+d28 3
+@
+
+
+6.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1542212041000&lt;/date>
+  &lt;contentUpdateDate>1542212041000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+d21 72
+a92 71
+  &lt;content>//Note you need to finish the superior ROS Tutorial(Link) before you perform this Tutorial, Because you'll need some of the nodes you've written in the general ROS_GettingStarted//
+
+----
+
+== **Create a ROS-Publisher in a Model** ==
+
+
+* Start your VM, the ROS-Core and run the Counter Subscription node on your Linux VM.
+* Connect Matlab to your ROS-Core
+* Open a Blank Simulink Model.
+
+When you want to Publish a Message to a Topic you need to know which kind of message.
+To check which kind of message has to be published to the Topic you can use the command:
+
+>{{html}}&amp;lt;font size="2">rostopic info {/TOPIC}&amp;lt;/font>{{/html}}
+
+So we execute to identify the messagtype that can be published to the Topic we already subscribed to.
+
+>{{html}}&amp;lt;font size="2">rostopic info counter&amp;lt;/font>{{/html}}
+
+>{{html}}&amp;lt;font size="2">Type: std_msgs/Int64&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2"> &amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">Publishers: None&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2"> &amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">Subscribers: &amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2"> * /sub_counter (http://host-VirtualBox:11111/)&amp;lt;/font>{{/html}}
+
+To create a message you need to generate a blank ROS-Message of a specific message Type and provide content for the containing BUS-Elements.
+
+* Open your Simulink Libary Browser and navigate to "Robotic System Toolbox">>"ROS"
+* Drag and Drop the "BlankMessage"-Block in your Model.
+* Double Click the BlankMessage Block and set the Message Type to INT64
+
+(Picture)
+
+Now you have an empty ROS-Message with one Bus-Element and you need to fill the Bus-Element "Data" with content.
+
+In the previous Tutorial we used the "Bus-Selector"-Block now we need the "Bus-Assignment"-Block.
+Drag and Drop it in your model from "Simulink">>"Signal Routing".
+
+* Connect your Blank Message to the BUS-Input.
+* Double Click the "Bus-Assignment"-block and delete the default "signal1"
+* Select the "Data"-signal and add it to the "Signals that are being assigned"
+
+(Picture)
+
+Now we need to create a counter that increments one time per second.
+There are different solutions to this problem in Simulink and I will refer to it as Counter Subsystem.
+Connect your Counter-Subsystem to the Data-Port of your Bus Assignment Block.
+
+We have created a ROS-Message and filled it with content but haven't published it yet.
+To do so we need to implement a Publish-Block from the ROS-Libary in the Simulink Libary Browser.
+
+* Drag and Drop it in your model.
+* Connect the Output-Port of your Bus-Assignement-Block with your Publish-Block.
+* Select the Topic "/counter" as Topic to publish to from "Select from ROS-Network" and the block will automaticly assign the correct message-type.
+
+Your model should look similar to this:
+
+(Picture)
+
+----
+
+**Counter Block**
+
+//This is not to be seen as overall solution because when you create a standalone Note for e.g. a Raspberry you'll have to consider the devices CPU clock while creating your model.//
+
+Because a Simulink-Model doesn't work in realtime but with the clock which is available on the platform a normal counter will count much faster than one time per second.
+One Solution is to create a Loop with a Fuction which just returns the Input to the output with a Delay of 1 second and an incrementation Block.
+You have to add a (very short) discrete Delay between those two otherwise it wont work in Simulink.
+
+@
+
+
+5.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1542211981000&lt;/date>
+  &lt;contentUpdateDate>1542211981000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+d21 72
+a92 68
+  &lt;content>//Note you need to finish the superior ROS Tutorial(Link) before you perform this Tutorial, Because you'll need some of the nodes you've written in the general ROS_GettingStarted//&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+== **Create a ROS-Publisher in a Model** ==&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+* Start your VM, the ROS-Core and run the Counter Subscription node on your Linux VM.&amp;#xd;
+* Connect Matlab to your ROS-Core&amp;#xd;
+* Open a Blank Simulink Model.&amp;#xd;
+&amp;#xd;
+When you want to Publish a Message to a Topic you need to know which kind of message.&amp;#xd;
+To check which kind of message has to be published to the Topic you can use the command:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rostopic info {/TOPIC}&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+So we execute to identify the messagtype that can be published to the Topic we already subscribed to.&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rostopic info counter&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">Type: std_msgs/Int64&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2"> &amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">Publishers: None&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2"> &amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">Subscribers: &amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2"> * /sub_counter (http://host-VirtualBox:11111/)&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+To create a message you need to generate a blank ROS-Message of a specific message Type and provide content for the containing BUS-Elements.&amp;#xd;
+&amp;#xd;
+* Open your Simulink Libary Browser and navigate to "Robotic System Toolbox">>"ROS"&amp;#xd;
+* Drag and Drop the "BlankMessage"-Block in your Model.&amp;#xd;
+* Double Click the BlankMessage Block and set the Message Type to INT64&amp;#xd;
+&amp;#xd;
+(Picture)&amp;#xd;
+&amp;#xd;
+Now you have an empty ROS-Message with one Bus-Element and you need to fill the Bus-Element "Data" with content.&amp;#xd;
+&amp;#xd;
+In the previous Tutorial we used the "Bus-Selector"-Block now we need the "Bus-Assignment"-Block.&amp;#xd;
+Drag and Drop it in your model from "Simulink">>"Signal Routing".&amp;#xd;
+&amp;#xd;
+* Connect your Blank Message to the BUS-Input.&amp;#xd;
+* Double Click the "Bus-Assignment"-block and delete the default "signal1"&amp;#xd;
+* Select the "Data"-signal and add it to the "Signals that are being assigned"&amp;#xd;
+&amp;#xd;
+(Picture)&amp;#xd;
+&amp;#xd;
+Now we need to create a counter that increments one time per second.&amp;#xd;
+There are different solutions to this problem in Simulink and I will refer to it as Counter Subsystem.&amp;#xd;
+Connect your Counter-Subsystem to the Data-Port of your Bus Assignment Block.&amp;#xd;
+&amp;#xd;
+We have created a ROS-Message and filled it with content but haven't published it yet.&amp;#xd;
+To do so we need to implement a Publish-Block from the ROS-Libary in the Simulink Libary Browser.&amp;#xd;
+&amp;#xd;
+* Drag and Drop it in your model.&amp;#xd;
+* Connect the Output-Port of your Bus-Assignement-Block with your Publish-Block.&amp;#xd;
+* Select the Topic "/counter" as Topic to publish to from "Select from ROS-Network" and the block will automaticly assign the correct message-type.&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+**Counter Block**&amp;#xd;
+&amp;#xd;
+//This is not to be seen as overall solution because when you create a standalone Note for e.g. a Raspberry you'll have to consider the devices CPU clock while creating your model.//&amp;#xd;
+&amp;#xd;
+Because a Simulink-Model doesn't work in realtime but with the clock which is available on the platform a normal counter will count much faster than one time per second.&amp;#xd;
+One Solution is to create a Loop with a Fuction which just returns the Input to the output with a Delay of 1 second and an incrementation Block.&amp;#xd;
+You have to add a (very short) discrete Delay between those two otherwise it wont work in Simulink.&amp;#xd;
+&amp;#xd;
+(Picture)&amp;#xd;
+&lt;/content>
+@
+
+
+4.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1542211449000&lt;/date>
+  &lt;contentUpdateDate>1542211449000&lt;/contentUpdateDate>
+  &lt;version>4.2&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+d76 1
+a76 1
+* Select the Topic /counter as Topic to publish to from "Select from ROS-Network" and the block will automaticly assign the correct messag-type.&amp;#xd;
+d78 10
+@
+
+
+4.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.ROS-Publisher in Simulink.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.ROS-Publisher in Simulink&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1538492141000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1541694921000&lt;/date>
+  &lt;contentUpdateDate>1541694921000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+  &lt;title>02 - ROS-Publisher in Simulink&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>//Note you need to finish the superior ROS Tutorial(Link) before you perform this Tutorial, Because you'll need some of the nodes you've written in the general ROS_GettingStarted//
+
+----
+
+== **Create a ROS-Publisher in a Model** ==
+
+
+* Start your VM, the ROS-Core and run the Counter Subscription node on your Linux VM.
+* Connect Matlab to your ROS-Core
+* Open a Blank Simulink Model.
+
+When you want to Publish a Message to a Topic you need to know which kind of message.
+To check which kind of message has to be published to the Topic you can use the command:
+
+>{{html}}&amp;lt;font size="2">rostopic info {/TOPIC}&amp;lt;/font>{{/html}}
+
+So we execute to identify the messagtype that can be published to the Topic we already subscribed to.
+
+>{{html}}&amp;lt;font size="2">rostopic info counter&amp;lt;/font>{{/html}}
+
+>{{html}}&amp;lt;font size="2">Type: std_msgs/Int64&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2"> &amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">Publishers: None&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2"> &amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">Subscribers: &amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2"> * /sub_counter (http://host-VirtualBox:11111/)&amp;lt;/font>{{/html}}
+
+To create a message you need to generate a blank ROS-Message of a specific message Type and provide content for the containing BUS-Elements.
+
+* Open your Simulink Libary Browser and navigate to "Robotic System Toolbox">>"ROS"
+* Drag and Drop the "BlankMessage"-Block in your Model.
+* Double Click the BlankMessage Block and set the Message Type to INT64
+
+Now you have an empty ROS-Message and you need to fill the Bus-Element "Data" with content.
+
+In the previous Tutorial we used the "Bus-Selector"-Block now we need the "Bus-Assignment"-Block.
+Drag and Drop it in your model from "Simulink">>"Signal Routing".
+
+* Connect your Blank Message to the BUS-Input.
+* Double Click the "Bus-Assignment"-block and delete the default "signal1"
+* Select the "Data"-signal and add it to the "Signals that are being assigned"
+
+Now we need to create a counter that increments one time per second. There are different solutions to this problem in Simulink. And I will refer to it as Counter Subsystem.
+
+Message Content
+->Explain Subsystem
+
+Explain Publish-Block&lt;/content>
+&lt;/xwikidoc>@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1541694854000&lt;/date>
+  &lt;contentUpdateDate>1541694854000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d21 47
+a67 45
+  &lt;content>//Note you need to finish the superior ROS Tutorial(Link) before you perform this Tutorial, Because you'll need some of the nodes you've written in the general ROS_GettingStarted//&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+==**Create a ROS-Publisher in a Model**==&amp;#xd;
+&amp;#xd;
+* Start your VM, the ROS-Core and run the Counter Subscription node on your Linux VM.&amp;#xd;
+* Connect Matlab to your ROS-Core&amp;#xd;
+* Open a Blank Simulink Model.&amp;#xd;
+&amp;#xd;
+When you want to Publish a Message to a Topic you need to know which kind of message.&amp;#xd;
+To check which kind of message has to be published to the Topic you can use the command:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rostopic info {/TOPIC}&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+So we execute to identify the messagtype that can be published to the Topic we already subscribed to.&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rostopic info counter&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">Type: std_msgs/Int64&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2"> &amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">Publishers: None&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2"> &amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">Subscribers: &amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2"> * /sub_counter (http://host-VirtualBox:11111/)&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+To create a message you need to generate a blank ROS-Message of a specific message Type and provide content for the containing BUS-Elements.&amp;#xd;
+&amp;#xd;
+* Open your Simulink Libary Browser and navigate to "Robotic System Toolbox">>"ROS"&amp;#xd;
+* Drag and Drop the "BlankMessage"-Block in your Model.&amp;#xd;
+* Double Click the BlankMessage Block and set the Message Type to INT64&amp;#xd;
+&amp;#xd;
+Now you have an empty ROS-Message and you need to fill the Bus-Element "Data" with content.&amp;#xd;
+&amp;#xd;
+In the previous Tutorial we used the "Bus-Selector"-Block now we need the "Bus-Assignment"-Block.&amp;#xd;
+Drag and Drop it in your model from "Simulink">>"Signal Routing".&amp;#xd;
+&amp;#xd;
+* Connect your Blank Message to the BUS-Input.&amp;#xd;
+* Double Click the "Bus-Assignment"-block and delete the default "signal1"&amp;#xd;
+* Select the "Data"-signal and add it to the "Signals that are being assigned"&amp;#xd;
+&amp;#xd;
+Now we need to create a counter that increments one time per second. There are different solutions to this problem in Simulink. And I will refer to it as Counter Subsystem.&amp;#xd;
+&amp;#xd;
+Message Content&amp;#xd;
+->Explain Subsystem&amp;#xd;
+&amp;#xd;
+@
+
+
+2.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1541694567000&lt;/date>
+  &lt;contentUpdateDate>1541694567000&lt;/contentUpdateDate>
+  &lt;version>2.2&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+d57 3
+a59 3
+Connect your Blank Message to the BUS-Input.&amp;#xd;
+Double Click the "Bus-Assignment"-block and delete the default "signal1"&amp;#xd;
+Select the "Data"-signal and add it to the "Signals that are being assigned"&amp;#xd;
+d61 1
+a61 1
+What message -> Blank Message&amp;#xd;
+a62 2
+Bus creator&amp;#xd;
+&amp;#xd;
+d64 1
+a64 1
+-&amp;gt;Explain Subsystem&amp;#xd;
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1538492164000&lt;/date>
+  &lt;contentUpdateDate>1538492164000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d21 48
+a68 1
+  &lt;content/>
+@
+
+
+1.1
+log
+@@
+text
+@d13 4
+a16 4
+  &lt;date>1538492141000&lt;/date>
+  &lt;contentUpdateDate>1538492141000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+  &lt;title>ROS-Publisher in Simulink&lt;/title>
+@
+</versions>
+  <parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step4\: Getting started with ROS in Simulink.WebHome</parent>
+  <author>XWiki.FredericKovacs</author>
+  <contentAuthor>XWiki.FredericKovacs</contentAuthor>
+  <date>1542212143000</date>
+  <contentUpdateDate>1542212143000</contentUpdateDate>
+  <version>8.1</version>
+  <title>02 - ROS-Publisher in Simulink</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>//Note you need to finish the superior ROS Tutorial(Link) before you perform this Tutorial, Because you'll need some of the nodes you've written in the general ROS_GettingStarted//&#xd;
+&#xd;
+----&#xd;
+&#xd;
+== **Create a ROS-Publisher in a Model** ==&#xd;
+&#xd;
+&#xd;
+DummyLine&#xd;
+&#xd;
+&#xd;
+* Start your VM, the ROS-Core and run the Counter Subscription node on your Linux VM.&#xd;
+* Connect Matlab to your ROS-Core&#xd;
+* Open a Blank Simulink Model.&#xd;
+&#xd;
+When you want to Publish a Message to a Topic you need to know which kind of message.&#xd;
+To check which kind of message has to be published to the Topic you can use the command:&#xd;
+&#xd;
+>{{html}}&lt;font size="2">rostopic info {/TOPIC}&lt;/font>{{/html}}&#xd;
+&#xd;
+So we execute to identify the messagtype that can be published to the Topic we already subscribed to.&#xd;
+&#xd;
+>{{html}}&lt;font size="2">rostopic info counter&lt;/font>{{/html}}&#xd;
+&#xd;
+>{{html}}&lt;font size="2">Type: std_msgs/Int64&lt;/font>{{/html}}&#xd;
+>{{html}}&lt;font size="2"> &lt;/font>{{/html}}&#xd;
+>{{html}}&lt;font size="2">Publishers: None&lt;/font>{{/html}}&#xd;
+>{{html}}&lt;font size="2"> &lt;/font>{{/html}}&#xd;
+>{{html}}&lt;font size="2">Subscribers: &lt;/font>{{/html}}&#xd;
+>{{html}}&lt;font size="2"> * /sub_counter (http://host-VirtualBox:11111/)&lt;/font>{{/html}}&#xd;
+&#xd;
+To create a message you need to generate a blank ROS-Message of a specific message Type and provide content for the containing BUS-Elements.&#xd;
+&#xd;
+* Open your Simulink Libary Browser and navigate to "Robotic System Toolbox">>"ROS"&#xd;
+* Drag and Drop the "BlankMessage"-Block in your Model.&#xd;
+* Double Click the BlankMessage Block and set the Message Type to INT64&#xd;
+&#xd;
+(Picture)&#xd;
+&#xd;
+Now you have an empty ROS-Message with one Bus-Element and you need to fill the Bus-Element "Data" with content.&#xd;
+&#xd;
+In the previous Tutorial we used the "Bus-Selector"-Block now we need the "Bus-Assignment"-Block.&#xd;
+Drag and Drop it in your model from "Simulink">>"Signal Routing".&#xd;
+&#xd;
+* Connect your Blank Message to the BUS-Input.&#xd;
+* Double Click the "Bus-Assignment"-block and delete the default "signal1"&#xd;
+* Select the "Data"-signal and add it to the "Signals that are being assigned"&#xd;
+&#xd;
+(Picture)&#xd;
+&#xd;
+Now we need to create a counter that increments one time per second.&#xd;
+There are different solutions to this problem in Simulink and I will refer to it as Counter Subsystem.&#xd;
+Connect your Counter-Subsystem to the Data-Port of your Bus Assignment Block.&#xd;
+&#xd;
+We have created a ROS-Message and filled it with content but haven't published it yet.&#xd;
+To do so we need to implement a Publish-Block from the ROS-Libary in the Simulink Libary Browser.&#xd;
+&#xd;
+* Drag and Drop it in your model.&#xd;
+* Connect the Output-Port of your Bus-Assignement-Block with your Publish-Block.&#xd;
+* Select the Topic "/counter" as Topic to publish to from "Select from ROS-Network" and the block will automaticly assign the correct message-type.&#xd;
+&#xd;
+Your model should look similar to this:&#xd;
+&#xd;
+(Picture)&#xd;
+&#xd;
+----&#xd;
+&#xd;
+**Counter Block**&#xd;
+&#xd;
+//This is not to be seen as overall solution because when you create a standalone Note for e.g. a Raspberry you'll have to consider the devices CPU clock while creating your model.//&#xd;
+&#xd;
+Because a Simulink-Model doesn't work in realtime but with the clock which is available on the platform a normal counter will count much faster than one time per second.&#xd;
+One Solution is to create a Loop with a Fuction which just returns the Input to the output with a Delay of 1 second and an incrementation Block.&#xd;
+You have to add a (very short) discrete Delay between those two otherwise it wont work in Simulink.&#xd;
+&#xd;
+(Picture)</content>
+</xwikidoc>

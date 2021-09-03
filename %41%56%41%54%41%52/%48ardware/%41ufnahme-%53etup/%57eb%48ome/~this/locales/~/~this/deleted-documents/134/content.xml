@@ -1,0 +1,141 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="AVATAR.Hardware.Aufnahme-Setup.WebHome" locale="">
+  <web>AVATAR.Hardware.Aufnahme-Setup</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>de</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.StefanPatzke</creator>
+  <creationDate>1535380496000</creationDate>
+  <versions>head	3.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+3.1
+date	2018.08.27.15.06.09;	author XWiki_2EStefanPatzke;	state full;
+branches;
+next	2.1;
+
+2.1
+date	2018.08.27.15.05.17;	author XWiki_2EStefanPatzke;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.08.27.14.34.56;	author XWiki_2EStefanPatzke;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+3.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="AVATAR.Hardware.Aufnahme-Setup.WebHome" locale="">
+  &lt;web>AVATAR.Hardware.Aufnahme-Setup&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.StefanPatzke&lt;/creator>
+  &lt;creationDate>1535380496000&lt;/creationDate>
+  &lt;parent>AVATAR.Hardware.WebHome&lt;/parent>
+  &lt;author>XWiki.StefanPatzke&lt;/author>
+  &lt;contentAuthor>XWiki.StefanPatzke&lt;/contentAuthor>
+  &lt;date>1535382369000&lt;/date>
+  &lt;contentUpdateDate>1535382369000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+  &lt;title>Aufnahme-Setup&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Inhalt =
+
+{{toc start="2" numbered="false"/}}
+
+
+----
+
+
+== Hardware-Komponenten ==
+
+* IDS
+* Kinect
+* ...&lt;/content>
+&lt;/xwikidoc>@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1535382317000&lt;/date>
+  &lt;contentUpdateDate>1535382317000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d21 12
+a32 12
+  &lt;content>== Inhalt ==&amp;#xd;
+&amp;#xd;
+{{toc start="2" numbered="false"/}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== Hardware-Komponenten ==&amp;#xd;
+&amp;#xd;
+* IDS&amp;#xd;
+* Kinect&amp;#xd;
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1535380496000&lt;/date>
+  &lt;contentUpdateDate>1535380496000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d21 13
+a33 1
+  &lt;content>...&lt;/content>
+@
+</versions>
+  <parent>AVATAR.Hardware.WebHome</parent>
+  <author>XWiki.StefanPatzke</author>
+  <contentAuthor>XWiki.StefanPatzke</contentAuthor>
+  <date>1535382369000</date>
+  <contentUpdateDate>1535382369000</contentUpdateDate>
+  <version>3.1</version>
+  <title>Aufnahme-Setup</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>= Inhalt =
+
+{{toc start="2" numbered="false"/}}
+
+
+----
+
+
+== Hardware-Komponenten ==
+
+* IDS
+* Kinect
+* ...</content>
+</xwikidoc>

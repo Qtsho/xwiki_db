@@ -1,0 +1,343 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Mitarbeiter.Code.MitarbeiterClass" locale="">
+  <web>Mitarbeiter.Code</web>
+  <name>MitarbeiterClass</name>
+  <language/>
+  <defaultLanguage>de</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.TestMitarbeiter</creator>
+  <creationDate>1534409781000</creationDate>
+  <versions>head	2.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+2.1
+date	2018.08.16.08.56.22;	author XWiki_2ETestMitarbeiter;	state full;
+branches;
+next	1.1;
+
+1.1
+date	2018.08.16.08.56.22;	author XWiki_2ETestMitarbeiter;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+2.1
+log
+@Anzeigenvorlage eingebunden
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Mitarbeiter.Code.MitarbeiterClass" locale="">
+  &lt;web>Mitarbeiter.Code&lt;/web>
+  &lt;name>MitarbeiterClass&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.TestMitarbeiter&lt;/creator>
+  &lt;creationDate>1534409781000&lt;/creationDate>
+  &lt;parent>Mitarbeiter.WebHome&lt;/parent>
+  &lt;author>XWiki.TestMitarbeiter&lt;/author>
+  &lt;contentAuthor>XWiki.TestMitarbeiter&lt;/contentAuthor>
+  &lt;date>1534409782000&lt;/date>
+  &lt;contentUpdateDate>1534409782000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+  &lt;title>Mitarbeiter Class&lt;/title>
+  &lt;comment>Anzeigenvorlage eingebunden&lt;/comment>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.0&lt;/syntaxId>
+  &lt;hidden>true&lt;/hidden>
+  &lt;content/>
+  &lt;object>
+    &lt;name>Mitarbeiter.Code.MitarbeiterClass&lt;/name>
+    &lt;number>0&lt;/number>
+    &lt;className>AppWithinMinutes.MetadataClass&lt;/className>
+    &lt;guid>a15f451e-d313-4614-9eda-42e42efa70ec&lt;/guid>
+    &lt;class>
+      &lt;name>AppWithinMinutes.MetadataClass&lt;/name>
+      &lt;customClass/>
+      &lt;customMapping/>
+      &lt;defaultViewSheet/>
+      &lt;defaultEditSheet/>
+      &lt;defaultWeb/>
+      &lt;nameField/>
+      &lt;validationScript/>
+      &lt;dataSpaceName>
+        &lt;customDisplay/>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>dataSpaceName&lt;/name>
+        &lt;number>1&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>Data Space Name&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/dataSpaceName>
+    &lt;/class>
+    &lt;property>
+      &lt;dataSpaceName>&lt;/dataSpaceName>
+    &lt;/property>
+  &lt;/object>
+  &lt;object>
+    &lt;name>Mitarbeiter.Code.MitarbeiterClass&lt;/name>
+    &lt;number>0&lt;/number>
+    &lt;className>XWiki.ClassSheetBinding&lt;/className>
+    &lt;guid>ecce9091-33d1-4df9-865a-d3ac7c804243&lt;/guid>
+    &lt;class>
+      &lt;name>XWiki.ClassSheetBinding&lt;/name>
+      &lt;customClass/>
+      &lt;customMapping/>
+      &lt;defaultViewSheet/>
+      &lt;defaultEditSheet/>
+      &lt;defaultWeb/>
+      &lt;nameField/>
+      &lt;validationScript/>
+      &lt;sheet>
+        &lt;customDisplay/>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>sheet&lt;/name>
+        &lt;number>1&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>Sheet&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/sheet>
+    &lt;/class>
+    &lt;property>
+      &lt;sheet>MitarbeiterSheet&lt;/sheet>
+    &lt;/property>
+  &lt;/object>
+  &lt;object>
+    &lt;name>Mitarbeiter.Code.MitarbeiterClass&lt;/name>
+    &lt;number>0&lt;/number>
+    &lt;className>XWiki.DocumentSheetBinding&lt;/className>
+    &lt;guid>7308ff9b-c219-4eba-b505-f043eae4febc&lt;/guid>
+    &lt;class>
+      &lt;name>XWiki.DocumentSheetBinding&lt;/name>
+      &lt;customClass/>
+      &lt;customMapping/>
+      &lt;defaultViewSheet/>
+      &lt;defaultEditSheet/>
+      &lt;defaultWeb/>
+      &lt;nameField/>
+      &lt;validationScript/>
+      &lt;sheet>
+        &lt;customDisplay/>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>sheet&lt;/name>
+        &lt;number>1&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>Sheet&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/sheet>
+    &lt;/class>
+    &lt;property>
+      &lt;sheet>AppWithinMinutes.ClassEditSheet&lt;/sheet>
+    &lt;/property>
+  &lt;/object>
+  &lt;object>
+    &lt;name>Mitarbeiter.Code.MitarbeiterClass&lt;/name>
+    &lt;number>1&lt;/number>
+    &lt;className>XWiki.DocumentSheetBinding&lt;/className>
+    &lt;guid>103fe209-96a0-48c0-8de9-7c8e9d53892e&lt;/guid>
+    &lt;class>
+      &lt;name>XWiki.DocumentSheetBinding&lt;/name>
+      &lt;customClass/>
+      &lt;customMapping/>
+      &lt;defaultViewSheet/>
+      &lt;defaultEditSheet/>
+      &lt;defaultWeb/>
+      &lt;nameField/>
+      &lt;validationScript/>
+      &lt;sheet>
+        &lt;customDisplay/>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>sheet&lt;/name>
+        &lt;number>1&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>Sheet&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/sheet>
+    &lt;/class>
+    &lt;property>
+      &lt;sheet>XWiki.ClassSheet&lt;/sheet>
+    &lt;/property>
+  &lt;/object>
+&lt;/xwikidoc>@
+
+
+1.1
+log
+@Klassen-Eigenschaft aktualisiert
+@
+text
+@d15 1
+a15 1
+  &lt;version>1.1&lt;/version>
+d17 1
+a17 1
+  &lt;comment>Klassen-Eigenschaft aktualisiert&lt;/comment>
+d57 32
+@
+</versions>
+  <parent>Mitarbeiter.WebHome</parent>
+  <author>XWiki.TestMitarbeiter</author>
+  <contentAuthor>XWiki.TestMitarbeiter</contentAuthor>
+  <date>1534409782000</date>
+  <contentUpdateDate>1534409782000</contentUpdateDate>
+  <version>2.1</version>
+  <title>Mitarbeiter Class</title>
+  <comment>Anzeigenvorlage eingebunden</comment>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.0</syntaxId>
+  <hidden>true</hidden>
+  <content/>
+  <object>
+    <name>Mitarbeiter.Code.MitarbeiterClass</name>
+    <number>0</number>
+    <className>AppWithinMinutes.MetadataClass</className>
+    <guid>a15f451e-d313-4614-9eda-42e42efa70ec</guid>
+    <class>
+      <name>AppWithinMinutes.MetadataClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <dataSpaceName>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>dataSpaceName</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>Data Space Name</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </dataSpaceName>
+    </class>
+    <property>
+      <dataSpaceName></dataSpaceName>
+    </property>
+  </object>
+  <object>
+    <name>Mitarbeiter.Code.MitarbeiterClass</name>
+    <number>0</number>
+    <className>XWiki.ClassSheetBinding</className>
+    <guid>ecce9091-33d1-4df9-865a-d3ac7c804243</guid>
+    <class>
+      <name>XWiki.ClassSheetBinding</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <sheet>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>sheet</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>Sheet</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </sheet>
+    </class>
+    <property>
+      <sheet>MitarbeiterSheet</sheet>
+    </property>
+  </object>
+  <object>
+    <name>Mitarbeiter.Code.MitarbeiterClass</name>
+    <number>0</number>
+    <className>XWiki.DocumentSheetBinding</className>
+    <guid>7308ff9b-c219-4eba-b505-f043eae4febc</guid>
+    <class>
+      <name>XWiki.DocumentSheetBinding</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <sheet>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>sheet</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>Sheet</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </sheet>
+    </class>
+    <property>
+      <sheet>AppWithinMinutes.ClassEditSheet</sheet>
+    </property>
+  </object>
+  <object>
+    <name>Mitarbeiter.Code.MitarbeiterClass</name>
+    <number>1</number>
+    <className>XWiki.DocumentSheetBinding</className>
+    <guid>103fe209-96a0-48c0-8de9-7c8e9d53892e</guid>
+    <class>
+      <name>XWiki.DocumentSheetBinding</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <sheet>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>sheet</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>Sheet</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </sheet>
+    </class>
+    <property>
+      <sheet>XWiki.ClassSheet</sheet>
+    </property>
+  </object>
+</xwikidoc>

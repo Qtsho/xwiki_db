@@ -1,0 +1,900 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Set up a ROS Network.WebHome" locale="">
+  <web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Set up a ROS Network</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.FredericKovacs</creator>
+  <creationDate>1536849148000</creationDate>
+  <versions>head	13.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+13.2
+date	2018.10.31.09.38.07;	author XWiki_2ESvenHoyer;	state full;
+branches;
+next	13.1;
+
+13.1
+date	2018.09.28.10.25.27;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	12.1;
+
+12.1
+date	2018.09.28.10.23.14;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	11.1;
+
+11.1
+date	2018.09.28.10.21.33;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	10.1;
+
+10.1
+date	2018.09.28.10.20.57;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	9.1;
+
+9.1
+date	2018.09.21.09.31.17;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	8.1;
+
+8.1
+date	2018.09.18.10.39.44;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	7.1;
+
+7.1
+date	2018.09.18.08.08.11;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2018.09.18.07.43.36;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2018.09.18.07.38.54;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	4.1;
+
+4.1
+date	2018.09.18.07.33.20;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	3.1;
+
+3.1
+date	2018.09.18.07.30.28;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	2.2;
+
+2.2
+date	2018.09.18.07.04.38;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2018.09.18.06.22.35;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.09.13.14.32.28;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+13.2
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?&gt;
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Set up a ROS Network.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Set up a ROS Network&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1536849148000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.SvenHoyer&lt;/author>
+  &lt;contentAuthor>XWiki.SvenHoyer&lt;/contentAuthor>
+  &lt;date>1540978687000&lt;/date>
+  &lt;contentUpdateDate>1540978687000&lt;/contentUpdateDate>
+  &lt;version>13.2&lt;/version>
+  &lt;title>Step 1: Set up a ROS Network&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>=== ROS Network in your VM and MATLAB/SIMULINK ===
+
+----
+
+
+//(Note: Activate a Network-Bridge in the Network-Settings of your Virtual Machine to be shure it's possible for MATLAB to communicate with the ROS-Network on your VM)//
+
+//To get further information to the MATLAB/SIMULINK handling of ROS-Networks go to~://
+
+https://de.mathworks.com/help/robotics/examples/connect-to-a-ros-network.html
+
+----
+
+__Connect to a ROS-Network__
+
+At the beginning of initiating a ROS-Network, you have to start with the ROS-Core which basically administrates the communication between the ROS-Nodes.
+
+While in Linux the ROS-Core is initiated with the command,
+
+>{{html}}&amp;lt;font size="2">roscore&amp;lt;/font>{{/html}}
+
+MATLAB/SIMULINK uses the command:
+
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}
+
+to initiate it.
+
+In this case MATLAB/SIMULINK will create a ROS-Core and a "global node /matlab_global_node_xxxxx", which will publish the ROS-Topics you create with MATLAB/SIMULINK.
+But we want to create a global node and connect it with a ROS-Network on our Virtual Machine.
+So we open a Terminal in our Virtual Machine and execute:
+
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}
+
+And in another Terminal:
+
+>{{html}}&amp;lt;font size="2">ifconfig&amp;lt;/font>{{/html}}
+
+to find out about the IP Adress of your Host-System.
+When we know the IP-Adress of the VM and have initiated the the roscore, we execute:
+
+>{{html}}&amp;lt;font size="2">rosinit('{IP-Adress}')&amp;lt;/font>{{/html}}
+
+To control if the setup of your Network has worked got to your VM open a Terminal and execute:
+
+>{{html}}&amp;lt;font size="2">rosnode list&amp;lt;/font>{{/html}}
+
+You should be able to see your "matlab_global_node" in the list.
+
+----
+
+__Create a Node an Connect it to your ROS-Network__
+
+If we subscribe or sublish Topics from MATLAB the Publisher and Subscriber will be the "matlab_global_node".
+To get our ROS-Network clearly structured it 's better to create new nodes with distinct designation and publish and subscribe the Topics from those nodes.
+
+To creat a node handle object execute:
+
+>{{html}}&amp;lt;font size="2"&amp;gt;{Nd_hndl_obj_name}= robotics.ros.Node('{NODE_NAME}')&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">node1 = robotics.ros.Node('/test_node_1');&amp;lt;/font>{{/html}}
+
+To Subscribe or Publish a Topic from the node execute:
+
+>{{html}}&amp;lt;font size="2">pub = robotics.ros.Publisher({Nd_hndl_obj_name},'{TOPIC}','{msg_type}');&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">sub = robotics.ros.Subscriber({Nd_hndl_obj_name},'{TOPIC}','{msg_type}');&amp;lt;/font>{{/html}}
+
+//We do create a Subscriber and Publisher in Step 2 of this Tutorial//
+
+[[Step2>>http://wiki.lit.fh-dortmund.de/bin/view/Projects/MoRoP/Spezifikationen/Software/ROS/MATLAB%2FSIMULINK/Getting%20Started%20with%20ROS%20ind%20MATLAB%2FSIMULINK/Create%20a%20simple%20subscriber%20and%20publisher/]]&lt;/content>
+&lt;/xwikidoc>@
+
+
+13.1
+log
+@@
+text
+@d6 1
+a6 1
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+d11 5
+a15 5
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1538130327000&lt;/date>
+  &lt;contentUpdateDate>1538130327000&lt;/contentUpdateDate>
+  &lt;version>13.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d21 67
+a87 67
+  &lt;content>=== ROS Network in your VM and MATLAB/SIMULINK ===&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+//(Note: Activate a Network-Bridge in the Network-Settings of your Virtual Machine to be shure it's possible for MATLAB to communicate with the ROS-Network on your VM)//&amp;#xd;
+&amp;#xd;
+//To get further information to the MATLAB/SIMULINK handling of ROS-Networks go to~://&amp;#xd;
+&amp;#xd;
+https://de.mathworks.com/help/robotics/examples/connect-to-a-ros-network.html&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+__Connect to a ROS-Network__&amp;#xd;
+&amp;#xd;
+At the beginning of initiating a ROS-Network, you have to start with the ROS-Core which basically administrates the communication between the ROS-Nodes.&amp;#xd;
+&amp;#xd;
+While in Linux the ROS-Core is initiated with the command,&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">roscore&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+MATLAB/SIMULINK uses the command:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+to initiate it.&amp;#xd;
+&amp;#xd;
+In this case MATLAB/SIMULINK will create a ROS-Core and a "global node /matlab_global_node_xxxxx", which will publish the ROS-Topics you create with MATLAB/SIMULINK.&amp;#xd;
+But we want to create a global node and connect it with a ROS-Network on our Virtual Machine.&amp;#xd;
+So we open a Terminal in our Virtual Machine and execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+And in another Terminal:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">ifconfig&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+to find out about the IP Adress of your Host-System.&amp;#xd;
+When we know the IP-Adress of the VM and have initiated the the roscore, we execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit('{IP-Adress}')&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+To control if the setup of your Network has worked got to your VM open a Terminal and execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosnode list&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+You should be able to see your "matlab_global_node" in the list.&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+__Create a Node an Connect it to your ROS-Network__&amp;#xd;
+&amp;#xd;
+If we subscribe or sublish Topics from MATLAB the Publisher and Subscriber will be the "matlab_global_node".&amp;#xd;
+To get our ROS-Network clearly structured it 's better to create new nodes with distinct designation and publish and subscribe the Topics from those nodes.&amp;#xd;
+&amp;#xd;
+To creat a node handle object execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">{Nd_hndl_obj_name}= robotics.ros.Node('{NODE_NAME}')&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">node1 = robotics.ros.Node('/test_node_1');&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+To Subscribe or Publish a Topic from the node execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">pub = robotics.ros.Publisher({Nd_hndl_obj_name},'{TOPIC}','{msg_type}');&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">sub = robotics.ros.Subscriber({Nd_hndl_obj_name},'{TOPIC}','{msg_type}');&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+//We do create a Subscriber and Publisher in Step 2 of this Tutorial//&amp;#xd;
+&amp;#xd;
+@
+
+
+12.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1538130194000&lt;/date>
+  &lt;contentUpdateDate>1538130194000&lt;/contentUpdateDate>
+  &lt;version>12.1&lt;/version>
+d88 1
+a88 1
+[[Step 2: Create a simple subscriber and publisher]]&lt;/content>
+@
+
+
+11.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1538130093000&lt;/date>
+  &lt;contentUpdateDate>1538130093000&lt;/contentUpdateDate>
+  &lt;version>11.1&lt;/version>
+d28 1
+a28 1
+//To get further information to the MATLAB/SIMULINK handling of ROS-Networks go to:&amp;#xd;
+d86 3
+a88 1
+//We do create a Subscriber and Publisher in Step 2 of this Tutorial//&lt;/content>
+@
+
+
+10.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1538130057000&lt;/date>
+  &lt;contentUpdateDate>1538130057000&lt;/contentUpdateDate>
+  &lt;version>10.1&lt;/version>
+a28 1
+https://de.mathworks.com/help/robotics/examples/connect-to-a-ros-network.html////////&amp;#xd;
+d30 2
+d77 1
+d82 1
+d86 1
+a86 2
+//We do create a Subscriber and Publisher in Step 2 of this Tutorial//&amp;#xd;
+&lt;/content>
+@
+
+
+9.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Set up a ROS Network.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Set up a ROS Network&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1536849148000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1537522277000&lt;/date>
+  &lt;contentUpdateDate>1537522277000&lt;/contentUpdateDate>
+  &lt;version>9.1&lt;/version>
+  &lt;title>Step 1: Set up a ROS Network&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>=== ROS Network in your VM and MATLAB/SIMULINK ===&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+//(Note: Activate a Network-Bridge in the Network-Settings of your Virtual Machine to be shure it's possible for MATLAB to communicate with the ROS-Network on your VM)//&amp;#xd;
+&amp;#xd;
+//To get further information to the MATLAB/SIMULINK handling of ROS-Networks go to:&amp;#xd;
+https://de.mathworks.com/help/robotics/examples/connect-to-a-ros-network.html//////&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+At the beginning of initiating a ROS-Network, you have to start with the ROS-Core which basically administrates the communication between the ROS-Nodes.&amp;#xd;
+&amp;#xd;
+While in Linux the ROS-Core is initiated with the command,&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">roscore&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+MATLAB/SIMULINK uses the command:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+to initiate it.&amp;#xd;
+&amp;#xd;
+In this case MATLAB/SIMULINK will create a ROS-Core and a "global node /matlab_global_node_xxxxx", which will publish the ROS-Topics you create with MATLAB/SIMULINK.&amp;#xd;
+But we want to create a global node and connect it with a ROS-Network on our Virtual Machine.&amp;#xd;
+So we open a Terminal in our Virtual Machine and execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+And in another Terminal:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">ifconfig&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+to find out about the IP Adress of your Host-System.&amp;#xd;
+When we know the IP-Adress of the VM and have initiated the the roscore, we execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit('{IP-Adress}')&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+To control if the setup of your Network has worked got to your VM open a Terminal and execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosnode list&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+You should be able to see your "matlab_global_node" in the list.&amp;#xd;
+&amp;#xd;
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+8.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537267184000&lt;/date>
+  &lt;contentUpdateDate>1537267184000&lt;/contentUpdateDate>
+  &lt;version>8.1&lt;/version>
+d21 45
+a65 45
+  &lt;content>=== ROS Network in your VM and MATLAB/SIMULINK ===
+
+----
+
+
+//(Note: Activate a Network-Bridge in the Network-Settings of your Virtual Machine to be shure it's possible for MATLAB to communicate with the ROS-Network on your VM)//
+
+//To get further information to the MATLAB/SIMULINK handling of ROS-Networks go to:
+https://de.mathworks.com/help/robotics/examples/connect-to-a-ros-network.html////
+
+----
+
+At the beginning of initiating a ROS-Network, you have to start with the ROS-Core which basically administrates the communication between the ROS-Nodes.
+
+While in Linux the ROS-Core is initiated with the command,
+
+>{{html}}&amp;lt;font size="2">roscore&amp;lt;/font>{{/html}}
+
+MATLAB/SIMULINK uses the command:
+
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}
+
+to initiate it.
+
+In this case MATLAB/SIMULINK will create a ROS-Core and a "global node /matlab_global_node_xxxxx", which will publish the ROS-Topics you create with MATLAB/SIMULINK.
+But we want to create a global node and connect it with a ROS-Network on our Virtual Machine.
+So we open a Terminal in our Virtual Machine and execute:
+
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}
+
+And in another Terminal:
+
+>{{html}}&amp;lt;font size="2">ifconfig&amp;lt;/font>{{/html}}
+
+to find out about the IP Adress of your Host-System.
+When we know the IP-Adress of the VM and have initiated the the roscore, we execute:
+
+>{{html}}&amp;lt;font size="2">rosinit('{IP-Adress}')&amp;lt;/font>{{/html}}
+
+To control if the setup of your Network has worked got to your VM open a Terminal and execute:
+
+>{{html}}&amp;lt;font size="2">rosnode list&amp;lt;/font>{{/html}}
+
+You should be able to see your "matlab_global_node" in the list.
+
+@
+
+
+7.1
+log
+@@
+text
+@d13 4
+a16 4
+  &lt;date>1537258091000&lt;/date>
+  &lt;contentUpdateDate>1537258091000&lt;/contentUpdateDate>
+  &lt;version>7.1&lt;/version>
+  &lt;title>Set up a ROS Network&lt;/title>
+d21 45
+a65 45
+  &lt;content>=== ROS Network in your VM and MATLAB/SIMULINK ===&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+//(Note: Activate a Network-Bridge in the Network-Settings of your Virtual Machine to be shure it's possible for MATLAB to communicate with the ROS-Network on your VM)//&amp;#xd;
+&amp;#xd;
+//To get further information to the MATLAB/SIMULINK handling of ROS-Networks go to:&amp;#xd;
+https://de.mathworks.com/help/robotics/examples/connect-to-a-ros-network.html//&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+At the beginning of initiating a ROS-Network, you have to start with the ROS-Core which basically administrates the communication between the ROS-Nodes.&amp;#xd;
+&amp;#xd;
+While in Linux the ROS-Core is initiated with the command,&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">roscore&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+MATLAB/SIMULINK uses the command:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+to initiate it.&amp;#xd;
+&amp;#xd;
+In this case MATLAB/SIMULINK will create a ROS-Core and a "global node /matlab_global_node_xxxxx", which will publish the ROS-Topics you create with MATLAB/SIMULINK.&amp;#xd;
+But we want to create a global node and connect it with a ROS-Network on our Virtual Machine.&amp;#xd;
+So we open a Terminal in our Virtual Machine and execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+And in another Terminal:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">ifconfig&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+to find out about the IP Adress of your Host-System.&amp;#xd;
+When we know the IP-Adress of the VM and have initiated the the roscore, we execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit('{IP-Adress}')&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+To control if the setup of your Network has worked got to your VM open a Terminal and execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosnode list&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+You should be able to see your "matlab_global_node" in the list.&amp;#xd;
+&amp;#xd;
+@
+
+
+6.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537256616000&lt;/date>
+  &lt;contentUpdateDate>1537256616000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+d21 45
+a65 45
+  &lt;content>=== ROS Network in your VM and MATLAB/SIMULINK ===
+
+----
+
+
+//(Note: Activate a Network-Bridge in the Network-Settings of your Virtual Machine to be shure it's possible for MATLAB to communicate with the ROS-Network on your VM)//
+
+//To get further information to the MATLAB/SIMULINK handling of ROS-Networks go to:
+https://de.mathworks.com/help/robotics/examples/connect-to-a-ros-network.html////
+
+----
+
+At the beginning of initiating a ROS-Network, you have to start with the ROS-Core which basically administrates the communication between the ROS-Nodes.
+
+While in Linux the ROS-Core is initiated with the command,
+
+>{{html}}&amp;lt;font size="2">roscore&amp;lt;/font>{{/html}}
+
+MATLAB/SIMULINK uses the command:
+
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}
+
+to initiate it.
+
+In this case MATLAB/SIMULINK will create a ROS-Core and a "global node /matlab_global_node_xxxxx", which will publish the ROS-Topics you create with MATLAB/SIMULINK.
+But we want to create a global node and connect it with a ROS-Network on our Virtual Machine.
+So we open a Terminal in our Virtual Machine and execute:
+
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}
+
+And in another Terminal:
+
+>{{html}}&amp;lt;font size="2">ifconfig&amp;lt;/font>{{/html}}
+
+to find out about the IP Adress of your Host-System.
+When we know the IP-Adress of the VM and have initiated the the roscore, we execute:
+
+>{{html}}&amp;lt;font size="2">rosinit('{IP-Adress}')&amp;lt;/font>{{/html}}
+
+To control if the setup of your Network has worked got to your VM open a Terminal and execute:
+
+>{{html}}&amp;lt;font size="2">rosnode list&amp;lt;/font>{{/html}}
+
+You should be able to see your "matlab_global_node" in the list.
+
+@
+
+
+5.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537256334000&lt;/date>
+  &lt;contentUpdateDate>1537256334000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+d21 45
+a65 39
+  &lt;content>//(Note: Activate a Network-Bridge in the Network-Settings of your Virtual Machine to be shure it's possible for MATLAB to communicate with the ROS-Network on your VM)//&amp;#xd;
+&amp;#xd;
+To get further information to the MATLAB/SIMULINK handling of ROS-Networks go to:&amp;#xd;
+[https://de.mathworks.com/help/robotics/examples/connect-to-a-ros-network.html]&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+In the beginning when you initiate a ROS-Network, you have to start with the ROS-Core which basically administrates the communication between the ROS-Nodes.&amp;#xd;
+&amp;#xd;
+While in Linux the ROS-Core is initiated with the command,&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">roscore&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+MATLAB/SIMULINK uses the command:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+to initiate it.&amp;#xd;
+&amp;#xd;
+In this case MATLAB/SIMULINK will create a ROS-Core and a "global node /matlab_global_node_xxxxx", which will publish the ROS-Topics you create with MATLAB/SIMULINK.&amp;#xd;
+But we want to create a global node and connect it with a ROS-Network on our Virtual Machine.&amp;#xd;
+So we open a Terminal in our Virtual Machine and execute&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+and in another Terminal:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">ifconfig&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+to find out about the IP Adress of your Host-System.&amp;#xd;
+When we know the IP-Adress of the VM and have initiated the the roscore, we execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit('{IP-Adress}')&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+To control if the setup of your Network has worked got to your VM open a Terminal and execute:&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosnode list&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+You should be able to see your "matlab_global_node" in the list.&amp;#xd;
+&amp;#xd;
+@
+
+
+4.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Set up a ROS Network.WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Set up a ROS Network&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1536849148000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1537256000000&lt;/date>
+  &lt;contentUpdateDate>1537256000000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+  &lt;title>Set up a ROS Network&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>//(Note: Activate a Network-Bridge in the Network-Settings of your Virtual Machine to be shure it's possible for MATLAB to communicate with the ROS-Network on your VM)//&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+In the beginning when you initiate a ROS-Network, you have to start with the ROS-Core which basically administrates the communication between the ROS-Nodes.&amp;#xd;
+&amp;#xd;
+While in Linux the ROS-Core is initiated with the command,&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">roscore&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+MATLAB/SIMULINK uses the command:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+to initiate it.&amp;#xd;
+&amp;#xd;
+In this case MATLAB/SIMULINK will create a ROS-Core and a "global node /matlab_global_node_xxxxx", which will publish the ROS-Topics you create with MATLAB/SIMULINK.&amp;#xd;
+But we want to create a global node and connect it with a ROS-Network on our Virtual Machine.&amp;#xd;
+So we open a Terminal in our Virtual Machine and execute&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+and in another Terminal:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">ifconfig&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+to find out about the IP Adress of your Host-System.&amp;#xd;
+When we know the IP-Adress of the VM and have initiated the the roscore, we execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosinit('{IP-Adress}')&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&lt;/content>
+&lt;/xwikidoc>@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537255828000&lt;/date>
+  &lt;contentUpdateDate>1537255828000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d21 33
+a53 29
+  &lt;content>In the beginning when you initiate a ROS-Network, you have to start with the ROS-Core which basically administrates the communication between the ROS-Nodes.
+
+While in Linux the ROS-Core is initiated with the command,
+
+>{{html}}&amp;lt;font size="2">roscore&amp;lt;/font>{{/html}}
+
+MATLAB/SIMULINK uses the command:
+
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}
+
+to initiate it.
+
+In this case MATLAB/SIMULINK will create a ROS-Core and a "global node /matlab_global_node_xxxxx", which will publish the ROS-Topics you create with MATLAB/SIMULINK.
+But we want to create a global node and connect it with a ROS-Network on our Virtual Machine.
+So we open a Terminal in our Virtual Machine and execute
+
+>{{html}}&amp;lt;font size="2">rosinit&amp;lt;/font>{{/html}}
+
+and in another Terminal:
+
+>{{html}}&amp;lt;font size="2">ifconfig&amp;lt;/font>{{/html}}
+
+to find out about the IP Adress of your Host-System.
+When we know the IP-Adress of the VM and have initiated the the roscore, we execute:
+
+>{{html}}&amp;lt;font size="2">rosinit('{IP-Adress}')&amp;lt;/font>{{/html}}
+
+
+//(Note: Activate a Network-Bridge in the Network-Settings of your Virtual Machine to be shure it's possible for MATLAB to communicate with the ROS-Network on your VM)//&lt;/content>
+@
+
+
+2.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537254278000&lt;/date>
+  &lt;contentUpdateDate>1537254278000&lt;/contentUpdateDate>
+  &lt;version>2.2&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+d21 29
+a49 30
+  &lt;content>In the beginning when you initiate a ROS-Network, you have to start with the ROS-Core which basically administrates the communication between the ROS-Nodes.&amp;#xd;
+&amp;#xd;
+While in Linux the ROS-Core is initiated with the command,&amp;#xd;
+&amp;#xd;
+>roscore&amp;#xd;
+&amp;#xd;
+MATLAB/SIMULINK uses the command:&amp;#xd;
+&amp;#xd;
+>rosinit &amp;#xd;
+&amp;#xd;
+to initiate it.&amp;#xd;
+&amp;#xd;
+In this case MATLAB/SIMULINK will create a ROS-Core and a "global node /matlab_global_node_xxxxx", which will publish the ROS-Topics you create with MATLAB/SIMULINK.&amp;#xd;
+&amp;#xd;
+But we want to create a global node and connect it with a ROS-Network on our Virtual Machine.&amp;#xd;
+So we open a Terminal in our Virtual Machine and execute&amp;#xd;
+&amp;#xd;
+>roscore&amp;#xd;
+&amp;#xd;
+and in another Terminal&amp;#xd;
+&amp;#xd;
+>ifconfig&amp;#xd;
+&amp;#xd;
+to find out about the IP Adress of your Host-System.&amp;#xd;
+When we know the IP-Adress of the VM and have initiated the the roscore, we execute&amp;#xd;
+rosinit('{IP-Adress}')&amp;#xd;
+&amp;#xd;
+//(Note: Activate a Network-Bridge in the Network-Settings of your Virtual Machine to be shure it's possible for MATLAB to communicate with the ROS-Network on your VM)//&amp;#xd;
+&amp;#xd;
+&lt;/content>
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537251755000&lt;/date>
+  &lt;contentUpdateDate>1537251755000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d21 30
+a50 1
+  &lt;content>==Set up a Ros-Network==&lt;/content>
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1536849148000&lt;/date>
+  &lt;contentUpdateDate>1536849148000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d21 1
+a21 1
+  &lt;content/>
+@
+</versions>
+  <parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome</parent>
+  <author>XWiki.SvenHoyer</author>
+  <contentAuthor>XWiki.SvenHoyer</contentAuthor>
+  <date>1540978687000</date>
+  <contentUpdateDate>1540978687000</contentUpdateDate>
+  <version>13.2</version>
+  <title>Step 1: Set up a ROS Network</title>
+  <comment/>
+  <minorEdit>true</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>=== ROS Network in your VM and MATLAB/SIMULINK ===
+
+----
+
+
+//(Note: Activate a Network-Bridge in the Network-Settings of your Virtual Machine to be shure it's possible for MATLAB to communicate with the ROS-Network on your VM)//
+
+//To get further information to the MATLAB/SIMULINK handling of ROS-Networks go to~://
+
+https://de.mathworks.com/help/robotics/examples/connect-to-a-ros-network.html
+
+----
+
+__Connect to a ROS-Network__
+
+At the beginning of initiating a ROS-Network, you have to start with the ROS-Core which basically administrates the communication between the ROS-Nodes.
+
+While in Linux the ROS-Core is initiated with the command,
+
+>{{html}}&lt;font size="2">roscore&lt;/font>{{/html}}
+
+MATLAB/SIMULINK uses the command:
+
+>{{html}}&lt;font size="2">rosinit&lt;/font>{{/html}}
+
+to initiate it.
+
+In this case MATLAB/SIMULINK will create a ROS-Core and a "global node /matlab_global_node_xxxxx", which will publish the ROS-Topics you create with MATLAB/SIMULINK.
+But we want to create a global node and connect it with a ROS-Network on our Virtual Machine.
+So we open a Terminal in our Virtual Machine and execute:
+
+>{{html}}&lt;font size="2">rosinit&lt;/font>{{/html}}
+
+And in another Terminal:
+
+>{{html}}&lt;font size="2">ifconfig&lt;/font>{{/html}}
+
+to find out about the IP Adress of your Host-System.
+When we know the IP-Adress of the VM and have initiated the the roscore, we execute:
+
+>{{html}}&lt;font size="2">rosinit('{IP-Adress}')&lt;/font>{{/html}}
+
+To control if the setup of your Network has worked got to your VM open a Terminal and execute:
+
+>{{html}}&lt;font size="2">rosnode list&lt;/font>{{/html}}
+
+You should be able to see your "matlab_global_node" in the list.
+
+----
+
+__Create a Node an Connect it to your ROS-Network__
+
+If we subscribe or sublish Topics from MATLAB the Publisher and Subscriber will be the "matlab_global_node".
+To get our ROS-Network clearly structured it 's better to create new nodes with distinct designation and publish and subscribe the Topics from those nodes.
+
+To creat a node handle object execute:
+
+>{{html}}&lt;font size="2"&gt;{Nd_hndl_obj_name}= robotics.ros.Node('{NODE_NAME}')&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">node1 = robotics.ros.Node('/test_node_1');&lt;/font>{{/html}}
+
+To Subscribe or Publish a Topic from the node execute:
+
+>{{html}}&lt;font size="2">pub = robotics.ros.Publisher({Nd_hndl_obj_name},'{TOPIC}','{msg_type}');&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">sub = robotics.ros.Subscriber({Nd_hndl_obj_name},'{TOPIC}','{msg_type}');&lt;/font>{{/html}}
+
+//We do create a Subscriber and Publisher in Step 2 of this Tutorial//
+
+[[Step2>>http://wiki.lit.fh-dortmund.de/bin/view/Projects/MoRoP/Spezifikationen/Software/ROS/MATLAB%2FSIMULINK/Getting%20Started%20with%20ROS%20ind%20MATLAB%2FSIMULINK/Create%20a%20simple%20subscriber%20and%20publisher/]]</content>
+</xwikidoc>

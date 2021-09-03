@@ -1,0 +1,1697 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projekte .MoRoP.ROS GettingStarted.First Steps in ROS.WebHome" locale="">
+  <web>Projekte .MoRoP.ROS GettingStarted.First Steps in ROS</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>de</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.SvenHoyer</creator>
+  <creationDate>1536590700000</creationDate>
+  <versions>head	3.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+3.2
+date	2018.09.10.14.45.02;	author XWiki_2ESvenHoyer;	state full;
+branches;
+next	3.1;
+
+3.1
+date	2018.09.10.14.45.02;	author XWiki_2ESvenHoyer;	state diff;
+branches;
+next	2.3;
+
+2.3
+date	2018.09.10.14.45.02;	author XWiki_2ESvenHoyer;	state full;
+branches;
+next	2.2;
+
+2.2
+date	2018.08.26.13.06.51;	author XWiki_2EMatthiasDomnik;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2018.08.26.13.03.58;	author XWiki_2EMatthiasDomnik;	state diff;
+branches;
+next	1.2;
+
+1.2
+date	2018.08.26.10.22.25;	author XWiki_2EMatthiasDomnik;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.08.26.10.21.23;	author XWiki_2EMatthiasDomnik;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+3.2
+log
+@Updated the relative links.
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projekte .MoRoP.ROS GettingStarted.First Steps in ROS.WebHome" locale="">
+  &lt;web>Projekte .MoRoP.ROS GettingStarted.First Steps in ROS&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage&gt;de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.SvenHoyer&lt;/creator>
+  &lt;creationDate>1536590700000&lt;/creationDate>
+  &lt;parent>xwiki:Projekte .MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.SvenHoyer&lt;/author>
+  &lt;contentAuthor>XWiki.MatthiasDomnik&lt;/contentAuthor>
+  &lt;date>1536590702000&lt;/date>
+  &lt;contentUpdateDate>1536590700000&lt;/contentUpdateDate>
+  &lt;version>3.2&lt;/version>
+  &lt;title>First Steps in ROS&lt;/title>
+  &lt;comment>Updated the relative links.&lt;/comment>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{velocity}}
+{{documentTree root="document:$doc.documentReference" showAttachments="false" hierarchyMode="parentcild"/}}
+{{/velocity}}
+
+(% class="text-uppercase" %)Sitemap
+
+{{toc start="2"/}}
+
+----
+
+= First steps in ROS =
+
+This brief introduction provides a ﬁrst overview of the concept and the handling of ROS. This section is inspired by different ROS tutorials, which can be found at http:~/~/wiki.ros.org/ROS/Tutorials, and the books "Programming Robots with ROS: a practical introduction to the Robot Operating System" by Quigley{{footnote}}M. B. G. a. W. D. S. Quigley, Programming Robots with ROS: a practical introduction to the Robot Operating System, O'Reilly Media, Inc., 2015.{{/footnote}} and "A gentle introduction to ROS" by O'Kane{{footnote}}J. M. O'Kane, A gentle introduction to ROS, Jason M. O'Kane, 2014.  (The book is available at https://www.cse.sc.edu/~jokane/agitr/Agitr-letter.pdf provided free of charge by the author){{/footnote}}.
+
+== Example 1: ROS- “Hello World” ==
+
+
+In order to understand the concept of ROS, it is sensible to dedicate itself to a minimal example. The turtlesim simulator is used in numerous tutorials. For the beginning it makes sense to use this already build package, to keep it simple.
+
+1. The ﬁrst step is to open three terminals (this is easiest with [Ctrl] + [Alt] + T). The roscore command is then executed in the ﬁrst terminal.
+{{code}}$ roscore{{/code}}
+ 
+1. In the second terminal the command
+{{code}}$ rosrun turtlesim turtlesim_node{{/code}}
+is entered and executed. It opens another window with a blue background and a turtle in its center.
+ 
+1. The third terminal is used to initialize the control. With the command
+{{code}}$ rosrun turtlesim turtle_teleop_key{{/code}}
+the keyboard inputs are now read. Use the arrow keys on the keyboard to control the turtle.
+
+(% class="box infomessage" %)
+(((
+If the turtle can not be controlled, the terminal in which $rosrun turtlesim turtle _teleop _key has been executed must be selected by a left-click.
+)))
+
+The idea of this example is taken from "A gentle introduction to ROS".
+
+== ROS package ==
+
+The above example can already explain a basic idea of ROS. ROS is organized in so-called packages. A package can contain libraries, executables, and scripts (and many other objects). In the above example, the two executable ﬁles //turtle _teleop _key// and //turtlesim _node// are located in the turtlesim-package.
+
+There are many packages pre-installed and during the usage of ROS many more will follow. To get an overview whats is installed and what not, type in:
+{{code}}$ rospack list{{/code}}
+
+Furthermore, packages can be searched by entering this command:
+{{code}}$ rospack find &amp;lt;package-name>{{/code}}
+
+The input returns the path under which this package can be found.
+
+Each package is deﬁned by a so-called manifest (→ package.xml). It contains, for example, details such as the name of the responsible person, the version number, and dependencies. A folder containing a ﬁle named //package.xml// is automatically a package in ROS. In addition to package.xml, this folder contains a text ﬁle called //CMakeLists.txt//, which is needed for the cmake build process.
+Thus, the minimum scope of a package folder is:
+{{code}}my_package/
+    CMakeLists.txt
+    package.xml{{/code}}
+\\The concept of ROS is based on linking many of these packages, that is why an eﬃcient way to navigate through the ROS file system is helpful. In principle, the navigation is very similar to Linux. However, when changing a folder not a relative or absolute path is specified, but the desired package. If the name of a package is known, the following command can be used to switch to the appropriate folder:
+{{code}}$ roscd &amp;lt;package-name>{{/code}}
+\\This command can be used to switch directly to the package folder, without knowing the path. To display the contents of a packages folder, either use the {{code}}$roscd{{/code}} command to switch to the appropriate folder, and then display it using the Linux command {{code}}ls{{/code}}. Another way is to enter the following command:
+{{code}}$ rosls &amp;lt;package-name>{{/code}}
+\\The ROS command has the advantage that the current path is not left.
+
+== ROS master ==
+
+The ROS master exist only once in every ROS network, even in a distributed network. The main task of the master is comparable with a dns-server. Every node that launches sende information to the master, e.g. like the topics the node advertises or wants to subscriber to. The master forwards all these informations to nodes, that can use them. So, the master will only pass the publishers's URI to the nodes. The messages, generated by the publsiher, will be streamed over a TCP/IP flavour dirtly between the nodes. That means, the master has only an administrative role.
+
+To launch a ROS network, the master has to started at very first, that the following nodes can  linked each other. The command to start the master is:
+{{code}}$ roscore{{/code}}
+
+This command is to be executed in a separate terminal and must be executed there for the entire usage time. In principle, the ROS master (except a few exceptions) is to be stopped only when ROS is terminated.
+
+For the moment, these informations should be enough to get along with the following getting started. Later, there are some more things to consider, e.g when launching a distributed network.
+
+== ROS nodes ==
+
+After the ROS master is started, executable ﬁles, which are contained in the packages , can be started. Each start of a program, that means each instance, creates a node.
+ In [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), two instances were started. These were executed by the command
+{{code}}$ rosrun &amp;lt;package-name> &amp;lt;executable-name>{{/code}}
+\\To display the currently executed nodes, the command
+{{code}}$ rosnode list{{/code}}
+\\can be executed.  
+
+For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the output is as follows:
+{{code}}$ rosnode list
+    /rosout
+    /teleop_turtle
+    /turtlesim{{/code}}
+ 
+
+*/rosout* is a node which is initialized by the ROS master. The other two were initialized by using rosrun.
+ To manually assign a name to a node the rosrun command is supplemented by an option:
+{{code}}$ rosrun &amp;lt;package-name> &amp;lt;executable-name> __name := &amp;lt;new-nodename>{{/code}}
+\\Information about an active node is displayed by the following command
+{{code}}$ rosnode info &amp;lt;node-name>{{/code}}
+\\For example, the command rosnode info /turtlesim can be executed for [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), which leads to the following output:
+
+{{code}}
+----------------------------------------------------------
+Node [/turtlesim]
+Publications :
+* /turtle1/color_sensor [turtlesim/Color]
+* /rosout [rosgraph_msgs/Log]
+* /turtle1/pose [turtlesim/Pose]
+Subscriptions :
+* /turtle1/cmd_vel [geometry_msgs/Twist]
+Services :
+* /turtle1/teleport_absolute
+* /turtlesim/get_loggers
+* /turtlesim/set_logger_level
+* /reset
+* /spawn
+* /clear
+* /turtle1/set_pen
+* /turtle1 /teleport_relative
+* /kill
+.
+.
+.
+{{/code}}
+
+In the ﬁrst block (publications), the published topics are listed.
+In this case, only one entry can be found under Subscriptions. This is the published topic of this node ///teleop _turtle//, which reads the keystrokes and then passes them to node turtlesim.
+The third block contains the services, which is provided by this node. What services are in detail and how they are used follows in a later chapter.
+To ﬁnish a running node either the command can be executed
+{{code}}$ rosnode kill &amp;lt;node-name>{{/code}}
+\\or the terminal, in which the node is running, can be killed with **[Ctrl]**+**C**. However, when the node is killed with **[Ctrl]**+**C**, it has no chance unsubscribe at the ROS-Master. That is why there is the possibility that the killed node is still listed in node list. To clean up inactive nodes, call
+{{code}}$ rosnode cleanup{{/code}}
+
+== Topic und Messages ==
+
+Communication in ROS is based on messages organized by so-called topics. The idea is that a node, which needs information on a particular topic, can log on to the ROS master (subscribe). In a similar way, if a node wants to publish information on a topic, then the ROS master is also notified. The ROS master ensures that the source and the sink are interrelated. However, the actual message is not routed via the ROS master, but is sent directly between the nodes (P2P), see also [ROS master](First steps in ROS/~#~# ROS master).
+
+=== Graphic tool //rqt_graph// ===
+
+This concept can be described well with tools from the theory of graphs. The essential tool for this is a directed graph as a graphic aid. This is also composed of nodes and of (directed) edges which represent the path of the messages or the P2P link of the nodes.
+
+To provide a simple overview of the relationships between the nodes, ROS provides a graphical tool, which is called with the following command.
+{{code}}$ rqt_graph{{/code}}
+
+With regard to [[Example 1: ROS- “Hello World” >>MoRoP.ROS GettingStarted.First Steps in ROS.WebHome||anchor="Example 1: ROS- “Hello World”"]] the following graph is given.
+
+![first_steps_in_ros_example_graph.png](images/first_steps_in_ros_example_graph.png)  
+~_~_Figure 1: The graph synthesized from the examp The graph synthesized from [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”)~_~_
+
+The node /teleop_turtle publishes, according to Figure 7, under topic /turtle1/cmd_vel messages. On this topic has the node /turtlesim subscribed. The nodes are displayed with an oval border and the topics with a rectangular border. By looking at the image, the direction of the directed graph becomes clear, since a message is always a one-way street.
+
+It is worth mentioning that there is neither a source nor a sink interested in whether a node is published or subscribed to the corresponding topic.
+
+=== rostopic ===
+
+In addition to the message-identification, ROS provides a mechanism for message-analysation. Previously, the available topics have to be discovered. For this case use the command:
+{{code}}$ rostopic list{{/code}}
+\\For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) results:
+{{code}}$ rostopic list
+/rosout
+/rosout_agg
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose{{/code}}
+\\With the following command the messages, which are published under the dedicated topic, are shown:
+{{code}}$ rostopic echo &amp;lt;topic-name>{{/code}}
+\\While calling the following command, during running the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), there will be shown what node ///turtle1// publishes under the topic ///turtle1/pose//.
+{{code}}$ rostopic echo /turtle1/pose{{/code}}
+\\It follows the result:
+{{code}}$ rostopic echo /turtle1/pose
+x: 5.544444561
+y: 5.544444561
+theta: 0.0
+linear_velocity: 0.0
+angular_velocity: 0.0
+---{{/code}}
+\\The three hyphens at the end are important, because it indicates the end of a message.
+
+Sometimes it is not only interesting to know what is the content of the messages, rather the frequency or the publishing-rate. With the folling command it can be determined:
+{{code}}$ rostopic hz &amp;lt;topic-name>{{/code}}
+ 
+
+Looking at example [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command returns the following:
+{{code}}$ rostopic hz /turtle1/cmd_vel
+subscribed to [/turtle1/cmd_vel]
+no new messages
+average rate: 2.555
+min: 0.182 s max: 0.513s std dev: 0.14837 s window : 4
+average rate: 2.560
+min: 0.182 s max: 0.513s std dev: 0.12257 s window : 7
+average rate: 2.749
+min: 0.182 s max: 0.513s std dev: 0.11875 s window : 9{{/code}}
+\\The entry in line 3 says `no new messages`. In this case it is not surprising, because the node */teleop_turtle* only publishes something when a keyboard-button is hit. Indeed, for nodes, which are publishing messages continuously, it may indicate a problem. So it can be handy for debugging purpose.
+
+In addition to the "publishing rate", there is also the option to display the bandwidth occupied by the topic.
+{{code}}$ rostopic bw &amp;lt;topic-name>{{/code}}
+\\For getting further information to a topic and what kind of messages are published under a specific topic, the command
+{{code}}$ rostopic info &amp;lt;topic-name>{{/code}}
+\\will help.
+
+The above command used in [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) will generate the following output:
+{{code}}$ rostopic info /turtle1/cmd_vel
+Type: geometry_msgs/Twist
+Publishers :
+* /teleop_turtle (http://ubuntu-ros:41269/)
+Subscribers :
+* /turtlesim (http://ubuntu-ros:38839/){{/code}}
+\\The messages published under the topic "/turtle1/cmd_vel" are of type "geometry_msgs/Twist". Underneath the publishers and subsribers are listed. In this minimal-example there is only one publisher and one subscriber, but this is no requirement. From the technical point of view, there can be zero, one or any number of subscribers or publishers. Why it generally does not make sense to have more than one publisher to one topic is getting obvious, when we realize that all messages under one topic are equal-permissioned.
+
+=== //rosmsg// ===
+
+For detailed information to a specific message-type, enter the command:
+{{code}}$ rosmsg show &amp;lt;message-name>{{/code}}
+ 
+
+The result for the message-type *geometry_msgs/Twist* is:
+{{code}}$ rosmsg show geometry_msgs/Twist
+geometry_msgs/Vector3 linear
+float64 x
+float64 y
+float64 z
+geometry_msgs/Vector3 angular
+float64 x
+float64 y
+float64 z{{/code}}
+\\This message consists of two composite fields The composite fields are both of type //geometry_msgs/Vector3//. This field type consists again of three float64 arguments. But this does not have to be the usual case. A composite field can be arranged by other composite fields. In the broadest sense this behaviour is comparable with an objective language. An object can be part of another object.
+
+Usually, messages will be published by nodes automatically, but sometimes it can be useful o publish something by hand. So, the following command will do this task:
+{{code}}$ rostopic pub [options] &amp;lt;topic-name> &amp;lt;message-name> &amp;lt;content>{{/code}}
+\\This command can be extented with some options, for example with a publishing rate.  
+For the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command as follows can be entered.
+{{code}}$ rostopic pub -r 2 turtle1/cmd_vel geometry_msgs/Twist '[2, 0, 0]' '[0, 0, 2]'{{/code}}
+\\This moves the turtle to perform circular movement.
+
+However, at the end of this chapter it has to be noticed, that messages can also be related to packages. The structure is as follows:
+{{code}}&amp;lt;package-name>/&amp;lt;message-type>{{/code}}
+
+
+{{putFootnotes/}}&lt;/content>
+&lt;/xwikidoc>@
+
+
+3.1
+log
+@Renamed back-links.
+@
+text
+@d15 1
+a15 1
+  &lt;version>3.1&lt;/version>
+d17 2
+a18 2
+  &lt;comment>Renamed back-links.&lt;/comment>
+  &lt;minorEdit>false&lt;/minorEdit>
+d158 1
+a158 1
+With regard to [[Example 1: ROS- “Hello World” >>WebHome||anchor="Example 1: ROS- “Hello World”"]] the following graph is given.
+@
+
+
+2.3
+log
+@Update document after refactoring.
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projekte .MoRoP.ROS GettingStarted.First Steps in ROS.WebHome" locale="">
+  &lt;web>Projekte .MoRoP.ROS GettingStarted.First Steps in ROS&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.SvenHoyer&lt;/creator>
+  &lt;creationDate>1536590700000&lt;/creationDate>
+  &lt;parent>xwiki:Projekte .MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.SvenHoyer&lt;/author>
+  &lt;contentAuthor>XWiki.MatthiasDomnik&lt;/contentAuthor>
+  &lt;date>1536590702000&lt;/date>
+  &lt;contentUpdateDate>1536590700000&lt;/contentUpdateDate>
+  &lt;version>2.3&lt;/version>
+  &lt;title>First Steps in ROS&lt;/title>
+  &lt;comment>Update document after refactoring.&lt;/comment>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{velocity}}
+{{documentTree root="document:$doc.documentReference" showAttachments="false" hierarchyMode="parentcild"/}}
+{{/velocity}}
+
+(% class="text-uppercase" %)Sitemap
+
+{{toc start="2"/}}
+
+----
+
+= First steps in ROS =
+
+This brief introduction provides a ﬁrst overview of the concept and the handling of ROS. This section is inspired by different ROS tutorials, which can be found at http:~/~/wiki.ros.org/ROS/Tutorials, and the books "Programming Robots with ROS: a practical introduction to the Robot Operating System" by Quigley{{footnote}}M. B. G. a. W. D. S. Quigley, Programming Robots with ROS: a practical introduction to the Robot Operating System, O'Reilly Media, Inc., 2015.{{/footnote}} and "A gentle introduction to ROS" by O'Kane{{footnote}}J. M. O'Kane, A gentle introduction to ROS, Jason M. O'Kane, 2014.  (The book is available at https://www.cse.sc.edu/~jokane/agitr/Agitr-letter.pdf provided free of charge by the author){{/footnote}}.
+
+== Example 1: ROS- “Hello World” ==
+
+
+In order to understand the concept of ROS, it is sensible to dedicate itself to a minimal example. The turtlesim simulator is used in numerous tutorials. For the beginning it makes sense to use this already build package, to keep it simple.
+
+1. The ﬁrst step is to open three terminals (this is easiest with [Ctrl] + [Alt] + T). The roscore command is then executed in the ﬁrst terminal.
+{{code}}$ roscore{{/code}}
+ 
+1. In the second terminal the command
+{{code}}$ rosrun turtlesim turtlesim_node{{/code}}
+is entered and executed. It opens another window with a blue background and a turtle in its center.
+ 
+1. The third terminal is used to initialize the control. With the command
+{{code}}$ rosrun turtlesim turtle_teleop_key{{/code}}
+the keyboard inputs are now read. Use the arrow keys on the keyboard to control the turtle.
+
+(% class="box infomessage" %)
+(((
+If the turtle can not be controlled, the terminal in which $rosrun turtlesim turtle _teleop _key has been executed must be selected by a left-click.
+)))
+
+The idea of this example is taken from "A gentle introduction to ROS".
+
+== ROS package ==
+
+The above example can already explain a basic idea of ROS. ROS is organized in so-called packages. A package can contain libraries, executables, and scripts (and many other objects). In the above example, the two executable ﬁles //turtle _teleop _key// and //turtlesim _node// are located in the turtlesim-package.
+
+There are many packages pre-installed and during the usage of ROS many more will follow. To get an overview whats is installed and what not, type in:
+{{code}}$ rospack list{{/code}}
+
+Furthermore, packages can be searched by entering this command:
+{{code}}$ rospack find &amp;lt;package-name>{{/code}}
+
+The input returns the path under which this package can be found.
+
+Each package is deﬁned by a so-called manifest (→ package.xml). It contains, for example, details such as the name of the responsible person, the version number, and dependencies. A folder containing a ﬁle named //package.xml// is automatically a package in ROS. In addition to package.xml, this folder contains a text ﬁle called //CMakeLists.txt//, which is needed for the cmake build process.
+Thus, the minimum scope of a package folder is:
+{{code}}my_package/
+    CMakeLists.txt
+    package.xml{{/code}}
+\\The concept of ROS is based on linking many of these packages, that is why an eﬃcient way to navigate through the ROS file system is helpful. In principle, the navigation is very similar to Linux. However, when changing a folder not a relative or absolute path is specified, but the desired package. If the name of a package is known, the following command can be used to switch to the appropriate folder:
+{{code}}$ roscd &amp;lt;package-name>{{/code}}
+\\This command can be used to switch directly to the package folder, without knowing the path. To display the contents of a packages folder, either use the {{code}}$roscd{{/code}} command to switch to the appropriate folder, and then display it using the Linux command {{code}}ls{{/code}}. Another way is to enter the following command:
+{{code}}$ rosls &amp;lt;package-name>{{/code}}
+\\The ROS command has the advantage that the current path is not left.
+
+== ROS master ==
+
+The ROS master exist only once in every ROS network, even in a distributed network. The main task of the master is comparable with a dns-server. Every node that launches sende information to the master, e.g. like the topics the node advertises or wants to subscriber to. The master forwards all these informations to nodes, that can use them. So, the master will only pass the publishers's URI to the nodes. The messages, generated by the publsiher, will be streamed over a TCP/IP flavour dirtly between the nodes. That means, the master has only an administrative role.
+
+To launch a ROS network, the master has to started at very first, that the following nodes can  linked each other. The command to start the master is:
+{{code}}$ roscore{{/code}}
+
+This command is to be executed in a separate terminal and must be executed there for the entire usage time. In principle, the ROS master (except a few exceptions) is to be stopped only when ROS is terminated.
+
+For the moment, these informations should be enough to get along with the following getting started. Later, there are some more things to consider, e.g when launching a distributed network.
+
+== ROS nodes ==
+
+After the ROS master is started, executable ﬁles, which are contained in the packages , can be started. Each start of a program, that means each instance, creates a node.
+ In [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), two instances were started. These were executed by the command
+{{code}}$ rosrun &amp;lt;package-name> &amp;lt;executable-name>{{/code}}
+\\To display the currently executed nodes, the command
+{{code}}$ rosnode list{{/code}}
+\\can be executed.  
+
+For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the output is as follows:
+{{code}}$ rosnode list
+    /rosout
+    /teleop_turtle
+    /turtlesim{{/code}}
+ 
+
+*/rosout* is a node which is initialized by the ROS master. The other two were initialized by using rosrun.
+ To manually assign a name to a node the rosrun command is supplemented by an option:
+{{code}}$ rosrun &amp;lt;package-name> &amp;lt;executable-name> __name := &amp;lt;new-nodename>{{/code}}
+\\Information about an active node is displayed by the following command
+{{code}}$ rosnode info &amp;lt;node-name>{{/code}}
+\\For example, the command rosnode info /turtlesim can be executed for [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), which leads to the following output:
+
+{{code}}
+----------------------------------------------------------
+Node [/turtlesim]
+Publications :
+* /turtle1/color_sensor [turtlesim/Color]
+* /rosout [rosgraph_msgs/Log]
+* /turtle1/pose [turtlesim/Pose]
+Subscriptions :
+* /turtle1/cmd_vel [geometry_msgs/Twist]
+Services :
+* /turtle1/teleport_absolute
+* /turtlesim/get_loggers
+* /turtlesim/set_logger_level
+* /reset
+* /spawn
+* /clear
+* /turtle1/set_pen
+* /turtle1 /teleport_relative
+* /kill
+.
+.
+.
+{{/code}}
+
+In the ﬁrst block (publications), the published topics are listed.
+In this case, only one entry can be found under Subscriptions. This is the published topic of this node ///teleop _turtle//, which reads the keystrokes and then passes them to node turtlesim.
+The third block contains the services, which is provided by this node. What services are in detail and how they are used follows in a later chapter.
+To ﬁnish a running node either the command can be executed
+{{code}}$ rosnode kill &amp;lt;node-name>{{/code}}
+\\or the terminal, in which the node is running, can be killed with **[Ctrl]**+**C**. However, when the node is killed with **[Ctrl]**+**C**, it has no chance unsubscribe at the ROS-Master. That is why there is the possibility that the killed node is still listed in node list. To clean up inactive nodes, call
+{{code}}$ rosnode cleanup{{/code}}
+
+== Topic und Messages ==
+
+Communication in ROS is based on messages organized by so-called topics. The idea is that a node, which needs information on a particular topic, can log on to the ROS master (subscribe). In a similar way, if a node wants to publish information on a topic, then the ROS master is also notified. The ROS master ensures that the source and the sink are interrelated. However, the actual message is not routed via the ROS master, but is sent directly between the nodes (P2P), see also [ROS master](First steps in ROS/~#~# ROS master).
+
+=== Graphic tool //rqt_graph// ===
+
+This concept can be described well with tools from the theory of graphs. The essential tool for this is a directed graph as a graphic aid. This is also composed of nodes and of (directed) edges which represent the path of the messages or the P2P link of the nodes.
+
+To provide a simple overview of the relationships between the nodes, ROS provides a graphical tool, which is called with the following command.
+{{code}}$ rqt_graph{{/code}}
+
+With regard to [[Example 1: ROS- “Hello World” >>MoRoP.ROS GettingStarted.First Steps in ROS||anchor="Example 1: ROS- “Hello World”"]] the following graph is given.
+
+![first_steps_in_ros_example_graph.png](images/first_steps_in_ros_example_graph.png)  
+~_~_Figure 1: The graph synthesized from the examp The graph synthesized from [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”)~_~_
+
+The node /teleop_turtle publishes, according to Figure 7, under topic /turtle1/cmd_vel messages. On this topic has the node /turtlesim subscribed. The nodes are displayed with an oval border and the topics with a rectangular border. By looking at the image, the direction of the directed graph becomes clear, since a message is always a one-way street.
+
+It is worth mentioning that there is neither a source nor a sink interested in whether a node is published or subscribed to the corresponding topic.
+
+=== rostopic ===
+
+In addition to the message-identification, ROS provides a mechanism for message-analysation. Previously, the available topics have to be discovered. For this case use the command:
+{{code}}$ rostopic list{{/code}}
+\\For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) results:
+{{code}}$ rostopic list
+/rosout
+/rosout_agg
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose{{/code}}
+\\With the following command the messages, which are published under the dedicated topic, are shown:
+{{code}}$ rostopic echo &amp;lt;topic-name>{{/code}}
+\\While calling the following command, during running the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), there will be shown what node ///turtle1// publishes under the topic ///turtle1/pose//.
+{{code}}$ rostopic echo /turtle1/pose{{/code}}
+\\It follows the result:
+{{code}}$ rostopic echo /turtle1/pose
+x: 5.544444561
+y: 5.544444561
+theta: 0.0
+linear_velocity: 0.0
+angular_velocity: 0.0
+---{{/code}}
+\\The three hyphens at the end are important, because it indicates the end of a message.
+
+Sometimes it is not only interesting to know what is the content of the messages, rather the frequency or the publishing-rate. With the folling command it can be determined:
+{{code}}$ rostopic hz &amp;lt;topic-name>{{/code}}
+ 
+
+Looking at example [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command returns the following:
+{{code}}$ rostopic hz /turtle1/cmd_vel
+subscribed to [/turtle1/cmd_vel]
+no new messages
+average rate: 2.555
+min: 0.182 s max: 0.513s std dev: 0.14837 s window : 4
+average rate: 2.560
+min: 0.182 s max: 0.513s std dev: 0.12257 s window : 7
+average rate: 2.749
+min: 0.182 s max: 0.513s std dev: 0.11875 s window : 9{{/code}}
+\\The entry in line 3 says `no new messages`. In this case it is not surprising, because the node */teleop_turtle* only publishes something when a keyboard-button is hit. Indeed, for nodes, which are publishing messages continuously, it may indicate a problem. So it can be handy for debugging purpose.
+
+In addition to the "publishing rate", there is also the option to display the bandwidth occupied by the topic.
+{{code}}$ rostopic bw &amp;lt;topic-name>{{/code}}
+\\For getting further information to a topic and what kind of messages are published under a specific topic, the command
+{{code}}$ rostopic info &amp;lt;topic-name>{{/code}}
+\\will help.
+
+The above command used in [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) will generate the following output:
+{{code}}$ rostopic info /turtle1/cmd_vel
+Type: geometry_msgs/Twist
+Publishers :
+* /teleop_turtle (http://ubuntu-ros:41269/)
+Subscribers :
+* /turtlesim (http://ubuntu-ros:38839/){{/code}}
+\\The messages published under the topic "/turtle1/cmd_vel" are of type "geometry_msgs/Twist". Underneath the publishers and subsribers are listed. In this minimal-example there is only one publisher and one subscriber, but this is no requirement. From the technical point of view, there can be zero, one or any number of subscribers or publishers. Why it generally does not make sense to have more than one publisher to one topic is getting obvious, when we realize that all messages under one topic are equal-permissioned.
+
+=== //rosmsg// ===
+
+For detailed information to a specific message-type, enter the command:
+{{code}}$ rosmsg show &amp;lt;message-name>{{/code}}
+ 
+
+The result for the message-type *geometry_msgs/Twist* is:
+{{code}}$ rosmsg show geometry_msgs/Twist
+geometry_msgs/Vector3 linear
+float64 x
+float64 y
+float64 z
+geometry_msgs/Vector3 angular
+float64 x
+float64 y
+float64 z{{/code}}
+\\This message consists of two composite fields The composite fields are both of type //geometry_msgs/Vector3//. This field type consists again of three float64 arguments. But this does not have to be the usual case. A composite field can be arranged by other composite fields. In the broadest sense this behaviour is comparable with an objective language. An object can be part of another object.
+
+Usually, messages will be published by nodes automatically, but sometimes it can be useful o publish something by hand. So, the following command will do this task:
+{{code}}$ rostopic pub [options] &amp;lt;topic-name> &amp;lt;message-name> &amp;lt;content>{{/code}}
+\\This command can be extented with some options, for example with a publishing rate.  
+For the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command as follows can be entered.
+{{code}}$ rostopic pub -r 2 turtle1/cmd_vel geometry_msgs/Twist '[2, 0, 0]' '[0, 0, 2]'{{/code}}
+\\This moves the turtle to perform circular movement.
+
+However, at the end of this chapter it has to be noticed, that messages can also be related to packages. The structure is as follows:
+{{code}}&amp;lt;package-name>/&amp;lt;message-type>{{/code}}
+
+
+{{putFootnotes/}}&lt;/content>
+&lt;/xwikidoc>@
+
+
+2.2
+log
+@@
+text
+@d2 2
+a3 2
+&lt;xwikidoc version="1.3" reference="MoRoP.ROS GettingStarted.First Steps in ROS.WebHome" locale="">
+  &lt;web>MoRoP.ROS GettingStarted.First Steps in ROS&lt;/web>
+d8 4
+a11 4
+  &lt;creator>XWiki.MatthiasDomnik&lt;/creator>
+  &lt;creationDate>1535278883000&lt;/creationDate>
+  &lt;parent>MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.MatthiasDomnik&lt;/author>
+d13 3
+a15 3
+  &lt;date>1535288811000&lt;/date>
+  &lt;contentUpdateDate>1535288811000&lt;/contentUpdateDate>
+  &lt;version>2.2&lt;/version>
+d17 1
+a17 1
+  &lt;comment/>
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1535288638000&lt;/date>
+  &lt;contentUpdateDate>1535288638000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d21 231
+a251 223
+  &lt;content>{{toc start="2"/}}&amp;#xd;
+&amp;#xd;
+= First steps in ROS =&amp;#xd;
+&amp;#xd;
+This brief introduction provides a ﬁrst overview of the concept and the handling of ROS. This section is inspired by different ROS tutorials, which can be found at http:~/~/wiki.ros.org/ROS/Tutorials, and the books "Programming Robots with ROS: a practical introduction to the Robot Operating System" by Quigley{{footnote}}M. B. G. a. W. D. S. Quigley, Programming Robots with ROS: a practical introduction to the Robot Operating System, O'Reilly Media, Inc., 2015.{{/footnote}} and "A gentle introduction to ROS" by O'Kane{{footnote}}J. M. O'Kane, A gentle introduction to ROS, Jason M. O'Kane, 2014.  (The book is available at https://www.cse.sc.edu/~jokane/agitr/Agitr-letter.pdf provided free of charge by the author){{/footnote}}.&amp;#xd;
+&amp;#xd;
+== Example 1: ROS- “Hello World” ==&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+In order to understand the concept of ROS, it is sensible to dedicate itself to a minimal example. The turtlesim simulator is used in numerous tutorials. For the beginning it makes sense to use this already build package, to keep it simple.&amp;#xd;
+&amp;#xd;
+1. The ﬁrst step is to open three terminals (this is easiest with [Ctrl] + [Alt] + T). The roscore command is then executed in the ﬁrst terminal.&amp;#xd;
+{{code}}$ roscore{{/code}}&amp;#xd;
+ &amp;#xd;
+1. In the second terminal the command&amp;#xd;
+{{code}}$ rosrun turtlesim turtlesim_node{{/code}}&amp;#xd;
+is entered and executed. It opens another window with a blue background and a turtle in its center.&amp;#xd;
+ &amp;#xd;
+1. The third terminal is used to initialize the control. With the command&amp;#xd;
+{{code}}$ rosrun turtlesim turtle_teleop_key{{/code}}&amp;#xd;
+the keyboard inputs are now read. Use the arrow keys on the keyboard to control the turtle.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+If the turtle can not be controlled, the terminal in which $rosrun turtlesim turtle _teleop _key has been executed must be selected by a left-click.&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The idea of this example is taken from "A gentle introduction to ROS".&amp;#xd;
+&amp;#xd;
+== ROS package ==&amp;#xd;
+&amp;#xd;
+The above example can already explain a basic idea of ROS. ROS is organized in so-called packages. A package can contain libraries, executables, and scripts (and many other objects). In the above example, the two executable ﬁles //turtle _teleop _key// and //turtlesim _node// are located in the turtlesim-package.&amp;#xd;
+&amp;#xd;
+There are many packages pre-installed and during the usage of ROS many more will follow. To get an overview whats is installed and what not, type in:&amp;#xd;
+{{code}}$ rospack list{{/code}}&amp;#xd;
+&amp;#xd;
+Furthermore, packages can be searched by entering this command:&amp;#xd;
+{{code}}$ rospack find &amp;lt;package-name>{{/code}}&amp;#xd;
+&amp;#xd;
+The input returns the path under which this package can be found.&amp;#xd;
+&amp;#xd;
+Each package is deﬁned by a so-called manifest (→ package.xml). It contains, for example, details such as the name of the responsible person, the version number, and dependencies. A folder containing a ﬁle named //package.xml// is automatically a package in ROS. In addition to package.xml, this folder contains a text ﬁle called //CMakeLists.txt//, which is needed for the cmake build process.&amp;#xd;
+Thus, the minimum scope of a package folder is:&amp;#xd;
+{{code}}my_package/&amp;#xd;
+    CMakeLists.txt&amp;#xd;
+    package.xml{{/code}}&amp;#xd;
+\\The concept of ROS is based on linking many of these packages, that is why an eﬃcient way to navigate through the ROS file system is helpful. In principle, the navigation is very similar to Linux. However, when changing a folder not a relative or absolute path is specified, but the desired package. If the name of a package is known, the following command can be used to switch to the appropriate folder:&amp;#xd;
+{{code}}$ roscd &amp;lt;package-name>{{/code}}&amp;#xd;
+\\This command can be used to switch directly to the package folder, without knowing the path. To display the contents of a packages folder, either use the {{code}}$roscd{{/code}} command to switch to the appropriate folder, and then display it using the Linux command {{code}}ls{{/code}}. Another way is to enter the following command:&amp;#xd;
+{{code}}$ rosls &amp;lt;package-name>{{/code}}&amp;#xd;
+\\The ROS command has the advantage that the current path is not left.&amp;#xd;
+&amp;#xd;
+== ROS master ==&amp;#xd;
+&amp;#xd;
+The ROS master exist only once in every ROS network, even in a distributed network. The main task of the master is comparable with a dns-server. Every node that launches sende information to the master, e.g. like the topics the node advertises or wants to subscriber to. The master forwards all these informations to nodes, that can use them. So, the master will only pass the publishers's URI to the nodes. The messages, generated by the publsiher, will be streamed over a TCP/IP flavour dirtly between the nodes. That means, the master has only an administrative role.&amp;#xd;
+&amp;#xd;
+To launch a ROS network, the master has to started at very first, that the following nodes can  linked each other. The command to start the master is:&amp;#xd;
+{{code}}$ roscore{{/code}}&amp;#xd;
+&amp;#xd;
+This command is to be executed in a separate terminal and must be executed there for the entire usage time. In principle, the ROS master (except a few exceptions) is to be stopped only when ROS is terminated.&amp;#xd;
+&amp;#xd;
+For the moment, these informations should be enough to get along with the following getting started. Later, there are some more things to consider, e.g when launching a distributed network.&amp;#xd;
+&amp;#xd;
+== ROS nodes ==&amp;#xd;
+&amp;#xd;
+After the ROS master is started, executable ﬁles, which are contained in the packages , can be started. Each start of a program, that means each instance, creates a node.&amp;#xd;
+ In [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), two instances were started. These were executed by the command&amp;#xd;
+{{code}}$ rosrun &amp;lt;package-name> &amp;lt;executable-name>{{/code}}&amp;#xd;
+\\To display the currently executed nodes, the command&amp;#xd;
+{{code}}$ rosnode list{{/code}}&amp;#xd;
+\\can be executed.  &amp;#xd;
+&amp;#xd;
+For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the output is as follows:&amp;#xd;
+{{code}}$ rosnode list&amp;#xd;
+    /rosout&amp;#xd;
+    /teleop_turtle&amp;#xd;
+    /turtlesim{{/code}}&amp;#xd;
+ &amp;#xd;
+&amp;#xd;
+*/rosout* is a node which is initialized by the ROS master. The other two were initialized by using rosrun.&amp;#xd;
+ To manually assign a name to a node the rosrun command is supplemented by an option:&amp;#xd;
+{{code}}$ rosrun &amp;lt;package-name> &amp;lt;executable-name> __name := &amp;lt;new-nodename>{{/code}}&amp;#xd;
+\\Information about an active node is displayed by the following command&amp;#xd;
+{{code}}$ rosnode info &amp;lt;node-name>{{/code}}&amp;#xd;
+\\For example, the command rosnode info /turtlesim can be executed for [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), which leads to the following output:&amp;#xd;
+&amp;#xd;
+{{code}}&amp;#xd;
+----------------------------------------------------------&amp;#xd;
+Node [/turtlesim]&amp;#xd;
+Publications :&amp;#xd;
+* /turtle1/color_sensor [turtlesim/Color]&amp;#xd;
+* /rosout [rosgraph_msgs/Log]&amp;#xd;
+* /turtle1/pose [turtlesim/Pose]&amp;#xd;
+Subscriptions :&amp;#xd;
+* /turtle1/cmd_vel [geometry_msgs/Twist]&amp;#xd;
+Services :&amp;#xd;
+* /turtle1/teleport_absolute&amp;#xd;
+* /turtlesim/get_loggers&amp;#xd;
+* /turtlesim/set_logger_level&amp;#xd;
+* /reset&amp;#xd;
+* /spawn&amp;#xd;
+* /clear&amp;#xd;
+* /turtle1/set_pen&amp;#xd;
+* /turtle1 /teleport_relative&amp;#xd;
+* /kill&amp;#xd;
+.&amp;#xd;
+.&amp;#xd;
+.&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+In the ﬁrst block (publications), the published topics are listed.&amp;#xd;
+In this case, only one entry can be found under Subscriptions. This is the published topic of this node ///teleop _turtle//, which reads the keystrokes and then passes them to node turtlesim.&amp;#xd;
+The third block contains the services, which is provided by this node. What services are in detail and how they are used follows in a later chapter.&amp;#xd;
+To ﬁnish a running node either the command can be executed&amp;#xd;
+{{code}}$ rosnode kill &amp;lt;node-name>{{/code}}&amp;#xd;
+\\or the terminal, in which the node is running, can be killed with **[Ctrl]**+**C**. However, when the node is killed with **[Ctrl]**+**C**, it has no chance unsubscribe at the ROS-Master. That is why there is the possibility that the killed node is still listed in node list. To clean up inactive nodes, call&amp;#xd;
+{{code}}$ rosnode cleanup{{/code}}&amp;#xd;
+&amp;#xd;
+== Topic und Messages ==&amp;#xd;
+&amp;#xd;
+Communication in ROS is based on messages organized by so-called topics. The idea is that a node, which needs information on a particular topic, can log on to the ROS master (subscribe). In a similar way, if a node wants to publish information on a topic, then the ROS master is also notified. The ROS master ensures that the source and the sink are interrelated. However, the actual message is not routed via the ROS master, but is sent directly between the nodes (P2P), see also [ROS master](First steps in ROS/~#~# ROS master).&amp;#xd;
+&amp;#xd;
+=== Graphic tool //rqt_graph// ===&amp;#xd;
+&amp;#xd;
+This concept can be described well with tools from the theory of graphs. The essential tool for this is a directed graph as a graphic aid. This is also composed of nodes and of (directed) edges which represent the path of the messages or the P2P link of the nodes.&amp;#xd;
+&amp;#xd;
+To provide a simple overview of the relationships between the nodes, ROS provides a graphical tool, which is called with the following command.&amp;#xd;
+{{code}}$ rqt_graph{{/code}}&amp;#xd;
+&amp;#xd;
+With regard to [[Example 1: ROS- “Hello World” >>MoRoP.ROS GettingStarted.First Steps in ROS||anchor="Example 1: ROS- “Hello World”"]] the following graph is given.&amp;#xd;
+&amp;#xd;
+![first_steps_in_ros_example_graph.png](images/first_steps_in_ros_example_graph.png)  &amp;#xd;
+~_~_Figure 1: The graph synthesized from the examp The graph synthesized from [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”)~_~_&amp;#xd;
+&amp;#xd;
+The node /teleop_turtle publishes, according to Figure 7, under topic /turtle1/cmd_vel messages. On this topic has the node /turtlesim subscribed. The nodes are displayed with an oval border and the topics with a rectangular border. By looking at the image, the direction of the directed graph becomes clear, since a message is always a one-way street.&amp;#xd;
+&amp;#xd;
+It is worth mentioning that there is neither a source nor a sink interested in whether a node is published or subscribed to the corresponding topic.&amp;#xd;
+&amp;#xd;
+=== rostopic ===&amp;#xd;
+&amp;#xd;
+In addition to the message-identification, ROS provides a mechanism for message-analysation. Previously, the available topics have to be discovered. For this case use the command:&amp;#xd;
+{{code}}$ rostopic list{{/code}}&amp;#xd;
+\\For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) results:&amp;#xd;
+{{code}}$ rostopic list&amp;#xd;
+/rosout&amp;#xd;
+/rosout_agg&amp;#xd;
+/turtle1/cmd_vel&amp;#xd;
+/turtle1/color_sensor&amp;#xd;
+/turtle1/pose{{/code}}&amp;#xd;
+\\With the following command the messages, which are published under the dedicated topic, are shown:&amp;#xd;
+{{code}}$ rostopic echo &amp;lt;topic-name>{{/code}}&amp;#xd;
+\\While calling the following command, during running the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), there will be shown what node ///turtle1// publishes under the topic ///turtle1/pose//.&amp;#xd;
+{{code}}$ rostopic echo /turtle1/pose{{/code}}&amp;#xd;
+\\It follows the result:&amp;#xd;
+{{code}}$ rostopic echo /turtle1/pose&amp;#xd;
+x: 5.544444561&amp;#xd;
+y: 5.544444561&amp;#xd;
+theta: 0.0&amp;#xd;
+linear_velocity: 0.0&amp;#xd;
+angular_velocity: 0.0&amp;#xd;
+---{{/code}}&amp;#xd;
+\\The three hyphens at the end are important, because it indicates the end of a message.&amp;#xd;
+&amp;#xd;
+Sometimes it is not only interesting to know what is the content of the messages, rather the frequency or the publishing-rate. With the folling command it can be determined:&amp;#xd;
+{{code}}$ rostopic hz &amp;lt;topic-name>{{/code}}&amp;#xd;
+ &amp;#xd;
+&amp;#xd;
+Looking at example [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command returns the following:&amp;#xd;
+{{code}}$ rostopic hz /turtle1/cmd_vel&amp;#xd;
+subscribed to [/turtle1/cmd_vel]&amp;#xd;
+no new messages&amp;#xd;
+average rate: 2.555&amp;#xd;
+min: 0.182 s max: 0.513s std dev: 0.14837 s window : 4&amp;#xd;
+average rate: 2.560&amp;#xd;
+min: 0.182 s max: 0.513s std dev: 0.12257 s window : 7&amp;#xd;
+average rate: 2.749&amp;#xd;
+min: 0.182 s max: 0.513s std dev: 0.11875 s window : 9{{/code}}&amp;#xd;
+\\The entry in line 3 says `no new messages`. In this case it is not surprising, because the node */teleop_turtle* only publishes something when a keyboard-button is hit. Indeed, for nodes, which are publishing messages continuously, it may indicate a problem. So it can be handy for debugging purpose.&amp;#xd;
+&amp;#xd;
+In addition to the "publishing rate", there is also the option to display the bandwidth occupied by the topic.&amp;#xd;
+{{code}}$ rostopic bw &amp;lt;topic-name>{{/code}}&amp;#xd;
+\\For getting further information to a topic and what kind of messages are published under a specific topic, the command&amp;#xd;
+{{code}}$ rostopic info &amp;lt;topic-name>{{/code}}&amp;#xd;
+\\will help.&amp;#xd;
+&amp;#xd;
+The above command used in [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) will generate the following output:&amp;#xd;
+{{code}}$ rostopic info /turtle1/cmd_vel&amp;#xd;
+Type: geometry_msgs/Twist&amp;#xd;
+Publishers :&amp;#xd;
+* /teleop_turtle (http://ubuntu-ros:41269/)&amp;#xd;
+Subscribers :&amp;#xd;
+* /turtlesim (http://ubuntu-ros:38839/){{/code}}&amp;#xd;
+\\The messages published under the topic "/turtle1/cmd_vel" are of type "geometry_msgs/Twist". Underneath the publishers and subsribers are listed. In this minimal-example there is only one publisher and one subscriber, but this is no requirement. From the technical point of view, there can be zero, one or any number of subscribers or publishers. Why it generally does not make sense to have more than one publisher to one topic is getting obvious, when we realize that all messages under one topic are equal-permissioned.&amp;#xd;
+&amp;#xd;
+=== //rosmsg// ===&amp;#xd;
+&amp;#xd;
+For detailed information to a specific message-type, enter the command:&amp;#xd;
+{{code}}$ rosmsg show &amp;lt;message-name>{{/code}}&amp;#xd;
+ &amp;#xd;
+&amp;#xd;
+The result for the message-type *geometry_msgs/Twist* is:&amp;#xd;
+{{code}}$ rosmsg show geometry_msgs/Twist&amp;#xd;
+geometry_msgs/Vector3 linear&amp;#xd;
+float64 x&amp;#xd;
+float64 y&amp;#xd;
+float64 z&amp;#xd;
+geometry_msgs/Vector3 angular&amp;#xd;
+float64 x&amp;#xd;
+float64 y&amp;#xd;
+float64 z{{/code}}&amp;#xd;
+\\This message consists of two composite fields The composite fields are both of type //geometry_msgs/Vector3//. This field type consists again of three float64 arguments. But this does not have to be the usual case. A composite field can be arranged by other composite fields. In the broadest sense this behaviour is comparable with an objective language. An object can be part of another object.&amp;#xd;
+&amp;#xd;
+Usually, messages will be published by nodes automatically, but sometimes it can be useful o publish something by hand. So, the following command will do this task:&amp;#xd;
+{{code}}$ rostopic pub [options] &amp;lt;topic-name> &amp;lt;message-name> &amp;lt;content>{{/code}}&amp;#xd;
+\\This command can be extented with some options, for example with a publishing rate.  &amp;#xd;
+For the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command as follows can be entered.&amp;#xd;
+{{code}}$ rostopic pub -r 2 turtle1/cmd_vel geometry_msgs/Twist '[2, 0, 0]' '[0, 0, 2]'{{/code}}&amp;#xd;
+\\This moves the turtle to perform circular movement.&amp;#xd;
+&amp;#xd;
+However, at the end of this chapter it has to be noticed, that messages can also be related to packages. The structure is as follows:&amp;#xd;
+{{code}}&amp;lt;package-name>/&amp;lt;message-type>{{/code}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+@
+
+
+1.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1535278945000&lt;/date>
+  &lt;contentUpdateDate>1535278945000&lt;/contentUpdateDate>
+  &lt;version>1.2&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+d21 223
+a243 279
+  &lt;content>{{toc start="2"/}}
+
+= First steps in ROS =
+
+This brief introduction provides a ﬁrst overview of the concept and the handling of ROS. This section is inspired by different ROS tutorials, which can be found at http:~/~/wiki.ros.org/ROS/Tutorials, and the books "Programming Robots with ROS: a practical introduction to the Robot Operating System" by Quigley{{footnote}}M. B. G. a. W. D. S. Quigley, Programming Robots with ROS: a practical introduction to the Robot Operating System, O'Reilly Media, Inc., 2015.{{/footnote}} and "A gentle introduction to ROS"[^Okane] by O'Kane{{footnote}}J. M. O'Kane, A gentle introduction to ROS, Jason M. O'Kane, 2014.  (The book is available at https://www.cse.sc.edu/~jokane/agitr/Agitr-letter.pdf provided free of charge by the author){{/footnote}}.
+
+== Example 1: ROS- “Hello World” ==
+
+
+In order to understand the concept of ROS, it is sensible to dedicate itself to a minimal example. The turtlesim simulator is used in numerous tutorials. For the beginning it makes sense to use this already build package, to keep it simple.
+
+1. The ﬁrst step is to open three terminals (this is easiest with [Ctrl] + [Alt] + T). The roscore command is then executed in the ﬁrst terminal.
+{{code}}$ roscore{{/code}}
+ 
+1. In the second terminal the command
+{{code}}$ rosrun turtlesim turtlesim_node{{/code}}
+is entered and executed. It opens another window with a blue background and a turtle in its center.
+ 
+1. The third terminal is used to initialize the control. With the command
+{{code}}$ rosrun turtlesim turtle_teleop_key{{/code}}
+the keyboard inputs are now read. Use the arrow keys on the keyboard to control the turtle.
+
+(% class="box infomessage" %)
+(((
+If the turtle can not be controlled, the terminal in which $rosrun turtlesim turtle _teleop _key has been executed must be selected by a left-click.
+)))
+
+The idea of this example is taken from "A gentle introduction to ROS".
+
+== ROS package ==
+
+The above example can already explain a basic idea of ROS. ROS is organized in so-called packages. A package can contain libraries, executables, and scripts (and many other objects). In the above example, the two executable ﬁles *turtle _teleop _key* and *turtlesim _node* are located in the turtlesim-package.
+
+There are many packages pre-installed and during the usage of ROS many more will follow. To get an overview whats is installed and what not, type in:
+
+```bash
+$ rospack list
+```
+Furthermore, packages can be searched by entering this command:
+```bash
+$ rospack find &amp;lt;package-name>
+```
+The input returns the path under which this package can be found.
+
+Each package is deﬁned by a so-called manifest (→ package.xml). It contains, for example, details such as the name of the responsible person, the version number, and dependencies. A folder containing a ﬁle named *package.xml* is automatically a package in ROS. In addition to package.xml, this folder contains a text ﬁle called *CMakeLists.txt*, which is needed for the cmake build process.
+Thus, the minimum scope of a package folder is:
+```
+my_package/
+    CMakeLists.txt
+    package.xml
+```
+The concept of ROS is based on linking many of these packages, that is why an eﬃcient way to navigate through the ROS file system is helpful. In principle, the navigation is very similar to Linux. However, when changing a folder not a relative or absolute path is specified, but the desired package. If the name of a package is known, the following command can be used to switch to the appropriate folder:
+```bash
+$ roscd &amp;lt;package-name>
+```
+This command can be used to switch directly to the package folder, without knowing the path. To display the contents of a packages folder, either use the `$roscd` command to switch to the appropriate folder, and then display it using the Linux command `ls`. Another way is to enter the following command:
+```bash
+$ rosls &amp;lt;package-name>
+```
+The ROS command has the advantage that the current path is not left.
+
+~#~# ROS master
+
+The ROS master exist only once in every ROS network, even in a distributed network. The main task of the master is comparable with a dns-server. Every node that launches sende information to the master, e.g. like the topics the node advertises or wants to subscriber to. The master forwards all these informations to nodes, that can use them. So, the master will only pass the publishers's URI to the nodes. The messages, generated by the publsiher, will be streamed over a TCP/IP flavour dirtly between the nodes. That means, the master has only an administrative role.
+
+To launch a ROS network, the master has to started at very first, that the following nodes can  linked each other. The command to start the master is:
+
+```bash
+$ roscore
+```
+This command is to be executed in a separate terminal and must be executed there for the entire usage time. In principle, the ROS master (except a few exceptions) is to be stopped only when ROS is terminated.
+
+For the moment, these informations should be enough to get along with the following getting started. Later, there are some more things to consider, e.g when launching a distributed network.
+
+~#~# ROS nodes
+
+After the ROS master is started, executable ﬁles, which are contained in the packages , can be started. Each start of a program, that means each instance, creates a node.
+ In [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), two instances were started. These were executed by the command
+```bash
+$ rosrun &amp;lt;package-name> &amp;lt;executable-name>
+```
+To display the currently executed nodes, the command
+```bash
+$ rosnode list
+```
+can be executed.  
+
+For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the output is as follows:
+```
+$ rosnode list
+    /rosout
+    /teleop_turtle
+    /turtlesim
+```
+
+*/rosout* is a node which is initialized by the ROS master. The other two were initialized by using rosrun.
+ To manually assign a name to a node the rosrun command is supplemented by an option:
+```bash
+$ rosrun &amp;lt;package-name> &amp;lt;executable-name> ~_~_name := &amp;lt;new-nodename>
+```
+Information about an active node is displayed by the following command
+``` bash
+$ rosnode info &amp;lt;node-name>
+```
+For example, the command rosnode info /turtlesim can be executed for [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), which leads to the following output:
+
+```
+~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-
+Node [/turtlesim]
+Publications :
+~* /turtle1/color_sensor [turtlesim/Color]
+~* /rosout [rosgraph_msgs/Log]
+~* /turtle1/pose [turtlesim/Pose]
+Subscriptions :
+~* /turtle1/cmd_vel [geometry_msgs/Twist]
+Services :
+~* /turtle1/teleport_absolute
+~* /turtlesim/get_loggers
+~* /turtlesim/set_logger_level
+~* /reset
+~* /spawn
+~* /clear
+~* /turtle1/set_pen
+~* /turtle1 /teleport_relative
+~* /kill
+.
+.
+.
+```
+In the ﬁrst block (publications), the published topics are listed.
+In this case, only one entry can be found under Subscriptions. This is the published topic of this node */teleop _turtle*, which reads the keystrokes and then passes them to node turtlesim.
+The third block contains the services, which is provided by this node. What services are in detail and how they are used follows in a later chapter.
+To ﬁnish a running node either the command can be executed
+```bash
+$ rosnode kill &amp;lt;node-name>
+```
+or the terminal, in which the node is running, can be killed with ~_~_[Ctrl]~_~_+~_~_C~_~_. However, when the node is killed with ~_~_[Ctrl]~_~_+~_~_C~_~_, it has no chance unsubscribe at the ROS-Master. That is why there is the possibility that the killed node is still listed in node list. To clean up inactive nodes, call
+```bash
+$ rosnode cleanup
+```
+
+~#~# Topic und Messages
+Communication in ROS is based on messages organized by so-called topics. The idea is that a node, which needs information on a particular topic, can log on to the ROS master (subscribe). In a similar way, if a node wants to publish information on a topic, then the ROS master is also notified. The ROS master ensures that the source and the sink are interrelated. However, the actual message is not routed via the ROS master, but is sent directly between the nodes (P2P), see also [ROS master](First steps in ROS/~#~# ROS master).
+
+~#~## Graphic tool *rqt_graph*
+
+This concept can be described well with tools from the theory of graphs. The essential tool for this is a directed graph as a graphic aid. This is also composed of nodes and of (directed) edges which represent the path of the messages or the P2P link of the nodes.
+
+To provide a simple overview of the relationships between the nodes, ROS provides a graphical tool, which is called with the following command.
+
+```bash
+$ rqt_graph
+```
+
+With regard to [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) the following graph is given.
+
+![first_steps_in_ros_example_graph.png](images/first_steps_in_ros_example_graph.png)  
+~_~_Figure 1: The graph synthesized from the examp The graph synthesized from [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”)~_~_
+
+The node /teleop_turtle publishes, according to Figure 7, under topic /turtle1/cmd_vel messages. On this topic has the node /turtlesim subscribed. The nodes are displayed with an oval border and the topics with a rectangular border. By looking at the image, the direction of the directed graph becomes clear, since a message is always a one-way street.
+
+It is worth mentioning that there is neither a source nor a sink interested in whether a node is published or subscribed to the corresponding topic.
+
+~#~## rostopic
+
+In addition to the message-identification, ROS provides a mechanism for message-analysation. Previously, the available topics have to be discovered. For this case use the command:
+```bash
+$ rostopic list
+```
+For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) results:
+```
+$ rostopic list
+/rosout
+/rosout_agg
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+```
+With the following command the messages, which are published under the dedicated topic, are shown:
+```bash
+$ rostopic echo &amp;lt;topic-name>
+```
+While calling the following command, during running the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), there will be shown what node */turtle1* publishes under the topic */turtle1/pose*.
+```bash
+$ rostopic echo /turtle1/pose
+```
+It follows the result:
+```
+$ rostopic echo /turtle1/pose
+x: 5.544444561
+y: 5.544444561
+theta: 0.0
+linear_velocity: 0.0
+angular_velocity: 0.0
+~-~--
+
+```
+The three hyphens at the end are important, because it indicates the end of a message.
+
+Sometimes it is not only interesting to know what is the content of the messages, rather the frequency or the publishing-rate. With the folling command it can be determined:
+```bash
+$ rostopic hz &amp;lt;topic-name>
+```
+
+Looking at example [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command returns the following:
+```bash
+$ rostopic hz /turtle1/cmd_vel
+subscribed to [/turtle1/cmd_vel]
+no new messages
+average rate: 2.555
+min: 0.182 s max: 0.513s std dev: 0.14837 s window : 4
+average rate: 2.560
+min: 0.182 s max: 0.513s std dev: 0.12257 s window : 7
+average rate: 2.749
+min: 0.182 s max: 0.513s std dev: 0.11875 s window : 9
+```
+The entry in line 3 says `no new messages`. In this case it is not surprising, because the node */teleop_turtle* only publishes something when a keyboard-button is hit. Indeed, for nodes, which are publishing messages continuously, it may indicate a problem. So it can be handy for debugging purpose.
+
+In addition to the "publishing rate", there is also the option to display the bandwidth occupied by the topic.
+```bash
+$ rostopic bw &amp;lt;topic-name>
+```
+For getting further information to a topic and what kind of messages are published under a specific topic, the command
+```bash
+$ rostopic info &amp;lt;topic-name>
+```
+will help.
+
+The above command used in [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) will generate the following output:
+```bash
+$ rostopic info /turtle1/cmd_vel
+Type: geometry_msgs/Twist
+Publishers :
+~* /teleop_turtle (http:~/~/ubuntu-ros:41269/)
+Subscribers :
+~* /turtlesim (http:~/~/ubuntu-ros:38839/)
+```
+The messages published under the topic "/turtle1/cmd_vel" are of type "geometry_msgs/Twist". Underneath the publishers and subsribers are listed. In this minimal-example there is only one publisher and one subscriber, but this is no requirement. From the technical point of view, there can be zero, one or any number of subscribers or publishers. Why it generally does not make sense to have more than one publisher to one topic is getting obvious, when we realize that all messages under one topic are equal-permissioned.
+
+~#~## *rosmsg*
+
+For detailed information to a specific message-type, enter the command:
+```bash
+$ rosmsg show &amp;lt;message-name>
+```
+
+The result for the message-type *geometry_msgs/Twist* is:
+```bash
+$ rosmsg show geometry_msgs/Twist
+geometry_msgs/Vector3 linear
+float64 x
+float64 y
+float64 z
+geometry_msgs/Vector3 angular
+float64 x
+float64 y
+float64 z
+```
+This message consists of two composite fields The composite fields are both of type *geometry_msgs/Vector3*. This field type consists again of three float64 arguments. But this does not have to be the usual case. A composite field can be arranged by other composite fields. In the broadest sense this behaviour is comparable with an objective language. An object can be part of another object.
+
+Usually, messages will be published by nodes automatically, but sometimes it can be useful o publish something by hand. So, the following command will do this task:
+```bash
+$ rostopic pub [options] &amp;lt;topic-name> &amp;lt;message-name> &amp;lt;content>
+```
+This command can be extented with some options, for example with a publishing rate.  
+For the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command as follows can be entered.
+```bash
+$ rostopic pub -r 2 turtle1/cmd_vel geometry_msgs/Twist '[2, 0, 0]' '[0, 0, 2]'
+```
+This moves the turtle to perform circular movement.
+
+However, at the end of this chapter it has to be noticed, that messages can also be related to packages. The structure is as follows:
+```bash
+&amp;lt;package-name>/&amp;lt;message-type>
+```
+
+
+
+
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1535278883000&lt;/date>
+  &lt;contentUpdateDate>1535278883000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d21 279
+a299 282
+  &lt;content>{{velocity}}&amp;#xd;
+{{documentTree root="document:$doc.documentReference" showAttachments="false"/}}&amp;#xd;
+{{/velocity}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= First steps in ROS =&amp;#xd;
+&amp;#xd;
+This brief introduction provides a ﬁrst overview of the concept and the handling of ROS. This section is inspired by different ROS tutorials, which can be found at http:~/~/wiki.ros.org/ROS/Tutorials, and the books "Programming Robots with ROS: a practical introduction to the Robot Operating System" by Quigley{{footnote}}M. B. G. a. W. D. S. Quigley, Programming Robots with ROS: a practical introduction to the Robot Operating System, O'Reilly Media, Inc., 2015.{{/footnote}} and "A gentle introduction to ROS"[^Okane] by O'Kane{{footnote}}J. M. O'Kane, A gentle introduction to ROS, Jason M. O'Kane, 2014.  (The book is available at https://www.cse.sc.edu/~jokane/agitr/Agitr-letter.pdf provided free of charge by the author){{/footnote}}.&amp;#xd;
+&amp;#xd;
+== Example 1: ROS- “Hello World” ==&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+In order to understand the concept of ROS, it is sensible to dedicate itself to a minimal example. The turtlesim simulator is used in numerous tutorials. For the beginning it makes sense to use this already build package, to keep it simple.&amp;#xd;
+&amp;#xd;
+1. The ﬁrst step is to open three terminals (this is easiest with [Ctrl] + [Alt] + T). The roscore command is then executed in the ﬁrst terminal.&amp;#xd;
+{{code}}$ roscore{{/code}}&amp;#xd;
+ &amp;#xd;
+1. In the second terminal the command&amp;#xd;
+{{code}}$ rosrun turtlesim turtlesim_node{{/code}}&amp;#xd;
+is entered and executed. It opens another window with a blue background and a turtle in its center.&amp;#xd;
+ &amp;#xd;
+1. The third terminal is used to initialize the control. With the command&amp;#xd;
+{{code}}$ rosrun turtlesim turtle_teleop_key{{/code}}&amp;#xd;
+the keyboard inputs are now read. Use the arrow keys on the keyboard to control the turtle.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+If the turtle can not be controlled, the terminal in which $rosrun turtlesim turtle _teleop _key has been executed must be selected by a left-click.&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The idea of this example is taken from "A gentle introduction to ROS".&amp;#xd;
+&amp;#xd;
+== ROS package ==&amp;#xd;
+&amp;#xd;
+The above example can already explain a basic idea of ROS. ROS is organized in so-called packages. A package can contain libraries, executables, and scripts (and many other objects). In the above example, the two executable ﬁles *turtle _teleop _key* and *turtlesim _node* are located in the turtlesim-package.&amp;#xd;
+&amp;#xd;
+There are many packages pre-installed and during the usage of ROS many more will follow. To get an overview whats is installed and what not, type in:&amp;#xd;
+&amp;#xd;
+```bash&amp;#xd;
+$ rospack list&amp;#xd;
+```&amp;#xd;
+Furthermore, packages can be searched by entering this command:&amp;#xd;
+```bash&amp;#xd;
+$ rospack find &amp;lt;package-name>&amp;#xd;
+```&amp;#xd;
+The input returns the path under which this package can be found.&amp;#xd;
+&amp;#xd;
+Each package is deﬁned by a so-called manifest (→ package.xml). It contains, for example, details such as the name of the responsible person, the version number, and dependencies. A folder containing a ﬁle named *package.xml* is automatically a package in ROS. In addition to package.xml, this folder contains a text ﬁle called *CMakeLists.txt*, which is needed for the cmake build process.&amp;#xd;
+Thus, the minimum scope of a package folder is:&amp;#xd;
+```&amp;#xd;
+my_package/&amp;#xd;
+    CMakeLists.txt&amp;#xd;
+    package.xml&amp;#xd;
+```&amp;#xd;
+The concept of ROS is based on linking many of these packages, that is why an eﬃcient way to navigate through the ROS file system is helpful. In principle, the navigation is very similar to Linux. However, when changing a folder not a relative or absolute path is specified, but the desired package. If the name of a package is known, the following command can be used to switch to the appropriate folder:&amp;#xd;
+```bash&amp;#xd;
+$ roscd &amp;lt;package-name>&amp;#xd;
+```&amp;#xd;
+This command can be used to switch directly to the package folder, without knowing the path. To display the contents of a packages folder, either use the `$roscd` command to switch to the appropriate folder, and then display it using the Linux command `ls`. Another way is to enter the following command:&amp;#xd;
+```bash&amp;#xd;
+$ rosls &amp;lt;package-name>&amp;#xd;
+```&amp;#xd;
+The ROS command has the advantage that the current path is not left.&amp;#xd;
+&amp;#xd;
+~#~# ROS master&amp;#xd;
+&amp;#xd;
+The ROS master exist only once in every ROS network, even in a distributed network. The main task of the master is comparable with a dns-server. Every node that launches sende information to the master, e.g. like the topics the node advertises or wants to subscriber to. The master forwards all these informations to nodes, that can use them. So, the master will only pass the publishers's URI to the nodes. The messages, generated by the publsiher, will be streamed over a TCP/IP flavour dirtly between the nodes. That means, the master has only an administrative role.&amp;#xd;
+&amp;#xd;
+To launch a ROS network, the master has to started at very first, that the following nodes can  linked each other. The command to start the master is:&amp;#xd;
+&amp;#xd;
+```bash&amp;#xd;
+$ roscore&amp;#xd;
+```&amp;#xd;
+This command is to be executed in a separate terminal and must be executed there for the entire usage time. In principle, the ROS master (except a few exceptions) is to be stopped only when ROS is terminated.&amp;#xd;
+&amp;#xd;
+For the moment, these informations should be enough to get along with the following getting started. Later, there are some more things to consider, e.g when launching a distributed network.&amp;#xd;
+&amp;#xd;
+~#~# ROS nodes&amp;#xd;
+&amp;#xd;
+After the ROS master is started, executable ﬁles, which are contained in the packages , can be started. Each start of a program, that means each instance, creates a node.&amp;#xd;
+ In [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), two instances were started. These were executed by the command&amp;#xd;
+```bash&amp;#xd;
+$ rosrun &amp;lt;package-name> &amp;lt;executable-name>&amp;#xd;
+```&amp;#xd;
+To display the currently executed nodes, the command&amp;#xd;
+```bash&amp;#xd;
+$ rosnode list&amp;#xd;
+```&amp;#xd;
+can be executed.  &amp;#xd;
+&amp;#xd;
+For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the output is as follows:&amp;#xd;
+```&amp;#xd;
+$ rosnode list&amp;#xd;
+    /rosout&amp;#xd;
+    /teleop_turtle&amp;#xd;
+    /turtlesim&amp;#xd;
+```&amp;#xd;
+&amp;#xd;
+*/rosout* is a node which is initialized by the ROS master. The other two were initialized by using rosrun.&amp;#xd;
+ To manually assign a name to a node the rosrun command is supplemented by an option:&amp;#xd;
+```bash&amp;#xd;
+$ rosrun &amp;lt;package-name> &amp;lt;executable-name> ~_~_name := &amp;lt;new-nodename>&amp;#xd;
+```&amp;#xd;
+Information about an active node is displayed by the following command&amp;#xd;
+``` bash&amp;#xd;
+$ rosnode info &amp;lt;node-name>&amp;#xd;
+```&amp;#xd;
+For example, the command rosnode info /turtlesim can be executed for [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), which leads to the following output:&amp;#xd;
+&amp;#xd;
+```&amp;#xd;
+~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-&amp;#xd;
+Node [/turtlesim]&amp;#xd;
+Publications :&amp;#xd;
+~* /turtle1/color_sensor [turtlesim/Color]&amp;#xd;
+~* /rosout [rosgraph_msgs/Log]&amp;#xd;
+~* /turtle1/pose [turtlesim/Pose]&amp;#xd;
+Subscriptions :&amp;#xd;
+~* /turtle1/cmd_vel [geometry_msgs/Twist]&amp;#xd;
+Services :&amp;#xd;
+~* /turtle1/teleport_absolute&amp;#xd;
+~* /turtlesim/get_loggers&amp;#xd;
+~* /turtlesim/set_logger_level&amp;#xd;
+~* /reset&amp;#xd;
+~* /spawn&amp;#xd;
+~* /clear&amp;#xd;
+~* /turtle1/set_pen&amp;#xd;
+~* /turtle1 /teleport_relative&amp;#xd;
+~* /kill&amp;#xd;
+.&amp;#xd;
+.&amp;#xd;
+.&amp;#xd;
+```&amp;#xd;
+In the ﬁrst block (publications), the published topics are listed.&amp;#xd;
+In this case, only one entry can be found under Subscriptions. This is the published topic of this node */teleop _turtle*, which reads the keystrokes and then passes them to node turtlesim.&amp;#xd;
+The third block contains the services, which is provided by this node. What services are in detail and how they are used follows in a later chapter.&amp;#xd;
+To ﬁnish a running node either the command can be executed&amp;#xd;
+```bash&amp;#xd;
+$ rosnode kill &amp;lt;node-name>&amp;#xd;
+```&amp;#xd;
+or the terminal, in which the node is running, can be killed with ~_~_[Ctrl]~_~_+~_~_C~_~_. However, when the node is killed with ~_~_[Ctrl]~_~_+~_~_C~_~_, it has no chance unsubscribe at the ROS-Master. That is why there is the possibility that the killed node is still listed in node list. To clean up inactive nodes, call&amp;#xd;
+```bash&amp;#xd;
+$ rosnode cleanup&amp;#xd;
+```&amp;#xd;
+&amp;#xd;
+~#~# Topic und Messages&amp;#xd;
+Communication in ROS is based on messages organized by so-called topics. The idea is that a node, which needs information on a particular topic, can log on to the ROS master (subscribe). In a similar way, if a node wants to publish information on a topic, then the ROS master is also notified. The ROS master ensures that the source and the sink are interrelated. However, the actual message is not routed via the ROS master, but is sent directly between the nodes (P2P), see also [ROS master](First steps in ROS/~#~# ROS master).&amp;#xd;
+&amp;#xd;
+~#~## Graphic tool *rqt_graph*&amp;#xd;
+&amp;#xd;
+This concept can be described well with tools from the theory of graphs. The essential tool for this is a directed graph as a graphic aid. This is also composed of nodes and of (directed) edges which represent the path of the messages or the P2P link of the nodes.&amp;#xd;
+&amp;#xd;
+To provide a simple overview of the relationships between the nodes, ROS provides a graphical tool, which is called with the following command.&amp;#xd;
+&amp;#xd;
+```bash&amp;#xd;
+$ rqt_graph&amp;#xd;
+```&amp;#xd;
+&amp;#xd;
+With regard to [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) the following graph is given.&amp;#xd;
+&amp;#xd;
+![first_steps_in_ros_example_graph.png](images/first_steps_in_ros_example_graph.png)  &amp;#xd;
+~_~_Figure 1: The graph synthesized from the examp The graph synthesized from [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”)~_~_&amp;#xd;
+&amp;#xd;
+The node /teleop_turtle publishes, according to Figure 7, under topic /turtle1/cmd_vel messages. On this topic has the node /turtlesim subscribed. The nodes are displayed with an oval border and the topics with a rectangular border. By looking at the image, the direction of the directed graph becomes clear, since a message is always a one-way street.&amp;#xd;
+&amp;#xd;
+It is worth mentioning that there is neither a source nor a sink interested in whether a node is published or subscribed to the corresponding topic.&amp;#xd;
+&amp;#xd;
+~#~## rostopic&amp;#xd;
+&amp;#xd;
+In addition to the message-identification, ROS provides a mechanism for message-analysation. Previously, the available topics have to be discovered. For this case use the command:&amp;#xd;
+```bash&amp;#xd;
+$ rostopic list&amp;#xd;
+```&amp;#xd;
+For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) results:&amp;#xd;
+```&amp;#xd;
+$ rostopic list&amp;#xd;
+/rosout&amp;#xd;
+/rosout_agg&amp;#xd;
+/turtle1/cmd_vel&amp;#xd;
+/turtle1/color_sensor&amp;#xd;
+/turtle1/pose&amp;#xd;
+```&amp;#xd;
+With the following command the messages, which are published under the dedicated topic, are shown:&amp;#xd;
+```bash&amp;#xd;
+$ rostopic echo &amp;lt;topic-name>&amp;#xd;
+```&amp;#xd;
+While calling the following command, during running the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), there will be shown what node */turtle1* publishes under the topic */turtle1/pose*.&amp;#xd;
+```bash&amp;#xd;
+$ rostopic echo /turtle1/pose&amp;#xd;
+```&amp;#xd;
+It follows the result:&amp;#xd;
+```&amp;#xd;
+$ rostopic echo /turtle1/pose&amp;#xd;
+x: 5.544444561&amp;#xd;
+y: 5.544444561&amp;#xd;
+theta: 0.0&amp;#xd;
+linear_velocity: 0.0&amp;#xd;
+angular_velocity: 0.0&amp;#xd;
+~-~--&amp;#xd;
+&amp;#xd;
+```&amp;#xd;
+The three hyphens at the end are important, because it indicates the end of a message.&amp;#xd;
+&amp;#xd;
+Sometimes it is not only interesting to know what is the content of the messages, rather the frequency or the publishing-rate. With the folling command it can be determined:&amp;#xd;
+```bash&amp;#xd;
+$ rostopic hz &amp;lt;topic-name>&amp;#xd;
+```&amp;#xd;
+&amp;#xd;
+Looking at example [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command returns the following:&amp;#xd;
+```bash&amp;#xd;
+$ rostopic hz /turtle1/cmd_vel&amp;#xd;
+subscribed to [/turtle1/cmd_vel]&amp;#xd;
+no new messages&amp;#xd;
+average rate: 2.555&amp;#xd;
+min: 0.182 s max: 0.513s std dev: 0.14837 s window : 4&amp;#xd;
+average rate: 2.560&amp;#xd;
+min: 0.182 s max: 0.513s std dev: 0.12257 s window : 7&amp;#xd;
+average rate: 2.749&amp;#xd;
+min: 0.182 s max: 0.513s std dev: 0.11875 s window : 9&amp;#xd;
+```&amp;#xd;
+The entry in line 3 says `no new messages`. In this case it is not surprising, because the node */teleop_turtle* only publishes something when a keyboard-button is hit. Indeed, for nodes, which are publishing messages continuously, it may indicate a problem. So it can be handy for debugging purpose.&amp;#xd;
+&amp;#xd;
+In addition to the "publishing rate", there is also the option to display the bandwidth occupied by the topic.&amp;#xd;
+```bash&amp;#xd;
+$ rostopic bw &amp;lt;topic-name>&amp;#xd;
+```&amp;#xd;
+For getting further information to a topic and what kind of messages are published under a specific topic, the command&amp;#xd;
+```bash&amp;#xd;
+$ rostopic info &amp;lt;topic-name>&amp;#xd;
+```&amp;#xd;
+will help.&amp;#xd;
+&amp;#xd;
+The above command used in [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) will generate the following output:&amp;#xd;
+```bash&amp;#xd;
+$ rostopic info /turtle1/cmd_vel&amp;#xd;
+Type: geometry_msgs/Twist&amp;#xd;
+Publishers :&amp;#xd;
+~* /teleop_turtle (http:~/~/ubuntu-ros:41269/)&amp;#xd;
+Subscribers :&amp;#xd;
+~* /turtlesim (http:~/~/ubuntu-ros:38839/)&amp;#xd;
+```&amp;#xd;
+The messages published under the topic "/turtle1/cmd_vel" are of type "geometry_msgs/Twist". Underneath the publishers and subsribers are listed. In this minimal-example there is only one publisher and one subscriber, but this is no requirement. From the technical point of view, there can be zero, one or any number of subscribers or publishers. Why it generally does not make sense to have more than one publisher to one topic is getting obvious, when we realize that all messages under one topic are equal-permissioned.&amp;#xd;
+&amp;#xd;
+~#~## *rosmsg*&amp;#xd;
+&amp;#xd;
+For detailed information to a specific message-type, enter the command:&amp;#xd;
+```bash&amp;#xd;
+$ rosmsg show &amp;lt;message-name>&amp;#xd;
+```&amp;#xd;
+&amp;#xd;
+The result for the message-type *geometry_msgs/Twist* is:&amp;#xd;
+```bash&amp;#xd;
+$ rosmsg show geometry_msgs/Twist&amp;#xd;
+geometry_msgs/Vector3 linear&amp;#xd;
+float64 x&amp;#xd;
+float64 y&amp;#xd;
+float64 z&amp;#xd;
+geometry_msgs/Vector3 angular&amp;#xd;
+float64 x&amp;#xd;
+float64 y&amp;#xd;
+float64 z&amp;#xd;
+```&amp;#xd;
+This message consists of two composite fields The composite fields are both of type *geometry_msgs/Vector3*. This field type consists again of three float64 arguments. But this does not have to be the usual case. A composite field can be arranged by other composite fields. In the broadest sense this behaviour is comparable with an objective language. An object can be part of another object.&amp;#xd;
+&amp;#xd;
+Usually, messages will be published by nodes automatically, but sometimes it can be useful o publish something by hand. So, the following command will do this task:&amp;#xd;
+```bash&amp;#xd;
+$ rostopic pub [options] &amp;lt;topic-name> &amp;lt;message-name> &amp;lt;content>&amp;#xd;
+```&amp;#xd;
+This command can be extented with some options, for example with a publishing rate.  &amp;#xd;
+For the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command as follows can be entered.&amp;#xd;
+```bash&amp;#xd;
+$ rostopic pub -r 2 turtle1/cmd_vel geometry_msgs/Twist '[2, 0, 0]' '[0, 0, 2]'&amp;#xd;
+```&amp;#xd;
+This moves the turtle to perform circular movement.&amp;#xd;
+&amp;#xd;
+However, at the end of this chapter it has to be noticed, that messages can also be related to packages. The structure is as follows:&amp;#xd;
+```bash&amp;#xd;
+&amp;lt;package-name>/&amp;lt;message-type>&amp;#xd;
+```&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+@
+</versions>
+  <parent>xwiki:Projekte .MoRoP.ROS GettingStarted.WebHome</parent>
+  <author>XWiki.SvenHoyer</author>
+  <contentAuthor>XWiki.MatthiasDomnik</contentAuthor>
+  <date>1536590702000</date>
+  <contentUpdateDate>1536590700000</contentUpdateDate>
+  <version>3.2</version>
+  <title>First Steps in ROS</title>
+  <comment>Updated the relative links.</comment>
+  <minorEdit>true</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>{{velocity}}
+{{documentTree root="document:$doc.documentReference" showAttachments="false" hierarchyMode="parentcild"/}}
+{{/velocity}}
+
+(% class="text-uppercase" %)Sitemap
+
+{{toc start="2"/}}
+
+----
+
+= First steps in ROS =
+
+This brief introduction provides a ﬁrst overview of the concept and the handling of ROS. This section is inspired by different ROS tutorials, which can be found at http:~/~/wiki.ros.org/ROS/Tutorials, and the books "Programming Robots with ROS: a practical introduction to the Robot Operating System" by Quigley{{footnote}}M. B. G. a. W. D. S. Quigley, Programming Robots with ROS: a practical introduction to the Robot Operating System, O'Reilly Media, Inc., 2015.{{/footnote}} and "A gentle introduction to ROS" by O'Kane{{footnote}}J. M. O'Kane, A gentle introduction to ROS, Jason M. O'Kane, 2014.  (The book is available at https://www.cse.sc.edu/~jokane/agitr/Agitr-letter.pdf provided free of charge by the author){{/footnote}}.
+
+== Example 1: ROS- “Hello World” ==
+
+
+In order to understand the concept of ROS, it is sensible to dedicate itself to a minimal example. The turtlesim simulator is used in numerous tutorials. For the beginning it makes sense to use this already build package, to keep it simple.
+
+1. The ﬁrst step is to open three terminals (this is easiest with [Ctrl] + [Alt] + T). The roscore command is then executed in the ﬁrst terminal.
+{{code}}$ roscore{{/code}}
+ 
+1. In the second terminal the command
+{{code}}$ rosrun turtlesim turtlesim_node{{/code}}
+is entered and executed. It opens another window with a blue background and a turtle in its center.
+ 
+1. The third terminal is used to initialize the control. With the command
+{{code}}$ rosrun turtlesim turtle_teleop_key{{/code}}
+the keyboard inputs are now read. Use the arrow keys on the keyboard to control the turtle.
+
+(% class="box infomessage" %)
+(((
+If the turtle can not be controlled, the terminal in which $rosrun turtlesim turtle _teleop _key has been executed must be selected by a left-click.
+)))
+
+The idea of this example is taken from "A gentle introduction to ROS".
+
+== ROS package ==
+
+The above example can already explain a basic idea of ROS. ROS is organized in so-called packages. A package can contain libraries, executables, and scripts (and many other objects). In the above example, the two executable ﬁles //turtle _teleop _key// and //turtlesim _node// are located in the turtlesim-package.
+
+There are many packages pre-installed and during the usage of ROS many more will follow. To get an overview whats is installed and what not, type in:
+{{code}}$ rospack list{{/code}}
+
+Furthermore, packages can be searched by entering this command:
+{{code}}$ rospack find &lt;package-name>{{/code}}
+
+The input returns the path under which this package can be found.
+
+Each package is deﬁned by a so-called manifest (→ package.xml). It contains, for example, details such as the name of the responsible person, the version number, and dependencies. A folder containing a ﬁle named //package.xml// is automatically a package in ROS. In addition to package.xml, this folder contains a text ﬁle called //CMakeLists.txt//, which is needed for the cmake build process.
+Thus, the minimum scope of a package folder is:
+{{code}}my_package/
+    CMakeLists.txt
+    package.xml{{/code}}
+\\The concept of ROS is based on linking many of these packages, that is why an eﬃcient way to navigate through the ROS file system is helpful. In principle, the navigation is very similar to Linux. However, when changing a folder not a relative or absolute path is specified, but the desired package. If the name of a package is known, the following command can be used to switch to the appropriate folder:
+{{code}}$ roscd &lt;package-name>{{/code}}
+\\This command can be used to switch directly to the package folder, without knowing the path. To display the contents of a packages folder, either use the {{code}}$roscd{{/code}} command to switch to the appropriate folder, and then display it using the Linux command {{code}}ls{{/code}}. Another way is to enter the following command:
+{{code}}$ rosls &lt;package-name>{{/code}}
+\\The ROS command has the advantage that the current path is not left.
+
+== ROS master ==
+
+The ROS master exist only once in every ROS network, even in a distributed network. The main task of the master is comparable with a dns-server. Every node that launches sende information to the master, e.g. like the topics the node advertises or wants to subscriber to. The master forwards all these informations to nodes, that can use them. So, the master will only pass the publishers's URI to the nodes. The messages, generated by the publsiher, will be streamed over a TCP/IP flavour dirtly between the nodes. That means, the master has only an administrative role.
+
+To launch a ROS network, the master has to started at very first, that the following nodes can  linked each other. The command to start the master is:
+{{code}}$ roscore{{/code}}
+
+This command is to be executed in a separate terminal and must be executed there for the entire usage time. In principle, the ROS master (except a few exceptions) is to be stopped only when ROS is terminated.
+
+For the moment, these informations should be enough to get along with the following getting started. Later, there are some more things to consider, e.g when launching a distributed network.
+
+== ROS nodes ==
+
+After the ROS master is started, executable ﬁles, which are contained in the packages , can be started. Each start of a program, that means each instance, creates a node.
+ In [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), two instances were started. These were executed by the command
+{{code}}$ rosrun &lt;package-name> &lt;executable-name>{{/code}}
+\\To display the currently executed nodes, the command
+{{code}}$ rosnode list{{/code}}
+\\can be executed.  
+
+For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the output is as follows:
+{{code}}$ rosnode list
+    /rosout
+    /teleop_turtle
+    /turtlesim{{/code}}
+ 
+
+*/rosout* is a node which is initialized by the ROS master. The other two were initialized by using rosrun.
+ To manually assign a name to a node the rosrun command is supplemented by an option:
+{{code}}$ rosrun &lt;package-name> &lt;executable-name> __name := &lt;new-nodename>{{/code}}
+\\Information about an active node is displayed by the following command
+{{code}}$ rosnode info &lt;node-name>{{/code}}
+\\For example, the command rosnode info /turtlesim can be executed for [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), which leads to the following output:
+
+{{code}}
+----------------------------------------------------------
+Node [/turtlesim]
+Publications :
+* /turtle1/color_sensor [turtlesim/Color]
+* /rosout [rosgraph_msgs/Log]
+* /turtle1/pose [turtlesim/Pose]
+Subscriptions :
+* /turtle1/cmd_vel [geometry_msgs/Twist]
+Services :
+* /turtle1/teleport_absolute
+* /turtlesim/get_loggers
+* /turtlesim/set_logger_level
+* /reset
+* /spawn
+* /clear
+* /turtle1/set_pen
+* /turtle1 /teleport_relative
+* /kill
+.
+.
+.
+{{/code}}
+
+In the ﬁrst block (publications), the published topics are listed.
+In this case, only one entry can be found under Subscriptions. This is the published topic of this node ///teleop _turtle//, which reads the keystrokes and then passes them to node turtlesim.
+The third block contains the services, which is provided by this node. What services are in detail and how they are used follows in a later chapter.
+To ﬁnish a running node either the command can be executed
+{{code}}$ rosnode kill &lt;node-name>{{/code}}
+\\or the terminal, in which the node is running, can be killed with **[Ctrl]**+**C**. However, when the node is killed with **[Ctrl]**+**C**, it has no chance unsubscribe at the ROS-Master. That is why there is the possibility that the killed node is still listed in node list. To clean up inactive nodes, call
+{{code}}$ rosnode cleanup{{/code}}
+
+== Topic und Messages ==
+
+Communication in ROS is based on messages organized by so-called topics. The idea is that a node, which needs information on a particular topic, can log on to the ROS master (subscribe). In a similar way, if a node wants to publish information on a topic, then the ROS master is also notified. The ROS master ensures that the source and the sink are interrelated. However, the actual message is not routed via the ROS master, but is sent directly between the nodes (P2P), see also [ROS master](First steps in ROS/~#~# ROS master).
+
+=== Graphic tool //rqt_graph// ===
+
+This concept can be described well with tools from the theory of graphs. The essential tool for this is a directed graph as a graphic aid. This is also composed of nodes and of (directed) edges which represent the path of the messages or the P2P link of the nodes.
+
+To provide a simple overview of the relationships between the nodes, ROS provides a graphical tool, which is called with the following command.
+{{code}}$ rqt_graph{{/code}}
+
+With regard to [[Example 1: ROS- “Hello World” >>MoRoP.ROS GettingStarted.First Steps in ROS.WebHome||anchor="Example 1: ROS- “Hello World”"]] the following graph is given.
+
+![first_steps_in_ros_example_graph.png](images/first_steps_in_ros_example_graph.png)  
+~_~_Figure 1: The graph synthesized from the examp The graph synthesized from [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”)~_~_
+
+The node /teleop_turtle publishes, according to Figure 7, under topic /turtle1/cmd_vel messages. On this topic has the node /turtlesim subscribed. The nodes are displayed with an oval border and the topics with a rectangular border. By looking at the image, the direction of the directed graph becomes clear, since a message is always a one-way street.
+
+It is worth mentioning that there is neither a source nor a sink interested in whether a node is published or subscribed to the corresponding topic.
+
+=== rostopic ===
+
+In addition to the message-identification, ROS provides a mechanism for message-analysation. Previously, the available topics have to be discovered. For this case use the command:
+{{code}}$ rostopic list{{/code}}
+\\For [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) results:
+{{code}}$ rostopic list
+/rosout
+/rosout_agg
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose{{/code}}
+\\With the following command the messages, which are published under the dedicated topic, are shown:
+{{code}}$ rostopic echo &lt;topic-name>{{/code}}
+\\While calling the following command, during running the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), there will be shown what node ///turtle1// publishes under the topic ///turtle1/pose//.
+{{code}}$ rostopic echo /turtle1/pose{{/code}}
+\\It follows the result:
+{{code}}$ rostopic echo /turtle1/pose
+x: 5.544444561
+y: 5.544444561
+theta: 0.0
+linear_velocity: 0.0
+angular_velocity: 0.0
+---{{/code}}
+\\The three hyphens at the end are important, because it indicates the end of a message.
+
+Sometimes it is not only interesting to know what is the content of the messages, rather the frequency or the publishing-rate. With the folling command it can be determined:
+{{code}}$ rostopic hz &lt;topic-name>{{/code}}
+ 
+
+Looking at example [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command returns the following:
+{{code}}$ rostopic hz /turtle1/cmd_vel
+subscribed to [/turtle1/cmd_vel]
+no new messages
+average rate: 2.555
+min: 0.182 s max: 0.513s std dev: 0.14837 s window : 4
+average rate: 2.560
+min: 0.182 s max: 0.513s std dev: 0.12257 s window : 7
+average rate: 2.749
+min: 0.182 s max: 0.513s std dev: 0.11875 s window : 9{{/code}}
+\\The entry in line 3 says `no new messages`. In this case it is not surprising, because the node */teleop_turtle* only publishes something when a keyboard-button is hit. Indeed, for nodes, which are publishing messages continuously, it may indicate a problem. So it can be handy for debugging purpose.
+
+In addition to the "publishing rate", there is also the option to display the bandwidth occupied by the topic.
+{{code}}$ rostopic bw &lt;topic-name>{{/code}}
+\\For getting further information to a topic and what kind of messages are published under a specific topic, the command
+{{code}}$ rostopic info &lt;topic-name>{{/code}}
+\\will help.
+
+The above command used in [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”) will generate the following output:
+{{code}}$ rostopic info /turtle1/cmd_vel
+Type: geometry_msgs/Twist
+Publishers :
+* /teleop_turtle (http://ubuntu-ros:41269/)
+Subscribers :
+* /turtlesim (http://ubuntu-ros:38839/){{/code}}
+\\The messages published under the topic "/turtle1/cmd_vel" are of type "geometry_msgs/Twist". Underneath the publishers and subsribers are listed. In this minimal-example there is only one publisher and one subscriber, but this is no requirement. From the technical point of view, there can be zero, one or any number of subscribers or publishers. Why it generally does not make sense to have more than one publisher to one topic is getting obvious, when we realize that all messages under one topic are equal-permissioned.
+
+=== //rosmsg// ===
+
+For detailed information to a specific message-type, enter the command:
+{{code}}$ rosmsg show &lt;message-name>{{/code}}
+ 
+
+The result for the message-type *geometry_msgs/Twist* is:
+{{code}}$ rosmsg show geometry_msgs/Twist
+geometry_msgs/Vector3 linear
+float64 x
+float64 y
+float64 z
+geometry_msgs/Vector3 angular
+float64 x
+float64 y
+float64 z{{/code}}
+\\This message consists of two composite fields The composite fields are both of type //geometry_msgs/Vector3//. This field type consists again of three float64 arguments. But this does not have to be the usual case. A composite field can be arranged by other composite fields. In the broadest sense this behaviour is comparable with an objective language. An object can be part of another object.
+
+Usually, messages will be published by nodes automatically, but sometimes it can be useful o publish something by hand. So, the following command will do this task:
+{{code}}$ rostopic pub [options] &lt;topic-name> &lt;message-name> &lt;content>{{/code}}
+\\This command can be extented with some options, for example with a publishing rate.  
+For the [Example 1: ROS- “Hello World”](First steps in ROS/#Example 1: ROS- “Hello World”), the command as follows can be entered.
+{{code}}$ rostopic pub -r 2 turtle1/cmd_vel geometry_msgs/Twist '[2, 0, 0]' '[0, 0, 2]'{{/code}}
+\\This moves the turtle to perform circular movement.
+
+However, at the end of this chapter it has to be noticed, that messages can also be related to packages. The structure is as follows:
+{{code}}&lt;package-name>/&lt;message-type>{{/code}}
+
+
+{{putFootnotes/}}</content>
+</xwikidoc>

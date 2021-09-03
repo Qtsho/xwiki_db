@@ -1,0 +1,7 @@
+global_costmap:
+  global_frame: map
+  robot_base_frame: base_link
+  update_frequency: 5.0
+  staticmap: false
+  origin_x: -5
+  origin_y: -5

@@ -1,0 +1,576 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.TS_Alpha 3D Ultrasound.Description .WebHome" locale="">
+  <web>Projects.MoRoP.TS_Alpha 3D Ultrasound.Description </web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <creator>XWiki.qutra001</creator>
+  <creationDate>1552166795000</creationDate>
+  <versions>head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2019.03.09.21.26.36;	author XWiki_2Equtra_30_30_31;	state full;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.TS_Alpha 3D Ultrasound.Description .WebHome" locale="">
+  &lt;web>Projects.MoRoP.TS_Alpha 3D Ultrasound.Description &lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage/>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.qutra001&lt;/creator>
+  &lt;creationDate>1552166795000&lt;/creationDate>
+  &lt;parent>xwiki:Projects.MoRoP.TS_Alpha 3D Ultrasound.WebHome&lt;/parent>
+  &lt;author>XWiki.qutra001&lt;/author>
+  &lt;contentAuthor>XWiki.qutra001&lt;/contentAuthor>
+  &lt;date>1552166796000&lt;/date>
+  &lt;contentUpdateDate>1552166796000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+  &lt;title>Description &lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.0&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{dashboard/}}&lt;/content>
+  &lt;object>
+    &lt;name>Projects.MoRoP.TS_Alpha 3D Ultrasound.Description .WebHome&lt;/name>
+    &lt;number>0&lt;/number>
+    &lt;className>XWiki.DocumentSheetBinding&lt;/className>
+    &lt;guid>7923002a-911b-4324-8bde-5c36a3901f17&lt;/guid>
+    &lt;class>
+      &lt;name>XWiki.DocumentSheetBinding&lt;/name>
+      &lt;customClass/>
+      &lt;customMapping/>
+      &lt;defaultViewSheet/>
+      &lt;defaultEditSheet/>
+      &lt;defaultWeb/>
+      &lt;nameField/>
+      &lt;validationScript/>
+      &lt;sheet>
+        &lt;cache>0&lt;/cache>
+        &lt;classname/>
+        &lt;customDisplay/>
+        &lt;disabled>0&lt;/disabled>
+        &lt;displayType>input&lt;/displayType>
+        &lt;hint/>
+        &lt;idField/>
+        &lt;multiSelect>0&lt;/multiSelect>
+        &lt;name>sheet&lt;/name>
+        &lt;number>1&lt;/number>
+        &lt;picker>1&lt;/picker>
+        &lt;prettyName>Sheet&lt;/prettyName>
+        &lt;relationalStorage>0&lt;/relationalStorage>
+        &lt;separator> &lt;/separator>
+        &lt;separators/>
+        &lt;size>30&lt;/size>
+        &lt;sort>none&lt;/sort>
+        &lt;sql/>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;valueField/>
+        &lt;classType>com.xpn.xwiki.objects.classes.PageClass&lt;/classType>
+      &lt;/sheet>
+    &lt;/class>
+    &lt;property>
+      &lt;sheet>&lt;/sheet>
+    &lt;/property>
+  &lt;/object>
+  &lt;object>
+    &lt;name>Projects.MoRoP.TS_Alpha 3D Ultrasound.Description .WebHome&lt;/name>
+    &lt;number>0&lt;/number>
+    &lt;className>XWiki.GadgetClass&lt;/className>
+    &lt;guid>48840c72-1d14-4e98-9147-09fb6f918887&lt;/guid>
+    &lt;class>
+      &lt;name>XWiki.GadgetClass&lt;/name>
+      &lt;customClass/>
+      &lt;customMapping/>
+      &lt;defaultViewSheet/>
+      &lt;defaultEditSheet/>
+      &lt;defaultWeb/>
+      &lt;nameField/>
+      &lt;validationScript/>
+      &lt;content>
+        &lt;disabled>0&lt;/disabled>
+        &lt;editor>---&lt;/editor>
+        &lt;name>content&lt;/name>
+        &lt;number>2&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>content&lt;/prettyName>
+        &lt;rows>5&lt;/rows>
+        &lt;size>40&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.TextAreaClass&lt;/classType>
+      &lt;/content>
+      &lt;position>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>position&lt;/name>
+        &lt;number>3&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>position&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/position>
+      &lt;title>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>title&lt;/name>
+        &lt;number>1&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>title&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/title>
+    &lt;/class>
+    &lt;property>
+      &lt;content>{{velocity}}
+#set ($extraParams = '')
+#if ($doc.space != 'Main')
+  #set ($escapedDocumentReference = $services.rendering.escape($services.model.serialize($doc.documentReference,
+    'default'), 'xwiki/2.1'))
+  #set ($extraParams = "root='document:$escapedDocumentReference'")
+#end
+{{documentTree showTranslations="false" showAttachments="false" $extraParams /}}
+{{/velocity}}&lt;/content>
+    &lt;/property>
+    &lt;property>
+      &lt;position>1,1&lt;/position>
+    &lt;/property>
+    &lt;property>
+      &lt;title>#if ($doc.space == 'Main')$services.localization.render('platform.dashboard.wiki.pages')#{else}$services.localization.render('platform.dashboard.space.documents', [$doc.plainTitle])#end&lt;/title>
+    &lt;/property>
+  &lt;/object>
+  &lt;object>
+    &lt;name>Projects.MoRoP.TS_Alpha 3D Ultrasound.Description .WebHome&lt;/name>
+    &lt;number>1&lt;/number>
+    &lt;className>XWiki.GadgetClass&lt;/className>
+    &lt;guid>f71518c9-7285-42c8-833d-f3b5fdbda5f3&lt;/guid>
+    &lt;class>
+      &lt;name>XWiki.GadgetClass&lt;/name>
+      &lt;customClass/>
+      &lt;customMapping/>
+      &lt;defaultViewSheet/>
+      &lt;defaultEditSheet/>
+      &lt;defaultWeb/>
+      &lt;nameField/>
+      &lt;validationScript/>
+      &lt;content>
+        &lt;disabled>0&lt;/disabled>
+        &lt;editor>---&lt;/editor>
+        &lt;name>content&lt;/name>
+        &lt;number>2&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>content&lt;/prettyName>
+        &lt;rows>5&lt;/rows>
+        &lt;size>40&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.TextAreaClass&lt;/classType>
+      &lt;/content>
+      &lt;position>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>position&lt;/name>
+        &lt;number>3&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>position&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/position>
+      &lt;title>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>title&lt;/name>
+        &lt;number>1&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>title&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/title>
+    &lt;/class>
+    &lt;property>
+      &lt;content>{{velocity}}
+#set($tagSpace = $NULL)
+#if ($doc.space != "Main")
+  #set($tagSpace = $services.rendering.escape($doc.space, 'xwiki/2.1'))
+#end
+
+{{tagcloud  space="$!tagSpace" /}}
+{{/velocity}}&lt;/content>
+    &lt;/property>
+    &lt;property>
+      &lt;position>1,2&lt;/position>
+    &lt;/property>
+    &lt;property>
+      &lt;title>$services.localization.render('platform.dashboard.space.tagcloud', [$doc.plainTitle])&lt;/title>
+    &lt;/property>
+  &lt;/object>
+  &lt;object>
+    &lt;name>Projects.MoRoP.TS_Alpha 3D Ultrasound.Description .WebHome&lt;/name>
+    &lt;number>2&lt;/number>
+    &lt;className>XWiki.GadgetClass&lt;/className>
+    &lt;guid>e9a1078b-636c-427f-bf5d-4c3f7af5eaac&lt;/guid>
+    &lt;class>
+      &lt;name>XWiki.GadgetClass&lt;/name>
+      &lt;customClass/>
+      &lt;customMapping/>
+      &lt;defaultViewSheet/>
+      &lt;defaultEditSheet/>
+      &lt;defaultWeb/>
+      &lt;nameField/>
+      &lt;validationScript/>
+      &lt;content>
+        &lt;disabled>0&lt;/disabled>
+        &lt;editor>---&lt;/editor>
+        &lt;name>content&lt;/name>
+        &lt;number>2&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>content&lt;/prettyName>
+        &lt;rows>5&lt;/rows>
+        &lt;size>40&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.TextAreaClass&lt;/classType>
+      &lt;/content>
+      &lt;position>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>position&lt;/name>
+        &lt;number>3&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>position&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/position>
+      &lt;title>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>title&lt;/name>
+        &lt;number>1&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>title&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/title>
+    &lt;/class>
+    &lt;property>
+      &lt;content>{{velocity}}
+#set($aSpace = $NULL)
+#if ($doc.space != "Main")
+  #set ($aSpace = $services.rendering.escape($doc.space, 'xwiki/2.1'))
+#end
+
+{{notifications spaces="$!aSpace" useUserPreferences="false" displayOwnEvents="true" /}}
+{{/velocity}}&lt;/content>
+    &lt;/property>
+    &lt;property>
+      &lt;position>2,1&lt;/position>
+    &lt;/property>
+    &lt;property>
+      &lt;title>#if ($doc.space != 'Main')$services.localization.render('platform.dashboard.space.activity', [$doc.plainTitle])#{else}$services.localization.render('platform.dashboard.wiki.activity')#end&lt;/title>
+    &lt;/property>
+  &lt;/object>
+&lt;/xwikidoc>@
+</versions>
+  <parent>xwiki:Projects.MoRoP.TS_Alpha 3D Ultrasound.WebHome</parent>
+  <author>XWiki.qutra001</author>
+  <contentAuthor>XWiki.qutra001</contentAuthor>
+  <date>1552166796000</date>
+  <contentUpdateDate>1552166796000</contentUpdateDate>
+  <version>1.1</version>
+  <title>Description </title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.0</syntaxId>
+  <hidden>false</hidden>
+  <content>{{dashboard/}}</content>
+  <object>
+    <name>Projects.MoRoP.TS_Alpha 3D Ultrasound.Description .WebHome</name>
+    <number>0</number>
+    <className>XWiki.DocumentSheetBinding</className>
+    <guid>7923002a-911b-4324-8bde-5c36a3901f17</guid>
+    <class>
+      <name>XWiki.DocumentSheetBinding</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <sheet>
+        <cache>0</cache>
+        <classname/>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <displayType>input</displayType>
+        <hint/>
+        <idField/>
+        <multiSelect>0</multiSelect>
+        <name>sheet</name>
+        <number>1</number>
+        <picker>1</picker>
+        <prettyName>Sheet</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators/>
+        <size>30</size>
+        <sort>none</sort>
+        <sql/>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <valueField/>
+        <classType>com.xpn.xwiki.objects.classes.PageClass</classType>
+      </sheet>
+    </class>
+    <property>
+      <sheet></sheet>
+    </property>
+  </object>
+  <object>
+    <name>Projects.MoRoP.TS_Alpha 3D Ultrasound.Description .WebHome</name>
+    <number>0</number>
+    <className>XWiki.GadgetClass</className>
+    <guid>48840c72-1d14-4e98-9147-09fb6f918887</guid>
+    <class>
+      <name>XWiki.GadgetClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <content>
+        <disabled>0</disabled>
+        <editor>---</editor>
+        <name>content</name>
+        <number>2</number>
+        <picker>0</picker>
+        <prettyName>content</prettyName>
+        <rows>5</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </content>
+      <position>
+        <disabled>0</disabled>
+        <name>position</name>
+        <number>3</number>
+        <picker>0</picker>
+        <prettyName>position</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </position>
+      <title>
+        <disabled>0</disabled>
+        <name>title</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>title</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </title>
+    </class>
+    <property>
+      <content>{{velocity}}
+#set ($extraParams = '')
+#if ($doc.space != 'Main')
+  #set ($escapedDocumentReference = $services.rendering.escape($services.model.serialize($doc.documentReference,
+    'default'), 'xwiki/2.1'))
+  #set ($extraParams = "root='document:$escapedDocumentReference'")
+#end
+{{documentTree showTranslations="false" showAttachments="false" $extraParams /}}
+{{/velocity}}</content>
+    </property>
+    <property>
+      <position>1,1</position>
+    </property>
+    <property>
+      <title>#if ($doc.space == 'Main')$services.localization.render('platform.dashboard.wiki.pages')#{else}$services.localization.render('platform.dashboard.space.documents', [$doc.plainTitle])#end</title>
+    </property>
+  </object>
+  <object>
+    <name>Projects.MoRoP.TS_Alpha 3D Ultrasound.Description .WebHome</name>
+    <number>1</number>
+    <className>XWiki.GadgetClass</className>
+    <guid>f71518c9-7285-42c8-833d-f3b5fdbda5f3</guid>
+    <class>
+      <name>XWiki.GadgetClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <content>
+        <disabled>0</disabled>
+        <editor>---</editor>
+        <name>content</name>
+        <number>2</number>
+        <picker>0</picker>
+        <prettyName>content</prettyName>
+        <rows>5</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </content>
+      <position>
+        <disabled>0</disabled>
+        <name>position</name>
+        <number>3</number>
+        <picker>0</picker>
+        <prettyName>position</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </position>
+      <title>
+        <disabled>0</disabled>
+        <name>title</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>title</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </title>
+    </class>
+    <property>
+      <content>{{velocity}}
+#set($tagSpace = $NULL)
+#if ($doc.space != "Main")
+  #set($tagSpace = $services.rendering.escape($doc.space, 'xwiki/2.1'))
+#end
+
+{{tagcloud  space="$!tagSpace" /}}
+{{/velocity}}</content>
+    </property>
+    <property>
+      <position>1,2</position>
+    </property>
+    <property>
+      <title>$services.localization.render('platform.dashboard.space.tagcloud', [$doc.plainTitle])</title>
+    </property>
+  </object>
+  <object>
+    <name>Projects.MoRoP.TS_Alpha 3D Ultrasound.Description .WebHome</name>
+    <number>2</number>
+    <className>XWiki.GadgetClass</className>
+    <guid>e9a1078b-636c-427f-bf5d-4c3f7af5eaac</guid>
+    <class>
+      <name>XWiki.GadgetClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <content>
+        <disabled>0</disabled>
+        <editor>---</editor>
+        <name>content</name>
+        <number>2</number>
+        <picker>0</picker>
+        <prettyName>content</prettyName>
+        <rows>5</rows>
+        <size>40</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.TextAreaClass</classType>
+      </content>
+      <position>
+        <disabled>0</disabled>
+        <name>position</name>
+        <number>3</number>
+        <picker>0</picker>
+        <prettyName>position</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </position>
+      <title>
+        <disabled>0</disabled>
+        <name>title</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>title</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </title>
+    </class>
+    <property>
+      <content>{{velocity}}
+#set($aSpace = $NULL)
+#if ($doc.space != "Main")
+  #set ($aSpace = $services.rendering.escape($doc.space, 'xwiki/2.1'))
+#end
+
+{{notifications spaces="$!aSpace" useUserPreferences="false" displayOwnEvents="true" /}}
+{{/velocity}}</content>
+    </property>
+    <property>
+      <position>2,1</position>
+    </property>
+    <property>
+      <title>#if ($doc.space != 'Main')$services.localization.render('platform.dashboard.space.activity', [$doc.plainTitle])#{else}$services.localization.render('platform.dashboard.wiki.activity')#end</title>
+    </property>
+  </object>
+</xwikidoc>

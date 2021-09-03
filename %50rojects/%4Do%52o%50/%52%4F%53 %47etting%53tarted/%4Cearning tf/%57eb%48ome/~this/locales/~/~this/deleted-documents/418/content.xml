@@ -1,0 +1,515 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Learning tf.WebHome" locale="">
+  <web>Projects.MoRoP.ROS GettingStarted.Learning tf</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.DavidDudzik</creator>
+  <creationDate>1557774239000</creationDate>
+  <versions>head	5.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+5.1
+date	2019.05.14.18.00.38;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	4.1;
+
+4.1
+date	2019.05.13.19.17.10;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2019.05.13.19.15.41;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2019.05.13.19.15.05;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2019.05.13.19.03.59;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+5.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Learning tf.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Learning tf&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1557774239000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1557856838000&lt;/date>
+  &lt;contentUpdateDate>1557856838000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+  &lt;title>Learning tf&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{toc/}}
+
+
+=   =
+
+----
+
+
+
+
+
+
+----
+
+== Writing a tf broadcaster ==
+
+Before we get started, you need to create a new ros package for this project. In the sandbox folder, create a package called ##learning_tf## that depends on tf roscpp rospy and turtelsim:
+
+
+{{code}}
+ $ cd catkin_ws/src
+ $ catkin_create_pkg learning_tf tf roscpp rospy turtlesim
+{{/code}}
+
+Build your new package before you can roscd:
+
+
+{{code}}
+ $ cd ~/catkin_ws
+ $ catkin_make
+ $ source ./devel/setup.bash
+{{/code}}
+
+===   ===
+
+=== How to broadcast transforms ===
+
+This tutorial teaches you how to broadcast coordinate frames to tf. In this case, we want to broadcast the changing coordinate frames of the turtles, as they move around.
+
+
+Let's first create the source files.
+
+{{code}}
+ $ roscd learning_tf
+{{/code}}
+
+Go to the package we just created
+
+
+Go to **src/** folder and fire up your favorite editor to paste the following code into a new file called **##src/turtle_tf_broadcaster.cpp##**.
+
+{{code}}
+#include &amp;lt;ros/ros.h>
+#include &amp;lt;tf/transform_broadcaster.h>
+#include &amp;lt;turtlesim/Pose.h>
+
+std::string turtle_name;
+
+
+
+void poseCallback(const turtlesim::PoseConstPtr&amp;amp; msg){
+  static tf::TransformBroadcaster br;
+  tf::Transform transform;
+  transform.setOrigin( tf::Vector3(msg->x, msg->y, 0.0) );
+  tf::Quaternion q;
+  q.setRPY(0, 0, msg->theta);
+  transform.setRotation(q);
+  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", turtle_name));
+}
+
+int main(int argc, char** argv){
+  ros::init(argc, argv, "my_tf_broadcaster");
+  if (argc != 2){ROS_ERROR("need turtle name as argument"); return -1;};
+  turtle_name = argv[1];
+
+  ros::NodeHandle node;
+  ros::Subscriber sub = node.subscribe(turtle_name+"/pose", 10, &amp;amp;poseCallback);
+
+  ros::spin();
+  return 0;
+};
+{{/code}}
+
+
+
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+4.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1557775030000&lt;/date>
+  &lt;contentUpdateDate>1557775030000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+d21 86
+a106 82
+  &lt;content>{{toc/}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+=   =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+== Writing a tf broadcaster ==&amp;#xd;
+&amp;#xd;
+Before we get started, you need to create a new ros package for this project. In the sandbox folder, create a package called ##learning_tf## that depends on tf roscpp rospy and turtelsim:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+{{code}}&amp;#xd;
+ $ cd catkin_ws/src&amp;#xd;
+ $ catkin_create_pkg learning_tf tf roscpp rospy turtlesim&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+Build your new package before you can roscd:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+{{code}}&amp;#xd;
+ $ cd ~/catkin_ws&amp;#xd;
+ $ catkin_make&amp;#xd;
+ $ source ./devel/setup.bash&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+===   ===&amp;#xd;
+&amp;#xd;
+=== How to broadcast transforms ===&amp;#xd;
+&amp;#xd;
+This tutorial teaches you how to broadcast coordinate frames to tf. In this case, we want to broadcast the changing coordinate frames of the turtles, as they move around.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Let's first create the source files.&amp;#xd;
+&amp;#xd;
+{{code}}&amp;#xd;
+ $ roscd learning_tf&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+Go to the package we just created&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Go to **src/** folder and fire up your favorite editor to paste the following code into a new file called **##src/turtle_tf_broadcaster.cpp##**.&amp;#xd;
+&amp;#xd;
+{{code}}&amp;#xd;
+#include &amp;lt;ros/ros.h>&amp;#xd;
+#include &amp;lt;tf/transform_broadcaster.h>&amp;#xd;
+#include &amp;lt;turtlesim/Pose.h>&amp;#xd;
+&amp;#xd;
+std::string turtle_name;&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+void poseCallback(const turtlesim::PoseConstPtr&amp;amp; msg){&amp;#xd;
+  static tf::TransformBroadcaster br;&amp;#xd;
+  tf::Transform transform;&amp;#xd;
+  transform.setOrigin( tf::Vector3(msg->x, msg->y, 0.0) );&amp;#xd;
+  tf::Quaternion q;&amp;#xd;
+  q.setRPY(0, 0, msg->theta);&amp;#xd;
+  transform.setRotation(q);&amp;#xd;
+  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", turtle_name));&amp;#xd;
+}&amp;#xd;
+&amp;#xd;
+int main(int argc, char** argv){&amp;#xd;
+  ros::init(argc, argv, "my_tf_broadcaster");&amp;#xd;
+  if (argc != 2){ROS_ERROR("need turtle name as argument"); return -1;};&amp;#xd;
+  turtle_name = argv[1];&amp;#xd;
+&amp;#xd;
+  ros::NodeHandle node;&amp;#xd;
+  ros::Subscriber sub = node.subscribe(turtle_name+"/pose", 10, &amp;amp;poseCallback);&amp;#xd;
+&amp;#xd;
+  ros::spin();&amp;#xd;
+  return 0;&amp;#xd;
+};&amp;#xd;
+{{/code}}&lt;/content>
+@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1557774941000&lt;/date>
+  &lt;contentUpdateDate>1557774941000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d21 81
+a101 83
+  &lt;content>{{toc/}}
+
+
+=   =
+
+----
+
+= Learning tf =
+
+
+
+
+
+
+----
+
+== Writing a tf broadcaster ==
+
+Before we get started, you need to create a new ros package for this project. In the sandbox folder, create a package called ##learning_tf## that depends on tf roscpp rospy and turtelsim:
+
+
+{{code}}
+ $ cd catkin_ws/src
+ $ catkin_create_pkg learning_tf tf roscpp rospy turtlesim
+{{/code}}
+
+Build your new package before you can roscd:
+
+
+{{code}}
+ $ cd ~/catkin_ws
+ $ catkin_make
+ $ source ./devel/setup.bash
+{{/code}}
+
+===   ===
+
+=== How to broadcast transforms ===
+
+This tutorial teaches you how to broadcast coordinate frames to tf. In this case, we want to broadcast the changing coordinate frames of the turtles, as they move around.
+
+
+Let's first create the source files.
+
+{{code}}
+ $ roscd learning_tf
+{{/code}}
+
+Go to the package we just created
+
+
+Go to **src/** folder and fire up your favorite editor to paste the following code into a new file called **##src/turtle_tf_broadcaster.cpp##**.
+
+{{code}}
+#include &amp;lt;ros/ros.h>
+#include &amp;lt;tf/transform_broadcaster.h>
+#include &amp;lt;turtlesim/Pose.h>
+
+std::string turtle_name;
+
+
+
+void poseCallback(const turtlesim::PoseConstPtr&amp;amp; msg){
+  static tf::TransformBroadcaster br;
+  tf::Transform transform;
+  transform.setOrigin( tf::Vector3(msg->x, msg->y, 0.0) );
+  tf::Quaternion q;
+  q.setRPY(0, 0, msg->theta);
+  transform.setRotation(q);
+  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", turtle_name));
+}
+
+int main(int argc, char** argv){
+  ros::init(argc, argv, "my_tf_broadcaster");
+  if (argc != 2){ROS_ERROR("need turtle name as argument"); return -1;};
+  turtle_name = argv[1];
+
+  ros::NodeHandle node;
+  ros::Subscriber sub = node.subscribe(turtle_name+"/pose", 10, &amp;amp;poseCallback);
+
+  ros::spin();
+  return 0;
+};
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1557774905000&lt;/date>
+  &lt;contentUpdateDate>1557774905000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d75 3
+a77 1
+Zeilennummern ein/ausschalten
+d79 1
+a79 29
+   1 #include &amp;lt;ros/ros.h>
+   2 #include &amp;lt;tf/transform_broadcaster.h>
+   3 #include &amp;lt;turtlesim/Pose.h>
+   4 
+   5 std::string turtle_name;
+   6 
+   7 
+   8 
+   9 void poseCallback(const turtlesim::PoseConstPtr&amp;amp; msg){
+  10   static tf::TransformBroadcaster br;
+  11   tf::Transform transform;
+  12   transform.setOrigin( tf::Vector3(msg->x, msg->y, 0.0) );
+  13   tf::Quaternion q;
+  14   q.setRPY(0, 0, msg->theta);
+  15   transform.setRotation(q);
+  16   br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", turtle_name));
+  17 }
+  18 
+  19 int main(int argc, char** argv){
+  20   ros::init(argc, argv, "my_tf_broadcaster");
+  21   if (argc != 2){ROS_ERROR("need turtle name as argument"); return -1;};
+  22   turtle_name = argv[1];
+  23 
+  24   ros::NodeHandle node;
+  25   ros::Subscriber sub = node.subscribe(turtle_name+"/pose", 10, &amp;amp;poseCallback);
+  26 
+  27   ros::spin();
+  28   return 0;
+  29 };
+a80 1
+{{/code}}
+d82 23
+a104 1
+&lt;/content>
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1557774239000&lt;/date>
+  &lt;contentUpdateDate>1557774239000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d21 89
+a109 1
+  &lt;content/>
+@
+</versions>
+  <parent>Projects.MoRoP.ROS GettingStarted.WebHome</parent>
+  <author>XWiki.DavidDudzik</author>
+  <contentAuthor>XWiki.DavidDudzik</contentAuthor>
+  <date>1557856838000</date>
+  <contentUpdateDate>1557856838000</contentUpdateDate>
+  <version>5.1</version>
+  <title>Learning tf</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>{{toc/}}
+
+
+=   =
+
+----
+
+
+
+
+
+
+----
+
+== Writing a tf broadcaster ==
+
+Before we get started, you need to create a new ros package for this project. In the sandbox folder, create a package called ##learning_tf## that depends on tf roscpp rospy and turtelsim:
+
+
+{{code}}
+ $ cd catkin_ws/src
+ $ catkin_create_pkg learning_tf tf roscpp rospy turtlesim
+{{/code}}
+
+Build your new package before you can roscd:
+
+
+{{code}}
+ $ cd ~/catkin_ws
+ $ catkin_make
+ $ source ./devel/setup.bash
+{{/code}}
+
+===   ===
+
+=== How to broadcast transforms ===
+
+This tutorial teaches you how to broadcast coordinate frames to tf. In this case, we want to broadcast the changing coordinate frames of the turtles, as they move around.
+
+
+Let's first create the source files.
+
+{{code}}
+ $ roscd learning_tf
+{{/code}}
+
+Go to the package we just created
+
+
+Go to **src/** folder and fire up your favorite editor to paste the following code into a new file called **##src/turtle_tf_broadcaster.cpp##**.
+
+{{code}}
+#include &lt;ros/ros.h>
+#include &lt;tf/transform_broadcaster.h>
+#include &lt;turtlesim/Pose.h>
+
+std::string turtle_name;
+
+
+
+void poseCallback(const turtlesim::PoseConstPtr&amp; msg){
+  static tf::TransformBroadcaster br;
+  tf::Transform transform;
+  transform.setOrigin( tf::Vector3(msg->x, msg->y, 0.0) );
+  tf::Quaternion q;
+  q.setRPY(0, 0, msg->theta);
+  transform.setRotation(q);
+  br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", turtle_name));
+}
+
+int main(int argc, char** argv){
+  ros::init(argc, argv, "my_tf_broadcaster");
+  if (argc != 2){ROS_ERROR("need turtle name as argument"); return -1;};
+  turtle_name = argv[1];
+
+  ros::NodeHandle node;
+  ros::Subscriber sub = node.subscribe(turtle_name+"/pose", 10, &amp;poseCallback);
+
+  ros::spin();
+  return 0;
+};
+{{/code}}
+
+
+
+ </content>
+</xwikidoc>

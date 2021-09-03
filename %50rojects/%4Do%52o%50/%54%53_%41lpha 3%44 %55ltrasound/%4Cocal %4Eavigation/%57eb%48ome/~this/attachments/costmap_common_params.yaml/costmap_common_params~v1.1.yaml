@@ -1,0 +1,12 @@
+obstacle_range: 2.5
+raytrace_range: 3.0
+footprint: [[-0.5, -0.5], [1.0, -0.5], [1.0, 0.5], [-0.5, 0.5]] 
+
+#robot_radius: ir_of_robot
+inflation_radius: 1
+
+observation_sources: laser_scan_sensor point_cloud_sensor
+
+laser_scan_sensor: {sensor_frame: laser, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+
+point_cloud_sensor: {sensor_frame: ts_alpha, data_type: PointCloud, topic: ts_alpha_markers/pointcloud, marking: true, clearing: true}

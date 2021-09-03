@@ -1,0 +1,165 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Main.ActivityTranslations" locale="">
+  <web>Main</web>
+  <name>ActivityTranslations</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.SvenHoyer</creator>
+  <creationDate>1390416042000</creationDate>
+  <versions>head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.08.16.06.57.05;	author XWiki_2ESvenHoyer;	state full;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Install extension [org.xwiki.platform:xwiki-platform-activitystream-ui/9.11.7]
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Main.ActivityTranslations" locale="">
+  &lt;web>Main&lt;/web>
+  &lt;name>ActivityTranslations&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator&gt;XWiki.SvenHoyer&lt;/creator>
+  &lt;creationDate>1390416042000&lt;/creationDate>
+  &lt;parent>Main.Activity&lt;/parent>
+  &lt;author>XWiki.SvenHoyer&lt;/author>
+  &lt;contentAuthor>XWiki.SvenHoyer&lt;/contentAuthor>
+  &lt;date>1534402625000&lt;/date>
+  &lt;contentUpdateDate>1534402625000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+  &lt;title/>
+  &lt;comment>Install extension [org.xwiki.platform:xwiki-platform-activitystream-ui/9.11.7]&lt;/comment>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>plain/1.0&lt;/syntaxId>
+  &lt;hidden>true&lt;/hidden>
+  &lt;content>activity.page.link.title=Located in {0}
+activity.rss.pages.modified=Modified Pages RSS Feed
+activity.rss.feed.description=RSS feed for document changes
+activity.rss.feed.tags.description=RSS feed for documents tagged with "{0}"
+activity.rss.feed.spaces.description=RSS feed for documents in space(s) "{0}"
+activity.rss.feed.tagsAndSpaces.description=RSS feed for documents tagged with "{0}" in space(s) "{1}"
+
+## Used to indicate where deprecated keys start
+#@@deprecatedstart
+
+## until 7.3M1
+activity.link.title=Located in {0} » {1} » {2}
+
+## Used to indicate where deprecated keys end
+#@@deprecatedend&lt;/content>
+  &lt;object>
+    &lt;name>Main.ActivityTranslations&lt;/name>
+    &lt;number>0&lt;/number>
+    &lt;className>XWiki.TranslationDocumentClass&lt;/className>
+    &lt;guid>b13c6b1d-c5f0-4116-b5be-869200530ae3&lt;/guid>
+    &lt;class>
+      &lt;name>XWiki.TranslationDocumentClass&lt;/name>
+      &lt;customClass/>
+      &lt;customMapping/>
+      &lt;defaultViewSheet/>
+      &lt;defaultEditSheet/>
+      &lt;defaultWeb/>
+      &lt;nameField/>
+      &lt;validationScript/>
+      &lt;scope>
+        &lt;cache>0&lt;/cache>
+        &lt;disabled>0&lt;/disabled>
+        &lt;displayType>select&lt;/displayType>
+        &lt;multiSelect>0&lt;/multiSelect>
+        &lt;name>scope&lt;/name>
+        &lt;number>1&lt;/number>
+        &lt;prettyName>Scope&lt;/prettyName>
+        &lt;relationalStorage>0&lt;/relationalStorage>
+        &lt;separator> &lt;/separator>
+        &lt;separators>|, &lt;/separators>
+        &lt;size>1&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;values>ON_DEMAND|WIKI|USER|GLOBAL&lt;/values>
+        &lt;classType>com.xpn.xwiki.objects.classes.StaticListClass&lt;/classType>
+      &lt;/scope>
+    &lt;/class>
+    &lt;property>
+      &lt;scope>WIKI&lt;/scope>
+    &lt;/property>
+  &lt;/object>
+&lt;/xwikidoc>@
+</versions>
+  <parent>Main.Activity</parent>
+  <author>XWiki.SvenHoyer</author>
+  <contentAuthor>XWiki.SvenHoyer</contentAuthor>
+  <date>1534402625000</date>
+  <contentUpdateDate>1534402625000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment>Install extension [org.xwiki.platform:xwiki-platform-activitystream-ui/9.11.7]</comment>
+  <minorEdit>false</minorEdit>
+  <syntaxId>plain/1.0</syntaxId>
+  <hidden>true</hidden>
+  <content>activity.page.link.title=Located in {0}
+activity.rss.pages.modified=Modified Pages RSS Feed
+activity.rss.feed.description=RSS feed for document changes
+activity.rss.feed.tags.description=RSS feed for documents tagged with "{0}"
+activity.rss.feed.spaces.description=RSS feed for documents in space(s) "{0}"
+activity.rss.feed.tagsAndSpaces.description=RSS feed for documents tagged with "{0}" in space(s) "{1}"
+
+## Used to indicate where deprecated keys start
+#@deprecatedstart
+
+## until 7.3M1
+activity.link.title=Located in {0} » {1} » {2}
+
+## Used to indicate where deprecated keys end
+#@deprecatedend</content>
+  <object>
+    <name>Main.ActivityTranslations</name>
+    <number>0</number>
+    <className>XWiki.TranslationDocumentClass</className>
+    <guid>b13c6b1d-c5f0-4116-b5be-869200530ae3</guid>
+    <class>
+      <name>XWiki.TranslationDocumentClass</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <scope>
+        <cache>0</cache>
+        <disabled>0</disabled>
+        <displayType>select</displayType>
+        <multiSelect>0</multiSelect>
+        <name>scope</name>
+        <number>1</number>
+        <prettyName>Scope</prettyName>
+        <relationalStorage>0</relationalStorage>
+        <separator> </separator>
+        <separators>|, </separators>
+        <size>1</size>
+        <unmodifiable>0</unmodifiable>
+        <values>GLOBAL|WIKI|USER|ON_DEMAND</values>
+        <classType>com.xpn.xwiki.objects.classes.StaticListClass</classType>
+      </scope>
+    </class>
+    <property>
+      <scope>WIKI</scope>
+    </property>
+  </object>
+</xwikidoc>

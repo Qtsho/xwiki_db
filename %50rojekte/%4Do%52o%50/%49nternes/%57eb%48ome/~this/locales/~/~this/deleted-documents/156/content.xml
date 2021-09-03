@@ -1,0 +1,98 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projekte .MoRoP.Internes.WebHome" locale="">
+  <web>Projekte .MoRoP.Internes</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>de</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.SvenHoyer</creator>
+  <creationDate>1536590695000</creationDate>
+  <versions>head	1.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.2
+date	2018.09.10.14.44.58;	author XWiki_2ESvenHoyer;	state full;
+branches;
+next	1.1;
+
+1.1
+date	2018.08.26.13.11.46;	author XWiki_2EMatthiasDomnik;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@Update document after refactoring.
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projekte .MoRoP.Internes.WebHome" locale="">
+  &lt;web>Projekte .MoRoP.Internes&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.SvenHoyer&lt;/creator>
+  &lt;creationDate>1536590695000&lt;/creationDate>
+  &lt;parent>xwiki:Projekte .MoRoP.WebHome&lt;/parent>
+  &lt;author>XWiki.SvenHoyer&lt;/author>
+  &lt;contentAuthor>XWiki.MatthiasDomnik&lt;/contentAuthor>
+  &lt;date>1536590698000&lt;/date>
+  &lt;contentUpdateDate>1536590695000&lt;/contentUpdateDate>
+  &lt;version>1.2&lt;/version>
+  &lt;title>Internes&lt;/title>
+  &lt;comment>Update document after refactoring.&lt;/comment>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Interne Informationen =&lt;/content>
+&lt;/xwikidoc>@
+
+
+1.1
+log
+@@
+text
+@d2 2
+a3 2
+&lt;xwikidoc version="1.3" reference="MoRoP.Internes.WebHome" locale="">
+  &lt;web>MoRoP.Internes&lt;/web>
+d8 4
+a11 4
+  &lt;creator>XWiki.MatthiasDomnik&lt;/creator>
+  &lt;creationDate>1535289106000&lt;/creationDate>
+  &lt;parent>MoRoP.WebHome&lt;/parent>
+  &lt;author>XWiki.MatthiasDomnik&lt;/author>
+d13 3
+a15 3
+  &lt;date>1535289106000&lt;/date>
+  &lt;contentUpdateDate>1535289106000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d17 2
+a18 2
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+@
+</versions>
+  <parent>xwiki:Projekte .MoRoP.WebHome</parent>
+  <author>XWiki.SvenHoyer</author>
+  <contentAuthor>XWiki.MatthiasDomnik</contentAuthor>
+  <date>1536590698000</date>
+  <contentUpdateDate>1536590695000</contentUpdateDate>
+  <version>1.2</version>
+  <title>Internes</title>
+  <comment>Update document after refactoring.</comment>
+  <minorEdit>true</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>= Interne Informationen =</content>
+</xwikidoc>

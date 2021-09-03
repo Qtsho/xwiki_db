@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attachment-list serializer="attachment-list-meta/1.0">
+ <attachment serializer="attachment-meta/1.0">
+  <filename>install_opencv_4.1.0.sh</filename>
+  <filesize>2014</filesize>
+  <author>XWiki.MatthiasDomnik</author>
+  <version>1.1</version>
+  <comment></comment>
+  <date>1563816138000</date>
+ </attachment>
+ <attachment serializer="attachment-meta/1.0">
+  <filename>install_opencv_4.1.0.sh</filename>
+  <filesize>1965</filesize>
+  <author>XWiki.MatthiasDomnik</author>
+  <version>1.2</version>
+  <comment></comment>
+  <date>1563819472000</date>
+ </attachment>
+</attachment-list>

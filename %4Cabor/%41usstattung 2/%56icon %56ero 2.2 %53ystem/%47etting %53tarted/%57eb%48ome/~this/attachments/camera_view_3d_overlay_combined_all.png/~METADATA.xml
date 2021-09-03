@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attachment-list serializer="attachment-list-meta/1.0">
+ <attachment serializer="attachment-meta/1.0">
+  <filename>camera_view_3d_overlay_combined_all.png</filename>
+  <filesize>3023086</filesize>
+  <author>XWiki.makau005</author>
+  <version>1.1</version>
+  <comment></comment>
+  <date>1547562583000</date>
+ </attachment>
+ <attachment serializer="attachment-meta/1.0">
+  <filename>camera_view_3d_overlay_combined_all.png</filename>
+  <filesize>2470285</filesize>
+  <author>XWiki.makau005</author>
+  <version>1.2</version>
+  <comment></comment>
+  <date>1547562848000</date>
+ </attachment>
+</attachment-list>

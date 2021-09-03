@@ -1,0 +1,147 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Allgemein.Hilfestellungen.Visual Studio.PlattformIO.Installations Guide.WebHome" locale="de">
+  <web>Allgemein.Hilfestellungen.Visual Studio.PlattformIO.Installations Guide</web>
+  <name>WebHome</name>
+  <language>de</language>
+  <defaultLanguage>de</defaultLanguage>
+  <translation>1</translation>
+  <creator>XWiki.lukro002</creator>
+  <creationDate>1584613474000</creationDate>
+  <versions>head	2.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+2.2
+date	2020.03.19.12.06.13;	author XWiki_2Elukro_30_30_32;	state full;
+branches;
+next	2.1;
+
+2.1
+date	2020.03.19.10.46.32;	author XWiki_2Elukro_30_30_32;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2020.03.19.10.24.34;	author XWiki_2Elukro_30_30_32;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+2.2
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Allgemein.Hilfestellungen.Visual Studio.PlattformIO.Installations Guide.WebHome" locale="de">
+  &lt;web>Allgemein.Hilfestellungen.Visual Studio.PlattformIO.Installations Guide&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language>de&lt;/language>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>1&lt;/translation>
+  &lt;creator>XWiki.lukro002&lt;/creator>
+  &lt;creationDate>1584613474000&lt;/creationDate>
+  &lt;parent>Allgemein.Hilfestellungen.Visual Studio.PlattformIO.WebHome&lt;/parent>
+  &lt;author>XWiki.lukro002&lt;/author>
+  &lt;contentAuthor>XWiki.lukro002&lt;/contentAuthor>
+  &lt;date>1584619573000&lt;/date>
+  &lt;contentUpdateDate>1584619573000&lt;/contentUpdateDate>
+  &lt;version>2.2&lt;/version>
+  &lt;title>Installations Guide (old)&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>=   =
+
+PlatformIO ist ein Plugin für Visual Studio Code zur Crossplattform Embedded Mikrocontroller Entwicklung. Für die Verwendung muss zunächst Visual Studio Code installiert werden:
+
+Download @@ [[https:~~/~~/code.visualstudio.com>>url:https://code.visualstudio.com/]]
+
+
+PlatformIO kann anschließend innerhalb VS Code als Plugin geladen werden:
+
+Anleitung @@ [[https:~~/~~/platformio.org/install/ide?install=vscode>>url:https://platformio.org/install/ide?install=vscode]]
+
+
+**Installation neuer Embedded Plattformen**
+
+Für Die Verwendung von PlatformIO als IDE für Arduino-basierte Atmel µC muss zunächst die „Atmel AVR“ Plattform unter „Platforms“ [[image:1584613044585-280.png]]  auf dem PlatformIO Homescreen installiert werden.
+
+[[image:1584613117863-966.png||height="216" width="864"]]
+
+
+Sollte Der PlatformIO Homescreen nicht geöffnet sein, kann das "Platforms" Dialogfenster auch über das "QUICK ACCESS" Menü erreicht werden:
+
+[[image:1584613422240-369.png]]&lt;/content>
+&lt;/xwikidoc>@
+
+
+2.1
+log
+@@
+text
+@d13 4
+a16 4
+  &lt;date>1584614792000&lt;/date>
+  &lt;contentUpdateDate>1584614792000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+  &lt;title>Installations Guide&lt;/title>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1584613474000&lt;/date>
+  &lt;contentUpdateDate>1584613474000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d33 2
+@
+</versions>
+  <parent>Allgemein.Hilfestellungen.Visual Studio.PlattformIO.WebHome</parent>
+  <author>XWiki.lukro002</author>
+  <contentAuthor>XWiki.lukro002</contentAuthor>
+  <date>1584619573000</date>
+  <contentUpdateDate>1584619573000</contentUpdateDate>
+  <version>2.2</version>
+  <title>Installations Guide (old)</title>
+  <comment/>
+  <minorEdit>true</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>=   =
+
+PlatformIO ist ein Plugin für Visual Studio Code zur Crossplattform Embedded Mikrocontroller Entwicklung. Für die Verwendung muss zunächst Visual Studio Code installiert werden:
+
+Download @ [[https:~~/~~/code.visualstudio.com>>url:https://code.visualstudio.com/]]
+
+
+PlatformIO kann anschließend innerhalb VS Code als Plugin geladen werden:
+
+Anleitung @ [[https:~~/~~/platformio.org/install/ide?install=vscode>>url:https://platformio.org/install/ide?install=vscode]]
+
+
+**Installation neuer Embedded Plattformen**
+
+Für Die Verwendung von PlatformIO als IDE für Arduino-basierte Atmel µC muss zunächst die „Atmel AVR“ Plattform unter „Platforms“ [[image:1584613044585-280.png]]  auf dem PlatformIO Homescreen installiert werden.
+
+[[image:1584613117863-966.png||height="216" width="864"]]
+
+
+Sollte Der PlatformIO Homescreen nicht geöffnet sein, kann das "Platforms" Dialogfenster auch über das "QUICK ACCESS" Menü erreicht werden:
+
+[[image:1584613422240-369.png]]</content>
+</xwikidoc>

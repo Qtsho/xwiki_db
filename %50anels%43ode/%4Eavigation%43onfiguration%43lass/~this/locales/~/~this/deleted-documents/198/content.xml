@@ -1,0 +1,345 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="PanelsCode.NavigationConfigurationClass" locale="">
+  <web>PanelsCode</web>
+  <name>NavigationConfigurationClass</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <creator>XWiki.SvenHoyer</creator>
+  <creationDate>1525949740000</creationDate>
+  <versions>head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.09.17.10.03.16;	author XWiki_2ESvenHoyer;	state full;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Install extension [org.xwiki.platform:xwiki-platform-panels-ui/10.7]
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="PanelsCode.NavigationConfigurationClass" locale="">
+  &lt;web>PanelsCode&lt;/web>
+  &lt;name>NavigationConfigurationClass&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage/>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.SvenHoyer&lt;/creator>
+  &lt;creationDate>1525949740000&lt;/creationDate>
+  &lt;parent>xwiki:PanelsCode.WebHome&lt;/parent>
+  &lt;author>XWiki.SvenHoyer&lt;/author>
+  &lt;contentAuthor>XWiki.SvenHoyer&lt;/contentAuthor>
+  &lt;date>1537178596000&lt;/date>
+  &lt;contentUpdateDate>1537178596000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+  &lt;title/>
+  &lt;comment>Install extension [org.xwiki.platform:xwiki-platform-panels-ui/10.7]&lt;/comment>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>true&lt;/hidden>
+  &lt;content/>
+  &lt;class>
+    &lt;name>PanelsCode.NavigationConfigurationClass&lt;/name>
+    &lt;customClass/>
+    &lt;customMapping/>
+    &lt;defaultViewSheet/>
+    &lt;defaultEditSheet/>
+    &lt;defaultWeb/>
+    &lt;nameField/>
+    &lt;validationScript/>
+    &lt;excludeTopLevelExtensionPages>
+      &lt;customDisplay/>
+      &lt;defaultValue>1&lt;/defaultValue>
+      &lt;disabled>0&lt;/disabled>
+      &lt;displayFormType>checkbox&lt;/displayFormType>
+      &lt;displayType/>
+      &lt;hint>This dynamic filter removes from the navigation tree the top level pages that belong to an installed extension, if they are not meant to be modified.&lt;/hint>
+      &lt;name>excludeTopLevelExtensionPages&lt;/name>
+      &lt;number>1&lt;/number>
+      &lt;prettyName>Exclude Top Level Extension Pages&lt;/prettyName>
+      &lt;unmodifiable>0&lt;/unmodifiable>
+      &lt;validationMessage/>
+      &lt;validationRegExp/>
+      &lt;classType>com.xpn.xwiki.objects.classes.BooleanClass&lt;/classType>
+    &lt;/excludeTopLevelExtensionPages>
+    &lt;exclusions>
+      &lt;cache>0&lt;/cache>
+      &lt;classname/>
+      &lt;customDisplay/>
+      &lt;disabled>0&lt;/disabled&gt;
+      &lt;displayType>input&lt;/displayType>
+      &lt;hint>The list of pages to exclude from the navigation tree.&lt;/hint>
+      &lt;idField/>
+      &lt;multiSelect>1&lt;/multiSelect>
+      &lt;name>exclusions&lt;/name>
+      &lt;number>2&lt;/number>
+      &lt;picker>1&lt;/picker>
+      &lt;prettyName>Exclusions&lt;/prettyName>
+      &lt;relationalStorage>1&lt;/relationalStorage>
+      &lt;separator> &lt;/separator>
+      &lt;separators/>
+      &lt;size>1&lt;/size>
+      &lt;sort>none&lt;/sort>
+      &lt;sql>select doc.fullName, space.name from XWikiDocument doc, XWikiSpace space where doc.space = space.reference and space.parent is null and doc.translation = 0 and doc.name = 'WebHome' order by space.name&lt;/sql>
+      &lt;unmodifiable>0&lt;/unmodifiable>
+      &lt;validationMessage/>
+      &lt;validationRegExp/>
+      &lt;valueField/>
+      &lt;classType>com.xpn.xwiki.objects.classes.DBListClass&lt;/classType>
+    &lt;/exclusions>
+    &lt;inclusions>
+      &lt;cache>0&lt;/cache>
+      &lt;classname/>
+      &lt;customDisplay/>
+      &lt;disabled>0&lt;/disabled>
+      &lt;displayType>input&lt;/displayType>
+      &lt;hint>The list of pages to include in the navigation tree even if they were excluded by a previous filter.&lt;/hint>
+      &lt;idField/>
+      &lt;multiSelect>1&lt;/multiSelect>
+      &lt;name>inclusions&lt;/name>
+      &lt;number>3&lt;/number>
+      &lt;picker>1&lt;/picker>
+      &lt;prettyName>Inclusions&lt;/prettyName>
+      &lt;relationalStorage>1&lt;/relationalStorage>
+      &lt;separator> &lt;/separator>
+      &lt;separators/>
+      &lt;size>1&lt;/size>
+      &lt;sort>none&lt;/sort>
+      &lt;sql>select doc.fullName, space.name from XWikiDocument doc, XWikiSpace space where doc.space = space.reference and space.parent is null and doc.translation = 0 and doc.name = 'WebHome' order by space.name&lt;/sql>
+      &lt;unmodifiable>0&lt;/unmodifiable>
+      &lt;validationMessage/>
+      &lt;validationRegExp/>
+      &lt;valueField/>
+      &lt;classType>com.xpn.xwiki.objects.classes.DBListClass&lt;/classType>
+    &lt;/inclusions>
+  &lt;/class>
+  &lt;object>
+    &lt;name>PanelsCode.NavigationConfigurationClass&lt;/name>
+    &lt;number>0&lt;/number>
+    &lt;className>XWiki.ClassSheetBinding&lt;/className>
+    &lt;guid>3b3bc140-fd74-4104-83b9-566c8c2aa9ed&lt;/guid>
+    &lt;class>
+      &lt;name>XWiki.ClassSheetBinding&lt;/name>
+      &lt;customClass/>
+      &lt;customMapping/>
+      &lt;defaultViewSheet/>
+      &lt;defaultEditSheet/>
+      &lt;defaultWeb/>
+      &lt;nameField/>
+      &lt;validationScript/>
+      &lt;sheet>
+        &lt;customDisplay/>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>sheet&lt;/name>
+        &lt;number>1&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>Sheet&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/sheet>
+    &lt;/class>
+    &lt;property>
+      &lt;sheet>PanelsCode.NavigationConfigurationSheet&lt;/sheet>
+    &lt;/property>
+  &lt;/object>
+  &lt;object>
+    &lt;name>PanelsCode.NavigationConfigurationClass&lt;/name>
+    &lt;number>0&lt;/number>
+    &lt;className>XWiki.DocumentSheetBinding&lt;/className>
+    &lt;guid>4ee4de57-235f-4868-aa2a-560613342881&lt;/guid>
+    &lt;class>
+      &lt;name>XWiki.DocumentSheetBinding&lt;/name>
+      &lt;customClass/>
+      &lt;customMapping/>
+      &lt;defaultViewSheet/>
+      &lt;defaultEditSheet/>
+      &lt;defaultWeb/>
+      &lt;nameField/>
+      &lt;validationScript/>
+      &lt;sheet>
+        &lt;customDisplay/>
+        &lt;disabled>0&lt;/disabled>
+        &lt;name>sheet&lt;/name>
+        &lt;number>1&lt;/number>
+        &lt;picker>0&lt;/picker>
+        &lt;prettyName>Sheet&lt;/prettyName>
+        &lt;size>30&lt;/size>
+        &lt;unmodifiable>0&lt;/unmodifiable>
+        &lt;validationMessage/>
+        &lt;validationRegExp/>
+        &lt;classType>com.xpn.xwiki.objects.classes.StringClass&lt;/classType>
+      &lt;/sheet>
+    &lt;/class>
+    &lt;property>
+      &lt;sheet>XWiki.ClassSheet&lt;/sheet>
+    &lt;/property>
+  &lt;/object>
+&lt;/xwikidoc>@
+</versions>
+  <parent>xwiki:PanelsCode.WebHome</parent>
+  <author>XWiki.SvenHoyer</author>
+  <contentAuthor>XWiki.SvenHoyer</contentAuthor>
+  <date>1537178596000</date>
+  <contentUpdateDate>1537178596000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment>Install extension [org.xwiki.platform:xwiki-platform-panels-ui/10.7]</comment>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content/>
+  <class>
+    <name>PanelsCode.NavigationConfigurationClass</name>
+    <customClass/>
+    <customMapping/>
+    <defaultViewSheet/>
+    <defaultEditSheet/>
+    <defaultWeb/>
+    <nameField/>
+    <validationScript/>
+    <excludeTopLevelExtensionPages>
+      <customDisplay/>
+      <defaultValue>1</defaultValue>
+      <disabled>0</disabled>
+      <displayFormType>checkbox</displayFormType>
+      <displayType/>
+      <hint>This dynamic filter removes from the navigation tree the top level pages that belong to an installed extension, if they are not meant to be modified.</hint>
+      <name>excludeTopLevelExtensionPages</name>
+      <number>1</number>
+      <prettyName>Exclude Top Level Extension Pages</prettyName>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <classType>com.xpn.xwiki.objects.classes.BooleanClass</classType>
+    </excludeTopLevelExtensionPages>
+    <exclusions>
+      <cache>0</cache>
+      <classname/>
+      <customDisplay/>
+      <disabled>0</disabled>
+      <displayType>input</displayType>
+      <hint>The list of pages to exclude from the navigation tree.</hint>
+      <idField/>
+      <multiSelect>1</multiSelect>
+      <name>exclusions</name>
+      <number>2</number>
+      <picker>1</picker>
+      <prettyName>Exclusions</prettyName>
+      <relationalStorage>1</relationalStorage>
+      <separator> </separator>
+      <separators/>
+      <size>1</size>
+      <sort>none</sort>
+      <sql>select doc.fullName, space.name from XWikiDocument doc, XWikiSpace space where doc.space = space.reference and space.parent is null and doc.translation = 0 and doc.name = 'WebHome' order by space.name</sql>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <valueField/>
+      <classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
+    </exclusions>
+    <inclusions>
+      <cache>0</cache>
+      <classname/>
+      <customDisplay/>
+      <disabled>0</disabled>
+      <displayType>input</displayType>
+      <hint>The list of pages to include in the navigation tree even if they were excluded by a previous filter.</hint>
+      <idField/>
+      <multiSelect>1</multiSelect>
+      <name>inclusions</name>
+      <number>3</number>
+      <picker>1</picker>
+      <prettyName>Inclusions</prettyName>
+      <relationalStorage>1</relationalStorage>
+      <separator> </separator>
+      <separators/>
+      <size>1</size>
+      <sort>none</sort>
+      <sql>select doc.fullName, space.name from XWikiDocument doc, XWikiSpace space where doc.space = space.reference and space.parent is null and doc.translation = 0 and doc.name = 'WebHome' order by space.name</sql>
+      <unmodifiable>0</unmodifiable>
+      <validationMessage/>
+      <validationRegExp/>
+      <valueField/>
+      <classType>com.xpn.xwiki.objects.classes.DBListClass</classType>
+    </inclusions>
+  </class>
+  <object>
+    <name>PanelsCode.NavigationConfigurationClass</name>
+    <number>0</number>
+    <className>XWiki.ClassSheetBinding</className>
+    <guid>3b3bc140-fd74-4104-83b9-566c8c2aa9ed</guid>
+    <class>
+      <name>XWiki.ClassSheetBinding</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <sheet>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>sheet</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>Sheet</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </sheet>
+    </class>
+    <property>
+      <sheet>PanelsCode.NavigationConfigurationSheet</sheet>
+    </property>
+  </object>
+  <object>
+    <name>PanelsCode.NavigationConfigurationClass</name>
+    <number>0</number>
+    <className>XWiki.DocumentSheetBinding</className>
+    <guid>4ee4de57-235f-4868-aa2a-560613342881</guid>
+    <class>
+      <name>XWiki.DocumentSheetBinding</name>
+      <customClass/>
+      <customMapping/>
+      <defaultViewSheet/>
+      <defaultEditSheet/>
+      <defaultWeb/>
+      <nameField/>
+      <validationScript/>
+      <sheet>
+        <customDisplay/>
+        <disabled>0</disabled>
+        <name>sheet</name>
+        <number>1</number>
+        <picker>0</picker>
+        <prettyName>Sheet</prettyName>
+        <size>30</size>
+        <unmodifiable>0</unmodifiable>
+        <validationMessage/>
+        <validationRegExp/>
+        <classType>com.xpn.xwiki.objects.classes.StringClass</classType>
+      </sheet>
+    </class>
+    <property>
+      <sheet>XWiki.ClassSheet</sheet>
+    </property>
+  </object>
+</xwikidoc>

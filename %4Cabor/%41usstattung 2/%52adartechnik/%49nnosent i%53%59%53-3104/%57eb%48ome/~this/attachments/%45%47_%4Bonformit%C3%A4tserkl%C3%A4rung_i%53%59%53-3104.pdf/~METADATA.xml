@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attachment-list serializer="attachment-list-meta/1.0">
+ <attachment serializer="attachment-meta/1.0">
+  <filename>EG_Konformitätserklärung_iSYS-3104.pdf</filename>
+  <filesize>1365362</filesize>
+  <author>XWiki.SvenHoyer</author>
+  <version>1.2</version>
+  <comment></comment>
+  <date>1542874525000</date>
+ </attachment>
+ <attachment serializer="attachment-meta/1.0">
+  <filename>EG_Konformitätserklärung_iSYS-3104.pdf</filename>
+  <filesize>1365362</filesize>
+  <author>XWiki.SvenHoyer</author>
+  <version>1.3</version>
+  <comment></comment>
+  <date>1542874541000</date>
+ </attachment>
+</attachment-list>

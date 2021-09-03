@@ -1,0 +1,297 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="MoRoP.ROS_GettingStarted_test.Install Ubuntu.WebHome" locale="">
+  <web>MoRoP.ROS_GettingStarted_test.Install Ubuntu</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>de</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.MatthiasDomnik</creator>
+  <creationDate>1535189151000</creationDate>
+  <versions>head	1.4;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.4
+date	2018.08.25.09.25.52;	author XWiki_2EMatthiasDomnik;	state full;
+branches;
+next	1.3;
+
+1.3
+date	2018.08.23.15.38.59;	author XWiki_2EMatthiasDomnik;	state diff;
+branches;
+next	1.2;
+
+1.2
+date	2018.08.23.15.28.44;	author XWiki_2EMatthiasDomnik;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.08.23.13.10.22;	author XWiki_2EMatthiasDomnik;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.4
+log
+@Update document after refactoring.
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="MoRoP.ROS_GettingStarted_test.Install Ubuntu.WebHome" locale="">
+  &lt;web>MoRoP.ROS_GettingStarted_test.Install Ubuntu&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.MatthiasDomnik&lt;/creator>
+  &lt;creationDate>1535189151000&lt;/creationDate>
+  &lt;parent>xwiki:MoRoP.ROS_GettingStarted_test.WebHome&lt;/parent>
+  &lt;author>XWiki.MatthiasDomnik&lt;/author>
+  &lt;contentAuthor>XWiki.MatthiasDomnik&lt;/contentAuthor>
+  &lt;date>1535189152000&lt;/date>
+  &lt;contentUpdateDate>1535189151000&lt;/contentUpdateDate>
+  &lt;version>1.4&lt;/version>
+  &lt;title>Install Ubuntu&lt;/title>
+  &lt;comment>Update document after refactoring.&lt;/comment>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{toc/}}
+
+
+= Install Ubuntu =
+
+1.  First, download the Linux-Distribution Ubuntu Xenial Xerus (16.04 LTS). [[Download Ubuntu Xenial Xerus>>http://releases.ubuntu.com/16.04.2/ubuntu-16.04.2-desktop-amd64.iso?_ga=2.266504782.1769824425.1500275857-1490409393.1499322177]]
+ 
+1. The downloaded OS will be run as a guest-system in a virtual-machine on a windows-based host-system. So, in the next step a virtual-machine has to be downloaded and installed. [[Download VirtualBox>>http://download.virtualbox.org/virtualbox/5.1.22/VirtualBox-5.1.22-115126-Win.exe||rel="noopener noreferrer" target="_blank"]]
+ 
+1. Furthermore the VirtualBox Extension Pack will be helpful to run USB2.0, USB 3.0 and other feauteres [[Download VirtualBox Extension Pack>>http://download.virtualbox.org/virtualbox/5.1.22/Oracle_VM_VirtualBox_Extension_Pack-5.1.22-115126.vbox-extpack||rel="noopener noreferrer" target="_blank"]].
+ 
+1. After all downloads have ﬁnished, the installation of the virtual-machine can start. The default installation path can remain to //C:\Program Files//.
+\\    
+ 
+1. (% class="box warningmessage" %)
+(((
+Caution! Wrong and/or thoughtlessly changes may have dramatic side eﬀects!
+)))In certain circumstances the UEFI/BIOS has to be adjusted manually. To enter the UEFI/BIOS under new windows-versions, the option „Schnellstart aktivieren“ must be deactivated
+1*. Open the system control **[Win] + I**
+1*. Select energy management-options
+1*. Then klick „Auswählen, was beim Drücken von Netzschalten geschehen soll“
+1*. Activate with admin rights (Step 1) the checkbox for step 2 (see Figure 2).
+1*. Now restart the machine. When reboot starts, keep  **[Del]** or **[F2]** pressed, to enter UEFI/BIOS.
+1*. Press **[F7] **to get in the extended mode. Select „CPU-Konﬁguration“.
+
+  - In this menue the option „Intel-Virtualisierungstechnologie“ has to be activated .
+  - After successfully activation the UEFI/BIOS can be exited through „Quit“ in the right upper screen corner.
+&amp;lt;a name="fig_2"/>
+![install_ubuntu_boot_options.png](images/install_ubuntu_boot_options.png)  
+           ~_~_Figure 2: Modify boot-options~_~_
+6. After the boot and login process, load VirtualBox and start the installation of the guest system. To initialize a new guest system, klick on the button „New“. A new windows will pop up.
+Keep attention that the right OS is selected. In this case the type has to be „Linux“ and the version  „Ubuntu 64-bit“[^1].
+[^1]: Troubleshooting: If there are only 32bit-versions selectable, the UEFI/BIOS conﬁguration failed with high probability (see Step 5).
+
+Further a concise „Name“ has to be chosen. For example „Ubuntu-ROS“.
+
+7.    With a click on „continue“ the selection will be accepted. VirtualBox suggests a main memory size of 1024MB. However, a main memory of 6144MB can also be provided for the guest system with 16GB main memory installed.
+8.    The next step is to create the hard disk. To do this, select „Create Disk“, and then click „Create“.
+9.    In the following window, select „VDI (VirtualBox Disk Image)“, and then click „continue“.
+10.    The next dialog window prompts you to select whether the memory should be dynamically or permanently allocated. Here, „permanently“ is selected to achieve better performance.
+~11.    After clicking on „continue“, the path must be assigned and the storage volume must be set. The path should, if possible, be a hard disk, which is physically separate from the host system. As storage volume, 30GB are reasonable.
+12.    The guest system is now fully initialized and the installation of the operating system can begin. To do this, select the guest system previously created in the VirtualBox GUI, and then click „Start“.
+13.     A dialog box will open, prompting you to select a suitable operating system. In this case, the .iso ﬁle should be selected, which has been downloaded under point 1.
+14.     Ubuntu now executes the boot process and, after its completion, opens a dialog window in which the language can be selected ﬁrst. After selecting the language, select „Install Ubuntu“.
+15.    In the next window you should select the two points „Download updates while installing Ubuntu“ and „Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and other media“.
+16.    After clicking on „continue“, select „Erase Disk and install Ubuntu“.
+17.    Subsequently, the correct time zone (Berlin) is asked for and the preferred keyboard layout. Here you have to select „German/German“.
+18.    The next dialog box asks the user and computer name. The entries are to be made according  to Figure 3. Where under the point „computer name“ the number must be adjusted according to the machine’s housing.  
+  ![install_ubuntu_enter_username.png](images/install_ubuntu_enter_username.png)  
+~_~_Figure 3: Enter user- and computername~_~_
+19.    After successful installation, the prompt „Please remove installation medium and press enter“ appears. The virtual optical media is ejected automatically by VirtualBox before restarting, so you can continue directly with „Enter“.
+20.  Ubuntu is now fully installed. Before the installation of ROS can take place the following points are to be done:
+ - The options „Send error reports to Canonical“ and „Send occasional system information to Canonical“ are to disable under Settings → security and privacy.
+ - In the VirtualBox command bar, select guest extensions under devices . Ubuntu, as a virtual optical medium, will use the ﬁle downloaded in step 3. After entering the password, the installation is carried out. The open terminal can be closed at the end by the enter key.
+ - After the Extension Pack is installed, it is possible to set up a shared folder between host and guest systems. To do this, select Common Folders in Devices. A new folder can be created by selecting the red encircled button (see Figure 4). A dialog box similar to Figure 4 will open. A path and name of the folder is required. In addition, the two options should be selected „Automatically Embed“ and „Permanently Generate“.  
+![install_ubuntu_shared_folder.png](images/install_ubuntu_shared_folder.png)  
+~_~_Figure 4: Create a shared folder~_~_  
+ - After the folder has been created successfully the rights of the user have to be adjusted. The following command is to be executed in the terminal:
+
+         ``` bash
+               $ sudo adduser &amp;lt;user-name> vboxsf
+         ```
+ - Where `&amp;lt;user-name>` is to be replaced by the selected user name. After rebooting, the shared folder can be found in `\media \sf _&amp;lt;directory_name>` . To facilitate access, a symbolic link is going to be created.
+
+
+         ```bash
+               $ sudo ln -s /media/sf_&amp;lt;Ordnername> ~~/Schreibtisch/&amp;lt;Ordnername>
+         ```
+        > Note: The link has to be a symbolic link, because a mounted ﬁle system must not be hard-linked. Please note the option -s and the command is executed as a root user (sudo).
+
+
+This completes the installation of Ubuntu as a guest system. The next chapter explains how to set up ROS under Ubuntu.
+
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+1.3
+log
+@@
+text
+@d2 2
+a3 2
+&lt;xwikidoc version="1.3" reference="ROS_GettingStarted_test.Install Ubuntu.WebHome" locale="">
+  &lt;web>ROS_GettingStarted_test.Install Ubuntu&lt;/web>
+d9 2
+a10 2
+  &lt;creationDate>1535029822000&lt;/creationDate>
+  &lt;parent>ROS_GettingStarted_test.WebHome&lt;/parent>
+d13 3
+a15 3
+  &lt;date>1535038739000&lt;/date>
+  &lt;contentUpdateDate>1535038739000&lt;/contentUpdateDate>
+  &lt;version>1.3&lt;/version>
+d17 1
+a17 1
+  &lt;comment/>
+@
+
+
+1.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1535038124000&lt;/date>
+  &lt;contentUpdateDate>1535038124000&lt;/contentUpdateDate>
+  &lt;version>1.2&lt;/version>
+d33 1
+d35 10
+a44 1
+1. In certain circumstances the UEFI/BIOS has to be adjusted manually. To enter the UEFI/BIOS under new windows-versions, the option „Schnellstart aktivieren“ must be deactivated.
+a45 11
+  - Open the system control ~_~_[Win] + I~_~_
+  - Select energy management-options
+  - Then klick „Auswählen, was beim Drücken von Netzschalten geschehen soll“
+  ![install_ubuntu_energy_options.png](images/install_ubuntu_energy_options.png)  
+    ~_~_Figure 1: Energy options~_~_  
+  - Activate with admin rights (Step 1) the checkbox for step 2
+   (see Figure 2).
+  - Now restart the machine. When reboot starts, keep ~_~_[Del]~_~_ or ~_~_[F2]~_~_ pressed, to enter                    UEFI/BIOS.
+
+        >  Caution! Wrong and/or thoughtlessly changes may have dramatic side eﬀects!
+  - Press ~_~_[F7]~_~_ to get in the extended mode. Select „CPU-Konﬁguration“.
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1535029822000&lt;/date>
+  &lt;contentUpdateDate>1535029822000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d21 75
+a95 1
+  &lt;content>Test page!&lt;/content>
+@
+</versions>
+  <parent>xwiki:MoRoP.ROS_GettingStarted_test.WebHome</parent>
+  <author>XWiki.MatthiasDomnik</author>
+  <contentAuthor>XWiki.MatthiasDomnik</contentAuthor>
+  <date>1535189152000</date>
+  <contentUpdateDate>1535189151000</contentUpdateDate>
+  <version>1.4</version>
+  <title>Install Ubuntu</title>
+  <comment>Update document after refactoring.</comment>
+  <minorEdit>true</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>{{toc/}}
+
+
+= Install Ubuntu =
+
+1.  First, download the Linux-Distribution Ubuntu Xenial Xerus (16.04 LTS). [[Download Ubuntu Xenial Xerus>>http://releases.ubuntu.com/16.04.2/ubuntu-16.04.2-desktop-amd64.iso?_ga=2.266504782.1769824425.1500275857-1490409393.1499322177]]
+ 
+1. The downloaded OS will be run as a guest-system in a virtual-machine on a windows-based host-system. So, in the next step a virtual-machine has to be downloaded and installed. [[Download VirtualBox>>http://download.virtualbox.org/virtualbox/5.1.22/VirtualBox-5.1.22-115126-Win.exe||rel="noopener noreferrer" target="_blank"]]
+ 
+1. Furthermore the VirtualBox Extension Pack will be helpful to run USB2.0, USB 3.0 and other feauteres [[Download VirtualBox Extension Pack>>http://download.virtualbox.org/virtualbox/5.1.22/Oracle_VM_VirtualBox_Extension_Pack-5.1.22-115126.vbox-extpack||rel="noopener noreferrer" target="_blank"]].
+ 
+1. After all downloads have ﬁnished, the installation of the virtual-machine can start. The default installation path can remain to //C:\Program Files//.
+\\    
+ 
+1. (% class="box warningmessage" %)
+(((
+Caution! Wrong and/or thoughtlessly changes may have dramatic side eﬀects!
+)))In certain circumstances the UEFI/BIOS has to be adjusted manually. To enter the UEFI/BIOS under new windows-versions, the option „Schnellstart aktivieren“ must be deactivated
+1*. Open the system control **[Win] + I**
+1*. Select energy management-options
+1*. Then klick „Auswählen, was beim Drücken von Netzschalten geschehen soll“
+1*. Activate with admin rights (Step 1) the checkbox for step 2 (see Figure 2).
+1*. Now restart the machine. When reboot starts, keep  **[Del]** or **[F2]** pressed, to enter UEFI/BIOS.
+1*. Press **[F7] **to get in the extended mode. Select „CPU-Konﬁguration“.
+
+  - In this menue the option „Intel-Virtualisierungstechnologie“ has to be activated .
+  - After successfully activation the UEFI/BIOS can be exited through „Quit“ in the right upper screen corner.
+&lt;a name="fig_2"/>
+![install_ubuntu_boot_options.png](images/install_ubuntu_boot_options.png)  
+           ~_~_Figure 2: Modify boot-options~_~_
+6. After the boot and login process, load VirtualBox and start the installation of the guest system. To initialize a new guest system, klick on the button „New“. A new windows will pop up.
+Keep attention that the right OS is selected. In this case the type has to be „Linux“ and the version  „Ubuntu 64-bit“[^1].
+[^1]: Troubleshooting: If there are only 32bit-versions selectable, the UEFI/BIOS conﬁguration failed with high probability (see Step 5).
+
+Further a concise „Name“ has to be chosen. For example „Ubuntu-ROS“.
+
+7.    With a click on „continue“ the selection will be accepted. VirtualBox suggests a main memory size of 1024MB. However, a main memory of 6144MB can also be provided for the guest system with 16GB main memory installed.
+8.    The next step is to create the hard disk. To do this, select „Create Disk“, and then click „Create“.
+9.    In the following window, select „VDI (VirtualBox Disk Image)“, and then click „continue“.
+10.    The next dialog window prompts you to select whether the memory should be dynamically or permanently allocated. Here, „permanently“ is selected to achieve better performance.
+~11.    After clicking on „continue“, the path must be assigned and the storage volume must be set. The path should, if possible, be a hard disk, which is physically separate from the host system. As storage volume, 30GB are reasonable.
+12.    The guest system is now fully initialized and the installation of the operating system can begin. To do this, select the guest system previously created in the VirtualBox GUI, and then click „Start“.
+13.     A dialog box will open, prompting you to select a suitable operating system. In this case, the .iso ﬁle should be selected, which has been downloaded under point 1.
+14.     Ubuntu now executes the boot process and, after its completion, opens a dialog window in which the language can be selected ﬁrst. After selecting the language, select „Install Ubuntu“.
+15.    In the next window you should select the two points „Download updates while installing Ubuntu“ and „Install third-party software for graphics and Wi-Fi hardware, Flash, MP3 and other media“.
+16.    After clicking on „continue“, select „Erase Disk and install Ubuntu“.
+17.    Subsequently, the correct time zone (Berlin) is asked for and the preferred keyboard layout. Here you have to select „German/German“.
+18.    The next dialog box asks the user and computer name. The entries are to be made according  to Figure 3. Where under the point „computer name“ the number must be adjusted according to the machine’s housing.  
+  ![install_ubuntu_enter_username.png](images/install_ubuntu_enter_username.png)  
+~_~_Figure 3: Enter user- and computername~_~_
+19.    After successful installation, the prompt „Please remove installation medium and press enter“ appears. The virtual optical media is ejected automatically by VirtualBox before restarting, so you can continue directly with „Enter“.
+20.  Ubuntu is now fully installed. Before the installation of ROS can take place the following points are to be done:
+ - The options „Send error reports to Canonical“ and „Send occasional system information to Canonical“ are to disable under Settings → security and privacy.
+ - In the VirtualBox command bar, select guest extensions under devices . Ubuntu, as a virtual optical medium, will use the ﬁle downloaded in step 3. After entering the password, the installation is carried out. The open terminal can be closed at the end by the enter key.
+ - After the Extension Pack is installed, it is possible to set up a shared folder between host and guest systems. To do this, select Common Folders in Devices. A new folder can be created by selecting the red encircled button (see Figure 4). A dialog box similar to Figure 4 will open. A path and name of the folder is required. In addition, the two options should be selected „Automatically Embed“ and „Permanently Generate“.  
+![install_ubuntu_shared_folder.png](images/install_ubuntu_shared_folder.png)  
+~_~_Figure 4: Create a shared folder~_~_  
+ - After the folder has been created successfully the rights of the user have to be adjusted. The following command is to be executed in the terminal:
+
+         ``` bash
+               $ sudo adduser &lt;user-name> vboxsf
+         ```
+ - Where `&lt;user-name>` is to be replaced by the selected user name. After rebooting, the shared folder can be found in `\media \sf _&lt;directory_name>` . To facilitate access, a symbolic link is going to be created.
+
+
+         ```bash
+               $ sudo ln -s /media/sf_&lt;Ordnername> ~~/Schreibtisch/&lt;Ordnername>
+         ```
+        > Note: The link has to be a symbolic link, because a mounted ﬁle system must not be hard-linked. Please note the option -s and the command is executed as a root user (sudo).
+
+
+This completes the installation of Ubuntu as a guest system. The next chapter explains how to set up ROS under Ubuntu.
+
+ </content>
+</xwikidoc>

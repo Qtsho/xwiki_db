@@ -1,0 +1,631 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Labor.Ausstattung .Vicon Vero 2\.2 System.Getting Started.WebHome" locale="en">
+  <web>Labor.Ausstattung .Vicon Vero 2\.2 System.Getting Started</web>
+  <name>WebHome</name>
+  <language>en</language>
+  <defaultLanguage/>
+  <translation>1</translation>
+  <creator>XWiki.makau005</creator>
+  <creationDate>1547647732000</creationDate>
+  <versions>head	4.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+4.1
+date	2019.01.23.16.00.37;	author XWiki_2Emakau_30_30_35;	state full;
+branches;
+next	3.1;
+
+3.1
+date	2019.01.23.15.59.53;	author XWiki_2Emakau_30_30_35;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2019.01.23.15.58.48;	author XWiki_2Emakau_30_30_35;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2019.01.16.14.08.52;	author XWiki_2Emakau_30_30_35;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+4.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Labor.Ausstattung .Vicon Vero 2\.2 System.Getting Started.WebHome" locale="en">
+  &lt;web>Labor.Ausstattung .Vicon Vero 2\.2 System.Getting Started&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language>en&lt;/language>
+  &lt;defaultLanguage/>
+  &lt;translation>1&lt;/translation>
+  &lt;creator>XWiki.makau005&lt;/creator>
+  &lt;creationDate>1547647732000&lt;/creationDate>
+  &lt;author>XWiki.makau005&lt;/author>
+  &lt;contentAuthor>XWiki.makau005&lt;/contentAuthor>
+  &lt;date>1548259237000&lt;/date>
+  &lt;contentUpdateDate>1548259237000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+  &lt;title>Getting Started&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Table of Content =&amp;#xd;
+&amp;#xd;
+{{toc/}}&amp;#xd;
+&amp;#xd;
+= General informations =&amp;#xd;
+&amp;#xd;
+The Vicon System Vero 2.2 consists of 4 Vero v2.2 cameras. The system is located in room A712 with a floor area of ​​32.25 m ^^ 2 ^^ (8.4 m x 3.84 m). The measuring area in which the tracking is completely guaranteed is 13.78 m ^^ 2 ^^ (4.55 m x 3.03 m). The cameras are powered by a D-Link DGS-1026MP PoE switch.&amp;#xd;
+&amp;#xd;
+= The Tracker 3.x program interface =&amp;#xd;
+&amp;#xd;
+The interface of the Vicon Tracker 3.x program is divided into three sections, two of which are described in more detail below. The "RESOURCES" area is located on the left side of the program window. The majority of the settings can be defined there. The "VIEW" area is located on the right-hand side.&amp;#xd;
+&amp;#xd;
+{{box title=" == Area Resources == "}}&amp;#xd;
+&amp;#xd;
+{{figure}}&amp;#xd;
+{{thumbnail image="resources_allgemein.png" width="150px"/}}&amp;#xd;
+&amp;#xd;
+{{figureCaption}}Section of the Track 3.x software, figure shows the Resources area.{{/figureCaption}}&amp;#xd;
+{{/figure}}&amp;#xd;
+&amp;#xd;
+The Resources area is divided into two elements. The upper one serves as status display of the connection and as switch between online and offline mode (blue border). In the lower area you can switch between the different tabs of the program and contains the respective buttons (orange border).&amp;#xd;
+&amp;#xd;
+{{html wiki="true"}}&amp;#xd;
+&amp;lt;div style="clear:both; height:2em;">&amp;lt;/div>&amp;#xd;
+{{/html}}&amp;#xd;
+&amp;#xd;
+{{box title=" === Tab SYSTEM === "}}&amp;#xd;
+&amp;#xd;
+{{figure}}&amp;#xd;
+{{thumbnail image="localprop.png" width="150px"/}}&amp;#xd;
+&amp;#xd;
+{{figureCaption}}Section of the Track 3.x software, figure shows the Systemoptions{{/figureCaption}}&amp;#xd;
+{{/figure}}&amp;#xd;
+&amp;#xd;
+The System tab contains all system settings as well as the settings of the cameras and other devices. The following figure shows the basic system settings. The system is set to 300 Hz, the maximum frame rate of the Vicon Vero 2.2 cameras. The settings were made in cooperation with ProPhysics and do not need to be changed. The exceptions are the settings under "UDP OBJECT STREAM" (orange border). The object streaming can be done with the API [[API>>doc:Labor.Ausstattung .Vicon Vero 2\.2 System.API.WebHome]] either via the same computer (localhost) or via any computer in the network (IP address). The port used should have the number 51001. It is recommended to save changes in the basic settings separately. This is done via the button above the system (orange label). In the standard configuration, saving the settings is disabled to avoid accidental changes. For the change, the lock must be removed via the drop-down menu and a suitable name must be selected. Example: The frequency is reduced to 150 Hz and the object streaming is transferred to another computer with the IP address 172.16.11.2. The file name would be: 150Hz_IP_172-16-11-2.&amp;#xd;
+&amp;#xd;
+{{html wiki="true"}}&amp;#xd;
+&amp;lt;div style="clear:both; height:2em;">&amp;lt;/div>&amp;#xd;
+{{/html}}&amp;#xd;
+&amp;#xd;
+{{figure}}&amp;#xd;
+{{thumbnail image="camera_advanced.png" width="150px"/}}&amp;#xd;
+&amp;#xd;
+{{figureCaption}}Extract from the Track 3.x software, figure shows the camera settings{{/figureCaption}}&amp;#xd;
+{{/figure}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Below "Vicon Cameras" are the connected cameras. In the example shown the system has a total of four cameras of type Vicon Vero v2.2. Normally the order does not change because the cameras are stored in the software via the device ID **(find out what happens if a camera is not connected)**. If one or more cameras are selected, this is indicated by a mark in the software. The light color of the selected cameras also changes from blue to purple. The cameras can be selected either in the software or by tapping the camera itself. The following figure shows the settings of a camera. If several cameras are selected, the settings for these can be executed simultaneously. The settings were also carried out in cooperation with ProPhysics. The following list shows the parameters that have been adjusted:&amp;#xd;
+&amp;#xd;
+(% style="width:20em" %)&amp;#xd;
+|(% style="width:80%" %) Parameters|(% style="width:20%" %) Value&amp;#xd;
+|Strobe Intensity: | 0.8&amp;#xd;
+|Threshold: | 0.2&amp;#xd;
+|Minimum Circularity Ratio: | 0.5&amp;#xd;
+|Maximum Blob Height: | 50&amp;#xd;
+&amp;#xd;
+Furthermore, below the cameras are listed the control devices, such as tablets, etc., and other devices that have been connected to the software at any time.&amp;#xd;
+&amp;#xd;
+{{/box}}&amp;#xd;
+&amp;#xd;
+{{box title=" === Tab CALIBRATE === "}}&amp;#xd;
+&amp;#xd;
+{{figure}}&amp;#xd;
+{{thumbnail image="calibrate.png" width="200px"/}}&amp;#xd;
+&amp;#xd;
+{{figureCaption}}Section of the Track 3.x software, figure shows calibration and view area{{/figureCaption}}&amp;#xd;
+{{/figure}}&amp;#xd;
+&amp;#xd;
+This tab is used to calibrate the cameras. It is possible to perform a calibration of a single camera or a (recommended) complete calibration of all cameras. At this point it is necessary to anticipate the [[Area VIEW>>Getting Started||anchor=HAreaVIEW]]. First all cameras to be calibrated are selected in the [[SYSTEM tab>>Getting Started||anchor=HTabSYSTEM]]. In the View area you switch to the Camera view. For the example with four cameras, you should now be able to see the viewing areas of the cameras with all reflections (if this is not the case, masking has already been performed). The following figure shows the View area and the Calibration tab.&amp;#xd;
+&amp;#xd;
+{{html wiki="true"}}&amp;#xd;
+&amp;lt;div style="clear:both; height:2em;">&amp;lt;/div>&amp;#xd;
+{{/html}}&amp;#xd;
+&amp;#xd;
+{{figure}}&amp;#xd;
+{{thumbnail image="calibrate_small.png" width="200px"/}}&amp;#xd;
+&amp;#xd;
+{{figureCaption}}Section of the Track 3.x software, figure shows the calibration settings{{/figureCaption}}&amp;#xd;
+{{/figure}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+If it has not already happened, a mask will be created. First all objects with markers are removed from the camera's field of view. Likewise, an attempt is made to minimize unwanted reflections. Then the generation of the mask is started via the "START" button with the brush icon. If the mask is not satisfactory, it can be adjusted manually using the corresponding buttons in the View area. Subsequently, some settings are made under "CALIBRATE CAMERAS" before the suitable calibration begins. The //Active Wand v2// is selected as the wall. A full calibration will be performed with all cameras. Approximately 2000 images per camera are required for the calibration and the two tolerances are set to 0.2 each. With these settings, the calibration can then be performed via the "START" button with the wall icon.&amp;#xd;
+&amp;#xd;
+While the calibration is running, the //Active Wand// is moved through the tracked room and care is taken that the LEDs of the wall point upwards. The track of the wand LEDs can then be seen on the playback screens of the cameras. Below "CAMERA CALIBRATION FEEDBACK" you can see the progress of the calibration. The color of the errors reflects their quality.&amp;#xd;
+&amp;#xd;
+After completion of the calibration, the origin of the area to be tracked shall be determined. For this purpose, the //Active Wand// is placed in the desired and clearly visible position. The origin is defined by pressing the "START" button with the KOS icon. Afterwards the origin can be adjusted manually, e.g. by an offset.&amp;#xd;
+&amp;#xd;
+{{/box}}&amp;#xd;
+&amp;#xd;
+{{box title=" === Tab OBJECT === "}}&amp;#xd;
+&amp;#xd;
+{{figure}}&amp;#xd;
+{{thumbnail image="object_cut.png" width="150px"/}}&amp;#xd;
+&amp;#xd;
+{{figureCaption}}Section of the Track 3.x software, figure shows object management{{/figureCaption}}&amp;#xd;
+{{/figure}}&amp;#xd;
+&amp;#xd;
+This tab lists all objects that have already been created. New objects are also created there. The further explanations are based on the object "Box", which is already selected in the following illustration.&amp;#xd;
+If a new object, such as the "Box", is to be created, four markers are optimally positioned on the object, if possible on different levels. The markers are then searched for in the [[Area VIEW>>Getting Started||anchor=HAreaVIEW]] and either a frame is drawn around the markers while holding down the ALT key or one after the other is selected while holding down the SHIFT key. If all matching markers have been selected, the object is given a name and the object is created by pressing the "CREATE" button. This is now displayed in the [[Area VIEW>>Getting Started||anchor=HAreaVIEW]] when the track mode is activated and appears in the list of objects. The object can be expanded and individual settings of the object and the markers can be made. If necessary, individual markers of the object can be deleted or added. &amp;#xd;
+&amp;#xd;
+{{/box}}&amp;#xd;
+&amp;#xd;
+{{box title=" === Tab RECORDING === "}}&amp;#xd;
+In the Recording tab it is possible to record, play back and export a recording of the tracked path. First select the storage location and give the recording a name. The following two options either increase the number of the recording name automatically or prevent the overwriting of files. Other parameters can be entered as desired. If all entries are correct, the recording can be executed via the "START" button.&amp;#xd;
+&amp;#xd;
+The PLAYBACK function can be used to load and play back a track that has already been recorded. Such a loaded recording can be exported as a csv file using the EXPORT function with the desired parameters.&amp;#xd;
+&amp;#xd;
+{{/box}}&amp;#xd;
+{{/box}}&amp;#xd;
+&amp;#xd;
+{{box title=" == Area VIEW== "}}&amp;#xd;
+A dropdown menu in the VIEW area provides various options for playing back the hardware. It is possible to display the images of the connected cameras directly, to view the calculated 3D space or to display different output values as graphs. In the following the different options are introduced, described and the control explained.&amp;#xd;
+&amp;#xd;
+{{box title=" === Option 3D PERSPECTIVE === "}}&amp;#xd;
+&amp;#xd;
+{{figure}}&amp;#xd;
+{{thumbnail image="3d_perspektive.png" width="150px"/}}&amp;#xd;
+&amp;#xd;
+{{figureCaption}}Detail of the Track 3.x software, figure shows the option 3D Perspective{{/figureCaption}}&amp;#xd;
+{{/figure}}&amp;#xd;
+&amp;#xd;
+Die Abbildung zeigt den Bereich VIEW bei ausgewählter Option "3D PERSPECTIVE". Dies ist die Standard-Darstellung bei starten des Programms und zeigt den getrackten Raum mit allen angeschlossenen Kameras und den erstellten Objekten. Die Steuerung durch den 3D-Raum erfolgt über die Maus. Bei gedrückter linker Maustaste kann um den Mittelpunkt des Bildausschnittes gedreht werden. Bei gedrückter mittlerer Maustaste wird der Bildauschnitt verschoben. Bei gedrückter rechter Maustaste kann der Bildausschnitt vergößert bzw. verkleinert werden. Die Ansicht wird zum größten Teil wie Bereits im [[Reiter OBJECT>>Getting Started||anchor=HReiterOBJECT]] beschrieben zur Objekterstellung und zum direkten Betrachten der Objekt-Bewegungen  verwendet. Über die Schaltfläche neben dem Dropdow-Menü kann der Bildausschnitt auf ein ausgewählten Marker zentriert werden.&amp;#xd;
+&amp;#xd;
+{{/box}}&amp;#xd;
+&amp;#xd;
+{{box title=" === Option 3D ORTHOGONAL === "}}&amp;#xd;
+&amp;#xd;
+{{figure}}&amp;#xd;
+{{thumbnail image="view_orthogonal_small.png" width="150px"/}}&amp;#xd;
+&amp;#xd;
+{{figureCaption}}Ausschnitt aus der Track 3.x Software, Abbildung zeigt die Option 3D Orthogonal{{/figureCaption}}&amp;#xd;
+{{/figure}}&amp;#xd;
+&amp;#xd;
+Die Option ist vergleichbar mit mit "3D PERSPECTIVE". Statt eines frei beweglichen Raumes können die positiven und negativen Ursprungs-Achsen als Sichtachsen verwendet werden,welche in einem Dropdown-Menü abeglegt sind. Die Möglichkeit den Bildausschnitt zu verschieben, zu vergrößern oder zu verkleinern sowie zu zentrieren bleibt erhalten. Ansonsten werden sämtliche Kameras, Objekte und anderen Devices dargestellt.&amp;#xd;
+{{/box}}&amp;#xd;
+&amp;#xd;
+{{box title=" === Option CAMERA === "}}&amp;#xd;
+&amp;#xd;
+{{figure}}&amp;#xd;
+{{thumbnail image="camera_view_small.png" width="150px"/}}&amp;#xd;
+&amp;#xd;
+{{figureCaption}}Ausschnitt aus der Track 3.x Software, Abbildung zeigt die Option Camera{{/figureCaption}}&amp;#xd;
+{{/figure}}&amp;#xd;
+&amp;#xd;
+Die Option ist abhängig davon, welche Kamera ausgewählt wurde. Da nach dem Start von Tracker 3.x keine Kamera ausgewählt ist, bleibt der Bildauschnitt zunächst leer. Erst nachdem über den [[Reiter SYSTEM>>Getting Started||anchor=HReiterSYSTEM]] eine oder mehrere Kameras ausgewählt worden sind, ändert sich der Ausschnitt wie der Abbildung links zu sehen ist. In der Abbildung sind bereits Falschreflexionen, wie im [[Reiter CALIBRATION>>Getting Started||anchor=HReiterCALIBRATION]] beschrieben, maskiert. Die gelben Kreuze sind die Marker eines Objekts.&amp;#xd;
+&amp;#xd;
+{{html wiki="true"}}&amp;#xd;
+&amp;lt;div style="clear:both; height:2em;">&amp;lt;/div>&amp;#xd;
+{{/html}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+{{figure}}&amp;#xd;
+{{thumbnail image="camera_view_3d_overlay_combined_all.png" width="150px"/}}&amp;#xd;
+&amp;#xd;
+{{figureCaption}}Ausschnitt aus der Track 3.x Software, Abbildung zeigt die Option 3D Orthogonal{{/figureCaption}}&amp;#xd;
+{{/figure}}&amp;#xd;
+&amp;#xd;
+In der Option "CAMERA" gibt es weitere Einstellmöglichkeiten, was im Bildausschnitt zu sehen ist. Neben dem Option-Dropdown-Menü befindet sich nun ein weiteres Dropdown-Menü mit fünf weiteren Optionen. Die oberen drei sind der Abbildung zur linken zu sehen und kombinieren das Field-of-View der Kameras mit der 3D-Perspektive. Die Manövrierung in dieser Darstellung ist mit der [[Option 3D PERSPECTIVE>>Getting Started||anchor=HOptionPERSPECTIVE]] zu vergleichen.&amp;#xd;
+&amp;#xd;
+Wenn keine der zuvor genannten Optionen aktiviert wurde ist es mit den drei Icons Pinsel, Radiergummi und Kreuz möglich, die Maske der Kameras manuell anzupassen.&amp;#xd;
+&amp;#xd;
+Die letzten drei Icons manipulieren, was im Bildausschnitt der Kameras zu sehen ist, wenn nur die Option combined oder keine Option aktiv ist. Die //Greyscale Blobs// sind ausschließlich zu sehen, wenn der Greyscale-Mode der Kamera (Diese ist bei den Kameraeinstellungen zu finden im [[Reiter SYSTEM>>Getting Started||anchor=HReiterSYSTEM]]) richtig eingestellt ist. Der Button //Display Camera Sensor Window// ist für die Vicon Vantage Kameras vorgesehen.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+{{/box}}&amp;#xd;
+&amp;#xd;
+{{box title=" === Option GRAPH === "}}&amp;#xd;
+&amp;#xd;
+{{figure}}&amp;#xd;
+{{thumbnail image="graph_globalangle_small.png" width="150px"/}}&amp;#xd;
+&amp;#xd;
+{{figureCaption}}Ausschnitt aus der Track 3.x Software, Abbildung zeigt die Option 3D Orthogonal{{/figureCaption}}&amp;#xd;
+{{/figure}}&amp;#xd;
+&amp;#xd;
+Mit dieser Option ist es möglich verschiedene Werte, die vom Programm zurückgegeben werden, als Graph darzustellen. Diese Wiedergabe erfolgt auch im Online-Modus. Ähnlich wie in der [[Option CAMERA>>Getting Started||anchor=HOptionCAMERA]] gibt es es ein weiteres Dropdown-Menü. Die verschiedenen Graphen-Varianten die über dieses Menü auswählbar sind, sind folgend gelistet:&amp;#xd;
+&amp;#xd;
+(% style="width:20em" %)&amp;#xd;
+| ** DEVICES **&amp;#xd;
+COMPONENTS&amp;#xd;
+COMBINED FORCEPLATES &amp;#xd;
+| ** TRAJECTORIES **&amp;#xd;
+COMPONENTS&amp;#xd;
+DISTANCE FROM ORIGIN&amp;#xd;
+DISTANCE BETWEEN&amp;#xd;
+DISTANCE BETWEEN (XYZ)&amp;#xd;
+ANGLE BETWEEN&amp;#xd;
+TRAJECTORY COUNT &amp;#xd;
+| ** METRICS **&amp;#xd;
+LATENCY &amp;#xd;
+| ** OBJECTS **&amp;#xd;
+GLOBAL ANGLE&amp;#xd;
+QUALITY&amp;#xd;
+RELATIVE POSE &amp;#xd;
+&amp;#xd;
+Für die Option Graph existieren verschiedene Buttons welche folgend erläutert werden. &amp;#xd;
+&amp;#xd;
+[[image:graph_icon1.png||alt="icon1" width="59" height="20"]] Unter dem ersten Icon sind die Derivations-Einstellungen über die X-Achse zu finden. Mit dem zweiten Icon kann ausgewählt werden, welche Daten angezeigt werden sollen. Unter dem dritten Icon kann ausgewählt werden, welche Rotationsvariante verwendet werden soll.&amp;#xd;
+&amp;#xd;
+[[image:graph_icon2.png||alt="icon2" width="22" height="20"]] Mit diesem Icon wird an der rechten Seite des Programmfensters eine Legende angezeigt.&amp;#xd;
+&amp;#xd;
+[[image:graph_icon3.png||alt="icon3" width="104" height="20"]] Diese Buttons werden zur Skalierung des Graphen verwendet. Die ersten beiden Buttons stellen die horizontale Skalierung ein. Mit dem ersten Button wir im Offline-Modus auf den gesamten aufgenommenen Bereich skaliert und mit dem zweiten die aktuelle Skalierung gesperrt. Im Online-Modus wird mit dem ersten Button die Skalierung zurückgesetzt. Das ganze wiederholt sich für die vertikale Skalierung. Mit dem letzten Button wir die Skalierung für die vertikale und horizontale gleichzeitig zurückgesetzt.&amp;#xd;
+&amp;#xd;
+{{/box}}&amp;#xd;
+{{/box}}&lt;/content>
+&lt;/xwikidoc>@
+
+
+3.1
+log
+@@
+text
+@d12 3
+a14 3
+  &lt;date>1548259193000&lt;/date>
+  &lt;contentUpdateDate>1548259193000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d87 1
+@
+
+
+2.1
+log
+@@
+text
+@d12 3
+a14 3
+  &lt;date>1548259128000&lt;/date>
+  &lt;contentUpdateDate>1548259128000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d33 1
+d115 1
+@
+
+
+1.1
+log
+@@
+text
+@d12 3
+a14 3
+  &lt;date>1547647732000&lt;/date>
+  &lt;contentUpdateDate>1547647732000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d20 1
+a20 1
+  &lt;content>= Table of Content=&amp;#xd;
+d24 1
+a24 1
+= General=&amp;#xd;
+d30 1
+a30 1
+Die Oberfläche des Programms Vicon Tracker 3.0 ist in drei Bereiche unterteilt, von denen zwei im Folgenden genauer betrachtet werden. Auf der linken Seite des Programmfensters befindet sich der Bereich „RESOURCES“. Dort können der Großteil der Einstellungen festgelegt werden. Auf der rechten Seite befindet sich der Bereich „VIEW“.&amp;#xd;
+d32 1
+a32 1
+{{box title=" == Bereich Resources == "}}&amp;#xd;
+d36 1
+a36 1
+{{figureCaption}}Ausschnitt aus der Track 3.0 Software, Abbildung zeigt den Bereich Resoures{{/figureCaption}}&amp;#xd;
+d39 1
+a39 1
+Der Bereich Resources teilt sich in zwei Elemente auf. Der obere dient als Statusanzeige der Verbindung und als Umschaltung zwischen Online- und Offline-Modus (blaue Umrandung). Im unteren Bereich kann zwischen den verschiednen Reitern des Programms gewechselt werden und beinhaltet die jeweiligen Schaltflächen (orange Umrandung).&amp;#xd;
+d45 1
+a45 1
+{{box title=" === Reiter SYSTEM === "}}&amp;#xd;
+d50 1
+a50 1
+{{figureCaption}}Ausschnitt aus der Track 3.0 Software, Abbildung zeigt die Systemeinstellungen{{/figureCaption}}&amp;#xd;
+d53 1
+a53 1
+Der Reiter System beinhaltet sämtliche Systemeinstellungen sowie die Einstellungen der Kameras und weitere Geräte. Die folgende Abbildung zeigt die grundlegenden Systemeinstellungen. Das System ist auf 300 Hz eingestellt, die maximale Bildrate der Vicon Vero 2.2 Kameras. Die Einstellungen wurden in Zusammenarbeit mit der Firma ProPhysics durchgeführt und müssen nicht geändert werden. Die Ausnahmen stellen die Einstellungen unter "UDP OBJECT STREAM" dar (orange Umrandung). Das Object Streaming kann mit dem API **(Hier noch Link einfügen sobald Rubrik erstellt)** entweder über den gleichen Computer geschehen (localhost) oder über einen beliebigen Computer im Netzwerk (IP-Adresse). Der verwendete Port sollte dabei die Nummer 51001 haben. Es ist empfehlenswert Änderungen in den Grundeinstellungen seperat abzuspeichern. Dies geschieht über die Schaltfläche oberhalb des Systems (orange Beschriftung). In der Standardkofiguration ist das speichern der Einstellungen gesperrt um versehentliche Änderungen zu vermeiden. Für die Änderung muss die Sperrung über das Dropdownmenü aufgehoben und ein passender Name gewählt werden. Beispiel: Die Frequenz wird auf 150 Hz runtergesetzt und das Object-Streaming wird auf einen anderen Computer, mit der IP-Adresse 172.16.11.2 übertragen. Der Dateiname wäre: 150Hz_IP_172-16-11-2.&amp;#xd;
+d62 1
+a62 1
+{{figureCaption}}Ausschnitt aus der Track 3.0 Software, Abbildung zeigt die Kameraeinstellungen{{/figureCaption}}&amp;#xd;
+d66 1
+a66 1
+Unterhalb von "Vicon Cameras" befinden sich die verbundenen Kameras. Im gezeigten Beispiel besitzt das System insgesamt vier Kameras vom Typ Vicon Vero v2.2. Im Normalfall ändert sich die Reihenfolge nicht, da die Kameras in der Software über die Geräte-ID gespeichert sind **(herausfinden was passiert wenn eine Kamera nicht verbunden ist)**. Werden eine oder meherere Kameras ausgewählt so ist dies durch eine Markierung in der Software zu erkennen. Ebenfalls ändert sich die Beleuchtungsfarbe der ausgewählten Kameras von blau zu lila. Die Kameras können entweder in der Software ausgewählt werden oder durch direktes Antippen der Kamera selbst. In der folgenden Abbildung sind die Einstellungen einer Kamera dargestellt. Sind mehrere Kameras ausgewählt, so können die Einstellungen für diese gleichzeitig ausgeführt werden. Die Einstellungen wurden ebenfalls in Zusammenarbeit mit der Firma ProPhysics durchgeführt. In der folgenden Liste stehen die Parameter, welche angepasst wurden:&amp;#xd;
+d69 1
+a69 1
+|(% style="width:80%" %) Parameter|(% style="width:20%" %) Wert&amp;#xd;
+d75 1
+a75 1
+Desweiteren sind unterhalb der Kameras die Steuerungsgeräte, wie Tablets, etc, und weitere Geräte gelistet, welche zu irgendeinem Zeitpunkt mit der Software verbunden gewesen sind.&amp;#xd;
+d79 1
+a79 1
+{{box title=" === Reiter CALIBRATE === "}}&amp;#xd;
+d84 1
+a84 1
+{{figureCaption}}Ausschnitt aus der Track 3.0 Software, Abbildung zeigt die Kalibrierung und den View Bereich{{/figureCaption}}&amp;#xd;
+d86 1
+a87 3
+Dieser Reiter dient zur Kalibrierung der Kameras. Es ist möglich einzelne Kameras zu Kalibireren oder eine (empfohlene) vollständige Kalibrierung aller Kameras durchzuführen. An dieser Stelle ist es notwendig auf den [[Bereich VIEW>>Getting Started||anchor=HBereichVIEW]] vorzugreifen. Zunächst werden sämtliche zu kalibrierenden Kameras im [[Reiter SYSTEM>>Getting Started||anchor=HReiterSYSTEM]] ausgewählt. Im Bereich View wird auf die Ansicht Camera gewechselt. Es sollten für das Beispiel mit vier Kameras nun die Sichtbereiche der Kameras mit sämtlichen Reflexionen zu sehen sein (Ist dies nicht der Fall so ist bereits eine Maskierung durchgeführt worden). In der folgenden Abbildung ist der Bereich View und der Reiter Calibration zu sehen.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+d95 1
+a95 1
+{{figureCaption}}Ausschnitt aus der Track 3.0 Software, Abbildung zeigt die Einstellungen der Kalibrierung{{/figureCaption}}&amp;#xd;
+a97 1
+Sollte es nicht bereits geschehen sein wird eine Maske erstellt. Dazu werden zunächst sämtliche Objekte mit Markern aus den Sichtbereichen der Kameras entfernt. Ebenso wird versucht die unerwünschten Reflexionen zu minimieren. Anschließend wird über die Schaltfläche "START" mit dem Pinsel-Icon die Generierung der Maske gestartet. Sollte daraufhin die Maske nicht zufriedenstellend sein, kann diese über die entsprechend Schaltflächen im Bereich View manuell angepasst werden. Anschließend werden unterhalb von "CALIBRATE CAMERAS" einige Einstellungen getroffen bevor die eignetliche Kalibrierung beginnt. Als Wand wird der //Active Wand v2// ausgewählt. Es wird eine volle Kalibrierung mit allen Kameras durchgeführt. Für die Kalibrierung werden ungefähr 2000 Bilder pro Kamera benötigt und die beiden Toleranzen jeweils auf 0.2 gestellt. Mit diesen Einstellungen kann dann die Kalibrierung über die Schaltfläche "START" mit dem Wand-Icon erfolgen.&amp;#xd;
+d99 1
+a99 1
+Während die Kalibrierung läuft, wird der //Active Wand// durch den getrackten Raum bewegt und darauf geachtet, dass die LEDs des Wand möglichst nach oben zeigen. Auf den Wiedegabebildschirmen der Kameras ist dann die Spur der Wand-LEDs zu erkennen. Unterhalb von "CAMERA CALIBRATION FEEDBACK" ist der Fortschritt der Kalibrierung zu sehen. Die Farbe der Fehler gibt deren Qualität wieder.&amp;#xd;
+d101 1
+a101 1
+Nach Abschluss der Kalibrierung ist der Ursprung des zu trackenden Raums zu bestimmen. Dazu wird an gewünschter und gut sichtbarer Stelle der //Active Wand// abgelegt. Durch bestätigen durch die Schaltfläche "START" mit dem KOS-Icon wird der Ursprung definiert. Anschließend kann der Ursprung noch manuell angepasst werden, bspw. durch ein Offset.&amp;#xd;
+d103 2
+d107 1
+a107 1
+{{box title=" === Reiter OBJECT === "}}&amp;#xd;
+d112 1
+a112 1
+{{figureCaption}}Ausschnitt aus der Track 3.0 Software, Abbildung zeigt die Objekt-Verwaltung{{/figureCaption}}&amp;#xd;
+d114 2
+a116 4
+In diesem Reiter sind sämtliche bereits erstellten Objekte gelistet. Es werden dort ebenfalls neue Objekte angelegt. Die weiteren Erklärungen basieren auf dem Objekt "Box", welches bereits in der folgenden Abbildung ausgewählt ist.&amp;#xd;
+&amp;#xd;
+Wenn ein neues Objekt, wie bspw. die "Box", erstellt werden soll, werden zuächst optimalerweise vier Marker auf dem Objekt, falls möglich auf verschiedenen Ebenen, positioniert. Daraufhin werden die Marker im [[Bereich VIEW>>Getting Started||anchor=HBereichVIEW]] gesucht und entweder bei gedrückter ALT-Taste ein Rahmen um die Marker gezogen oder bei gedrückter SHIFT-Taste nacheinander angewählt. Wenn alle passenden Marker ausgewählt wurden, wird dem Objekt ein Name gegeben und durch betätigen der "CREATE" Schaltfläche das Objekt erzeugt. Dieses wird nun bei aktiviertem Track-Modus im Bereich VIEW angezeigt und erscheint in der Liste der Objekte. Das Objekt kann ausgeklappt werden und einzelene Einstellungen des Objekts und der Marker vorgenommen werden. Wenn es notwendig ist, können einzelne Marker des Objekts gelöscht oder hinzugefügt werden.&amp;#xd;
+&amp;#xd;
+d119 2
+a120 1
+{{box title=" === Reiter RECORDING === "}}&amp;#xd;
+d122 1
+a122 1
+Im Reiter Recording ist es möglich einen Aufnahme des getrackten Pfads aufzunehmen, wiederzugeben und zu exportieren. Zunächst wählt man den Speicherort aus und gibt der Aufnahme einen Namen. Durch die beiden folgenden Optionen wird entweder die Nummer des Aufnahmenamens automatisch erhöht oder es wird das überschreiben von Dateien verhindert. Nach Wunsch können weitere Parameter eingegeben werden. Sind sämtliche Eingaben korrekt kann über die Schaltfläche "START" die Aufnahme ausgeführt werden.&amp;#xd;
+a123 2
+Über die PLAYBACK-Funktion kann eine bereits aufgenommene Strecke geladen und abgespielt werden. Eine solche geladene Aufnahme kann über die EXPORT-Funktion mit den gewünschten Parametern als csv-Datei exportiert werden.&amp;#xd;
+&amp;#xd;
+d127 2
+a128 1
+{{box title=" == Bereich VIEW== "}}&amp;#xd;
+a129 2
+Im Bereich VIEW werden über ein Dropdown-Menü verschiedene Optionen zur Wiedergabe der Hardware zur Verfügung gestellt. Es ist möglich die Bilder der angeschlossenen Kameras direkt anzuzeigen, den berechneten 3D-Raum zu betrachten oder auch verschiedenen Ausgabewerte als Graph darzustellen. Im folgenden werden die Verschiedenen Optionen vorgestellt, beschrieben und der Steuerung erklärt.&amp;#xd;
+&amp;#xd;
+d135 1
+a135 1
+{{figureCaption}}Ausschnitt aus der Track 3.0 Software, Abbildung zeigt die Option 3D Perspective{{/figureCaption}}&amp;#xd;
+d147 1
+a147 1
+{{figureCaption}}Ausschnitt aus der Track 3.0 Software, Abbildung zeigt die Option 3D Orthogonal{{/figureCaption}}&amp;#xd;
+d158 1
+a158 1
+{{figureCaption}}Ausschnitt aus der Track 3.0 Software, Abbildung zeigt die Option Camera{{/figureCaption}}&amp;#xd;
+d161 1
+a161 1
+Die Option ist abhängig davon, welche Kamera ausgewählt wurde. Da nach dem Start von Tracker 3.0 keine Kamera ausgewählt ist, bleibt der Bildauschnitt zunächst leer. Erst nachdem über den [[Reiter SYSTEM>>Getting Started||anchor=HReiterSYSTEM]] eine oder mehrere Kameras ausgewählt worden sind, ändert sich der Ausschnitt wie der Abbildung links zu sehen ist. In der Abbildung sind bereits Falschreflexionen, wie im [[Reiter CALIBRATION>>Getting Started||anchor=HReiterCALIBRATION]] beschrieben, maskiert. Die gelben Kreuze sind die Marker eines Objekts.&amp;#xd;
+d171 1
+a171 1
+{{figureCaption}}Ausschnitt aus der Track 3.0 Software, Abbildung zeigt die Option 3D Orthogonal{{/figureCaption}}&amp;#xd;
+d188 1
+a188 1
+{{figureCaption}}Ausschnitt aus der Track 3.0 Software, Abbildung zeigt die Option 3D Orthogonal{{/figureCaption}}&amp;#xd;
+@
+</versions>
+  <author>XWiki.makau005</author>
+  <contentAuthor>XWiki.makau005</contentAuthor>
+  <date>1548259237000</date>
+  <contentUpdateDate>1548259237000</contentUpdateDate>
+  <version>4.1</version>
+  <title>Getting Started</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>= Table of Content =&#xd;
+&#xd;
+{{toc/}}&#xd;
+&#xd;
+= General informations =&#xd;
+&#xd;
+The Vicon System Vero 2.2 consists of 4 Vero v2.2 cameras. The system is located in room A712 with a floor area of ​​32.25 m ^^ 2 ^^ (8.4 m x 3.84 m). The measuring area in which the tracking is completely guaranteed is 13.78 m ^^ 2 ^^ (4.55 m x 3.03 m). The cameras are powered by a D-Link DGS-1026MP PoE switch.&#xd;
+&#xd;
+= The Tracker 3.x program interface =&#xd;
+&#xd;
+The interface of the Vicon Tracker 3.x program is divided into three sections, two of which are described in more detail below. The "RESOURCES" area is located on the left side of the program window. The majority of the settings can be defined there. The "VIEW" area is located on the right-hand side.&#xd;
+&#xd;
+{{box title=" == Area Resources == "}}&#xd;
+&#xd;
+{{figure}}&#xd;
+{{thumbnail image="resources_allgemein.png" width="150px"/}}&#xd;
+&#xd;
+{{figureCaption}}Section of the Track 3.x software, figure shows the Resources area.{{/figureCaption}}&#xd;
+{{/figure}}&#xd;
+&#xd;
+The Resources area is divided into two elements. The upper one serves as status display of the connection and as switch between online and offline mode (blue border). In the lower area you can switch between the different tabs of the program and contains the respective buttons (orange border).&#xd;
+&#xd;
+{{html wiki="true"}}&#xd;
+&lt;div style="clear:both; height:2em;">&lt;/div>&#xd;
+{{/html}}&#xd;
+&#xd;
+{{box title=" === Tab SYSTEM === "}}&#xd;
+&#xd;
+{{figure}}&#xd;
+{{thumbnail image="localprop.png" width="150px"/}}&#xd;
+&#xd;
+{{figureCaption}}Section of the Track 3.x software, figure shows the Systemoptions{{/figureCaption}}&#xd;
+{{/figure}}&#xd;
+&#xd;
+The System tab contains all system settings as well as the settings of the cameras and other devices. The following figure shows the basic system settings. The system is set to 300 Hz, the maximum frame rate of the Vicon Vero 2.2 cameras. The settings were made in cooperation with ProPhysics and do not need to be changed. The exceptions are the settings under "UDP OBJECT STREAM" (orange border). The object streaming can be done with the API [[API>>doc:Labor.Ausstattung .Vicon Vero 2\.2 System.API.WebHome]] either via the same computer (localhost) or via any computer in the network (IP address). The port used should have the number 51001. It is recommended to save changes in the basic settings separately. This is done via the button above the system (orange label). In the standard configuration, saving the settings is disabled to avoid accidental changes. For the change, the lock must be removed via the drop-down menu and a suitable name must be selected. Example: The frequency is reduced to 150 Hz and the object streaming is transferred to another computer with the IP address 172.16.11.2. The file name would be: 150Hz_IP_172-16-11-2.&#xd;
+&#xd;
+{{html wiki="true"}}&#xd;
+&lt;div style="clear:both; height:2em;">&lt;/div>&#xd;
+{{/html}}&#xd;
+&#xd;
+{{figure}}&#xd;
+{{thumbnail image="camera_advanced.png" width="150px"/}}&#xd;
+&#xd;
+{{figureCaption}}Extract from the Track 3.x software, figure shows the camera settings{{/figureCaption}}&#xd;
+{{/figure}}&#xd;
+&#xd;
+&#xd;
+Below "Vicon Cameras" are the connected cameras. In the example shown the system has a total of four cameras of type Vicon Vero v2.2. Normally the order does not change because the cameras are stored in the software via the device ID **(find out what happens if a camera is not connected)**. If one or more cameras are selected, this is indicated by a mark in the software. The light color of the selected cameras also changes from blue to purple. The cameras can be selected either in the software or by tapping the camera itself. The following figure shows the settings of a camera. If several cameras are selected, the settings for these can be executed simultaneously. The settings were also carried out in cooperation with ProPhysics. The following list shows the parameters that have been adjusted:&#xd;
+&#xd;
+(% style="width:20em" %)&#xd;
+|(% style="width:80%" %) Parameters|(% style="width:20%" %) Value&#xd;
+|Strobe Intensity: | 0.8&#xd;
+|Threshold: | 0.2&#xd;
+|Minimum Circularity Ratio: | 0.5&#xd;
+|Maximum Blob Height: | 50&#xd;
+&#xd;
+Furthermore, below the cameras are listed the control devices, such as tablets, etc., and other devices that have been connected to the software at any time.&#xd;
+&#xd;
+{{/box}}&#xd;
+&#xd;
+{{box title=" === Tab CALIBRATE === "}}&#xd;
+&#xd;
+{{figure}}&#xd;
+{{thumbnail image="calibrate.png" width="200px"/}}&#xd;
+&#xd;
+{{figureCaption}}Section of the Track 3.x software, figure shows calibration and view area{{/figureCaption}}&#xd;
+{{/figure}}&#xd;
+&#xd;
+This tab is used to calibrate the cameras. It is possible to perform a calibration of a single camera or a (recommended) complete calibration of all cameras. At this point it is necessary to anticipate the [[Area VIEW>>Getting Started||anchor=HAreaVIEW]]. First all cameras to be calibrated are selected in the [[SYSTEM tab>>Getting Started||anchor=HTabSYSTEM]]. In the View area you switch to the Camera view. For the example with four cameras, you should now be able to see the viewing areas of the cameras with all reflections (if this is not the case, masking has already been performed). The following figure shows the View area and the Calibration tab.&#xd;
+&#xd;
+{{html wiki="true"}}&#xd;
+&lt;div style="clear:both; height:2em;">&lt;/div>&#xd;
+{{/html}}&#xd;
+&#xd;
+{{figure}}&#xd;
+{{thumbnail image="calibrate_small.png" width="200px"/}}&#xd;
+&#xd;
+{{figureCaption}}Section of the Track 3.x software, figure shows the calibration settings{{/figureCaption}}&#xd;
+{{/figure}}&#xd;
+&#xd;
+&#xd;
+If it has not already happened, a mask will be created. First all objects with markers are removed from the camera's field of view. Likewise, an attempt is made to minimize unwanted reflections. Then the generation of the mask is started via the "START" button with the brush icon. If the mask is not satisfactory, it can be adjusted manually using the corresponding buttons in the View area. Subsequently, some settings are made under "CALIBRATE CAMERAS" before the suitable calibration begins. The //Active Wand v2// is selected as the wall. A full calibration will be performed with all cameras. Approximately 2000 images per camera are required for the calibration and the two tolerances are set to 0.2 each. With these settings, the calibration can then be performed via the "START" button with the wall icon.&#xd;
+&#xd;
+While the calibration is running, the //Active Wand// is moved through the tracked room and care is taken that the LEDs of the wall point upwards. The track of the wand LEDs can then be seen on the playback screens of the cameras. Below "CAMERA CALIBRATION FEEDBACK" you can see the progress of the calibration. The color of the errors reflects their quality.&#xd;
+&#xd;
+After completion of the calibration, the origin of the area to be tracked shall be determined. For this purpose, the //Active Wand// is placed in the desired and clearly visible position. The origin is defined by pressing the "START" button with the KOS icon. Afterwards the origin can be adjusted manually, e.g. by an offset.&#xd;
+&#xd;
+{{/box}}&#xd;
+&#xd;
+{{box title=" === Tab OBJECT === "}}&#xd;
+&#xd;
+{{figure}}&#xd;
+{{thumbnail image="object_cut.png" width="150px"/}}&#xd;
+&#xd;
+{{figureCaption}}Section of the Track 3.x software, figure shows object management{{/figureCaption}}&#xd;
+{{/figure}}&#xd;
+&#xd;
+This tab lists all objects that have already been created. New objects are also created there. The further explanations are based on the object "Box", which is already selected in the following illustration.&#xd;
+If a new object, such as the "Box", is to be created, four markers are optimally positioned on the object, if possible on different levels. The markers are then searched for in the [[Area VIEW>>Getting Started||anchor=HAreaVIEW]] and either a frame is drawn around the markers while holding down the ALT key or one after the other is selected while holding down the SHIFT key. If all matching markers have been selected, the object is given a name and the object is created by pressing the "CREATE" button. This is now displayed in the [[Area VIEW>>Getting Started||anchor=HAreaVIEW]] when the track mode is activated and appears in the list of objects. The object can be expanded and individual settings of the object and the markers can be made. If necessary, individual markers of the object can be deleted or added. &#xd;
+&#xd;
+{{/box}}&#xd;
+&#xd;
+{{box title=" === Tab RECORDING === "}}&#xd;
+In the Recording tab it is possible to record, play back and export a recording of the tracked path. First select the storage location and give the recording a name. The following two options either increase the number of the recording name automatically or prevent the overwriting of files. Other parameters can be entered as desired. If all entries are correct, the recording can be executed via the "START" button.&#xd;
+&#xd;
+The PLAYBACK function can be used to load and play back a track that has already been recorded. Such a loaded recording can be exported as a csv file using the EXPORT function with the desired parameters.&#xd;
+&#xd;
+{{/box}}&#xd;
+{{/box}}&#xd;
+&#xd;
+{{box title=" == Area VIEW== "}}&#xd;
+A dropdown menu in the VIEW area provides various options for playing back the hardware. It is possible to display the images of the connected cameras directly, to view the calculated 3D space or to display different output values as graphs. In the following the different options are introduced, described and the control explained.&#xd;
+&#xd;
+{{box title=" === Option 3D PERSPECTIVE === "}}&#xd;
+&#xd;
+{{figure}}&#xd;
+{{thumbnail image="3d_perspektive.png" width="150px"/}}&#xd;
+&#xd;
+{{figureCaption}}Detail of the Track 3.x software, figure shows the option 3D Perspective{{/figureCaption}}&#xd;
+{{/figure}}&#xd;
+&#xd;
+Die Abbildung zeigt den Bereich VIEW bei ausgewählter Option "3D PERSPECTIVE". Dies ist die Standard-Darstellung bei starten des Programms und zeigt den getrackten Raum mit allen angeschlossenen Kameras und den erstellten Objekten. Die Steuerung durch den 3D-Raum erfolgt über die Maus. Bei gedrückter linker Maustaste kann um den Mittelpunkt des Bildausschnittes gedreht werden. Bei gedrückter mittlerer Maustaste wird der Bildauschnitt verschoben. Bei gedrückter rechter Maustaste kann der Bildausschnitt vergößert bzw. verkleinert werden. Die Ansicht wird zum größten Teil wie Bereits im [[Reiter OBJECT>>Getting Started||anchor=HReiterOBJECT]] beschrieben zur Objekterstellung und zum direkten Betrachten der Objekt-Bewegungen  verwendet. Über die Schaltfläche neben dem Dropdow-Menü kann der Bildausschnitt auf ein ausgewählten Marker zentriert werden.&#xd;
+&#xd;
+{{/box}}&#xd;
+&#xd;
+{{box title=" === Option 3D ORTHOGONAL === "}}&#xd;
+&#xd;
+{{figure}}&#xd;
+{{thumbnail image="view_orthogonal_small.png" width="150px"/}}&#xd;
+&#xd;
+{{figureCaption}}Ausschnitt aus der Track 3.x Software, Abbildung zeigt die Option 3D Orthogonal{{/figureCaption}}&#xd;
+{{/figure}}&#xd;
+&#xd;
+Die Option ist vergleichbar mit mit "3D PERSPECTIVE". Statt eines frei beweglichen Raumes können die positiven und negativen Ursprungs-Achsen als Sichtachsen verwendet werden,welche in einem Dropdown-Menü abeglegt sind. Die Möglichkeit den Bildausschnitt zu verschieben, zu vergrößern oder zu verkleinern sowie zu zentrieren bleibt erhalten. Ansonsten werden sämtliche Kameras, Objekte und anderen Devices dargestellt.&#xd;
+{{/box}}&#xd;
+&#xd;
+{{box title=" === Option CAMERA === "}}&#xd;
+&#xd;
+{{figure}}&#xd;
+{{thumbnail image="camera_view_small.png" width="150px"/}}&#xd;
+&#xd;
+{{figureCaption}}Ausschnitt aus der Track 3.x Software, Abbildung zeigt die Option Camera{{/figureCaption}}&#xd;
+{{/figure}}&#xd;
+&#xd;
+Die Option ist abhängig davon, welche Kamera ausgewählt wurde. Da nach dem Start von Tracker 3.x keine Kamera ausgewählt ist, bleibt der Bildauschnitt zunächst leer. Erst nachdem über den [[Reiter SYSTEM>>Getting Started||anchor=HReiterSYSTEM]] eine oder mehrere Kameras ausgewählt worden sind, ändert sich der Ausschnitt wie der Abbildung links zu sehen ist. In der Abbildung sind bereits Falschreflexionen, wie im [[Reiter CALIBRATION>>Getting Started||anchor=HReiterCALIBRATION]] beschrieben, maskiert. Die gelben Kreuze sind die Marker eines Objekts.&#xd;
+&#xd;
+{{html wiki="true"}}&#xd;
+&lt;div style="clear:both; height:2em;">&lt;/div>&#xd;
+{{/html}}&#xd;
+&#xd;
+&#xd;
+{{figure}}&#xd;
+{{thumbnail image="camera_view_3d_overlay_combined_all.png" width="150px"/}}&#xd;
+&#xd;
+{{figureCaption}}Ausschnitt aus der Track 3.x Software, Abbildung zeigt die Option 3D Orthogonal{{/figureCaption}}&#xd;
+{{/figure}}&#xd;
+&#xd;
+In der Option "CAMERA" gibt es weitere Einstellmöglichkeiten, was im Bildausschnitt zu sehen ist. Neben dem Option-Dropdown-Menü befindet sich nun ein weiteres Dropdown-Menü mit fünf weiteren Optionen. Die oberen drei sind der Abbildung zur linken zu sehen und kombinieren das Field-of-View der Kameras mit der 3D-Perspektive. Die Manövrierung in dieser Darstellung ist mit der [[Option 3D PERSPECTIVE>>Getting Started||anchor=HOptionPERSPECTIVE]] zu vergleichen.&#xd;
+&#xd;
+Wenn keine der zuvor genannten Optionen aktiviert wurde ist es mit den drei Icons Pinsel, Radiergummi und Kreuz möglich, die Maske der Kameras manuell anzupassen.&#xd;
+&#xd;
+Die letzten drei Icons manipulieren, was im Bildausschnitt der Kameras zu sehen ist, wenn nur die Option combined oder keine Option aktiv ist. Die //Greyscale Blobs// sind ausschließlich zu sehen, wenn der Greyscale-Mode der Kamera (Diese ist bei den Kameraeinstellungen zu finden im [[Reiter SYSTEM>>Getting Started||anchor=HReiterSYSTEM]]) richtig eingestellt ist. Der Button //Display Camera Sensor Window// ist für die Vicon Vantage Kameras vorgesehen.&#xd;
+&#xd;
+&#xd;
+{{/box}}&#xd;
+&#xd;
+{{box title=" === Option GRAPH === "}}&#xd;
+&#xd;
+{{figure}}&#xd;
+{{thumbnail image="graph_globalangle_small.png" width="150px"/}}&#xd;
+&#xd;
+{{figureCaption}}Ausschnitt aus der Track 3.x Software, Abbildung zeigt die Option 3D Orthogonal{{/figureCaption}}&#xd;
+{{/figure}}&#xd;
+&#xd;
+Mit dieser Option ist es möglich verschiedene Werte, die vom Programm zurückgegeben werden, als Graph darzustellen. Diese Wiedergabe erfolgt auch im Online-Modus. Ähnlich wie in der [[Option CAMERA>>Getting Started||anchor=HOptionCAMERA]] gibt es es ein weiteres Dropdown-Menü. Die verschiedenen Graphen-Varianten die über dieses Menü auswählbar sind, sind folgend gelistet:&#xd;
+&#xd;
+(% style="width:20em" %)&#xd;
+| ** DEVICES **&#xd;
+COMPONENTS&#xd;
+COMBINED FORCEPLATES &#xd;
+| ** TRAJECTORIES **&#xd;
+COMPONENTS&#xd;
+DISTANCE FROM ORIGIN&#xd;
+DISTANCE BETWEEN&#xd;
+DISTANCE BETWEEN (XYZ)&#xd;
+ANGLE BETWEEN&#xd;
+TRAJECTORY COUNT &#xd;
+| ** METRICS **&#xd;
+LATENCY &#xd;
+| ** OBJECTS **&#xd;
+GLOBAL ANGLE&#xd;
+QUALITY&#xd;
+RELATIVE POSE &#xd;
+&#xd;
+Für die Option Graph existieren verschiedene Buttons welche folgend erläutert werden. &#xd;
+&#xd;
+[[image:graph_icon1.png||alt="icon1" width="59" height="20"]] Unter dem ersten Icon sind die Derivations-Einstellungen über die X-Achse zu finden. Mit dem zweiten Icon kann ausgewählt werden, welche Daten angezeigt werden sollen. Unter dem dritten Icon kann ausgewählt werden, welche Rotationsvariante verwendet werden soll.&#xd;
+&#xd;
+[[image:graph_icon2.png||alt="icon2" width="22" height="20"]] Mit diesem Icon wird an der rechten Seite des Programmfensters eine Legende angezeigt.&#xd;
+&#xd;
+[[image:graph_icon3.png||alt="icon3" width="104" height="20"]] Diese Buttons werden zur Skalierung des Graphen verwendet. Die ersten beiden Buttons stellen die horizontale Skalierung ein. Mit dem ersten Button wir im Offline-Modus auf den gesamten aufgenommenen Bereich skaliert und mit dem zweiten die aktuelle Skalierung gesperrt. Im Online-Modus wird mit dem ersten Button die Skalierung zurückgesetzt. Das ganze wiederholt sich für die vertikale Skalierung. Mit dem letzten Button wir die Skalierung für die vertikale und horizontale gleichzeitig zurückgesetzt.&#xd;
+&#xd;
+{{/box}}&#xd;
+{{/box}}</content>
+</xwikidoc>

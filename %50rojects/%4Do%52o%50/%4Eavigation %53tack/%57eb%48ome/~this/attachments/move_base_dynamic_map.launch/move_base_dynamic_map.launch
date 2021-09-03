@@ -1,0 +1,25 @@
+<launch>
+	
+	<node name="slam_gmapping" pkg="gmapping" type="slam_gmapping">
+
+		<rosparam file="$(find heros_2dnav)/gmapping_params.yaml" command="load" />
+
+		<!--remap from="scan" to="/scan_radar"/-->
+
+	</node>
+
+	
+	<node name="robot_pose_publisher" pkg="robot_pose_publisher" type="robot_pose_publisher"/>	
+
+
+	<node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+	
+		<rosparam file="$(find heros_2dnav)/costmap_common_params.yaml" command="load" ns="global_costmap" />
+		<rosparam file="$(find heros_2dnav)/costmap_common_params.yaml" command="load" ns="local_costmap" />
+		<rosparam file="$(find heros_2dnav)/local_costmap_params.yaml" command="load" />
+		<rosparam file="$(find heros_2dnav)/global_costmap_params.yaml" command="load" />
+		<rosparam file="$(find heros_2dnav)/base_local_planner_params.yaml" command="load" />
+		
+	</node>
+
+</launch>

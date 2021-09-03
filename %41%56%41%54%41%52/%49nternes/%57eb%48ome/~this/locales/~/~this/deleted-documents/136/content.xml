@@ -1,0 +1,66 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="AVATAR.Internes.WebHome" locale="">
+  <web>AVATAR.Internes</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>de</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.StefanPatzke</creator>
+  <creationDate>1535375904000</creationDate>
+  <versions>head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.08.27.13.18.24;	author XWiki_2EStefanPatzke;	state full;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="AVATAR.Internes.WebHome" locale="">
+  &lt;web>AVATAR.Internes&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.StefanPatzke&lt;/creator>
+  &lt;creationDate>1535375904000&lt;/creationDate>
+  &lt;parent>Main.WebHome&lt;/parent>
+  &lt;author>XWiki.StefanPatzke&lt;/author>
+  &lt;contentAuthor>XWiki.StefanPatzke&lt;/contentAuthor>
+  &lt;date>1535375904000&lt;/date>
+  &lt;contentUpdateDate>1535375904000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+  &lt;title>Internes&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Interne Informationen =&lt;/content>
+&lt;/xwikidoc>@
+</versions>
+  <parent>Main.WebHome</parent>
+  <author>XWiki.StefanPatzke</author>
+  <contentAuthor>XWiki.StefanPatzke</contentAuthor>
+  <date>1535375904000</date>
+  <contentUpdateDate>1535375904000</contentUpdateDate>
+  <version>1.1</version>
+  <title>Internes</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>= Interne Informationen =</content>
+</xwikidoc>

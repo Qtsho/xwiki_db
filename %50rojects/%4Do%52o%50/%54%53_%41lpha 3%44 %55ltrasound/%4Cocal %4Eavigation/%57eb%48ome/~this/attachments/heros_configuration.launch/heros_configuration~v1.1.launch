@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<node pkg="tf" type="static_transform_publisher" name="lidar_tf" args="0.440 0.0 0.385 0 0 0 1 base_link laser 100"/>
+	<node pkg="tf" type="static_transform_publisher" name="ts_alpha_tf" args="0.440 0.05 0.500 0 0 0 1 base_link ts_alpha 100"/>
+
+	<node name="lms100" pkg="lms1xx" type="LMS1xx_node" respawn="true" output="screen">
+		<param name="host" type="string" value="192.168.0.4"/>
+	</node>
+	<!-- Xsens IMU -->
+	<include file="$(find xsens_driver)/launch/xsens_driver.launch">	
+            <arg name="device" value="/dev/xsens"/>
+        </include>
+
+	<!-- CAN -->
+	<!--param name="robot_description" command="$(find xacro)/xacro.py '$(find heros_description)/urdf/heros.urdf'" /-->
+	<node pkg="innok_heros_driver" type="innok_heros_can_driver_IMU" name="heros_node" args="_device:=can0" respawn="true"/>
+	<node pkg="ur5_move" type="ur5_move_node" name="UR5_translator"/>
+
+       <!-- UR5 -->
+        <!--include file="$(find ur_modern_driver)/launch/ur5_bringup.launch">
+            <arg name="robot_ip" value="192.168.0.5"/>
+        </include-->
+
+    <node pkg="nav_2_pose_actionserver" type="nav_2_pose_actionserver_node_2" name="nav_controller"/>
+	
+</launch>

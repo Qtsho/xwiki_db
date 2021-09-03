@@ -1,0 +1,1388 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Namespaces in ros.WebHome" locale="">
+  <web>Projects.MoRoP.ROS GettingStarted.Namespaces in ros</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.DavidDudzik</creator>
+  <creationDate>1545388857000</creationDate>
+  <versions>head	9.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+9.1
+date	2019.02.21.11.33.47;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	8.1;
+
+8.1
+date	2019.02.21.09.19.33;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	7.1;
+
+7.1
+date	2019.02.21.09.18.56;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2019.02.21.09.18.14;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2019.02.21.09.17.28;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	4.1;
+
+4.1
+date	2019.02.21.09.14.49;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	3.1;
+
+3.1
+date	2019.02.21.09.13.34;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2019.02.21.09.13.09;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	1.2;
+
+1.2
+date	2019.01.15.10.44.27;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.12.21.10.40.57;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+9.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Namespaces in ros.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Namespaces in ros&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1545388857000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1550748827000&lt;/date>
+  &lt;contentUpdateDate>1550748827000&lt;/contentUpdateDate>
+  &lt;version>9.1&lt;/version>
+  &lt;title>Namespaces in ros&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>**Sitemap**
+
+----
+
+{{toc depth="2" start="2"/}}
+
+
+
+
+
+
+== Namespaces in ROS ==
+
+----
+
+Re-usage of code is an important factor in the field of software developing. In many cases the same code or program can be used for slightly different tasks. To ease up this process ROS uses namespaces. The structure is comparable with familiar concepts from high-level programming languages like C++ or from the hierarchy in file systems.
+
+
+Nodes, topics and services are also labled as graph resources in ROS. Each of this graph resources is assigned to a name in form of string. Every name exists in a local and a global sense. While a global name, like /, makes sense everywhere, local names, like &amp;lt;another_node>, are only resolvable in the dedicated namespace. Global names always start with a slash and local names can start with a double-slash or without one.
+
+
+== Adjust namespaces in the terminal ==
+
+----
+
+A short thought example should clear up the need for namespaces. There are a lot of sensors around robotics and robots, that are used double or multiple, like a camera. One the code for the camera is written, compiled and tested, it would be handy to use it as often as desired. This saves time, reduces the probability for errors and later changes has to be made only once.
+
+
+Imagine, there is are ready compiled and tested node for a camera. This camera should be used on the left and as well right side. On the first sight it would be the easiest solution to edit the source-code and re-compile it for the second node. Maybe this procedure is handy for two nodes. But at least  when binaries are used, adjusting and re-compiling is no option.
+
+
+Even if re-compiling is an option, there is a high risk that a bug exists in all forked codes. To prevent this scenario, the usage of namespace will help. Practically the two nodes can be executed independely from each other in their separated namespaces. For example, the namespaces /right and /left will be senseful in this case. In each namespace can live a node called /camera. The two nodes are basecally the same, but there will not namecollision in cause of the sepratet namespace. So, the global names would be /left/camera and /right/camera.
+
+
+At this point everything seems fine. No source-code had to be edited and no re-compiling were required. But keep attention, when the namespace is ramapped, also the topic- and service-names are remapped to the new namespace.
+So, if the node /camera publishes images under the topic /images_raw, a subsriber were able to subscribe under the global topic-name /image_raw before the namespace were remapped. To stick to the previous example, there are two nodes in two different namespace. One option is to remap the subscriber in the same namespace as the publisher. This is possible as long as the subscriber does not need to reach into different namespaces. Thats why it is more handy to remap just the topic of the subscriber.
+
+The following links the former descriiptions with the proper terminal commands.
+
+To start a node in another namespace, type in1:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_ns := &amp;lt;namespace>
+)))
+
+(% class="box infomessage" %)
+(((
+ $ rosrun camera_package camera ~_~_ns := left
+)))
+
+The subscriber, that expects messages under the topic /image_raw, has to be remapped. For this example image_viewer provided by the package image_viewer will fit. So, the command will look like this: 
+
+(% class="box infomessage" %)
+(((
+$ rosrun image_viewer image_viewer image := /left/image_raw
+)))
+
+(% class="box" %)
+(((
+Note: The namespace of the subcriber-node will not be adjusted! 
+)))
+
+Another scenario is that two (or more) identical nodes should exist in the same namespace. Normally that will not work, because the graph rescoures are not unique anymore and the master does not how to resolve the names and the URIs.
+
+
+However, changing the names of the nodes solves all issues. Again, editing and re-compiling is possible, but the above explained arguments are here valid as well. A method, that changes the node names at launchtime without these deep-invasive operations would be preferable. The following option is a well-working solution:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_name:= &amp;lt;new node-name>
+)))
+
+This is going to be executed with a short example. Example-1 ROS hello_world is taken again. But this time two turtles should live in the same namespace and be both controlled by one terminal. This means, the names of the nodes have to differ. In one terminal an instance of the turtle-simulator is launched as described in Example-1 ROS hello_world. The second instance of this node has to be renamed with the above option. So, the command for the second terminal will be:
+
+
+(% class="box infomessage" %)
+(((
+ $ rosrun turtlesim turtlesim_node ~_~_name := turtlesim_2
+)))
+
+In the standard namespace are now two instances of the same node. Because the namespace did not change, both nodes puhlish and subscribe to the same topics. In this case it is partly desired, because it is now possible to controll both turtles with a third terminal. On the other hand is to remember, that everthing is also published under one topic. in this example it is no real problem, but in the example with the two camera the behaviour would be highly undesirable. There are hybrid-solutions like remapping the topics of the publishers at launchtime, but this only for notice. There are a lot of permutations thinkable.
+
+
+= 
+Adjust namespaces in the source-code =
+
+----
+
+The ROS C++-API provides several methods to respect dedicated namespaces while developing. The node-name is set with the method (% class="mark" %)ros::init(argc,argv,"&amp;lt;node-name>")(%%), as described before. The node is usually launched in the default namespace. So, the global name for the node, launched with the previous command, is /node-name. For this reason the node-name must not contain slashes.
+
+
+The nodehandle is also launched in the default namespace, but it can be remapped by the source-code in to another namespace, at initialization time.
+
+
+(% class="box infomessage" %)
+(((
+  ros::NodeHandle handle("another_namespace")
+)))
+
+The above snippet shows a nodehandle handle, that will be remapped to the namespace another_namespace. This handle can be used to create a service, for example.
+
+(% class="box infomessage" %)
+(((
+  ros::ServiceServer service = handle.advertiseService("&amp;lt;service-name>", callback);
+)))
+
+
+Following this service will be availible under the global name /another_namespace/.
+
+
+Further there is a construct called private-names. This is not to be confused with private/public-relations in C++-classes. A private-name describes a nodehandle, that is launched in the namespace of the node.
+
+
+(% class="box infomessage" %)
+(((
+ros::init(argc, argv, "&amp;lt;node-name>");
+ros::NodeHandle n("~~");
+ros::ServiceServer service = n.advertiseService("&amp;lt;service-name>", callback);
+)))
+
+Special attention deserves the initializiation of the nodehandle in the above snippet. The nodehandle takes the argument "~~", which causes that the nodehandle is automatically assigned to the namespace of the node-name. Without any other namespace-declarations after the tilde (~~), the global name will be ~/~/.
+
+
+1. There are two underscores before ns!
+For the imaginary example with the node camera provided by the package camera_package, the command would be:&lt;/content>
+&lt;/xwikidoc>@
+
+
+8.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550740773000&lt;/date>
+  &lt;contentUpdateDate>1550740773000&lt;/contentUpdateDate>
+  &lt;version>8.1&lt;/version>
+d21 127
+a147 122
+  &lt;content>{{toc depth="2" start="2"/}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== Namespaces in ROS ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+Re-usage of code is an important factor in the field of software developing. In many cases the same code or program can be used for slightly different tasks. To ease up this process ROS uses namespaces. The structure is comparable with familiar concepts from high-level programming languages like C++ or from the hierarchy in file systems.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Nodes, topics and services are also labled as graph resources in ROS. Each of this graph resources is assigned to a name in form of string. Every name exists in a local and a global sense. While a global name, like /, makes sense everywhere, local names, like &amp;lt;another_node>, are only resolvable in the dedicated namespace. Global names always start with a slash and local names can start with a double-slash or without one.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== Adjust namespaces in the terminal ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+A short thought example should clear up the need for namespaces. There are a lot of sensors around robotics and robots, that are used double or multiple, like a camera. One the code for the camera is written, compiled and tested, it would be handy to use it as often as desired. This saves time, reduces the probability for errors and later changes has to be made only once.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Imagine, there is are ready compiled and tested node for a camera. This camera should be used on the left and as well right side. On the first sight it would be the easiest solution to edit the source-code and re-compile it for the second node. Maybe this procedure is handy for two nodes. But at least  when binaries are used, adjusting and re-compiling is no option.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Even if re-compiling is an option, there is a high risk that a bug exists in all forked codes. To prevent this scenario, the usage of namespace will help. Practically the two nodes can be executed independely from each other in their separated namespaces. For example, the namespaces /right and /left will be senseful in this case. In each namespace can live a node called /camera. The two nodes are basecally the same, but there will not namecollision in cause of the sepratet namespace. So, the global names would be /left/camera and /right/camera.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+At this point everything seems fine. No source-code had to be edited and no re-compiling were required. But keep attention, when the namespace is ramapped, also the topic- and service-names are remapped to the new namespace.&amp;#xd;
+So, if the node /camera publishes images under the topic /images_raw, a subsriber were able to subscribe under the global topic-name /image_raw before the namespace were remapped. To stick to the previous example, there are two nodes in two different namespace. One option is to remap the subscriber in the same namespace as the publisher. This is possible as long as the subscriber does not need to reach into different namespaces. Thats why it is more handy to remap just the topic of the subscriber.&amp;#xd;
+&amp;#xd;
+The following links the former descriiptions with the proper terminal commands.&amp;#xd;
+&amp;#xd;
+To start a node in another namespace, type in1:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_ns := &amp;lt;namespace>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ $ rosrun camera_package camera ~_~_ns := left&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The subscriber, that expects messages under the topic /image_raw, has to be remapped. For this example image_viewer provided by the package image_viewer will fit. So, the command will look like this: &amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun image_viewer image_viewer image := /left/image_raw&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+Note: The namespace of the subcriber-node will not be adjusted! &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Another scenario is that two (or more) identical nodes should exist in the same namespace. Normally that will not work, because the graph rescoures are not unique anymore and the master does not how to resolve the names and the URIs.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+However, changing the names of the nodes solves all issues. Again, editing and re-compiling is possible, but the above explained arguments are here valid as well. A method, that changes the node names at launchtime without these deep-invasive operations would be preferable. The following option is a well-working solution:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_name:= &amp;lt;new node-name>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+This is going to be executed with a short example. Example-1 ROS hello_world is taken again. But this time two turtles should live in the same namespace and be both controlled by one terminal. This means, the names of the nodes have to differ. In one terminal an instance of the turtle-simulator is launched as described in Example-1 ROS hello_world. The second instance of this node has to be renamed with the above option. So, the command for the second terminal will be:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ $ rosrun turtlesim turtlesim_node ~_~_name := turtlesim_2&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+In the standard namespace are now two instances of the same node. Because the namespace did not change, both nodes puhlish and subscribe to the same topics. In this case it is partly desired, because it is now possible to controll both turtles with a third terminal. On the other hand is to remember, that everthing is also published under one topic. in this example it is no real problem, but in the example with the two camera the behaviour would be highly undesirable. There are hybrid-solutions like remapping the topics of the publishers at launchtime, but this only for notice. There are a lot of permutations thinkable.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= &amp;#xd;
+Adjust namespaces in the source-code =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+The ROS C++-API provides several methods to respect dedicated namespaces while developing. The node-name is set with the method (% class="mark" %)ros::init(argc,argv,"&amp;lt;node-name>")(%%), as described before. The node is usually launched in the default namespace. So, the global name for the node, launched with the previous command, is /node-name. For this reason the node-name must not contain slashes.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The nodehandle is also launched in the default namespace, but it can be remapped by the source-code in to another namespace, at initialization time.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+  ros::NodeHandle handle("another_namespace")&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The above snippet shows a nodehandle handle, that will be remapped to the namespace another_namespace. This handle can be used to create a service, for example.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+  ros::ServiceServer service = handle.advertiseService("&amp;lt;service-name>", callback);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Following this service will be availible under the global name /another_namespace/.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Further there is a construct called private-names. This is not to be confused with private/public-relations in C++-classes. A private-name describes a nodehandle, that is launched in the namespace of the node.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ros::init(argc, argv, "&amp;lt;node-name>");&amp;#xd;
+ros::NodeHandle n("~~");&amp;#xd;
+ros::ServiceServer service = n.advertiseService("&amp;lt;service-name>", callback);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Special attention deserves the initializiation of the nodehandle in the above snippet. The nodehandle takes the argument "~~", which causes that the nodehandle is automatically assigned to the namespace of the node-name. Without any other namespace-declarations after the tilde (~~), the global name will be ~/~/.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+1. There are two underscores before ns!&amp;#xd;
+@
+
+
+7.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550740736000&lt;/date>
+  &lt;contentUpdateDate>1550740736000&lt;/contentUpdateDate>
+  &lt;version>7.1&lt;/version>
+d37 1
+a37 2
+== &amp;#xd;
+Adjust namespaces in the terminal ==&amp;#xd;
+@
+
+
+6.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550740694000&lt;/date>
+  &lt;contentUpdateDate>1550740694000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+d21 123
+a143 120
+  &lt;content>{{toc depth="3" start="2"/}}
+
+
+== Namespaces in ROS ==
+
+----
+
+Re-usage of code is an important factor in the field of software developing. In many cases the same code or program can be used for slightly different tasks. To ease up this process ROS uses namespaces. The structure is comparable with familiar concepts from high-level programming languages like C++ or from the hierarchy in file systems.
+
+
+Nodes, topics and services are also labled as graph resources in ROS. Each of this graph resources is assigned to a name in form of string. Every name exists in a local and a global sense. While a global name, like /, makes sense everywhere, local names, like &amp;lt;another_node>, are only resolvable in the dedicated namespace. Global names always start with a slash and local names can start with a double-slash or without one.
+
+
+== 
+Adjust namespaces in the terminal ==
+
+----
+
+A short thought example should clear up the need for namespaces. There are a lot of sensors around robotics and robots, that are used double or multiple, like a camera. One the code for the camera is written, compiled and tested, it would be handy to use it as often as desired. This saves time, reduces the probability for errors and later changes has to be made only once.
+
+
+Imagine, there is are ready compiled and tested node for a camera. This camera should be used on the left and as well right side. On the first sight it would be the easiest solution to edit the source-code and re-compile it for the second node. Maybe this procedure is handy for two nodes. But at least  when binaries are used, adjusting and re-compiling is no option.
+
+
+Even if re-compiling is an option, there is a high risk that a bug exists in all forked codes. To prevent this scenario, the usage of namespace will help. Practically the two nodes can be executed independely from each other in their separated namespaces. For example, the namespaces /right and /left will be senseful in this case. In each namespace can live a node called /camera. The two nodes are basecally the same, but there will not namecollision in cause of the sepratet namespace. So, the global names would be /left/camera and /right/camera.
+
+
+At this point everything seems fine. No source-code had to be edited and no re-compiling were required. But keep attention, when the namespace is ramapped, also the topic- and service-names are remapped to the new namespace.
+So, if the node /camera publishes images under the topic /images_raw, a subsriber were able to subscribe under the global topic-name /image_raw before the namespace were remapped. To stick to the previous example, there are two nodes in two different namespace. One option is to remap the subscriber in the same namespace as the publisher. This is possible as long as the subscriber does not need to reach into different namespaces. Thats why it is more handy to remap just the topic of the subscriber.
+
+The following links the former descriiptions with the proper terminal commands.
+
+To start a node in another namespace, type in1:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_ns := &amp;lt;namespace>
+)))
+
+(% class="box infomessage" %)
+(((
+ $ rosrun camera_package camera ~_~_ns := left
+)))
+
+The subscriber, that expects messages under the topic /image_raw, has to be remapped. For this example image_viewer provided by the package image_viewer will fit. So, the command will look like this: 
+
+(% class="box infomessage" %)
+(((
+$ rosrun image_viewer image_viewer image := /left/image_raw
+)))
+
+(% class="box" %)
+(((
+Note: The namespace of the subcriber-node will not be adjusted! 
+)))
+
+Another scenario is that two (or more) identical nodes should exist in the same namespace. Normally that will not work, because the graph rescoures are not unique anymore and the master does not how to resolve the names and the URIs.
+
+
+However, changing the names of the nodes solves all issues. Again, editing and re-compiling is possible, but the above explained arguments are here valid as well. A method, that changes the node names at launchtime without these deep-invasive operations would be preferable. The following option is a well-working solution:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_name:= &amp;lt;new node-name>
+)))
+
+This is going to be executed with a short example. Example-1 ROS hello_world is taken again. But this time two turtles should live in the same namespace and be both controlled by one terminal. This means, the names of the nodes have to differ. In one terminal an instance of the turtle-simulator is launched as described in Example-1 ROS hello_world. The second instance of this node has to be renamed with the above option. So, the command for the second terminal will be:
+
+
+(% class="box infomessage" %)
+(((
+ $ rosrun turtlesim turtlesim_node ~_~_name := turtlesim_2
+)))
+
+In the standard namespace are now two instances of the same node. Because the namespace did not change, both nodes puhlish and subscribe to the same topics. In this case it is partly desired, because it is now possible to controll both turtles with a third terminal. On the other hand is to remember, that everthing is also published under one topic. in this example it is no real problem, but in the example with the two camera the behaviour would be highly undesirable. There are hybrid-solutions like remapping the topics of the publishers at launchtime, but this only for notice. There are a lot of permutations thinkable.
+
+
+= 
+Adjust namespaces in the source-code =
+
+----
+
+The ROS C++-API provides several methods to respect dedicated namespaces while developing. The node-name is set with the method (% class="mark" %)ros::init(argc,argv,"&amp;lt;node-name>")(%%), as described before. The node is usually launched in the default namespace. So, the global name for the node, launched with the previous command, is /node-name. For this reason the node-name must not contain slashes.
+
+
+The nodehandle is also launched in the default namespace, but it can be remapped by the source-code in to another namespace, at initialization time.
+
+
+(% class="box infomessage" %)
+(((
+  ros::NodeHandle handle("another_namespace")
+)))
+
+The above snippet shows a nodehandle handle, that will be remapped to the namespace another_namespace. This handle can be used to create a service, for example.
+
+(% class="box infomessage" %)
+(((
+  ros::ServiceServer service = handle.advertiseService("&amp;lt;service-name>", callback);
+)))
+
+
+Following this service will be availible under the global name /another_namespace/.
+
+
+Further there is a construct called private-names. This is not to be confused with private/public-relations in C++-classes. A private-name describes a nodehandle, that is launched in the namespace of the node.
+
+
+(% class="box infomessage" %)
+(((
+ros::init(argc, argv, "&amp;lt;node-name>");
+ros::NodeHandle n("~~");
+ros::ServiceServer service = n.advertiseService("&amp;lt;service-name>", callback);
+)))
+
+Special attention deserves the initializiation of the nodehandle in the above snippet. The nodehandle takes the argument "~~", which causes that the nodehandle is automatically assigned to the namespace of the node-name. Without any other namespace-declarations after the tilde (~~), the global name will be ~/~/.
+
+
+1. There are two underscores before ns!
+@
+
+
+5.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550740648000&lt;/date>
+  &lt;contentUpdateDate>1550740648000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+d21 120
+a140 121
+  &lt;content>{{toc depth="3" start="2"/}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Namespaces in ROS ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+Re-usage of code is an important factor in the field of software developing. In many cases the same code or program can be used for slightly different tasks. To ease up this process ROS uses namespaces. The structure is comparable with familiar concepts from high-level programming languages like C++ or from the hierarchy in file systems.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Nodes, topics and services are also labled as graph resources in ROS. Each of this graph resources is assigned to a name in form of string. Every name exists in a local and a global sense. While a global name, like /, makes sense everywhere, local names, like &amp;lt;another_node>, are only resolvable in the dedicated namespace. Global names always start with a slash and local names can start with a double-slash or without one.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== &amp;#xd;
+Adjust namespaces in the terminal ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+A short thought example should clear up the need for namespaces. There are a lot of sensors around robotics and robots, that are used double or multiple, like a camera. One the code for the camera is written, compiled and tested, it would be handy to use it as often as desired. This saves time, reduces the probability for errors and later changes has to be made only once.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Imagine, there is are ready compiled and tested node for a camera. This camera should be used on the left and as well right side. On the first sight it would be the easiest solution to edit the source-code and re-compile it for the second node. Maybe this procedure is handy for two nodes. But at least  when binaries are used, adjusting and re-compiling is no option.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Even if re-compiling is an option, there is a high risk that a bug exists in all forked codes. To prevent this scenario, the usage of namespace will help. Practically the two nodes can be executed independely from each other in their separated namespaces. For example, the namespaces /right and /left will be senseful in this case. In each namespace can live a node called /camera. The two nodes are basecally the same, but there will not namecollision in cause of the sepratet namespace. So, the global names would be /left/camera and /right/camera.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+At this point everything seems fine. No source-code had to be edited and no re-compiling were required. But keep attention, when the namespace is ramapped, also the topic- and service-names are remapped to the new namespace.&amp;#xd;
+So, if the node /camera publishes images under the topic /images_raw, a subsriber were able to subscribe under the global topic-name /image_raw before the namespace were remapped. To stick to the previous example, there are two nodes in two different namespace. One option is to remap the subscriber in the same namespace as the publisher. This is possible as long as the subscriber does not need to reach into different namespaces. Thats why it is more handy to remap just the topic of the subscriber.&amp;#xd;
+&amp;#xd;
+The following links the former descriiptions with the proper terminal commands.&amp;#xd;
+&amp;#xd;
+To start a node in another namespace, type in1:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_ns := &amp;lt;namespace>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ $ rosrun camera_package camera ~_~_ns := left&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The subscriber, that expects messages under the topic /image_raw, has to be remapped. For this example image_viewer provided by the package image_viewer will fit. So, the command will look like this: &amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun image_viewer image_viewer image := /left/image_raw&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+Note: The namespace of the subcriber-node will not be adjusted! &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Another scenario is that two (or more) identical nodes should exist in the same namespace. Normally that will not work, because the graph rescoures are not unique anymore and the master does not how to resolve the names and the URIs.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+However, changing the names of the nodes solves all issues. Again, editing and re-compiling is possible, but the above explained arguments are here valid as well. A method, that changes the node names at launchtime without these deep-invasive operations would be preferable. The following option is a well-working solution:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_name:= &amp;lt;new node-name>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+This is going to be executed with a short example. Example-1 ROS hello_world is taken again. But this time two turtles should live in the same namespace and be both controlled by one terminal. This means, the names of the nodes have to differ. In one terminal an instance of the turtle-simulator is launched as described in Example-1 ROS hello_world. The second instance of this node has to be renamed with the above option. So, the command for the second terminal will be:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ $ rosrun turtlesim turtlesim_node ~_~_name := turtlesim_2&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+In the standard namespace are now two instances of the same node. Because the namespace did not change, both nodes puhlish and subscribe to the same topics. In this case it is partly desired, because it is now possible to controll both turtles with a third terminal. On the other hand is to remember, that everthing is also published under one topic. in this example it is no real problem, but in the example with the two camera the behaviour would be highly undesirable. There are hybrid-solutions like remapping the topics of the publishers at launchtime, but this only for notice. There are a lot of permutations thinkable.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= &amp;#xd;
+Adjust namespaces in the source-code =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+The ROS C++-API provides several methods to respect dedicated namespaces while developing. The node-name is set with the method (% class="mark" %)ros::init(argc,argv,"&amp;lt;node-name>")(%%), as described before. The node is usually launched in the default namespace. So, the global name for the node, launched with the previous command, is /node-name. For this reason the node-name must not contain slashes.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The nodehandle is also launched in the default namespace, but it can be remapped by the source-code in to another namespace, at initialization time.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+  ros::NodeHandle handle("another_namespace")&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The above snippet shows a nodehandle handle, that will be remapped to the namespace another_namespace. This handle can be used to create a service, for example.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+  ros::ServiceServer service = handle.advertiseService("&amp;lt;service-name>", callback);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Following this service will be availible under the global name /another_namespace/.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Further there is a construct called private-names. This is not to be confused with private/public-relations in C++-classes. A private-name describes a nodehandle, that is launched in the namespace of the node.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ros::init(argc, argv, "&amp;lt;node-name>");&amp;#xd;
+ros::NodeHandle n("~~");&amp;#xd;
+ros::ServiceServer service = n.advertiseService("&amp;lt;service-name>", callback);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Special attention deserves the initializiation of the nodehandle in the above snippet. The nodehandle takes the argument "~~", which causes that the nodehandle is automatically assigned to the namespace of the node-name. Without any other namespace-declarations after the tilde (~~), the global name will be ~/~/.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+1. There are two underscores before ns!&amp;#xd;
+@
+
+
+4.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Namespaces in ros.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Namespaces in ros&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1545388857000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1550740489000&lt;/date>
+  &lt;contentUpdateDate>1550740489000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+  &lt;title>Namespaces in ros&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>{{toc start="2" depth="2" numbered="false" scope="page"/}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== &amp;#xd;
+Namespaces in ROS ==&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+Re-usage of code is an important factor in the field of software developing. In many cases the same code or program can be used for slightly different tasks. To ease up this process ROS uses namespaces. The structure is comparable with familiar concepts from high-level programming languages like C++ or from the hierarchy in file systems.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Nodes, topics and services are also labled as graph resources in ROS. Each of this graph resources is assigned to a name in form of string. Every name exists in a local and a global sense. While a global name, like /, makes sense everywhere, local names, like &amp;lt;another_node>, are only resolvable in the dedicated namespace. Global names always start with a slash and local names can start with a double-slash or without one.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== &amp;#xd;
+Adjust namespaces in the terminal ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+A short thought example should clear up the need for namespaces. There are a lot of sensors around robotics and robots, that are used double or multiple, like a camera. One the code for the camera is written, compiled and tested, it would be handy to use it as often as desired. This saves time, reduces the probability for errors and later changes has to be made only once.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Imagine, there is are ready compiled and tested node for a camera. This camera should be used on the left and as well right side. On the first sight it would be the easiest solution to edit the source-code and re-compile it for the second node. Maybe this procedure is handy for two nodes. But at least  when binaries are used, adjusting and re-compiling is no option.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Even if re-compiling is an option, there is a high risk that a bug exists in all forked codes. To prevent this scenario, the usage of namespace will help. Practically the two nodes can be executed independely from each other in their separated namespaces. For example, the namespaces /right and /left will be senseful in this case. In each namespace can live a node called /camera. The two nodes are basecally the same, but there will not namecollision in cause of the sepratet namespace. So, the global names would be /left/camera and /right/camera.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+At this point everything seems fine. No source-code had to be edited and no re-compiling were required. But keep attention, when the namespace is ramapped, also the topic- and service-names are remapped to the new namespace.&amp;#xd;
+So, if the node /camera publishes images under the topic /images_raw, a subsriber were able to subscribe under the global topic-name /image_raw before the namespace were remapped. To stick to the previous example, there are two nodes in two different namespace. One option is to remap the subscriber in the same namespace as the publisher. This is possible as long as the subscriber does not need to reach into different namespaces. Thats why it is more handy to remap just the topic of the subscriber.&amp;#xd;
+&amp;#xd;
+The following links the former descriiptions with the proper terminal commands.&amp;#xd;
+&amp;#xd;
+To start a node in another namespace, type in1:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_ns := &amp;lt;namespace>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ $ rosrun camera_package camera ~_~_ns := left&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The subscriber, that expects messages under the topic /image_raw, has to be remapped. For this example image_viewer provided by the package image_viewer will fit. So, the command will look like this: &amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun image_viewer image_viewer image := /left/image_raw&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+Note: The namespace of the subcriber-node will not be adjusted! &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Another scenario is that two (or more) identical nodes should exist in the same namespace. Normally that will not work, because the graph rescoures are not unique anymore and the master does not how to resolve the names and the URIs.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+However, changing the names of the nodes solves all issues. Again, editing and re-compiling is possible, but the above explained arguments are here valid as well. A method, that changes the node names at launchtime without these deep-invasive operations would be preferable. The following option is a well-working solution:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_name:= &amp;lt;new node-name>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+This is going to be executed with a short example. Example-1 ROS hello_world is taken again. But this time two turtles should live in the same namespace and be both controlled by one terminal. This means, the names of the nodes have to differ. In one terminal an instance of the turtle-simulator is launched as described in Example-1 ROS hello_world. The second instance of this node has to be renamed with the above option. So, the command for the second terminal will be:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ $ rosrun turtlesim turtlesim_node ~_~_name := turtlesim_2&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+In the standard namespace are now two instances of the same node. Because the namespace did not change, both nodes puhlish and subscribe to the same topics. In this case it is partly desired, because it is now possible to controll both turtles with a third terminal. On the other hand is to remember, that everthing is also published under one topic. in this example it is no real problem, but in the example with the two camera the behaviour would be highly undesirable. There are hybrid-solutions like remapping the topics of the publishers at launchtime, but this only for notice. There are a lot of permutations thinkable.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= &amp;#xd;
+Adjust namespaces in the source-code =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+The ROS C++-API provides several methods to respect dedicated namespaces while developing. The node-name is set with the method (% class="mark" %)ros::init(argc,argv,"&amp;lt;node-name>")(%%), as described before. The node is usually launched in the default namespace. So, the global name for the node, launched with the previous command, is /node-name. For this reason the node-name must not contain slashes.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The nodehandle is also launched in the default namespace, but it can be remapped by the source-code in to another namespace, at initialization time.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+  ros::NodeHandle handle("another_namespace")&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The above snippet shows a nodehandle handle, that will be remapped to the namespace another_namespace. This handle can be used to create a service, for example.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+  ros::ServiceServer service = handle.advertiseService("&amp;lt;service-name>", callback);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Following this service will be availible under the global name /another_namespace/.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Further there is a construct called private-names. This is not to be confused with private/public-relations in C++-classes. A private-name describes a nodehandle, that is launched in the namespace of the node.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ros::init(argc, argv, "&amp;lt;node-name>");&amp;#xd;
+ros::NodeHandle n("~~");&amp;#xd;
+ros::ServiceServer service = n.advertiseService("&amp;lt;service-name>", callback);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Special attention deserves the initializiation of the nodehandle in the above snippet. The nodehandle takes the argument "~~", which causes that the nodehandle is automatically assigned to the namespace of the node-name. Without any other namespace-declarations after the tilde (~~), the global name will be ~/~/.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+1. There are two underscores before ns!&amp;#xd;
+For the imaginary example with the node camera provided by the package camera_package, the command would be:&lt;/content>
+&lt;/xwikidoc>@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550740414000&lt;/date>
+  &lt;contentUpdateDate>1550740414000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d21 123
+a143 125
+  &lt;content>{{toc start="1" depth="6" numbered="false" scope="page"/}}
+
+ 
+
+ 
+
+== 
+Namespaces in ROS ==
+
+
+----
+
+Re-usage of code is an important factor in the field of software developing. In many cases the same code or program can be used for slightly different tasks. To ease up this process ROS uses namespaces. The structure is comparable with familiar concepts from high-level programming languages like C++ or from the hierarchy in file systems.
+
+
+Nodes, topics and services are also labled as graph resources in ROS. Each of this graph resources is assigned to a name in form of string. Every name exists in a local and a global sense. While a global name, like /, makes sense everywhere, local names, like &amp;lt;another_node>, are only resolvable in the dedicated namespace. Global names always start with a slash and local names can start with a double-slash or without one.
+
+
+== 
+Adjust namespaces in the terminal ==
+
+----
+
+A short thought example should clear up the need for namespaces. There are a lot of sensors around robotics and robots, that are used double or multiple, like a camera. One the code for the camera is written, compiled and tested, it would be handy to use it as often as desired. This saves time, reduces the probability for errors and later changes has to be made only once.
+
+
+Imagine, there is are ready compiled and tested node for a camera. This camera should be used on the left and as well right side. On the first sight it would be the easiest solution to edit the source-code and re-compile it for the second node. Maybe this procedure is handy for two nodes. But at least  when binaries are used, adjusting and re-compiling is no option.
+
+
+Even if re-compiling is an option, there is a high risk that a bug exists in all forked codes. To prevent this scenario, the usage of namespace will help. Practically the two nodes can be executed independely from each other in their separated namespaces. For example, the namespaces /right and /left will be senseful in this case. In each namespace can live a node called /camera. The two nodes are basecally the same, but there will not namecollision in cause of the sepratet namespace. So, the global names would be /left/camera and /right/camera.
+
+
+At this point everything seems fine. No source-code had to be edited and no re-compiling were required. But keep attention, when the namespace is ramapped, also the topic- and service-names are remapped to the new namespace.
+So, if the node /camera publishes images under the topic /images_raw, a subsriber were able to subscribe under the global topic-name /image_raw before the namespace were remapped. To stick to the previous example, there are two nodes in two different namespace. One option is to remap the subscriber in the same namespace as the publisher. This is possible as long as the subscriber does not need to reach into different namespaces. Thats why it is more handy to remap just the topic of the subscriber.
+
+The following links the former descriiptions with the proper terminal commands.
+
+To start a node in another namespace, type in1:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_ns := &amp;lt;namespace>
+)))
+
+(% class="box infomessage" %)
+(((
+ $ rosrun camera_package camera ~_~_ns := left
+)))
+
+The subscriber, that expects messages under the topic /image_raw, has to be remapped. For this example image_viewer provided by the package image_viewer will fit. So, the command will look like this: 
+
+(% class="box infomessage" %)
+(((
+$ rosrun image_viewer image_viewer image := /left/image_raw
+)))
+
+(% class="box" %)
+(((
+Note: The namespace of the subcriber-node will not be adjusted! 
+)))
+
+Another scenario is that two (or more) identical nodes should exist in the same namespace. Normally that will not work, because the graph rescoures are not unique anymore and the master does not how to resolve the names and the URIs.
+
+
+However, changing the names of the nodes solves all issues. Again, editing and re-compiling is possible, but the above explained arguments are here valid as well. A method, that changes the node names at launchtime without these deep-invasive operations would be preferable. The following option is a well-working solution:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_name:= &amp;lt;new node-name>
+)))
+
+This is going to be executed with a short example. Example-1 ROS hello_world is taken again. But this time two turtles should live in the same namespace and be both controlled by one terminal. This means, the names of the nodes have to differ. In one terminal an instance of the turtle-simulator is launched as described in Example-1 ROS hello_world. The second instance of this node has to be renamed with the above option. So, the command for the second terminal will be:
+
+
+(% class="box infomessage" %)
+(((
+ $ rosrun turtlesim turtlesim_node ~_~_name := turtlesim_2
+)))
+
+In the standard namespace are now two instances of the same node. Because the namespace did not change, both nodes puhlish and subscribe to the same topics. In this case it is partly desired, because it is now possible to controll both turtles with a third terminal. On the other hand is to remember, that everthing is also published under one topic. in this example it is no real problem, but in the example with the two camera the behaviour would be highly undesirable. There are hybrid-solutions like remapping the topics of the publishers at launchtime, but this only for notice. There are a lot of permutations thinkable.
+
+
+= 
+Adjust namespaces in the source-code =
+
+----
+
+The ROS C++-API provides several methods to respect dedicated namespaces while developing. The node-name is set with the method (% class="mark" %)ros::init(argc,argv,"&amp;lt;node-name>")(%%), as described before. The node is usually launched in the default namespace. So, the global name for the node, launched with the previous command, is /node-name. For this reason the node-name must not contain slashes.
+
+
+The nodehandle is also launched in the default namespace, but it can be remapped by the source-code in to another namespace, at initialization time.
+
+
+(% class="box infomessage" %)
+(((
+  ros::NodeHandle handle("another_namespace")
+)))
+
+The above snippet shows a nodehandle handle, that will be remapped to the namespace another_namespace. This handle can be used to create a service, for example.
+
+(% class="box infomessage" %)
+(((
+  ros::ServiceServer service = handle.advertiseService("&amp;lt;service-name>", callback);
+)))
+
+
+Following this service will be availible under the global name /another_namespace/.
+
+
+Further there is a construct called private-names. This is not to be confused with private/public-relations in C++-classes. A private-name describes a nodehandle, that is launched in the namespace of the node.
+
+
+(% class="box infomessage" %)
+(((
+ros::init(argc, argv, "&amp;lt;node-name>");
+ros::NodeHandle n("~~");
+ros::ServiceServer service = n.advertiseService("&amp;lt;service-name>", callback);
+)))
+
+Special attention deserves the initializiation of the nodehandle in the above snippet. The nodehandle takes the argument "~~", which causes that the nodehandle is automatically assigned to the namespace of the node-name. Without any other namespace-declarations after the tilde (~~), the global name will be ~/~/.
+
+
+1. There are two underscores before ns!
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550740389000&lt;/date>
+  &lt;contentUpdateDate>1550740389000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d21 125
+a145 128
+  &lt;content>{{toc start="1" depth="6" numbered="false" scope="page"/}}&amp;#xd;
+&amp;#xd;
+{{toc /}}&amp;#xd;
+= Namespaces in ROS&amp;#xd;
+=Adjust namespaces in the terminal &amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== &amp;#xd;
+Namespaces in ROS ==&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+Re-usage of code is an important factor in the field of software developing. In many cases the same code or program can be used for slightly different tasks. To ease up this process ROS uses namespaces. The structure is comparable with familiar concepts from high-level programming languages like C++ or from the hierarchy in file systems.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Nodes, topics and services are also labled as graph resources in ROS. Each of this graph resources is assigned to a name in form of string. Every name exists in a local and a global sense. While a global name, like /, makes sense everywhere, local names, like &amp;lt;another_node>, are only resolvable in the dedicated namespace. Global names always start with a slash and local names can start with a double-slash or without one.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== &amp;#xd;
+Adjust namespaces in the terminal ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+A short thought example should clear up the need for namespaces. There are a lot of sensors around robotics and robots, that are used double or multiple, like a camera. One the code for the camera is written, compiled and tested, it would be handy to use it as often as desired. This saves time, reduces the probability for errors and later changes has to be made only once.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Imagine, there is are ready compiled and tested node for a camera. This camera should be used on the left and as well right side. On the first sight it would be the easiest solution to edit the source-code and re-compile it for the second node. Maybe this procedure is handy for two nodes. But at least  when binaries are used, adjusting and re-compiling is no option.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Even if re-compiling is an option, there is a high risk that a bug exists in all forked codes. To prevent this scenario, the usage of namespace will help. Practically the two nodes can be executed independely from each other in their separated namespaces. For example, the namespaces /right and /left will be senseful in this case. In each namespace can live a node called /camera. The two nodes are basecally the same, but there will not namecollision in cause of the sepratet namespace. So, the global names would be /left/camera and /right/camera.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+At this point everything seems fine. No source-code had to be edited and no re-compiling were required. But keep attention, when the namespace is ramapped, also the topic- and service-names are remapped to the new namespace.&amp;#xd;
+So, if the node /camera publishes images under the topic /images_raw, a subsriber were able to subscribe under the global topic-name /image_raw before the namespace were remapped. To stick to the previous example, there are two nodes in two different namespace. One option is to remap the subscriber in the same namespace as the publisher. This is possible as long as the subscriber does not need to reach into different namespaces. Thats why it is more handy to remap just the topic of the subscriber.&amp;#xd;
+&amp;#xd;
+The following links the former descriiptions with the proper terminal commands.&amp;#xd;
+&amp;#xd;
+To start a node in another namespace, type in1:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_ns := &amp;lt;namespace>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ $ rosrun camera_package camera ~_~_ns := left&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The subscriber, that expects messages under the topic /image_raw, has to be remapped. For this example image_viewer provided by the package image_viewer will fit. So, the command will look like this: &amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun image_viewer image_viewer image := /left/image_raw&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+Note: The namespace of the subcriber-node will not be adjusted! &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Another scenario is that two (or more) identical nodes should exist in the same namespace. Normally that will not work, because the graph rescoures are not unique anymore and the master does not how to resolve the names and the URIs.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+However, changing the names of the nodes solves all issues. Again, editing and re-compiling is possible, but the above explained arguments are here valid as well. A method, that changes the node names at launchtime without these deep-invasive operations would be preferable. The following option is a well-working solution:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_name:= &amp;lt;new node-name>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+This is going to be executed with a short example. Example-1 ROS hello_world is taken again. But this time two turtles should live in the same namespace and be both controlled by one terminal. This means, the names of the nodes have to differ. In one terminal an instance of the turtle-simulator is launched as described in Example-1 ROS hello_world. The second instance of this node has to be renamed with the above option. So, the command for the second terminal will be:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ $ rosrun turtlesim turtlesim_node ~_~_name := turtlesim_2&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+In the standard namespace are now two instances of the same node. Because the namespace did not change, both nodes puhlish and subscribe to the same topics. In this case it is partly desired, because it is now possible to controll both turtles with a third terminal. On the other hand is to remember, that everthing is also published under one topic. in this example it is no real problem, but in the example with the two camera the behaviour would be highly undesirable. There are hybrid-solutions like remapping the topics of the publishers at launchtime, but this only for notice. There are a lot of permutations thinkable.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+= &amp;#xd;
+Adjust namespaces in the source-code =&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+The ROS C++-API provides several methods to respect dedicated namespaces while developing. The node-name is set with the method (% class="mark" %)ros::init(argc,argv,"&amp;lt;node-name>")(%%), as described before. The node is usually launched in the default namespace. So, the global name for the node, launched with the previous command, is /node-name. For this reason the node-name must not contain slashes.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The nodehandle is also launched in the default namespace, but it can be remapped by the source-code in to another namespace, at initialization time.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+  ros::NodeHandle handle("another_namespace")&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The above snippet shows a nodehandle handle, that will be remapped to the namespace another_namespace. This handle can be used to create a service, for example.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+  ros::ServiceServer service = handle.advertiseService("&amp;lt;service-name>", callback);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Following this service will be availible under the global name /another_namespace/.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Further there is a construct called private-names. This is not to be confused with private/public-relations in C++-classes. A private-name describes a nodehandle, that is launched in the namespace of the node.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ros::init(argc, argv, "&amp;lt;node-name>");&amp;#xd;
+ros::NodeHandle n("~~");&amp;#xd;
+ros::ServiceServer service = n.advertiseService("&amp;lt;service-name>", callback);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Special attention deserves the initializiation of the nodehandle in the above snippet. The nodehandle takes the argument "~~", which causes that the nodehandle is automatically assigned to the namespace of the node-name. Without any other namespace-declarations after the tilde (~~), the global name will be ~/~/.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+1. There are two underscores before ns!&amp;#xd;
+@
+
+
+1.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1547549067000&lt;/date>
+  &lt;contentUpdateDate>1547549067000&lt;/contentUpdateDate>
+  &lt;version>1.2&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+d21 128
+a148 130
+  &lt;content>= Namespaces in ros =
+
+----
+
+**Sitemap**
+
+* Namespaces in ROS
+** Adjust namespaces in the terminal
+** Adjust namespaces in the source-code
+
+=   =
+
+=   =
+
+= 
+Namespaces in ROS =
+
+----
+
+Re-usage of code is an important factor in the field of software developing. In many cases the same code or program can be used for slightly different tasks. To ease up this process ROS uses namespaces. The structure is comparable with familiar concepts from high-level programming languages like C++ or from the hierarchy in file systems.
+
+
+Nodes, topics and services are also labled as graph resources in ROS. Each of this graph resources is assigned to a name in form of string. Every name exists in a local and a global sense. While a global name, like /, makes sense everywhere, local names, like &amp;lt;another_node>, are only resolvable in the dedicated namespace. Global names always start with a slash and local names can start with a double-slash or without one.
+
+
+== 
+Adjust namespaces in the terminal ==
+
+A short thought example should clear up the need for namespaces. There are a lot of sensors around robotics and robots, that are used double or multiple, like a camera. One the code for the camera is written, compiled and tested, it would be handy to use it as often as desired. This saves time, reduces the probability for errors and later changes has to be made only once.
+
+
+Imagine, there is are ready compiled and tested node for a camera. This camera should be used on the left and as well right side. On the first sight it would be the easiest solution to edit the source-code and re-compile it for the second node. Maybe this procedure is handy for two nodes. But at least  when binaries are used, adjusting and re-compiling is no option.
+
+
+Even if re-compiling is an option, there is a high risk that a bug exists in all forked codes. To prevent this scenario, the usage of namespace will help. Practically the two nodes can be executed independely from each other in their separated namespaces. For example, the namespaces /right and /left will be senseful in this case. In each namespace can live a node called /camera. The two nodes are basecally the same, but there will not namecollision in cause of the sepratet namespace. So, the global names would be /left/camera and /right/camera.
+
+
+At this point everything seems fine. No source-code had to be edited and no re-compiling were required. But keep attention, when the namespace is ramapped, also the topic- and service-names are remapped to the new namespace.
+So, if the node /camera publishes images under the topic /images_raw, a subsriber were able to subscribe under the global topic-name /image_raw before the namespace were remapped. To stick to the previous example, there are two nodes in two different namespace. One option is to remap the subscriber in the same namespace as the publisher. This is possible as long as the subscriber does not need to reach into different namespaces. Thats why it is more handy to remap just the topic of the subscriber.
+
+The following links the former descriiptions with the proper terminal commands.
+
+To start a node in another namespace, type in1:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_ns := &amp;lt;namespace>
+)))
+
+(% class="box infomessage" %)
+(((
+ $ rosrun camera_package camera ~_~_ns := left
+)))
+
+The subscriber, that expects messages under the topic /image_raw, has to be remapped. For this example image_viewer provided by the package image_viewer will fit. So, the command will look like this: 
+
+(% class="box infomessage" %)
+(((
+$ rosrun image_viewer image_viewer image := /left/image_raw
+)))
+
+(% class="box" %)
+(((
+Note: The namespace of the subcriber-node will not be adjusted! 
+)))
+
+Another scenario is that two (or more) identical nodes should exist in the same namespace. Normally that will not work, because the graph rescoures are not unique anymore and the master does not how to resolve the names and the URIs.
+
+
+However, changing the names of the nodes solves all issues. Again, editing and re-compiling is possible, but the above explained arguments are here valid as well. A method, that changes the node names at launchtime without these deep-invasive operations would be preferable. The following option is a well-working solution:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun &amp;lt;package-name> &amp;lt;node-name> ~_~_name:= &amp;lt;new node-name>
+)))
+
+This is going to be executed with a short example. Example-1 ROS hello_world is taken again. But this time two turtles should live in the same namespace and be both controlled by one terminal. This means, the names of the nodes have to differ. In one terminal an instance of the turtle-simulator is launched as described in Example-1 ROS hello_world. The second instance of this node has to be renamed with the above option. So, the command for the second terminal will be:
+
+
+(% class="box infomessage" %)
+(((
+ $ rosrun turtlesim turtlesim_node ~_~_name := turtlesim_2
+)))
+
+In the standard namespace are now two instances of the same node. Because the namespace did not change, both nodes puhlish and subscribe to the same topics. In this case it is partly desired, because it is now possible to controll both turtles with a third terminal. On the other hand is to remember, that everthing is also published under one topic. in this example it is no real problem, but in the example with the two camera the behaviour would be highly undesirable. There are hybrid-solutions like remapping the topics of the publishers at launchtime, but this only for notice. There are a lot of permutations thinkable.
+
+
+= 
+Adjust namespaces in the source-code =
+
+----
+
+The ROS C++-API provides several methods to respect dedicated namespaces while developing. The node-name is set with the method (% class="mark" %)ros::init(argc,argv,"&amp;lt;node-name>")(%%), as described before. The node is usually launched in the default namespace. So, the global name for the node, launched with the previous command, is /node-name. For this reason the node-name must not contain slashes.
+
+
+The nodehandle is also launched in the default namespace, but it can be remapped by the source-code in to another namespace, at initialization time.
+
+
+(% class="box infomessage" %)
+(((
+  ros::NodeHandle handle("another_namespace")
+)))
+
+The above snippet shows a nodehandle handle, that will be remapped to the namespace another_namespace. This handle can be used to create a service, for example.
+
+(% class="box infomessage" %)
+(((
+  ros::ServiceServer service = handle.advertiseService("&amp;lt;service-name>", callback);
+)))
+
+
+Following this service will be availible under the global name /another_namespace/.
+
+
+Further there is a construct called private-names. This is not to be confused with private/public-relations in C++-classes. A private-name describes a nodehandle, that is launched in the namespace of the node.
+
+
+(% class="box infomessage" %)
+(((
+ros::init(argc, argv, "&amp;lt;node-name>");
+ros::NodeHandle n("~~");
+ros::ServiceServer service = n.advertiseService("&amp;lt;service-name>", callback);
+)))
+
+Special attention deserves the initializiation of the nodehandle in the above snippet. The nodehandle takes the argument "~~", which causes that the nodehandle is automatically assigned to the namespace of the node-name. Without any other namespace-declarations after the tilde (~~), the global name will be ~/~/.
+
+
+1. There are two underscores before ns!
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1545388857000&lt;/date>
+  &lt;contentUpdateDate>1545388857000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+a30 1
+
+d115 1
+a115 1
+The ROS C++-API provides several methods to respect dedicated namespaces while developing. The node-name is set with the method ros::init(argc,argv,"&amp;lt;node-name>"), as described before. The node is usually launched in the default namespace. So, the global name for the node, launched with the previous command, is /node-name. For this reason the node-name must not contain slashes.
+d133 1
+a133 1
+ 
+@
+</versions>
+  <parent>Projects.MoRoP.ROS GettingStarted.WebHome</parent>
+  <author>XWiki.DavidDudzik</author>
+  <contentAuthor>XWiki.DavidDudzik</contentAuthor>
+  <date>1550748827000</date>
+  <contentUpdateDate>1550748827000</contentUpdateDate>
+  <version>9.1</version>
+  <title>Namespaces in ros</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>**Sitemap**
+
+----
+
+{{toc depth="2" start="2"/}}
+
+
+
+
+
+
+== Namespaces in ROS ==
+
+----
+
+Re-usage of code is an important factor in the field of software developing. In many cases the same code or program can be used for slightly different tasks. To ease up this process ROS uses namespaces. The structure is comparable with familiar concepts from high-level programming languages like C++ or from the hierarchy in file systems.
+
+
+Nodes, topics and services are also labled as graph resources in ROS. Each of this graph resources is assigned to a name in form of string. Every name exists in a local and a global sense. While a global name, like /, makes sense everywhere, local names, like &lt;another_node>, are only resolvable in the dedicated namespace. Global names always start with a slash and local names can start with a double-slash or without one.
+
+
+== Adjust namespaces in the terminal ==
+
+----
+
+A short thought example should clear up the need for namespaces. There are a lot of sensors around robotics and robots, that are used double or multiple, like a camera. One the code for the camera is written, compiled and tested, it would be handy to use it as often as desired. This saves time, reduces the probability for errors and later changes has to be made only once.
+
+
+Imagine, there is are ready compiled and tested node for a camera. This camera should be used on the left and as well right side. On the first sight it would be the easiest solution to edit the source-code and re-compile it for the second node. Maybe this procedure is handy for two nodes. But at least  when binaries are used, adjusting and re-compiling is no option.
+
+
+Even if re-compiling is an option, there is a high risk that a bug exists in all forked codes. To prevent this scenario, the usage of namespace will help. Practically the two nodes can be executed independely from each other in their separated namespaces. For example, the namespaces /right and /left will be senseful in this case. In each namespace can live a node called /camera. The two nodes are basecally the same, but there will not namecollision in cause of the sepratet namespace. So, the global names would be /left/camera and /right/camera.
+
+
+At this point everything seems fine. No source-code had to be edited and no re-compiling were required. But keep attention, when the namespace is ramapped, also the topic- and service-names are remapped to the new namespace.
+So, if the node /camera publishes images under the topic /images_raw, a subsriber were able to subscribe under the global topic-name /image_raw before the namespace were remapped. To stick to the previous example, there are two nodes in two different namespace. One option is to remap the subscriber in the same namespace as the publisher. This is possible as long as the subscriber does not need to reach into different namespaces. Thats why it is more handy to remap just the topic of the subscriber.
+
+The following links the former descriiptions with the proper terminal commands.
+
+To start a node in another namespace, type in1:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun &lt;package-name> &lt;node-name> ~_~_ns := &lt;namespace>
+)))
+
+(% class="box infomessage" %)
+(((
+ $ rosrun camera_package camera ~_~_ns := left
+)))
+
+The subscriber, that expects messages under the topic /image_raw, has to be remapped. For this example image_viewer provided by the package image_viewer will fit. So, the command will look like this: 
+
+(% class="box infomessage" %)
+(((
+$ rosrun image_viewer image_viewer image := /left/image_raw
+)))
+
+(% class="box" %)
+(((
+Note: The namespace of the subcriber-node will not be adjusted! 
+)))
+
+Another scenario is that two (or more) identical nodes should exist in the same namespace. Normally that will not work, because the graph rescoures are not unique anymore and the master does not how to resolve the names and the URIs.
+
+
+However, changing the names of the nodes solves all issues. Again, editing and re-compiling is possible, but the above explained arguments are here valid as well. A method, that changes the node names at launchtime without these deep-invasive operations would be preferable. The following option is a well-working solution:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun &lt;package-name> &lt;node-name> ~_~_name:= &lt;new node-name>
+)))
+
+This is going to be executed with a short example. Example-1 ROS hello_world is taken again. But this time two turtles should live in the same namespace and be both controlled by one terminal. This means, the names of the nodes have to differ. In one terminal an instance of the turtle-simulator is launched as described in Example-1 ROS hello_world. The second instance of this node has to be renamed with the above option. So, the command for the second terminal will be:
+
+
+(% class="box infomessage" %)
+(((
+ $ rosrun turtlesim turtlesim_node ~_~_name := turtlesim_2
+)))
+
+In the standard namespace are now two instances of the same node. Because the namespace did not change, both nodes puhlish and subscribe to the same topics. In this case it is partly desired, because it is now possible to controll both turtles with a third terminal. On the other hand is to remember, that everthing is also published under one topic. in this example it is no real problem, but in the example with the two camera the behaviour would be highly undesirable. There are hybrid-solutions like remapping the topics of the publishers at launchtime, but this only for notice. There are a lot of permutations thinkable.
+
+
+= 
+Adjust namespaces in the source-code =
+
+----
+
+The ROS C++-API provides several methods to respect dedicated namespaces while developing. The node-name is set with the method (% class="mark" %)ros::init(argc,argv,"&lt;node-name>")(%%), as described before. The node is usually launched in the default namespace. So, the global name for the node, launched with the previous command, is /node-name. For this reason the node-name must not contain slashes.
+
+
+The nodehandle is also launched in the default namespace, but it can be remapped by the source-code in to another namespace, at initialization time.
+
+
+(% class="box infomessage" %)
+(((
+  ros::NodeHandle handle("another_namespace")
+)))
+
+The above snippet shows a nodehandle handle, that will be remapped to the namespace another_namespace. This handle can be used to create a service, for example.
+
+(% class="box infomessage" %)
+(((
+  ros::ServiceServer service = handle.advertiseService("&lt;service-name>", callback);
+)))
+
+
+Following this service will be availible under the global name /another_namespace/.
+
+
+Further there is a construct called private-names. This is not to be confused with private/public-relations in C++-classes. A private-name describes a nodehandle, that is launched in the namespace of the node.
+
+
+(% class="box infomessage" %)
+(((
+ros::init(argc, argv, "&lt;node-name>");
+ros::NodeHandle n("~~");
+ros::ServiceServer service = n.advertiseService("&lt;service-name>", callback);
+)))
+
+Special attention deserves the initializiation of the nodehandle in the above snippet. The nodehandle takes the argument "~~", which causes that the nodehandle is automatically assigned to the namespace of the node-name. Without any other namespace-declarations after the tilde (~~), the global name will be ~/~/.
+
+
+1. There are two underscores before ns!
+For the imaginary example with the node camera provided by the package camera_package, the command would be:</content>
+</xwikidoc>

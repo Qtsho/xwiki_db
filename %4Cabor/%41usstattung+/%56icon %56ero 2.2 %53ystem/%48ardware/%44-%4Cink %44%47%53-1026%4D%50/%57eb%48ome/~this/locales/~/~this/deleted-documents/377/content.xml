@@ -1,0 +1,308 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Labor.Ausstattung .Vicon Vero 2\.2 System.Hardware.D-Link DGS-1026MP.WebHome" locale="">
+  <web>Labor.Ausstattung .Vicon Vero 2\.2 System.Hardware.D-Link DGS-1026MP</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>de</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.makau005</creator>
+  <creationDate>1544632730000</creationDate>
+  <versions>head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.12.12.16.38.50;	author XWiki_2Emakau_30_30_35;	state full;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Labor.Ausstattung .Vicon Vero 2\.2 System.Hardware.D-Link DGS-1026MP.WebHome" locale="">
+  &lt;web>Labor.Ausstattung .Vicon Vero 2\.2 System.Hardware.D-Link DGS-1026MP&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.makau005&lt;/creator>
+  &lt;creationDate>1544632730000&lt;/creationDate>
+  &lt;parent>Labor.Ausstattung .Vicon Vero 2\.2 System.Hardware.WebHome&lt;/parent>
+  &lt;author>XWiki.makau005&lt;/author>
+  &lt;contentAuthor>XWiki.makau005&lt;/contentAuthor>
+  &lt;date>1544632730000&lt;/date>
+  &lt;contentUpdateDate>1544632730000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+  &lt;title>D-Link DGS-1026MP&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Technische Spezifikationen =&amp;#xd;
+&amp;#xd;
+(% style="width:60em" %)&amp;#xd;
+|=(% style="width: 50%;" %)Anzahl Ports |(% style="width:50%" %)(((&amp;#xd;
+* 24 10/100/1000 Mbit/s Ports&amp;#xd;
+* 2 10/100/1000BASE-T/SFP Combo-Ports &amp;#xd;
+)))&amp;#xd;
+|=Standard |(((&amp;#xd;
+* IEEE 802.3 10BASE-T Ethernet &amp;#xd;
+* IEEE 802.3u 100BASE-TX Fast Ethernet &amp;#xd;
+* IEEE 802.3ab 1000BASE-T Gigabit Ethernet&amp;#xd;
+* IEEE 802.3z&amp;#xd;
+* IEEE 802.3x Flow Control&amp;#xd;
+* IEEE 802.3az Energy Efficient Ethernet (EEE)&amp;#xd;
+)))&amp;#xd;
+|=Switchkapazität |(((&amp;#xd;
+* Switch Fabric: 52 Gbit/s&amp;#xd;
+)))&amp;#xd;
+|=Maximale Weiterleitungsrate bei 64-Byte Paketen|(((&amp;#xd;
+* 38,69 Mio. Pakete/s&amp;#xd;
+)))&amp;#xd;
+|=Medienanpassung (Media Interface Exchange) |(((&amp;#xd;
+* Automatisches MDI/MDI-X&amp;#xd;
+)))&amp;#xd;
+|=Übertragungsmethode |(((&amp;#xd;
+* Store-and-Forward&amp;#xd;
+)))&amp;#xd;
+|=MAC-Adressentabelle |(((&amp;#xd;
+* 8192 Einträge pro Gerät&amp;#xd;
+)))&amp;#xd;
+|=Paket-Zwischenspeicher|(((&amp;#xd;
+* 512 KB pro Gerät&amp;#xd;
+)))&amp;#xd;
+|=PoR-Standards |(((&amp;#xd;
+* IEEE 802.3at&amp;#xd;
+* IEEE 802.3af&amp;#xd;
+)))&amp;#xd;
+|=PoE-Ports |(((&amp;#xd;
+* Ports 1 bis 24&amp;#xd;
+)))&amp;#xd;
+|=PoE-Kapazität|(((&amp;#xd;
+* 370 W&amp;#xd;
+* bis zu 30 W je Port&amp;#xd;
+)))&amp;#xd;
+|=Diagnose-LEDs |(((&amp;#xd;
+ &amp;#xd;
+)))&amp;#xd;
+|=Pro Gerät |(((&amp;#xd;
+* Stromversorgung&amp;#xd;
+* PoE-Kapazität&amp;#xd;
+)))&amp;#xd;
+|=Pro Port |(((&amp;#xd;
+* Aktivität/Verbindung&amp;#xd;
+* Geschwindigkeit&amp;#xd;
+)))&amp;#xd;
+|=Pro PoE-Port|(((&amp;#xd;
+* Stromversorgung unterbrochen&amp;#xd;
+* Stromversorgung in Ordnung&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+= Umgebungsbedingung =&amp;#xd;
+&amp;#xd;
+(% style="width:60em" %)&amp;#xd;
+|=(% style="width: 50%;" %)Lüfter |(% style="width:50%" %)(((&amp;#xd;
+* 2 Smart-Lüfter &amp;#xd;
+)))&amp;#xd;
+|=Abmessungen |(((&amp;#xd;
+* 440 x 250,4 x 44 mm^^3^^&amp;#xd;
+)))&amp;#xd;
+|=Gewicht |(((&amp;#xd;
+* 3,1 Kg&amp;#xd;
+)))&amp;#xd;
+|=Leistungsaufnahme |(((&amp;#xd;
+* Maximal&amp;#xd;
+** 444,1 W (PoE an)&amp;#xd;
+** 82,1 W (PoE aus)&amp;#xd;
+* Ruhezustand&amp;#xd;
+** 240 V: 18,25 W&amp;#xd;
+)))&amp;#xd;
+|=Temperatur |(((&amp;#xd;
+* Betrieb: 0 bis 50°C&amp;#xd;
+* Lagerung: -40 bis 70 °C&amp;#xd;
+)))&amp;#xd;
+|=Luftfeuchtigkeit |(((&amp;#xd;
+* Betrieb: 10% bis 90% relative Feuchtigkeit&amp;#xd;
+* Lagerung: 5% bis 90% relative Feuchtigkeit&amp;#xd;
+)))&amp;#xd;
+|=MTBF |(((&amp;#xd;
+* 205,975 Stunden&amp;#xd;
+)))&amp;#xd;
+|=Wärmeabgabe |(((&amp;#xd;
+* 1515 BTU/h&amp;#xd;
+)))&amp;#xd;
+|=EMV |(((&amp;#xd;
+* FCC Klasse A&amp;#xd;
+* CE&amp;#xd;
+* CCC&amp;#xd;
+* RoHS&amp;#xd;
+* VCCI&amp;#xd;
+* BSMI&amp;#xd;
+* RCM&amp;#xd;
+)))&amp;#xd;
+|=Sicherheit |(((&amp;#xd;
+* UL/CSA 60950-1&amp;#xd;
+* EN 60950-1&amp;#xd;
+* IEC 60950-1&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+= Optionale SFP-Transceiver =&amp;#xd;
+&amp;#xd;
+* DEM-310GT&amp;#xd;
+** 1000BASE-LX, Singlemode, 10 km&amp;#xd;
+* DEM-311GT&amp;#xd;
+** 1000BASE-SX, Singlemode, 550 m&amp;#xd;
+* DEM-312GT2&amp;#xd;
+** 1000BASE-SX, Singlemode, 2 km&amp;#xd;
+* DEM-314GT&amp;#xd;
+** 1000BASE-LHX, Singlemode, 50 km&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+Quelle: [[Website D-Link>>https://eu.dlink.com/de/de/products/dgs-1026mp-26-port-gigabit-max-poe-switch#support]]&lt;/content>
+&lt;/xwikidoc>@
+</versions>
+  <parent>Labor.Ausstattung .Vicon Vero 2\.2 System.Hardware.WebHome</parent>
+  <author>XWiki.makau005</author>
+  <contentAuthor>XWiki.makau005</contentAuthor>
+  <date>1544632730000</date>
+  <contentUpdateDate>1544632730000</contentUpdateDate>
+  <version>1.1</version>
+  <title>D-Link DGS-1026MP</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>= Technische Spezifikationen =&#xd;
+&#xd;
+(% style="width:60em" %)&#xd;
+|=(% style="width: 50%;" %)Anzahl Ports |(% style="width:50%" %)(((&#xd;
+* 24 10/100/1000 Mbit/s Ports&#xd;
+* 2 10/100/1000BASE-T/SFP Combo-Ports &#xd;
+)))&#xd;
+|=Standard |(((&#xd;
+* IEEE 802.3 10BASE-T Ethernet &#xd;
+* IEEE 802.3u 100BASE-TX Fast Ethernet &#xd;
+* IEEE 802.3ab 1000BASE-T Gigabit Ethernet&#xd;
+* IEEE 802.3z&#xd;
+* IEEE 802.3x Flow Control&#xd;
+* IEEE 802.3az Energy Efficient Ethernet (EEE)&#xd;
+)))&#xd;
+|=Switchkapazität |(((&#xd;
+* Switch Fabric: 52 Gbit/s&#xd;
+)))&#xd;
+|=Maximale Weiterleitungsrate bei 64-Byte Paketen|(((&#xd;
+* 38,69 Mio. Pakete/s&#xd;
+)))&#xd;
+|=Medienanpassung (Media Interface Exchange) |(((&#xd;
+* Automatisches MDI/MDI-X&#xd;
+)))&#xd;
+|=Übertragungsmethode |(((&#xd;
+* Store-and-Forward&#xd;
+)))&#xd;
+|=MAC-Adressentabelle |(((&#xd;
+* 8192 Einträge pro Gerät&#xd;
+)))&#xd;
+|=Paket-Zwischenspeicher|(((&#xd;
+* 512 KB pro Gerät&#xd;
+)))&#xd;
+|=PoR-Standards |(((&#xd;
+* IEEE 802.3at&#xd;
+* IEEE 802.3af&#xd;
+)))&#xd;
+|=PoE-Ports |(((&#xd;
+* Ports 1 bis 24&#xd;
+)))&#xd;
+|=PoE-Kapazität|(((&#xd;
+* 370 W&#xd;
+* bis zu 30 W je Port&#xd;
+)))&#xd;
+|=Diagnose-LEDs |(((&#xd;
+ &#xd;
+)))&#xd;
+|=Pro Gerät |(((&#xd;
+* Stromversorgung&#xd;
+* PoE-Kapazität&#xd;
+)))&#xd;
+|=Pro Port |(((&#xd;
+* Aktivität/Verbindung&#xd;
+* Geschwindigkeit&#xd;
+)))&#xd;
+|=Pro PoE-Port|(((&#xd;
+* Stromversorgung unterbrochen&#xd;
+* Stromversorgung in Ordnung&#xd;
+)))&#xd;
+&#xd;
+= Umgebungsbedingung =&#xd;
+&#xd;
+(% style="width:60em" %)&#xd;
+|=(% style="width: 50%;" %)Lüfter |(% style="width:50%" %)(((&#xd;
+* 2 Smart-Lüfter &#xd;
+)))&#xd;
+|=Abmessungen |(((&#xd;
+* 440 x 250,4 x 44 mm^^3^^&#xd;
+)))&#xd;
+|=Gewicht |(((&#xd;
+* 3,1 Kg&#xd;
+)))&#xd;
+|=Leistungsaufnahme |(((&#xd;
+* Maximal&#xd;
+** 444,1 W (PoE an)&#xd;
+** 82,1 W (PoE aus)&#xd;
+* Ruhezustand&#xd;
+** 240 V: 18,25 W&#xd;
+)))&#xd;
+|=Temperatur |(((&#xd;
+* Betrieb: 0 bis 50°C&#xd;
+* Lagerung: -40 bis 70 °C&#xd;
+)))&#xd;
+|=Luftfeuchtigkeit |(((&#xd;
+* Betrieb: 10% bis 90% relative Feuchtigkeit&#xd;
+* Lagerung: 5% bis 90% relative Feuchtigkeit&#xd;
+)))&#xd;
+|=MTBF |(((&#xd;
+* 205,975 Stunden&#xd;
+)))&#xd;
+|=Wärmeabgabe |(((&#xd;
+* 1515 BTU/h&#xd;
+)))&#xd;
+|=EMV |(((&#xd;
+* FCC Klasse A&#xd;
+* CE&#xd;
+* CCC&#xd;
+* RoHS&#xd;
+* VCCI&#xd;
+* BSMI&#xd;
+* RCM&#xd;
+)))&#xd;
+|=Sicherheit |(((&#xd;
+* UL/CSA 60950-1&#xd;
+* EN 60950-1&#xd;
+* IEC 60950-1&#xd;
+)))&#xd;
+&#xd;
+= Optionale SFP-Transceiver =&#xd;
+&#xd;
+* DEM-310GT&#xd;
+** 1000BASE-LX, Singlemode, 10 km&#xd;
+* DEM-311GT&#xd;
+** 1000BASE-SX, Singlemode, 550 m&#xd;
+* DEM-312GT2&#xd;
+** 1000BASE-SX, Singlemode, 2 km&#xd;
+* DEM-314GT&#xd;
+** 1000BASE-LHX, Singlemode, 50 km&#xd;
+&#xd;
+----&#xd;
+&#xd;
+Quelle: [[Website D-Link>>https://eu.dlink.com/de/de/products/dgs-1026mp-26-port-gigabit-max-poe-switch#support]]</content>
+</xwikidoc>

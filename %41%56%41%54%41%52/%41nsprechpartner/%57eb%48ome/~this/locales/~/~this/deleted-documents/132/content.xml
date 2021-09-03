@@ -1,0 +1,152 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="AVATAR.Ansprechpartner.WebHome" locale="">
+  <web>AVATAR.Ansprechpartner</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>de</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.StefanPatzke</creator>
+  <creationDate>1535375065000</creationDate>
+  <versions>head	3.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+3.1
+date	2018.08.29.20.00.42;	author XWiki_2EJoergThiem;	state full;
+branches;
+next	2.2;
+
+2.2
+date	2018.08.29.20.00.24;	author XWiki_2EJoergThiem;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2018.08.27.13.08.42;	author XWiki_2EStefanPatzke;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.08.27.13.04.25;	author XWiki_2EStefanPatzke;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+3.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="AVATAR.Ansprechpartner.WebHome" locale="">
+  &lt;web>AVATAR.Ansprechpartner&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.StefanPatzke&lt;/creator>
+  &lt;creationDate>1535375065000&lt;/creationDate>
+  &lt;parent>AVATAR.WebHome&lt;/parent>
+  &lt;author>XWiki.JoergThiem&lt;/author>
+  &lt;contentAuthor>XWiki.JoergThiem&lt;/contentAuthor>
+  &lt;date>1535572842000&lt;/date>
+  &lt;contentUpdateDate>1535572824000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+  &lt;title>Ansprechpartner&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Ansprechpartner =
+
+* Verantwortliche(r) Professor(en):
+** [[Prof. Dr.-Ing. Jörg Thiem>>https://www.fh-dortmund.de/thiem/]]
+* Mitarbeiter:
+** [[Dominik Fromme>>https://www.fh-dortmund.de/de/addresses/fb10/fromme_dominik.php]]
+** [[Stefan Patzke>>https://www.fh-dortmund.de/de/addresses/fb10/patzke_stefan.php]]&lt;/content>
+&lt;/xwikidoc>@
+
+
+2.2
+log
+@@
+text
+@d13 1
+a13 1
+  &lt;date>1535572824000&lt;/date>
+d15 1
+a15 1
+  &lt;version>2.2&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+@
+
+
+2.1
+log
+@@
+text
+@d11 5
+a15 5
+  &lt;author>XWiki.StefanPatzke&lt;/author>
+  &lt;contentAuthor>XWiki.StefanPatzke&lt;/contentAuthor>
+  &lt;date>1535375322000&lt;/date>
+  &lt;contentUpdateDate>1535375322000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>false&lt;/minorEdit>
+d21 6
+a26 6
+  &lt;content>= Ansprechpartner =&amp;#xd;
+&amp;#xd;
+* Verantwortliche(r) Professor(en):&amp;#xd;
+** [[Prof. Dr.-Ing. Thiem>>https://www.fh-dortmund.de/thiem/]]&amp;#xd;
+* Mitarbeiter:&amp;#xd;
+** [[Dominik Fromme>>https://www.fh-dortmund.de/de/addresses/fb10/fromme_dominik.php]]&amp;#xd;
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1535375065000&lt;/date>
+  &lt;contentUpdateDate>1535375065000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+d21 7
+a27 1
+  &lt;content/>
+@
+</versions>
+  <parent>AVATAR.WebHome</parent>
+  <author>XWiki.JoergThiem</author>
+  <contentAuthor>XWiki.JoergThiem</contentAuthor>
+  <date>1535572842000</date>
+  <contentUpdateDate>1535572824000</contentUpdateDate>
+  <version>3.1</version>
+  <title>Ansprechpartner</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>= Ansprechpartner =
+
+* Verantwortliche(r) Professor(en):
+** [[Prof. Dr.-Ing. Jörg Thiem>>https://www.fh-dortmund.de/thiem/]]
+* Mitarbeiter:
+** [[Dominik Fromme>>https://www.fh-dortmund.de/de/addresses/fb10/fromme_dominik.php]]
+** [[Stefan Patzke>>https://www.fh-dortmund.de/de/addresses/fb10/patzke_stefan.php]]</content>
+</xwikidoc>

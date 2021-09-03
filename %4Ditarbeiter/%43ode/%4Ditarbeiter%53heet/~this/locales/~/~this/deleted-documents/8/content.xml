@@ -1,0 +1,81 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Mitarbeiter.Code.MitarbeiterSheet" locale="">
+  <web>Mitarbeiter.Code</web>
+  <name>MitarbeiterSheet</name>
+  <language/>
+  <defaultLanguage/>
+  <translation>0</translation>
+  <creator>XWiki.TestMitarbeiter</creator>
+  <creationDate>1534409783000</creationDate>
+  <versions>head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2018.08.16.08.56.23;	author XWiki_2ETestMitarbeiter;	state full;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Anzeigenvorlage aktualisieren
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Mitarbeiter.Code.MitarbeiterSheet" locale="">
+  &lt;web>Mitarbeiter.Code&lt;/web>
+  &lt;name>MitarbeiterSheet&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage/>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.TestMitarbeiter&lt;/creator>
+  &lt;creationDate>1534409783000&lt;/creationDate>
+  &lt;parent>MitarbeiterClass&lt;/parent>
+  &lt;author>XWiki.TestMitarbeiter&lt;/author>
+  &lt;contentAuthor>XWiki.TestMitarbeiter&lt;/contentAuthor>
+  &lt;date>1534409783000&lt;/date>
+  &lt;contentUpdateDate>1534409783000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+  &lt;title/>
+  &lt;comment>Anzeigenvorlage aktualisieren&lt;/comment>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>true&lt;/hidden>
+  &lt;content>{{velocity}}
+{{html wiki="true"}}
+#set ($discard = $doc.use('Mitarbeiter.Code.MitarbeiterClass'))
+(% class="xform" %)
+(((
+)))
+{{/html}}
+{{/velocity}}&lt;/content>
+&lt;/xwikidoc>@
+</versions>
+  <parent>MitarbeiterClass</parent>
+  <author>XWiki.TestMitarbeiter</author>
+  <contentAuthor>XWiki.TestMitarbeiter</contentAuthor>
+  <date>1534409783000</date>
+  <contentUpdateDate>1534409783000</contentUpdateDate>
+  <version>1.1</version>
+  <title/>
+  <comment>Anzeigenvorlage aktualisieren</comment>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>true</hidden>
+  <content>{{velocity}}
+{{html wiki="true"}}
+#set ($discard = $doc.use('Mitarbeiter.Code.MitarbeiterClass'))
+(% class="xform" %)
+(((
+)))
+{{/html}}
+{{/velocity}}</content>
+</xwikidoc>

@@ -1,0 +1,750 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step 3\:ROS(empty).WebHome" locale="">
+  <web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step 3\:ROS(empty)</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.FredericKovacs</creator>
+  <creationDate>1537432037000</creationDate>
+  <versions>head	10.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+10.2
+date	2018.10.31.09.38.19;	author XWiki_2ESvenHoyer;	state full;
+branches;
+next	10.1;
+
+10.1
+date	2018.09.26.12.53.02;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	9.1;
+
+9.1
+date	2018.09.26.12.52.26;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	8.1;
+
+8.1
+date	2018.09.26.12.51.26;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	7.1;
+
+7.1
+date	2018.09.21.09.30.09;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2018.09.21.09.26.49;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2018.09.21.09.22.48;	author XWiki_2EFredericKovacs;	state full;
+branches;
+next	4.1;
+
+4.1
+date	2018.09.21.09.16.36;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2018.09.20.14.21.58;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2018.09.20.14.21.42;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.09.20.08.27.17;	author XWiki_2EFredericKovacs;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+10.2
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step 3\:ROS(empty).WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step 3\:ROS(empty)&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1537432037000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.SvenHoyer&lt;/author>
+  &lt;contentAuthor>XWiki.SvenHoyer&lt;/contentAuthor>
+  &lt;date>1540978699000&lt;/date>
+  &lt;contentUpdateDate>1540978699000&lt;/contentUpdateDate>
+  &lt;version>10.2&lt;/version>
+  &lt;title>Step 3: Call and Provide ROS-Service Messages&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>//Note:You need to install the Add-On "Robotics System Toolbox Interface for ROS Custom Messages"//
+//Complete the Service node Tutorial from the superior "ROS GettingStarted" before you do this Tutorial//
+
+----
+
+**__Create your Custom Message Workspace__**
+
+At first you need the "Robotics System Toolbox to be installed".
+Its also very useful to create a shared folder for your VM and your Host-System if you setup your ROS-Network with a VM.
+
+After that create a folder in which you will save your custom ROS-messages. This can be a folder in your private directory e.g. "C:\User\Matlab\Custom_msg". Copy the folders from your catkin workspace //(~~/catkin_ws/src)//, from the superior Tutorial to your Custom-Message-Workspace.
+
+
+To ensure you copie the correct folders take care the folder structure looks like this:
+
+>{{html}}&amp;lt;font size="2">include&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">src&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">srv&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">CMakeLists.txt&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">package.xml&amp;lt;/font>{{/html}}
+
+After you copied the folders you'll need for your purposes //(in our case the "Calculator" and "List_Topics" folder)// run the command:
+
+>{{html}}&amp;lt;font size="2">rosgenmsg('{FOLDERPATH}')&amp;lt;/font>{{/html}}
+
+Which would be if you used the above suggestion of a workspace-folderpath
+
+>{{html}}&amp;lt;font size="2">rosgenmsg('C:\User\Matlab\Custom_msg')&amp;lt;/font>{{/html}}
+
+**Important:**
+MATLAB will ask you to perform the following steps. Its Important not to skip those otherwise the messagegeneration will fail.
+It looks similar to this:
+
+>{{html}}&amp;lt;font size="2">   To use the custom messages, follow these steps:&amp;lt;/font>{{/html}}
+
+>{{html}}&amp;lt;font size="2">1. Edit javaclasspath.txt, add the following file locations as new lines, and save the file:&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">   D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\jar\calculator-0.0.0.jar&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">   D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\jar\list_topics-0.0.0.jar&amp;lt;/font>{{/html}}
+
+>{{html}}&amp;lt;font size="2">2. Add the custom message folder to the MATLAB path by executing:&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">   addpath('D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\msggen')&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">   savepath&amp;lt;/font>{{/html}}
+
+>{{html}}&amp;lt;font size="2">3. Restart MATLAB and verify that you can use the custom messages. &amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">   Type "rosmsg list" and ensure that the output contains the generated&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">   custom message types.&amp;lt;/font>{{/html}}
+
+----
+
+**__Start a Server from your VM and Call a Service from MATLAB__**
+
+
+__Calculator example:__
+
+Execute the steps mentioned above for your "calculator" and your "list_topics" folder.
+
+Start a Ros-Core in your VM
+Run the Calculator Server Node from your ROS-Service Tutorial:
+
+>{{html}}&amp;lt;font size="2">rosrun calculator server&amp;lt;/font>{{/html}}
+
+Open Matlab in your Host-System and connect to the roscore in your VM
+To create a ROS-Service Client object which is connected to a ROS-Service Server,
+execute the following command:
+
+>{{html}}&amp;lt;font size="2">clientobject=rossvcclient('{ROS_SERVER}');&amp;lt;/font>{{/html}}
+
+To connect to your "/calculator"-server:
+
+>{{html}}&amp;lt;font size="2">calcclient=rossvcclient('/calculate');&amp;lt;/font>{{/html}}
+
+Because we don't want to send an empty default service request message we have to create our own before w call the Service Server.
+To create the message, execute:
+
+>{{html}}&amp;lt;font size="2">requestmsg = rosmessage(clientobject);&amp;lt;/font>{{/html}}
+
+In our case:
+
+>{{html}}&amp;lt;font size="2">calcrequestmsg = rosmessage(calcclient);&amp;lt;/font>{{/html}}
+
+If you take a look at the build in your catkin workspace you'll see that the Service needs two Input arguments a and b.//(Take a look at the srv-file you created in the srv-folder of your node)
+We want to fill those with integers which our Service Server will add.//
+
+>{{html}}&amp;lt;font size="2">calcrequestmsg.A = {Number of your choice};&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">calcrequestmsg.B = {Number of your choice};&amp;lt;/font>{{/html}}
+
+To send a request to the Service server execute:
+
+>{{html}}&amp;lt;font size="2">call(calcclient,calcrequestmsg);&amp;lt;/font>{{/html}}
+
+If you execute the call command in MATLAB withou a semicolon, you'll see an output similar to the following in the command section:
+
+>{{html}}&amp;lt;font size="2">ans =&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">  ROS calc_srvResponse message with properties:&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">    MessageType: 'calculator/calc_srvResponse'&amp;lt;/font>{{/html}}
+>{{html}}&amp;lt;font size="2">            Sum: -1&amp;lt;/font>{{/html}}
+
+If you want to add different numbers its enough to repeat the last three command.
+
+----
+
+__List_Topics example:__
+
+Run the List_Topuics_Node Server Node from your ROS-Service Tutorial:
+
+>{{html}}&amp;lt;font size="2">rosrun list_topics List_topics_node&amp;lt;/font>{{/html}}
+
+Connect to the list topics node from MATLAB:
+
+>{{html}}&amp;lt;font size="2">NT_Client=rossvcclient('/show_number_of_topics');&amp;lt;/font>{{/html}}
+
+In this case we dont need to create a request message because the Server node does not need any input arguments.
+Execute:
+
+>{{html}}&amp;lt;font size="2">call(NT_Client)&amp;lt;/font>{{/html}}
+
+----
+
+**__Start a Server from MATLAB call the Service from your VM__**
+
+----
+
+//Links//&lt;/content>
+&lt;/xwikidoc>@
+
+
+10.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step 3\:ROS(empty).WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step 3\:ROS(empty)&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1537432037000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1537966382000&lt;/date>
+  &lt;contentUpdateDate>1537966382000&lt;/contentUpdateDate>
+  &lt;version>10.1&lt;/version>
+  &lt;title>Step 3: Call and Provide ROS-Service Messages&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>//Note:You need to install the Add-On "Robotics System Toolbox Interface for ROS Custom Messages"//&amp;#xd;
+//Complete the Service node Tutorial from the superior "ROS GettingStarted" before you do this Tutorial//&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+**__Create your Custom Message Workspace__**&amp;#xd;
+&amp;#xd;
+At first you need the "Robotics System Toolbox to be installed".&amp;#xd;
+Its also very useful to create a shared folder for your VM and your Host-System if you setup your ROS-Network with a VM.&amp;#xd;
+&amp;#xd;
+After that create a folder in which you will save your custom ROS-messages. This can be a folder in your private directory e.g. "C:\User\Matlab\Custom_msg". Copy the folders from your catkin workspace //(~~/catkin_ws/src)//, from the superior Tutorial to your Custom-Message-Workspace.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+To ensure you copie the correct folders take care the folder structure looks like this:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">include&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">src&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">srv&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">CMakeLists.txt&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">package.xml&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+After you copied the folders you'll need for your purposes //(in our case the "Calculator" and "List_Topics" folder)// run the command:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosgenmsg('{FOLDERPATH}')&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+Which would be if you used the above suggestion of a workspace-folderpath&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosgenmsg('C:\User\Matlab\Custom_msg')&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+**Important:**&amp;#xd;
+MATLAB will ask you to perform the following steps. Its Important not to skip those otherwise the messagegeneration will fail.&amp;#xd;
+It looks similar to this:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">   To use the custom messages, follow these steps:&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">1. Edit javaclasspath.txt, add the following file locations as new lines, and save the file:&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">   D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\jar\calculator-0.0.0.jar&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">   D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\jar\list_topics-0.0.0.jar&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">2. Add the custom message folder to the MATLAB path by executing:&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">   addpath('D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\msggen')&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">   savepath&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">3. Restart MATLAB and verify that you can use the custom messages. &amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">   Type "rosmsg list" and ensure that the output contains the generated&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">   custom message types.&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+**__Start a Server from your VM and Call a Service from MATLAB__**&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+__Calculator example:__&amp;#xd;
+&amp;#xd;
+Execute the steps mentioned above for your "calculator" and your "list_topics" folder.&amp;#xd;
+&amp;#xd;
+Start a Ros-Core in your VM&amp;#xd;
+Run the Calculator Server Node from your ROS-Service Tutorial:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosrun calculator server&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+Open Matlab in your Host-System and connect to the roscore in your VM&amp;#xd;
+To create a ROS-Service Client object which is connected to a ROS-Service Server,&amp;#xd;
+execute the following command:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">clientobject=rossvcclient('{ROS_SERVER}');&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+To connect to your "/calculator"-server:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">calcclient=rossvcclient('/calculate');&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+Because we don't want to send an empty default service request message we have to create our own before w call the Service Server.&amp;#xd;
+To create the message, execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">requestmsg = rosmessage(clientobject);&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+In our case:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">calcrequestmsg = rosmessage(calcclient);&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+If you take a look at the build in your catkin workspace you'll see that the Service needs two Input arguments a and b.//(Take a look at the srv-file you created in the srv-folder of your node)&amp;#xd;
+We want to fill those with integers which our Service Server will add.//&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">calcrequestmsg.A = {Number of your choice};&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">calcrequestmsg.B = {Number of your choice};&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+To send a request to the Service server execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">call(calcclient,calcrequestmsg);&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+If you execute the call command in MATLAB withou a semicolon, you'll see an output similar to the following in the command section:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">ans =&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">  ROS calc_srvResponse message with properties:&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">    MessageType: 'calculator/calc_srvResponse'&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">            Sum: -1&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+If you want to add different numbers its enough to repeat the last three command.&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+__List_Topics example:__&amp;#xd;
+&amp;#xd;
+Run the List_Topuics_Node Server Node from your ROS-Service Tutorial:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosrun list_topics List_topics_node&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+Connect to the list topics node from MATLAB:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">NT_Client=rossvcclient('/show_number_of_topics');&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+In this case we dont need to create a request message because the Server node does not need any input arguments.&amp;#xd;
+Execute:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">call(NT_Client)&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+**__Start a Server from MATLAB call the Service from your VM__**&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+//Links//&lt;/content>
+&lt;/xwikidoc>@
+
+
+9.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537966346000&lt;/date>
+  &lt;contentUpdateDate>1537966346000&lt;/contentUpdateDate>
+  &lt;version>9.1&lt;/version>
+d120 1
+a121 1
+&amp;#xd;
+@
+
+
+8.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537966286000&lt;/date>
+  &lt;contentUpdateDate>1537966286000&lt;/contentUpdateDate>
+  &lt;version>8.1&lt;/version>
+d72 3
+d79 1
+d85 1
+d89 1
+d94 1
+d98 1
+d102 2
+a103 1
+We want to fill those with integers which our Service Server will add.&amp;#xd;
+d108 1
+d112 1
+d120 2
+d125 1
+d129 1
+d134 1
+@
+
+
+7.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537522209000&lt;/date>
+  &lt;contentUpdateDate>1537522209000&lt;/contentUpdateDate>
+  &lt;version>7.1&lt;/version>
+d26 1
+a26 1
+**Create your Custom Message Workspace**&amp;#xd;
+d34 1
+a34 1
+To be shure you copie the correct folders make shure the folder structure looks like this:&amp;#xd;
+d42 1
+a42 1
+After you copied the folders you need for your purposes(in our case the "Calculator" and "List_Topics" folder) run the command:&amp;#xd;
+d50 3
+a52 2
+**Important** MATLAB will ask you to perform the following steps. Its Important not to skip those otherwise the messagegeneration will not work.&amp;#xd;
+It look similar to this:&amp;#xd;
+d70 1
+a70 1
+**Start a Server from your VM Call a Service from MATLAB**&amp;#xd;
+d72 49
+d123 1
+a123 1
+**Start a Server from MATLAB call the Service from your VM**&amp;#xd;
+@
+
+
+6.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537522009000&lt;/date>
+  &lt;contentUpdateDate>1537522009000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+d53 14
+a66 17
+>{{html}}&amp;lt;font size="2">&amp;#xd;
+To use the custom messages, follow these steps:&amp;#xd;
+ &amp;#xd;
+1. Edit javaclasspath.txt, add the following file locations as new lines, and save the file:&amp;#xd;
+ &amp;#xd;
+D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\jar\calculator-0.0.0.jar&amp;#xd;
+D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\jar\list_topics-0.0.0.jar&amp;#xd;
+ &amp;#xd;
+2. Add the custom message folder to the MATLAB path by executing:&amp;#xd;
+ &amp;#xd;
+addpath('D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\msggen')&amp;#xd;
+savepath&amp;#xd;
+ &amp;#xd;
+3. Restart MATLAB and verify that you can use the custom messages. &amp;#xd;
+   Type "rosmsg list" and ensure that the output contains the generated&amp;#xd;
+   custom message types.&amp;#xd;
+&amp;lt;/font>{{/html}}&amp;#xd;
+@
+
+
+5.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step 3\:ROS(empty).WebHome" locale="">
+  &lt;web>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.Step 3\:ROS(empty)&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.FredericKovacs&lt;/creator>
+  &lt;creationDate>1537432037000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome&lt;/parent>
+  &lt;author>XWiki.FredericKovacs&lt;/author>
+  &lt;contentAuthor>XWiki.FredericKovacs&lt;/contentAuthor>
+  &lt;date>1537521768000&lt;/date>
+  &lt;contentUpdateDate>1537521768000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+  &lt;title>Step 3: Call and Provide ROS-Service Messages&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>//Note:You need to install the Add-On "Robotics System Toolbox Interface for ROS Custom Messages"//&amp;#xd;
+//Complete the Service node Tutorial from the superior "ROS GettingStarted" before you do this Tutorial//&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+**Create your Custom Message Workspace**&amp;#xd;
+&amp;#xd;
+At first you need the "Robotics System Toolbox to be installed".&amp;#xd;
+Its also very useful to create a shared folder for your VM and your Host-System if you setup your ROS-Network with a VM.&amp;#xd;
+&amp;#xd;
+After that create a folder in which you will save your custom ROS-messages. This can be a folder in your private directory e.g. "C:\User\Matlab\Custom_msg". Copy the folders from your catkin workspace //(~~/catkin_ws/src)//, from the superior Tutorial to your Custom-Message-Workspace.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+To be shure you copie the correct folders make shure the folder structure looks like this:&amp;#xd;
+&amp;#xd;
+>{{html}}&amp;lt;font size="2">include&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">src&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">srv&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">CMakeLists.txt&amp;lt;/font>{{/html}}&amp;#xd;
+>{{html}}&amp;lt;font size="2">package.xml&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+After you copied the folders you need for your purposes(in our case the "Calculator" and "List_Topics" folder) run the command:&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosgenmsg('{FOLDERPATH}')&amp;lt;/font>{{/html}}&amp;#xd;
+&amp;#xd;
+Which would be if you used the above suggestion of a workspace-folderpath&amp;#xd;
+>{{html}}&amp;lt;font size="2">rosgenmsg('C:\User\Matlab\Custom_msg')&amp;lt;/font>{{/html}}&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+**Start a Server from your VM Call a Service from MATLAB**&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+**Start a Server from MATLAB call the Service from your VM**&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+//Links//&lt;/content>
+&lt;/xwikidoc>@
+
+
+4.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537521396000&lt;/date>
+  &lt;contentUpdateDate>1537521396000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+d30 4
+a33 2
+After that create a folder in which you will save your custom ROS-messages. This can be a folder in your private directory e.g. "C:\User\Matlab\Custom_msg".&amp;#xd;
+Copy the folders from your catkin workspace//(~/catkin_ws/src)// from the superior Tutorial to your Custom-Message-Workspace.&amp;#xd;
+d35 1
+d41 6
+@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537453318000&lt;/date>
+  &lt;contentUpdateDate>1537453318000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d28 10
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1537453302000&lt;/date>
+  &lt;contentUpdateDate>1537453302000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d21 1
+a21 2
+  &lt;content>----&amp;#xd;
+//Note:You need to install the Add-On "Robotics System Toolbox Interface for ROS Custom Messages"//&amp;#xd;
+d23 1
+d25 1
+d27 1
+d29 1
+d31 1
+d33 1
+d35 1
+d37 1
+@
+
+
+1.1
+log
+@@
+text
+@d13 4
+a16 4
+  &lt;date>1537432037000&lt;/date>
+  &lt;contentUpdateDate>1537432037000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+  &lt;title>Step 3:ROS(empty)&lt;/title>
+d21 11
+a31 1
+  &lt;content/>
+@
+</versions>
+  <parent>Projects.MoRoP.Spezifikationen.Software.ROS.MATLAB/SIMULINK.Getting Started with ROS ind MATLAB/SIMULINK.WebHome</parent>
+  <author>XWiki.SvenHoyer</author>
+  <contentAuthor>XWiki.SvenHoyer</contentAuthor>
+  <date>1540978699000</date>
+  <contentUpdateDate>1540978699000</contentUpdateDate>
+  <version>10.2</version>
+  <title>Step 3: Call and Provide ROS-Service Messages</title>
+  <comment/>
+  <minorEdit>true</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>//Note:You need to install the Add-On "Robotics System Toolbox Interface for ROS Custom Messages"//
+//Complete the Service node Tutorial from the superior "ROS GettingStarted" before you do this Tutorial//
+
+----
+
+**__Create your Custom Message Workspace__**
+
+At first you need the "Robotics System Toolbox to be installed".
+Its also very useful to create a shared folder for your VM and your Host-System if you setup your ROS-Network with a VM.
+
+After that create a folder in which you will save your custom ROS-messages. This can be a folder in your private directory e.g. "C:\User\Matlab\Custom_msg". Copy the folders from your catkin workspace //(~~/catkin_ws/src)//, from the superior Tutorial to your Custom-Message-Workspace.
+
+
+To ensure you copie the correct folders take care the folder structure looks like this:
+
+>{{html}}&lt;font size="2">include&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">src&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">srv&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">CMakeLists.txt&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">package.xml&lt;/font>{{/html}}
+
+After you copied the folders you'll need for your purposes //(in our case the "Calculator" and "List_Topics" folder)// run the command:
+
+>{{html}}&lt;font size="2">rosgenmsg('{FOLDERPATH}')&lt;/font>{{/html}}
+
+Which would be if you used the above suggestion of a workspace-folderpath
+
+>{{html}}&lt;font size="2">rosgenmsg('C:\User\Matlab\Custom_msg')&lt;/font>{{/html}}
+
+**Important:**
+MATLAB will ask you to perform the following steps. Its Important not to skip those otherwise the messagegeneration will fail.
+It looks similar to this:
+
+>{{html}}&lt;font size="2">   To use the custom messages, follow these steps:&lt;/font>{{/html}}
+
+>{{html}}&lt;font size="2">1. Edit javaclasspath.txt, add the following file locations as new lines, and save the file:&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">   D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\jar\calculator-0.0.0.jar&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">   D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\jar\list_topics-0.0.0.jar&lt;/font>{{/html}}
+
+>{{html}}&lt;font size="2">2. Add the custom message folder to the MATLAB path by executing:&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">   addpath('D:\Studenten\FKovacs\MATLAB\Custom_ros_msg\workspace\matlab_gen\msggen')&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">   savepath&lt;/font>{{/html}}
+
+>{{html}}&lt;font size="2">3. Restart MATLAB and verify that you can use the custom messages. &lt;/font>{{/html}}
+>{{html}}&lt;font size="2">   Type "rosmsg list" and ensure that the output contains the generated&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">   custom message types.&lt;/font>{{/html}}
+
+----
+
+**__Start a Server from your VM and Call a Service from MATLAB__**
+
+
+__Calculator example:__
+
+Execute the steps mentioned above for your "calculator" and your "list_topics" folder.
+
+Start a Ros-Core in your VM
+Run the Calculator Server Node from your ROS-Service Tutorial:
+
+>{{html}}&lt;font size="2">rosrun calculator server&lt;/font>{{/html}}
+
+Open Matlab in your Host-System and connect to the roscore in your VM
+To create a ROS-Service Client object which is connected to a ROS-Service Server,
+execute the following command:
+
+>{{html}}&lt;font size="2">clientobject=rossvcclient('{ROS_SERVER}');&lt;/font>{{/html}}
+
+To connect to your "/calculator"-server:
+
+>{{html}}&lt;font size="2">calcclient=rossvcclient('/calculate');&lt;/font>{{/html}}
+
+Because we don't want to send an empty default service request message we have to create our own before w call the Service Server.
+To create the message, execute:
+
+>{{html}}&lt;font size="2">requestmsg = rosmessage(clientobject);&lt;/font>{{/html}}
+
+In our case:
+
+>{{html}}&lt;font size="2">calcrequestmsg = rosmessage(calcclient);&lt;/font>{{/html}}
+
+If you take a look at the build in your catkin workspace you'll see that the Service needs two Input arguments a and b.//(Take a look at the srv-file you created in the srv-folder of your node)
+We want to fill those with integers which our Service Server will add.//
+
+>{{html}}&lt;font size="2">calcrequestmsg.A = {Number of your choice};&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">calcrequestmsg.B = {Number of your choice};&lt;/font>{{/html}}
+
+To send a request to the Service server execute:
+
+>{{html}}&lt;font size="2">call(calcclient,calcrequestmsg);&lt;/font>{{/html}}
+
+If you execute the call command in MATLAB withou a semicolon, you'll see an output similar to the following in the command section:
+
+>{{html}}&lt;font size="2">ans =&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">  ROS calc_srvResponse message with properties:&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">    MessageType: 'calculator/calc_srvResponse'&lt;/font>{{/html}}
+>{{html}}&lt;font size="2">            Sum: -1&lt;/font>{{/html}}
+
+If you want to add different numbers its enough to repeat the last three command.
+
+----
+
+__List_Topics example:__
+
+Run the List_Topuics_Node Server Node from your ROS-Service Tutorial:
+
+>{{html}}&lt;font size="2">rosrun list_topics List_topics_node&lt;/font>{{/html}}
+
+Connect to the list topics node from MATLAB:
+
+>{{html}}&lt;font size="2">NT_Client=rossvcclient('/show_number_of_topics');&lt;/font>{{/html}}
+
+In this case we dont need to create a request message because the Server node does not need any input arguments.
+Execute:
+
+>{{html}}&lt;font size="2">call(NT_Client)&lt;/font>{{/html}}
+
+----
+
+**__Start a Server from MATLAB call the Service from your VM__**
+
+----
+
+//Links//</content>
+</xwikidoc>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<attachment-list serializer="attachment-list-meta/1.0">
+ <attachment serializer="attachment-meta/1.0">
+  <filename>IMG_5624.jpg</filename>
+  <filesize>595474</filesize>
+  <author>XWiki.SvenHoyer</author>
+  <version>1.1</version>
+  <comment></comment>
+  <date>1550051283000</date>
+ </attachment>
+ <attachment serializer="attachment-meta/1.0">
+  <filename>IMG_5624.jpg</filename>
+  <filesize>3561505</filesize>
+  <author>XWiki.SvenHoyer</author>
+  <version>1.2</version>
+  <comment></comment>
+  <date>1550051295000</date>
+ </attachment>
+</attachment-list>

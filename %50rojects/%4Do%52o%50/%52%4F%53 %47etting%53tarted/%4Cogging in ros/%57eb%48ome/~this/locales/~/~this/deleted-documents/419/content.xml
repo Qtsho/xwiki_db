@@ -1,0 +1,1776 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Logging in ros.WebHome" locale="">
+  <web>Projects.MoRoP.ROS GettingStarted.Logging in ros</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.DavidDudzik</creator>
+  <creationDate>1545382762000</creationDate>
+  <versions>head	7.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+7.1
+date	2019.02.21.11.34.24;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	6.1;
+
+6.1
+date	2019.02.21.11.31.21;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2019.02.18.10.20.56;	author XWiki_2EMatthiasDomnik;	state diff;
+branches;
+next	4.3;
+
+4.3
+date	2019.01.15.09.25.43;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	4.2;
+
+4.2
+date	2019.01.15.09.20.10;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	4.1;
+
+4.1
+date	2019.01.15.09.15.54;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	3.1;
+
+3.1
+date	2018.12.21.09.09.09;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2018.12.21.09.08.03;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	1.2;
+
+1.2
+date	2018.12.21.09.07.40;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.12.21.08.59.22;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+7.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Logging in ros.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Logging in ros&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1545382762000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1550748864000&lt;/date>
+  &lt;contentUpdateDate>1550748864000&lt;/contentUpdateDate>
+  &lt;version>7.1&lt;/version>
+  &lt;title>Logging in ros&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>**Sitemap**
+
+----
+
+
+{{toc start="2"/}}
+
+
+
+----
+
+== (% style="color:inherit; font-family:inherit; font-size:26px" %)**Logging in ROS**(%%) ==
+
+----
+
+ROS provides logging_messages to find mistakes faster (or at all). The logging in ROS is separated in five stages:
+
+* debug
+* info
+* warn
+* error
+* fatal
+
+The idea ist to generate a lot of messages from type debug and reduce the frequency with rising in the hierarchy. Debug messages are relativly irrelevant when the systems runs as expected, but may be very helpful when something does not work as supposed. In opposite, a fatal-message should be very seldom, but when this message appears something very bad happens. An example may be a missing(% class="mark" %) ros::init()(%%) before a handle declaration.
+
+
+The remaining levels are not sorted in a static scheme. It is up to the developer to make the proper decision about assigning the levels.
+
+
+== **Usage** ==
+
+----
+
+logging-message are used by so called macros. These are availible after including the header file ros/ros.h. The syntax is as follows:
+
+(% class="box infomessage" %)
+(((
+ROS_DEBUG_STREAM(message); ~/~/prints debug-message
+
+
+ROS_INFO_STREAM(message); ~/~/prints info-message
+
+
+ROS_WARN_STREAM(message); ~/~/prints warning
+
+
+ROS_ERROR_STREAM(message); ~/~/prints error
+
+
+ROS_FATAL_STREAM(message); ~/~/prints fatal-error
+)))
+
+
+
+(% class="box" %)
+(((
+Note: In this section the code will be only snippets and is not compilable. This should increase readability. To compile the snippets, put them in a standard ROS node.
+)))
+
+One oppotunity is to use these macros like an ostream-object (e.g. std::cout). The usage with the stream-operator is also the same. For example:
+
+
+(% class="box infomessage" %)
+(((
+int i = 0;
+ROS_INFO_STREAM("Integer 'i' set to: " &amp;lt;&amp;lt; i);
+)))
+
+
+Further it is possible to use the macros in the C related printf style.
+
+
+A comprehensibly usecase is to print a logging message only once, because it may be just an information about a possible error. When this logging-command is located in a loop it is printed in every iteration. This behavior can be a problem, because the terminal output will get very confusing and the advanteage of logging is gone. So, the task is to print a message in a loop just once.
+
+
+The first attempt can be solution with C++-"bord-equiment":
+
+
+(% class="box infomessage" %)
+(((
+ while(ros::ok()){ ~/~/loop executes till eternity
+    static bool info_published = false; ~/~/static var initialized
+
+
+    if(!info_published){ ~/~/info should only be published once
+
+
+        ROS_INFO("message goes here!");  ~/~/output
+        info_published = true;} ~/~/change value after first iteration
+    }
+)))
+
+
+The outer while-loop has no deeper sense. The message can be nested in an if-statement which is triggered by a bool-variable. This variable has to be declared static, because it lives in a loop.
+
+
+When the message has been printed the bool changes to true an the if-statement will not be executed again. Admittedly, the solution is simple, but there is much more simpler solution.
+
+
+With adding _ONCE to the former logging command, the message will be only printed once without installing helping values or something like that. The above example transforms to:
+
+
+(% class="box infomessage" %)
+(((
+while(ros::ok()){ ~/~/loop executes till eternity
+        ROS_INFO_STREAM_ONCE("message goes here!");}
+)))
+
+For printing message in a fixed frequency, use the command:
+
+(% class="box infomessage" %)
+(((
+ROS_..._STREAM_THROTTLE(intervall,message);
+)))
+
+Of course, it will work also for the syntax in the fprint-style.
+An exemplary usage may be:
+
+(% class="box infomessage" %)
+(((
+while(ros::ok()){ ~/~/loop executes till eternity
+    ROS_INFO_STREAM_THROTTLE(2.0,"2 seconds gone!");}
+)))
+
+ The troubleshooting can be eased with triggering the message by a special event. There are often events the developer knows about, but has no influence on it. The best example is user input. The developer knows, that the user can enter invalid input. But the developer can not prevent it (the usage of regex and other catastrophe-prevention-tools is here excluded.). So, it will be useful to have an event-based logging-message. ROS provides this under the name (% class="mark" %)ROS_..._STREAM_COND(condition,message).
+
+
+The usage is similiar to the above examples:
+
+(% class="box infomessage" %)
+(((
+int main(argc, ~*~*argv){
+ROS_WARN_STREAM_COND(argc > 1, "Too much input!");
+}
+)))
+
+
+
+== **Displaying the logging-messages** ==
+
+----
+
+There are several ways to display the former created messages. Three important ways will be shown in the following.
+
+
+=== **Usage of the terminal** ===
+
+Linux-users are familiar to the usage of redirecting message-streamsin the terminal. It is a quite simple process. At first, it is important to consider that there are two streams, the "standard output" (stdout) and the "standard error"(stderr). The difference between these two is that the stdout is buffered, which will increase the performance, and the stderr prints every symbol directly, which will increase the chance to get a (partly) output, if the program dies.
+
+
+However, to write the stdout from a node to a file use:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun [package-name] [executable-name] > filename
+)))
+
+The logging-messages from type debug and info are published through the stdout, while the more critical messages are assigned to the stderr.
+
+
+To combine the two streams to one file replace the operator in the former examples with &amp;amp;&amp;gt;[^stdout_stderr].
+
+
+There are a lot of possibilities to combine the operators, see: IEEE Std 1003.1-2008, 2016 Edition
+
+
+The message can be adjusted regarding to the structure and the information content. In standard configuration the message starts with a the message type followed by a timestamp. To bring in more details the attributes for the file $[file], the function $[function] and the line in the source code $[line] can be added.
+
+
+For example1: 
+
+
+(% class="box infomessage" %)
+(((
+$ export ROSCONSOLE_FORMAT='[${severity}] [${time}]-> ${file}, ${line}: ${message}'
+)))
+
+
+For demonstration purpose the info message of the server-client-adder is reprinted. Compare the output now and then:
+
+
+(% class="box infomessage" %)
+(((
+ [ WARN] [1503907176.701167360]-> /home/ubuntu-ros/catkin_ws/src/calculator/src/client.cpp, 9: Enter two int_numbers!
+)))
+
+
+=== **Usage of /rosout** ===
+
+In addition to the output in the terminal, every logging-message is published under the topic /rosout. With the command
+
+(% class="box infomessage" %)
+(((
+$ rostopic echo /rosout
+)))
+
+the outputstream (or messagestream) is printed to the terminal. With respect to the knowledgements from the former section this stream can be passed to a file, for example:
+
+(% class="box infomessage" %)
+(((
+$ rostopic echo /rosout &amp;amp;&amp;gt; ~_~_log_file.txt
+)))
+
+=== **Log-Files** ===
+
+Another possibility to find out what happen is to analyze the automatic generated log-files. The log-files are saved under ~~/.ros/log_id/**rund_id**/rosout.log. The **run_id **is generated by the roscore when starting the ROS-network. To get the** run_id** check the terminal in which the roscore runs or type in a new terminal [^ros_param]
+
+
+(% class="box infomessage" %)
+(((
+$ rosparam get /run_id
+)))
+
+Log-files will not be removed by the system or ROS itself. ROS just gives a hint, that more than 1GB of space are occupied by the log-files. To check the actual amount of space occupied by the log-files, type in:
+
+(% class="box infomessage" %)
+(((
+$ rosclean check
+)))
+
+ and to erase the whole log-history use:
+
+
+(% class="box infomessage" %)
+(((
+$ rosclean purge
+)))
+
+ The ability to delete individual files/folders, of course, remains untouched.
+
+
+== **Adjusting the logger-levels** ==
+
+----
+
+Types which have a lower priority than the actual set level are not evaluated. For example, if the logger-level is set to info, all macros, that are from type debug, are not published. The logger-level can be changed by using the terminal or by a command within the sourcecode.
+
+
+=== **Setting the logger-level in the terminal** ===
+
+To adjust the logger level from the terminal use the command:
+
+
+(% class="box infomessage" %)
+(((
+$ rosservice call /&amp;lt;node-name>/set_logger_level ros.&amp;lt;package-name> LEVEL
+)))
+
+->The &amp;lt;node-name> is the name of the node whose logger level you would like to set
+
+->The package-name is,as you might expect, the name of the package that owns the node.
+
+->The LEVEL parameter is a string, chosen form DEBUG, INFO, WARN, ERROR, and FATAL, naming the logger level to use for the node.
+
+
+With a closer look on the command it will be obvious that it will only effect one single node and not the whole network.
+
+
+For example, to enable DEGUB-level messages in our example program, we could use this command:
+
+(% class="box infomessage" %)
+(((
+rosservice call /count_and_log/set_logger_level ros.agitr DEBUG
+)))
+
+
+=== **Setting the logger-levels in the sourcecode ** ===
+
+To customize the logger-level using the C ++ API, the following call is used.
+
+(% class="box infomessage" %)
+(((
+if(ros::console::set_logger_level(ROSCONSOLE_DEFAULT_NAME,  
+        ros::console::levels::/*Insert logger-level*/)) {
+          ros::console::notifyLoggerLevelsChanged();
+    }
+)))
+
+
+At first, insert the apprechiated logger-level in the above source-code. The function inside the if-statement returns a bool. So, when the choosen logger-level differs from the active one the function ros::console::notifyLoggerLevelsChanged() sets the new level.
+
+
+(% class="box" %)
+(((
+There are a lot of logging-options around ROS and especally the ROS C++-API. This section is only a first impression on what is possible and where the way can lead to. When a more specific solution is required, it will be a good idea to have a look at ROS Wiki Logging or ROS Wiki Console. 
+)))
+
+
+1. This command could be entered in every terminal by hand. But then the command will only effect to this terminal. To adjust the structure for all terminals this command has to made as entry in bash.rc. &lt;/content>
+&lt;/xwikidoc>@
+
+
+6.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550748681000&lt;/date>
+  &lt;contentUpdateDate>1550748681000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+d21 289
+a309 287
+  &lt;content>**Sitemap**&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+{{toc start="2"/}}&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+== (% style="color:inherit; font-family:inherit; font-size:26px" %)**Logging in ROS**(%%) ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+ROS provides logging_messages to find mistakes faster (or at all). The logging in ROS is separated in five stages:&amp;#xd;
+&amp;#xd;
+* debug&amp;#xd;
+* info&amp;#xd;
+* warn&amp;#xd;
+* error&amp;#xd;
+* fatal&amp;#xd;
+&amp;#xd;
+The idea ist to generate a lot of messages from type debug and reduce the frequency with rising in the hierarchy. Debug messages are relativly irrelevant when the systems runs as expected, but may be very helpful when something does not work as supposed. In opposite, a fatal-message should be very seldom, but when this message appears something very bad happens. An example may be a missing(% class="mark" %) ros::init()(%%) before a handle declaration.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The remaining levels are not sorted in a static scheme. It is up to the developer to make the proper decision about assigning the levels.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== **Usage** ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+logging-message are used by so called macros. These are availible after including the header file ros/ros.h. The syntax is as follows:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ROS_DEBUG_STREAM(message); ~/~/prints debug-message&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+ROS_INFO_STREAM(message); ~/~/prints info-message&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+ROS_WARN_STREAM(message); ~/~/prints warning&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+ROS_ERROR_STREAM(message); ~/~/prints error&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+ROS_FATAL_STREAM(message); ~/~/prints fatal-error&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+Note: In this section the code will be only snippets and is not compilable. This should increase readability. To compile the snippets, put them in a standard ROS node.&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+One oppotunity is to use these macros like an ostream-object (e.g. std::cout). The usage with the stream-operator is also the same. For example:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+int i = 0;&amp;#xd;
+ROS_INFO_STREAM("Integer 'i' set to: " &amp;lt;&amp;lt; i);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+Further it is possible to use the macros in the C related printf style.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+A comprehensibly usecase is to print a logging message only once, because it may be just an information about a possible error. When this logging-command is located in a loop it is printed in every iteration. This behavior can be a problem, because the terminal output will get very confusing and the advanteage of logging is gone. So, the task is to print a message in a loop just once.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The first attempt can be solution with C++-"bord-equiment":&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ while(ros::ok()){ ~/~/loop executes till eternity&amp;#xd;
+    static bool info_published = false; ~/~/static var initialized&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+    if(!info_published){ ~/~/info should only be published once&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+        ROS_INFO("message goes here!");  ~/~/output&amp;#xd;
+        info_published = true;} ~/~/change value after first iteration&amp;#xd;
+    }&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The outer while-loop has no deeper sense. The message can be nested in an if-statement which is triggered by a bool-variable. This variable has to be declared static, because it lives in a loop.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+When the message has been printed the bool changes to true an the if-statement will not be executed again. Admittedly, the solution is simple, but there is much more simpler solution.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+With adding _ONCE to the former logging command, the message will be only printed once without installing helping values or something like that. The above example transforms to:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+while(ros::ok()){ ~/~/loop executes till eternity&amp;#xd;
+        ROS_INFO_STREAM_ONCE("message goes here!");}&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+For printing message in a fixed frequency, use the command:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ROS_..._STREAM_THROTTLE(intervall,message);&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Of course, it will work also for the syntax in the fprint-style.&amp;#xd;
+An exemplary usage may be:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+while(ros::ok()){ ~/~/loop executes till eternity&amp;#xd;
+    ROS_INFO_STREAM_THROTTLE(2.0,"2 seconds gone!");}&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ The troubleshooting can be eased with triggering the message by a special event. There are often events the developer knows about, but has no influence on it. The best example is user input. The developer knows, that the user can enter invalid input. But the developer can not prevent it (the usage of regex and other catastrophe-prevention-tools is here excluded.). So, it will be useful to have an event-based logging-message. ROS provides this under the name (% class="mark" %)ROS_..._STREAM_COND(condition,message).&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The usage is similiar to the above examples:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+int main(argc, ~*~*argv){&amp;#xd;
+ROS_WARN_STREAM_COND(argc > 1, "Too much input!");&amp;#xd;
+}&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== **Displaying the logging-messages** ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+There are several ways to display the former created messages. Three important ways will be shown in the following.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+=== **Usage of the terminal** ===&amp;#xd;
+&amp;#xd;
+Linux-users are familiar to the usage of redirecting message-streamsin the terminal. It is a quite simple process. At first, it is important to consider that there are two streams, the "standard output" (stdout) and the "standard error"(stderr). The difference between these two is that the stdout is buffered, which will increase the performance, and the stderr prints every symbol directly, which will increase the chance to get a (partly) output, if the program dies.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+However, to write the stdout from a node to a file use:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosrun [package-name] [executable-name] > filename&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The logging-messages from type debug and info are published through the stdout, while the more critical messages are assigned to the stderr.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+To combine the two streams to one file replace the operator in the former examples with &amp;amp;&amp;gt;[^stdout_stderr].&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+There are a lot of possibilities to combine the operators, see: IEEE Std 1003.1-2008, 2016 Edition&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+The message can be adjusted regarding to the structure and the information content. In standard configuration the message starts with a the message type followed by a timestamp. To bring in more details the attributes for the file $[file], the function $[function] and the line in the source code $[line] can be added.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+For example1: &amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ export ROSCONSOLE_FORMAT='[${severity}] [${time}]-> ${file}, ${line}: ${message}'&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+For demonstration purpose the info message of the server-client-adder is reprinted. Compare the output now and then:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+ [ WARN] [1503907176.701167360]-> /home/ubuntu-ros/catkin_ws/src/calculator/src/client.cpp, 9: Enter two int_numbers!&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+=== **Usage of /rosout** ===&amp;#xd;
+&amp;#xd;
+In addition to the output in the terminal, every logging-message is published under the topic /rosout. With the command&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rostopic echo /rosout&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+the outputstream (or messagestream) is printed to the terminal. With respect to the knowledgements from the former section this stream can be passed to a file, for example:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rostopic echo /rosout &amp;amp;&amp;gt; ~_~_log_file.txt&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+=== **Log-Files** ===&amp;#xd;
+&amp;#xd;
+Another possibility to find out what happen is to analyze the automatic generated log-files. The log-files are saved under ~~/.ros/log_id/**rund_id**/rosout.log. The **run_id **is generated by the roscore when starting the ROS-network. To get the** run_id** check the terminal in which the roscore runs or type in a new terminal [^ros_param]&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosparam get /run_id&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Log-files will not be removed by the system or ROS itself. ROS just gives a hint, that more than 1GB of space are occupied by the log-files. To check the actual amount of space occupied by the log-files, type in:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosclean check&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ and to erase the whole log-history use:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosclean purge&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+ The ability to delete individual files/folders, of course, remains untouched.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+== **Adjusting the logger-levels** ==&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+Types which have a lower priority than the actual set level are not evaluated. For example, if the logger-level is set to info, all macros, that are from type debug, are not published. The logger-level can be changed by using the terminal or by a command within the sourcecode.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+=== **Setting the logger-level in the terminal** ===&amp;#xd;
+&amp;#xd;
+To adjust the logger level from the terminal use the command:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosservice call /&amp;lt;node-name>/set_logger_level ros.&amp;lt;package-name> LEVEL&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+->The &amp;lt;node-name> is the name of the node whose logger level you would like to set&amp;#xd;
+&amp;#xd;
+->The package-name is,as you might expect, the name of the package that owns the node.&amp;#xd;
+&amp;#xd;
+->The LEVEL parameter is a string, chosen form DEBUG, INFO, WARN, ERROR, and FATAL, naming the logger level to use for the node.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+With a closer look on the command it will be obvious that it will only effect one single node and not the whole network.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+For example, to enable DEGUB-level messages in our example program, we could use this command:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+rosservice call /count_and_log/set_logger_level ros.agitr DEBUG&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+=== **Setting the logger-levels in the sourcecode ** ===&amp;#xd;
+&amp;#xd;
+To customize the logger-level using the C ++ API, the following call is used.&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+if(ros::console::set_logger_level(ROSCONSOLE_DEFAULT_NAME,  &amp;#xd;
+        ros::console::levels::/*Insert logger-level*/)) {&amp;#xd;
+          ros::console::notifyLoggerLevelsChanged();&amp;#xd;
+    }&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+At first, insert the apprechiated logger-level in the above source-code. The function inside the if-statement returns a bool. So, when the choosen logger-level differs from the active one the function ros::console::notifyLoggerLevelsChanged() sets the new level.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+There are a lot of logging-options around ROS and especally the ROS C++-API. This section is only a first impression on what is possible and where the way can lead to. When a more specific solution is required, it will be a good idea to have a look at ROS Wiki Logging or ROS Wiki Console. &amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+@
+
+
+5.1
+log
+@@
+text
+@d11 5
+a15 5
+  &lt;author>XWiki.MatthiasDomnik&lt;/author>
+  &lt;contentAuthor>XWiki.MatthiasDomnik&lt;/contentAuthor>
+  &lt;date>1550485256000&lt;/date>
+  &lt;contentUpdateDate>1550485256000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+d21 1
+a21 1
+  &lt;content> &amp;#xd;
+a22 2
+= **Logging in ROS** =&amp;#xd;
+&amp;#xd;
+a24 1
+**Sitemap**&amp;#xd;
+d26 1
+a26 1
+{{toc/}}&amp;#xd;
+d30 1
+a30 1
+(% style="color:inherit; font-family:inherit; font-size:26px" %)**Logging in ROS**&amp;#xd;
+@
+
+
+4.3
+log
+@@
+text
+@d11 5
+a15 5
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1547544343000&lt;/date>
+  &lt;contentUpdateDate>1547544343000&lt;/contentUpdateDate>
+  &lt;version>4.3&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+d21 290
+a310 310
+  &lt;content> 
+
+
+== **Logging in ros** ==
+
+----
+
+
+**Sitemap**
+
+
+
+* Logging in ROS
+** Usage
+** Displaying the logging-messages
+*** Usage of the terminal
+*** Usage of /rosout
+*** Log-Files
+** Adjusting the logger-levels
+*** Setting the logger-level in the terminal
+*** Setting the logger-levels in the sourcecode
+
+== 
+**Logging in ROS** ==
+
+----
+
+ROS provides logging_messages to find mistakes faster (or at all). The logging in ROS is separated in five stages:
+
+* debug
+* info
+* warn
+* error
+* fatal
+
+The idea ist to generate a lot of messages from type debug and reduce the frequency with rising in the hierarchy. Debug messages are relativly irrelevant when the systems runs as expected, but may be very helpful when something does not work as supposed. In opposite, a fatal-message should be very seldom, but when this message appears something very bad happens. An example may be a missing(% class="mark" %) ros::init()(%%) before a handle declaration.
+
+
+The remaining levels are not sorted in a static scheme. It is up to the developer to make the proper decision about assigning the levels.
+
+
+== **Usage** ==
+
+----
+
+logging-message are used by so called macros. These are availible after including the header file ros/ros.h. The syntax is as follows:
+
+(% class="box infomessage" %)
+(((
+ROS_DEBUG_STREAM(message); ~/~/prints debug-message
+
+
+ROS_INFO_STREAM(message); ~/~/prints info-message
+
+
+ROS_WARN_STREAM(message); ~/~/prints warning
+
+
+ROS_ERROR_STREAM(message); ~/~/prints error
+
+
+ROS_FATAL_STREAM(message); ~/~/prints fatal-error
+)))
+
+
+
+(% class="box" %)
+(((
+Note: In this section the code will be only snippets and is not compilable. This should increase readability. To compile the snippets, put them in a standard ROS node.
+)))
+
+One oppotunity is to use these macros like an ostream-object (e.g. std::cout). The usage with the stream-operator is also the same. For example:
+
+
+(% class="box infomessage" %)
+(((
+int i = 0;
+ROS_INFO_STREAM("Integer 'i' set to: " &amp;lt;&amp;lt; i);
+)))
+
+
+Further it is possible to use the macros in the C related printf style.
+
+
+A comprehensibly usecase is to print a logging message only once, because it may be just an information about a possible error. When this logging-command is located in a loop it is printed in every iteration. This behavior can be a problem, because the terminal output will get very confusing and the advanteage of logging is gone. So, the task is to print a message in a loop just once.
+
+
+The first attempt can be solution with C++-"bord-equiment":
+
+
+(% class="box infomessage" %)
+(((
+ while(ros::ok()){ ~/~/loop executes till eternity
+    static bool info_published = false; ~/~/static var initialized
+
+
+    if(!info_published){ ~/~/info should only be published once
+
+
+        ROS_INFO("message goes here!");  ~/~/output
+        info_published = true;} ~/~/change value after first iteration
+    }
+)))
+
+
+The outer while-loop has no deeper sense. The message can be nested in an if-statement which is triggered by a bool-variable. This variable has to be declared static, because it lives in a loop.
+
+
+When the message has been printed the bool changes to true an the if-statement will not be executed again. Admittedly, the solution is simple, but there is much more simpler solution.
+
+
+With adding _ONCE to the former logging command, the message will be only printed once without installing helping values or something like that. The above example transforms to:
+
+
+(% class="box infomessage" %)
+(((
+while(ros::ok()){ ~/~/loop executes till eternity
+        ROS_INFO_STREAM_ONCE("message goes here!");}
+)))
+
+For printing message in a fixed frequency, use the command:
+
+(% class="box infomessage" %)
+(((
+ROS_..._STREAM_THROTTLE(intervall,message);
+)))
+
+Of course, it will work also for the syntax in the fprint-style.
+An exemplary usage may be:
+
+(% class="box infomessage" %)
+(((
+while(ros::ok()){ ~/~/loop executes till eternity
+    ROS_INFO_STREAM_THROTTLE(2.0,"2 seconds gone!");}
+)))
+
+ The troubleshooting can be eased with triggering the message by a special event. There are often events the developer knows about, but has no influence on it. The best example is user input. The developer knows, that the user can enter invalid input. But the developer can not prevent it (the usage of regex and other catastrophe-prevention-tools is here excluded.). So, it will be useful to have an event-based logging-message. ROS provides this under the name (% class="mark" %)ROS_..._STREAM_COND(condition,message).
+
+
+The usage is similiar to the above examples:
+
+(% class="box infomessage" %)
+(((
+int main(argc, ~*~*argv){
+ROS_WARN_STREAM_COND(argc > 1, "Too much input!");
+}
+)))
+
+
+
+== 
+**Displaying the logging-messages** ==
+
+----
+
+There are several ways to display the former created messages. Three important ways will be shown in the following.
+
+
+===== 
+**Usage of the terminal** =====
+
+Linux-users are familiar to the usage of redirecting message-streamsin the terminal. It is a quite simple process. At first, it is important to consider that there are two streams, the "standard output" (stdout) and the "standard error"(stderr). The difference between these two is that the stdout is buffered, which will increase the performance, and the stderr prints every symbol directly, which will increase the chance to get a (partly) output, if the program dies.
+
+
+However, to write the stdout from a node to a file use:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun [package-name] [executable-name] > filename
+)))
+
+The logging-messages from type debug and info are published through the stdout, while the more critical messages are assigned to the stderr.
+
+
+To combine the two streams to one file replace the operator in the former examples with &amp;amp;&amp;gt;[^stdout_stderr].
+
+
+There are a lot of possibilities to combine the operators, see: IEEE Std 1003.1-2008, 2016 Edition
+
+
+The message can be adjusted regarding to the structure and the information content. In standard configuration the message starts with a the message type followed by a timestamp. To bring in more details the attributes for the file $[file], the function $[function] and the line in the source code $[line] can be added.
+
+
+For example1: 
+
+
+(% class="box infomessage" %)
+(((
+$ export ROSCONSOLE_FORMAT='[${severity}] [${time}]-> ${file}, ${line}: ${message}'
+)))
+
+
+For demonstration purpose the info message of the server-client-adder is reprinted. Compare the output now and then:
+
+
+(% class="box infomessage" %)
+(((
+ [ WARN] [1503907176.701167360]-> /home/ubuntu-ros/catkin_ws/src/calculator/src/client.cpp, 9: Enter two int_numbers!
+)))
+
+
+===== 
+**Usage of /rosout** =====
+
+In addition to the output in the terminal, every logging-message is published under the topic /rosout. With the command
+
+(% class="box infomessage" %)
+(((
+$ rostopic echo /rosout
+)))
+
+the outputstream (or messagestream) is printed to the terminal. With respect to the knowledgements from the former section this stream can be passed to a file, for example:
+
+(% class="box infomessage" %)
+(((
+$ rostopic echo /rosout &amp;amp;&amp;gt; ~_~_log_file.txt
+)))
+
+===== 
+**Log-Files** =====
+
+Another possibility to find out what happen is to analyze the automatic generated log-files. The log-files are saved under ~~/.ros/log_id/**rund_id**/rosout.log. The **run_id **is generated by the roscore when starting the ROS-network. To get the** run_id** check the terminal in which the roscore runs or type in a new terminal [^ros_param]
+
+
+(% class="box infomessage" %)
+(((
+$ rosparam get /run_id
+)))
+
+Log-files will not be removed by the system or ROS itself. ROS just gives a hint, that more than 1GB of space are occupied by the log-files. To check the actual amount of space occupied by the log-files, type in:
+
+(% class="box infomessage" %)
+(((
+$ rosclean check
+)))
+
+ and to erase the whole log-history use:
+
+
+(% class="box infomessage" %)
+(((
+$ rosclean purge
+)))
+
+ The ability to delete individual files/folders, of course, remains untouched.
+
+
+==   ==
+
+== 
+**Adjusting the logger-levels** ==
+
+----
+
+Types which have a lower priority than the actual set level are not evaluated. For example, if the logger-level is set to info, all macros, that are from type debug, are not published. The logger-level can be changed by using the terminal or by a command within the sourcecode.
+
+
+===== 
+**Setting the logger-level in the terminal** =====
+
+To adjust the logger level from the terminal use the command:
+
+
+(% class="box infomessage" %)
+(((
+$ rosservice call /&amp;lt;node-name>/set_logger_level ros.&amp;lt;package-name> LEVEL
+)))
+
+->The &amp;lt;node-name> is the name of the node whose logger level you would like to set
+
+->The package-name is,as you might expect, the name of the package that owns the node.
+
+->The LEVEL parameter is a string, chosen form DEBUG, INFO, WARN, ERROR, and FATAL, naming the logger level to use for the node.
+
+
+With a closer look on the command it will be obvious that it will only effect one single node and not the whole network.
+
+
+For example, to enable DEGUB-level messages in our example program, we could use this command:
+
+(% class="box infomessage" %)
+(((
+rosservice call /count_and_log/set_logger_level ros.agitr DEBUG
+)))
+
+
+===== 
+**Setting the logger-levels in the sourcecode ** =====
+
+To customize the logger-level using the C ++ API, the following call is used.
+
+(% class="box infomessage" %)
+(((
+if(ros::console::set_logger_level(ROSCONSOLE_DEFAULT_NAME,  
+        ros::console::levels::/*Insert logger-level*/)) {
+          ros::console::notifyLoggerLevelsChanged();
+    }
+)))
+
+
+At first, insert the apprechiated logger-level in the above source-code. The function inside the if-statement returns a bool. So, when the choosen logger-level differs from the active one the function ros::console::notifyLoggerLevelsChanged() sets the new level.
+
+
+(% class="box" %)
+(((
+There are a lot of logging-options around ROS and especally the ROS C++-API. This section is only a first impression on what is possible and where the way can lead to. When a more specific solution is required, it will be a good idea to have a look at ROS Wiki Logging or ROS Wiki Console. 
+)))
+
+
+@
+
+
+4.2
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1547544010000&lt;/date>
+  &lt;contentUpdateDate>1547544010000&lt;/contentUpdateDate>
+  &lt;version>4.2&lt;/version>
+d296 1
+@
+
+
+4.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.Logging in ros.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.Logging in ros&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1545382762000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1547543754000&lt;/date>
+  &lt;contentUpdateDate>1547543754000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+  &lt;title>Logging in ros&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content> 
+
+
+== **Logging in ros** ==
+
+----
+
+
+**Sitemap**
+
+
+
+* Logging in ROS
+** Usage
+** Displaying the logging-messages
+*** Usage of the terminal
+*** Usage of /rosout
+*** Log-Files
+** Adjusting the logger-levels
+*** Setting the logger-level in the terminal
+*** Setting the logger-levels in the sourcecode
+
+== 
+**Logging in ROS** ==
+
+----
+
+ROS provides logging_messages to find mistakes faster (or at all). The logging in ROS is separated in five stages:
+
+* debug
+* info
+* warn
+* error
+* fatal
+
+The idea ist to generate a lot of messages from type debug and reduce the frequency with rising in the hierarchy. Debug messages are relativly irrelevant when the systems runs as expected, but may be very helpful when something does not work as supposed. In opposite, a fatal-message should be very seldom, but when this message appears something very bad happens. An example may be a missing(% class="mark" %) ros::init()(%%) before a handle declaration.
+
+
+The remaining levels are not sorted in a static scheme. It is up to the developer to make the proper decision about assigning the levels.
+
+
+== **Usage** ==
+
+----
+
+logging-message are used by so called macros. These are availible after including the header file ros/ros.h. The syntax is as follows:
+
+(% class="box infomessage" %)
+(((
+ROS_DEBUG_STREAM(message); ~/~/prints debug-message
+
+
+ROS_INFO_STREAM(message); ~/~/prints info-message
+
+
+ROS_WARN_STREAM(message); ~/~/prints warning
+
+
+ROS_ERROR_STREAM(message); ~/~/prints error
+
+
+ROS_FATAL_STREAM(message); ~/~/prints fatal-error
+)))
+
+
+
+(% class="box" %)
+(((
+Note: In this section the code will be only snippets and is not compilable. This should increase readability. To compile the snippets, put them in a standard ROS node.
+)))
+
+One oppotunity is to use these macros like an ostream-object (e.g. std::cout). The usage with the stream-operator is also the same. For example:
+
+
+(% class="box infomessage" %)
+(((
+int i = 0;
+ROS_INFO_STREAM("Integer 'i' set to: " &amp;lt;&amp;lt; i);
+)))
+
+
+Further it is possible to use the macros in the C related printf style.
+
+
+A comprehensibly usecase is to print a logging message only once, because it may be just an information about a possible error. When this logging-command is located in a loop it is printed in every iteration. This behavior can be a problem, because the terminal output will get very confusing and the advanteage of logging is gone. So, the task is to print a message in a loop just once.
+
+
+The first attempt can be solution with C++-"bord-equiment":
+
+
+(% class="box infomessage" %)
+(((
+ while(ros::ok()){ ~/~/loop executes till eternity
+    static bool info_published = false; ~/~/static var initialized
+
+
+    if(!info_published){ ~/~/info should only be published once
+
+
+        ROS_INFO("message goes here!");  ~/~/output
+        info_published = true;} ~/~/change value after first iteration
+    }
+)))
+
+
+The outer while-loop has no deeper sense. The message can be nested in an if-statement which is triggered by a bool-variable. This variable has to be declared static, because it lives in a loop.
+
+
+When the message has been printed the bool changes to true an the if-statement will not be executed again. Admittedly, the solution is simple, but there is much more simpler solution.
+
+
+With adding _ONCE to the former logging command, the message will be only printed once without installing helping values or something like that. The above example transforms to:
+
+
+(% class="box infomessage" %)
+(((
+while(ros::ok()){ ~/~/loop executes till eternity
+        ROS_INFO_STREAM_ONCE("message goes here!");}
+)))
+
+For printing message in a fixed frequency, use the command:
+
+(% class="box infomessage" %)
+(((
+ROS_..._STREAM_THROTTLE(intervall,message);
+)))
+
+Of course, it will work also for the syntax in the fprint-style.
+An exemplary usage may be:
+
+(% class="box infomessage" %)
+(((
+while(ros::ok()){ ~/~/loop executes till eternity
+    ROS_INFO_STREAM_THROTTLE(2.0,"2 seconds gone!");}
+)))
+
+ The troubleshooting can be eased with triggering the message by a special event. There are often events the developer knows about, but has no influence on it. The best example is user input. The developer knows, that the user can enter invalid input. But the developer can not prevent it (the usage of regex and other catastrophe-prevention-tools is here excluded.). So, it will be useful to have an event-based logging-message. ROS provides this under the name (% class="mark" %)ROS_..._STREAM_COND(condition,message).
+
+
+The usage is similiar to the above examples:
+
+(% class="box infomessage" %)
+(((
+int main(argc, ~*~*argv){
+ROS_WARN_STREAM_COND(argc > 1, "Too much input!");
+}
+)))
+
+
+
+== 
+**Displaying the logging-messages** ==
+
+----
+
+There are several ways to display the former created messages. Three important ways will be shown in the following.
+
+
+===== 
+**Usage of the terminal** =====
+
+Linux-users are familiar to the usage of redirecting message-streamsin the terminal. It is a quite simple process. At first, it is important to consider that there are two streams, the "standard output" (stdout) and the "standard error"(stderr). The difference between these two is that the stdout is buffered, which will increase the performance, and the stderr prints every symbol directly, which will increase the chance to get a (partly) output, if the program dies.
+
+
+However, to write the stdout from a node to a file use:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun [package-name] [executable-name] > filename
+)))
+
+The logging-messages from type debug and info are published through the stdout, while the more critical messages are assigned to the stderr.
+
+
+To combine the two streams to one file replace the operator in the former examples with &amp;amp;&amp;gt;[^stdout_stderr].
+
+
+There are a lot of possibilities to combine the operators, see: IEEE Std 1003.1-2008, 2016 Edition
+
+
+The message can be adjusted regarding to the structure and the information content. In standard configuration the message starts with a the message type followed by a timestamp. To bring in more details the attributes for the file $[file], the function $[function] and the line in the source code $[line] can be added.
+
+
+For example1: 
+
+
+(% class="box infomessage" %)
+(((
+$ export ROSCONSOLE_FORMAT='[${severity}] [${time}]-> ${file}, ${line}: ${message}'
+)))
+
+
+For demonstration purpose the info message of the server-client-adder is reprinted. Compare the output now and then:
+
+
+(% class="box infomessage" %)
+(((
+ [ WARN] [1503907176.701167360]-> /home/ubuntu-ros/catkin_ws/src/calculator/src/client.cpp, 9: Enter two int_numbers!
+)))
+
+
+===== 
+**Usage of /rosout** =====
+
+In addition to the output in the terminal, every logging-message is published under the topic /rosout. With the command
+
+(% class="box infomessage" %)
+(((
+$ rostopic echo /rosout
+)))
+
+the outputstream (or messagestream) is printed to the terminal. With respect to the knowledgements from the former section this stream can be passed to a file, for example:
+
+(% class="box infomessage" %)
+(((
+$ rostopic echo /rosout &amp;amp;&amp;gt; ~_~_log_file.txt
+)))
+
+===== 
+**Log-Files** =====
+
+Another possibility to find out what happen is to analyze the automatic generated log-files. The log-files are saved under ~~/.ros/log_id/**rund_id**/rosout.log. The **run_id **is generated by the roscore when starting the ROS-network. To get the** run_id** check the terminal in which the roscore runs or type in a new terminal [^ros_param]
+
+
+(% class="box infomessage" %)
+(((
+$ rosparam get /run_id
+)))
+
+Log-files will not be removed by the system or ROS itself. ROS just gives a hint, that more than 1GB of space are occupied by the log-files. To check the actual amount of space occupied by the log-files, type in:
+
+(% class="box infomessage" %)
+(((
+$ rosclean check
+)))
+
+ and to erase the whole log-history use:
+
+
+(% class="box infomessage" %)
+(((
+$ rosclean purge
+)))
+
+ The ability to delete individual files/folders, of course, remains untouched.
+
+
+==   ==
+
+== 
+**Adjusting the logger-levels** ==
+
+----
+
+Types which have a lower priority than the actual set level are not evaluated. For example, if the logger-level is set to info, all macros, that are from type debug, are not published. The logger-level can be changed by using the terminal or by a command within the sourcecode.
+
+
+===== 
+**Setting the logger-level in the terminal** =====
+
+To adjust the logger level from the terminal use the command:
+
+
+(% class="box infomessage" %)
+(((
+$ rosservice call /&amp;lt;node-name>/set_logger_level ros.&amp;lt;package-name> LEVEL
+)))
+
+->The &amp;lt;node-name> is the name of the node whose logger level you would like to set
+
+->The package-name is,as you might expect, the name of the package that owns the node.
+
+->The LEVEL parameter is a string, chosen form DEBUG, INFO, WARN, ERROR, and FATAL, naming the logger level to use for the node.
+
+With a closer look on the command it will be obvious that it will only effect one single node and not the whole network.
+
+
+===== 
+**Setting the logger-levels in the sourcecode ** =====
+
+To customize the logger-level using the C ++ API, the following call is used.
+
+(% class="box infomessage" %)
+(((
+if(ros::console::set_logger_level(ROSCONSOLE_DEFAULT_NAME,  
+        ros::console::levels::/*Insert logger-level*/)) {
+          ros::console::notifyLoggerLevelsChanged();
+    }
+)))
+
+
+At first, insert the apprechiated logger-level in the above source-code. The function inside the if-statement returns a bool. So, when the choosen logger-level differs from the active one the function ros::console::notifyLoggerLevelsChanged() sets the new level.
+
+
+(% class="box" %)
+(((
+There are a lot of logging-options around ROS and especally the ROS C++-API. This section is only a first impression on what is possible and where the way can lead to. When a more specific solution is required, it will be a good idea to have a look at ROS Wiki Logging or ROS Wiki Console. 
+)))
+
+
+1. This command could be entered in every terminal by hand. But then the command will only effect to this terminal. To adjust the structure for all terminals this command has to made as entry in bash.rc. &lt;/content>
+&lt;/xwikidoc>@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1545383349000&lt;/date>
+  &lt;contentUpdateDate>1545383349000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+a268 1
+(% class="wikigeneratedid" %)
+d290 6
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1545383283000&lt;/date>
+  &lt;contentUpdateDate>1545383260000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d24 1
+a24 1
+== Logging in ros ==
+d29 1
+a29 1
+Sitemap
+a42 1
+
+d44 1
+a44 1
+Logging in ROS ==
+d56 1
+a57 1
+The idea ist to generate a lot of messages from type debug and reduce the frequency with rising in the hierarchy. Debug messages are relativly irrelevant when the systems runs as expected, but may be very helpful when something does not work as supposed. In opposite, a fatal-message should be very seldom, but when this message appears something very bad happens. An example may be a missing(% class="mark" %) ros::init()(%%) before a handle declaration.
+a58 1
+
+d62 1
+a62 1
+== Usage ==
+d172 1
+a172 1
+Displaying the logging-messages ==
+d243 1
+a243 1
+Another possibility to find out what happen is to analyze the automatic generated log-files. The log-files are saved under ~~/.ros/log_id/**rund_id**/rosout.log. The **run_id **is generated by the roscore when starting the ROS-network. To get the** run_id** check the terminal in which the roscore runs or type in a new terminal [^ros_param]
+d269 3
+d273 1
+a273 1
+Adjusting the logger-levels ==
+@
+
+
+1.2
+log
+@@
+text
+@d13 1
+a13 1
+  &lt;date>1545383260000&lt;/date>
+d15 1
+a15 1
+  &lt;version>1.2&lt;/version>
+d18 1
+a18 1
+  &lt;minorEdit>true&lt;/minorEdit>
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1545382762000&lt;/date>
+  &lt;contentUpdateDate>1545382762000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d171 146
+a316 1
+ &lt;/content>
+@
+</versions>
+  <parent>Projects.MoRoP.ROS GettingStarted.WebHome</parent>
+  <author>XWiki.DavidDudzik</author>
+  <contentAuthor>XWiki.DavidDudzik</contentAuthor>
+  <date>1550748864000</date>
+  <contentUpdateDate>1550748864000</contentUpdateDate>
+  <version>7.1</version>
+  <title>Logging in ros</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>**Sitemap**
+
+----
+
+
+{{toc start="2"/}}
+
+
+
+----
+
+== (% style="color:inherit; font-family:inherit; font-size:26px" %)**Logging in ROS**(%%) ==
+
+----
+
+ROS provides logging_messages to find mistakes faster (or at all). The logging in ROS is separated in five stages:
+
+* debug
+* info
+* warn
+* error
+* fatal
+
+The idea ist to generate a lot of messages from type debug and reduce the frequency with rising in the hierarchy. Debug messages are relativly irrelevant when the systems runs as expected, but may be very helpful when something does not work as supposed. In opposite, a fatal-message should be very seldom, but when this message appears something very bad happens. An example may be a missing(% class="mark" %) ros::init()(%%) before a handle declaration.
+
+
+The remaining levels are not sorted in a static scheme. It is up to the developer to make the proper decision about assigning the levels.
+
+
+== **Usage** ==
+
+----
+
+logging-message are used by so called macros. These are availible after including the header file ros/ros.h. The syntax is as follows:
+
+(% class="box infomessage" %)
+(((
+ROS_DEBUG_STREAM(message); ~/~/prints debug-message
+
+
+ROS_INFO_STREAM(message); ~/~/prints info-message
+
+
+ROS_WARN_STREAM(message); ~/~/prints warning
+
+
+ROS_ERROR_STREAM(message); ~/~/prints error
+
+
+ROS_FATAL_STREAM(message); ~/~/prints fatal-error
+)))
+
+
+
+(% class="box" %)
+(((
+Note: In this section the code will be only snippets and is not compilable. This should increase readability. To compile the snippets, put them in a standard ROS node.
+)))
+
+One oppotunity is to use these macros like an ostream-object (e.g. std::cout). The usage with the stream-operator is also the same. For example:
+
+
+(% class="box infomessage" %)
+(((
+int i = 0;
+ROS_INFO_STREAM("Integer 'i' set to: " &lt;&lt; i);
+)))
+
+
+Further it is possible to use the macros in the C related printf style.
+
+
+A comprehensibly usecase is to print a logging message only once, because it may be just an information about a possible error. When this logging-command is located in a loop it is printed in every iteration. This behavior can be a problem, because the terminal output will get very confusing and the advanteage of logging is gone. So, the task is to print a message in a loop just once.
+
+
+The first attempt can be solution with C++-"bord-equiment":
+
+
+(% class="box infomessage" %)
+(((
+ while(ros::ok()){ ~/~/loop executes till eternity
+    static bool info_published = false; ~/~/static var initialized
+
+
+    if(!info_published){ ~/~/info should only be published once
+
+
+        ROS_INFO("message goes here!");  ~/~/output
+        info_published = true;} ~/~/change value after first iteration
+    }
+)))
+
+
+The outer while-loop has no deeper sense. The message can be nested in an if-statement which is triggered by a bool-variable. This variable has to be declared static, because it lives in a loop.
+
+
+When the message has been printed the bool changes to true an the if-statement will not be executed again. Admittedly, the solution is simple, but there is much more simpler solution.
+
+
+With adding _ONCE to the former logging command, the message will be only printed once without installing helping values or something like that. The above example transforms to:
+
+
+(% class="box infomessage" %)
+(((
+while(ros::ok()){ ~/~/loop executes till eternity
+        ROS_INFO_STREAM_ONCE("message goes here!");}
+)))
+
+For printing message in a fixed frequency, use the command:
+
+(% class="box infomessage" %)
+(((
+ROS_..._STREAM_THROTTLE(intervall,message);
+)))
+
+Of course, it will work also for the syntax in the fprint-style.
+An exemplary usage may be:
+
+(% class="box infomessage" %)
+(((
+while(ros::ok()){ ~/~/loop executes till eternity
+    ROS_INFO_STREAM_THROTTLE(2.0,"2 seconds gone!");}
+)))
+
+ The troubleshooting can be eased with triggering the message by a special event. There are often events the developer knows about, but has no influence on it. The best example is user input. The developer knows, that the user can enter invalid input. But the developer can not prevent it (the usage of regex and other catastrophe-prevention-tools is here excluded.). So, it will be useful to have an event-based logging-message. ROS provides this under the name (% class="mark" %)ROS_..._STREAM_COND(condition,message).
+
+
+The usage is similiar to the above examples:
+
+(% class="box infomessage" %)
+(((
+int main(argc, ~*~*argv){
+ROS_WARN_STREAM_COND(argc > 1, "Too much input!");
+}
+)))
+
+
+
+== **Displaying the logging-messages** ==
+
+----
+
+There are several ways to display the former created messages. Three important ways will be shown in the following.
+
+
+=== **Usage of the terminal** ===
+
+Linux-users are familiar to the usage of redirecting message-streamsin the terminal. It is a quite simple process. At first, it is important to consider that there are two streams, the "standard output" (stdout) and the "standard error"(stderr). The difference between these two is that the stdout is buffered, which will increase the performance, and the stderr prints every symbol directly, which will increase the chance to get a (partly) output, if the program dies.
+
+
+However, to write the stdout from a node to a file use:
+
+
+(% class="box infomessage" %)
+(((
+$ rosrun [package-name] [executable-name] > filename
+)))
+
+The logging-messages from type debug and info are published through the stdout, while the more critical messages are assigned to the stderr.
+
+
+To combine the two streams to one file replace the operator in the former examples with &amp;&gt;[^stdout_stderr].
+
+
+There are a lot of possibilities to combine the operators, see: IEEE Std 1003.1-2008, 2016 Edition
+
+
+The message can be adjusted regarding to the structure and the information content. In standard configuration the message starts with a the message type followed by a timestamp. To bring in more details the attributes for the file $[file], the function $[function] and the line in the source code $[line] can be added.
+
+
+For example1: 
+
+
+(% class="box infomessage" %)
+(((
+$ export ROSCONSOLE_FORMAT='[${severity}] [${time}]-> ${file}, ${line}: ${message}'
+)))
+
+
+For demonstration purpose the info message of the server-client-adder is reprinted. Compare the output now and then:
+
+
+(% class="box infomessage" %)
+(((
+ [ WARN] [1503907176.701167360]-> /home/ubuntu-ros/catkin_ws/src/calculator/src/client.cpp, 9: Enter two int_numbers!
+)))
+
+
+=== **Usage of /rosout** ===
+
+In addition to the output in the terminal, every logging-message is published under the topic /rosout. With the command
+
+(% class="box infomessage" %)
+(((
+$ rostopic echo /rosout
+)))
+
+the outputstream (or messagestream) is printed to the terminal. With respect to the knowledgements from the former section this stream can be passed to a file, for example:
+
+(% class="box infomessage" %)
+(((
+$ rostopic echo /rosout &amp;&gt; ~_~_log_file.txt
+)))
+
+=== **Log-Files** ===
+
+Another possibility to find out what happen is to analyze the automatic generated log-files. The log-files are saved under ~~/.ros/log_id/**rund_id**/rosout.log. The **run_id **is generated by the roscore when starting the ROS-network. To get the** run_id** check the terminal in which the roscore runs or type in a new terminal [^ros_param]
+
+
+(% class="box infomessage" %)
+(((
+$ rosparam get /run_id
+)))
+
+Log-files will not be removed by the system or ROS itself. ROS just gives a hint, that more than 1GB of space are occupied by the log-files. To check the actual amount of space occupied by the log-files, type in:
+
+(% class="box infomessage" %)
+(((
+$ rosclean check
+)))
+
+ and to erase the whole log-history use:
+
+
+(% class="box infomessage" %)
+(((
+$ rosclean purge
+)))
+
+ The ability to delete individual files/folders, of course, remains untouched.
+
+
+== **Adjusting the logger-levels** ==
+
+----
+
+Types which have a lower priority than the actual set level are not evaluated. For example, if the logger-level is set to info, all macros, that are from type debug, are not published. The logger-level can be changed by using the terminal or by a command within the sourcecode.
+
+
+=== **Setting the logger-level in the terminal** ===
+
+To adjust the logger level from the terminal use the command:
+
+
+(% class="box infomessage" %)
+(((
+$ rosservice call /&lt;node-name>/set_logger_level ros.&lt;package-name> LEVEL
+)))
+
+->The &lt;node-name> is the name of the node whose logger level you would like to set
+
+->The package-name is,as you might expect, the name of the package that owns the node.
+
+->The LEVEL parameter is a string, chosen form DEBUG, INFO, WARN, ERROR, and FATAL, naming the logger level to use for the node.
+
+
+With a closer look on the command it will be obvious that it will only effect one single node and not the whole network.
+
+
+For example, to enable DEGUB-level messages in our example program, we could use this command:
+
+(% class="box infomessage" %)
+(((
+rosservice call /count_and_log/set_logger_level ros.agitr DEBUG
+)))
+
+
+=== **Setting the logger-levels in the sourcecode ** ===
+
+To customize the logger-level using the C ++ API, the following call is used.
+
+(% class="box infomessage" %)
+(((
+if(ros::console::set_logger_level(ROSCONSOLE_DEFAULT_NAME,  
+        ros::console::levels::/*Insert logger-level*/)) {
+          ros::console::notifyLoggerLevelsChanged();
+    }
+)))
+
+
+At first, insert the apprechiated logger-level in the above source-code. The function inside the if-statement returns a bool. So, when the choosen logger-level differs from the active one the function ros::console::notifyLoggerLevelsChanged() sets the new level.
+
+
+(% class="box" %)
+(((
+There are a lot of logging-options around ROS and especally the ROS C++-API. This section is only a first impression on what is possible and where the way can lead to. When a more specific solution is required, it will be a good idea to have a look at ROS Wiki Logging or ROS Wiki Console. 
+)))
+
+
+1. This command could be entered in every terminal by hand. But then the command will only effect to this terminal. To adjust the structure for all terminals this command has to made as entry in bash.rc. </content>
+</xwikidoc>

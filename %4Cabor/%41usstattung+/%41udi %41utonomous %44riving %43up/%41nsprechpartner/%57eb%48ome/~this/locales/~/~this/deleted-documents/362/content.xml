@@ -1,0 +1,198 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Labor.Ausstattung .Audi Autonomous Driving Cup.Ansprechpartner.WebHome" locale="">
+  <web>Labor.Ausstattung .Audi Autonomous Driving Cup.Ansprechpartner</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>de</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.SteffenBaumann</creator>
+  <creationDate>1539248428000</creationDate>
+  <versions>head	6.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+6.1
+date	2018.10.11.09.11.31;	author XWiki_2ESteffenBaumann;	state full;
+branches;
+next	5.1;
+
+5.1
+date	2018.10.11.09.08.35;	author XWiki_2ESteffenBaumann;	state full;
+branches;
+next	4.1;
+
+4.1
+date	2018.10.11.09.07.36;	author XWiki_2ESteffenBaumann;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2018.10.11.09.05.16;	author XWiki_2ESteffenBaumann;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2018.10.11.09.04.19;	author XWiki_2ESteffenBaumann;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2018.10.11.09.00.28;	author XWiki_2ESteffenBaumann;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+6.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Labor.Ausstattung .Audi Autonomous Driving Cup.Ansprechpartner.WebHome" locale="">
+  &lt;web>Labor.Ausstattung .Audi Autonomous Driving Cup.Ansprechpartner&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.SteffenBaumann&lt;/creator>
+  &lt;creationDate>1539248428000&lt;/creationDate>
+  &lt;parent>Labor.Ausstattung .Audi Autonomous Driving Cup.WebHome&lt;/parent>
+  &lt;author>XWiki.SteffenBaumann&lt;/author>
+  &lt;contentAuthor>XWiki.SteffenBaumann&lt;/contentAuthor>
+  &lt;date>1539249091000&lt;/date>
+  &lt;contentUpdateDate>1539249091000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+  &lt;title>Contacts&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>* Project Manager
+** [[Professor Andreas Becker>>doc:XWiki.AndreasBecker||target="_blank"]]
+* Staff
+** [[Steffen Baumann>>doc:XWiki.SteffenBaumann||target="_blank"]]&lt;/content>
+&lt;/xwikidoc>@
+
+
+5.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Labor.Ausstattung .Audi Autonomous Driving Cup.Ansprechpartner.WebHome" locale="">
+  &lt;web>Labor.Ausstattung .Audi Autonomous Driving Cup.Ansprechpartner&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>de&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.SteffenBaumann&lt;/creator>
+  &lt;creationDate>1539248428000&lt;/creationDate>
+  &lt;parent>Labor.Ausstattung .Audi Autonomous Driving Cup.WebHome&lt;/parent>
+  &lt;author>XWiki.SteffenBaumann&lt;/author>
+  &lt;contentAuthor>XWiki.SteffenBaumann&lt;/contentAuthor>
+  &lt;date>1539248915000&lt;/date>
+  &lt;contentUpdateDate>1539248915000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+  &lt;title>Ansprechpartner&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>* Verantwortlicher Professor
+** [[Professor Andreas Becker>>doc:XWiki.AndreasBecker||target="_blank"]]
+* Mitarbeiter
+** [[Steffen Baumann>>doc:XWiki.SteffenBaumann||target="_blank"]]&lt;/content>
+&lt;/xwikidoc>@
+
+
+4.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1539248856000&lt;/date>
+  &lt;contentUpdateDate>1539248856000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+d21 4
+a24 7
+  &lt;content>Verantwortlicher Professor
+
+[[Professor Andreas Becker>>doc:XWiki.AndreasBecker||target="_blank"]]
+
+Mitarbeiter
+
+[[Steffen Baumann>>doc:XWiki.SteffenBaumann||target="_blank"]]&lt;/content>
+@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1539248716000&lt;/date>
+  &lt;contentUpdateDate>1539248716000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d21 7
+a27 3
+  &lt;content>Verantwortlicher Professor&amp;#xd;
+&amp;#xd;
+[[Professor Andreas Becker>>doc:XWiki.AndreasBecker || _target:blank]]&lt;/content>
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1539248659000&lt;/date>
+  &lt;contentUpdateDate>1539248659000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d21 3
+a23 3
+  &lt;content>Verantwortlicher Professor
+
+[[Professor Andreas Becker>>doc:XWiki.AndreasBecker]]&lt;/content>
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1539248428000&lt;/date>
+  &lt;contentUpdateDate>1539248428000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+d21 3
+a23 1
+  &lt;content>test&lt;/content>
+@
+</versions>
+  <parent>Labor.Ausstattung .Audi Autonomous Driving Cup.WebHome</parent>
+  <author>XWiki.SteffenBaumann</author>
+  <contentAuthor>XWiki.SteffenBaumann</contentAuthor>
+  <date>1539249091000</date>
+  <contentUpdateDate>1539249091000</contentUpdateDate>
+  <version>6.1</version>
+  <title>Contacts</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>* Project Manager
+** [[Professor Andreas Becker>>doc:XWiki.AndreasBecker||target="_blank"]]
+* Staff
+** [[Steffen Baumann>>doc:XWiki.SteffenBaumann||target="_blank"]]</content>
+</xwikidoc>

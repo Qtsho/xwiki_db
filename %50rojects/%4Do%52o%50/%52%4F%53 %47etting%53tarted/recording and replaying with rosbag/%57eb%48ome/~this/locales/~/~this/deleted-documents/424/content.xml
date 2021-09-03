@@ -1,0 +1,683 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.recording and replaying with rosbag.WebHome" locale="">
+  <web>Projects.MoRoP.ROS GettingStarted.recording and replaying with rosbag</web>
+  <name>WebHome</name>
+  <language/>
+  <defaultLanguage>en</defaultLanguage>
+  <translation>0</translation>
+  <creator>XWiki.DavidDudzik</creator>
+  <creationDate>1549621169000</creationDate>
+  <versions>head	7.2;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+7.2
+date	2019.10.31.12.37.08;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	7.1;
+
+7.1
+date	2019.02.21.11.33.11;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	6.1;
+
+6.1
+date	2019.02.21.11.32.33;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	5.1;
+
+5.1
+date	2019.02.21.09.27.17;	author XWiki_2EDavidDudzik;	state full;
+branches;
+next	4.1;
+
+4.1
+date	2019.02.21.09.26.41;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	3.1;
+
+3.1
+date	2019.02.21.09.26.08;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	2.1;
+
+2.1
+date	2019.02.08.10.47.08;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	1.1;
+
+1.1
+date	2019.02.08.10.19.29;	author XWiki_2EDavidDudzik;	state diff;
+branches;
+next	;
+
+
+desc
+@@
+
+
+7.2
+log
+@Updated parent field.
+@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.recording and replaying with rosbag.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.recording and replaying with rosbag&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1549621169000&lt;/creationDate>
+  &lt;parent>xwiki:Allgemein.Hilfestellungen.ROS.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1572525428000&lt;/date>
+  &lt;contentUpdateDate>1550748791000&lt;/contentUpdateDate>
+  &lt;version&gt;7.2&lt;/version>
+  &lt;title>recording and replaying with rosbag&lt;/title>
+  &lt;comment>Updated parent field.&lt;/comment>
+  &lt;minorEdit>true&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content> 
+
+**Sitemap**
+
+----
+
+{{toc start="2"/}}
+
+
+
+
+
+
+== Recording and replaying with rosbag ==
+
+----
+
+For the development of algorithms and general debugging, it can be very helpful to record the behavior or the information of the robot in certain situations and to analyze it afterwards. Fur this purpose ros provides the package "rosbag". This package makes it possible to to record and replay messages, that are published under the appropriate topics.
+
+
+
+----
+
+=== Recording ===
+
+Usually, the reording will be launched by entering a command in the terminal. The basic command, without any options: is:
+
+(% class="box infomessage" %)
+(((
+$ rosbag record &amp;lt;topic>
+)))
+
+The entry  has to be replaced with the topic, which should be recorded. rosbag records now every messages according to this topic and creates a file with the structure ".bag". To create a more clarifired name for the file, use the option -O. The usage of this option is as follows:
+
+(% class="box infomessage" %)
+(((
+$ rosbag record –O &amp;lt;recording-name>.bag &amp;lt;topic>
+)))
+
+The name of the .bag-file will be &amp;lt;recording_name>.bag. If a time stamp will be required additionally, use instead of -O the option with a lower case (-o).
+
+(% class="box" %)
+(((
+Note upper- and lowercase!
+)))
+
+The option -a will record all availible topic. But take care, depeing on the sensor setup of the robot the amount of data will increase rapidly. Generally, imaging sensors like cameras or multi-level laserscanners are critical with regard on amount of data.
+
+
+//For further options visit http:~/~/wiki.ros.org/rosbag or use//
+
+(% class="box infomessage" %)
+(((
+$ rosbag record –h
+)))
+
+The following table will provide a quick-overview.
+
+
+
+
+pic
+
+
+
+
+
+=== Replaying ===
+
+----
+
+One opportunity is to import the recorded .bag-files into matlab and then analyze them there (this is only possible with the appropriate toolbox). Another method is to replay the recording in the ROS-network. The recording will be published with the acutal time stamp of the system clock ("wall clock"). The general command is:
+
+
+(% class="box infomessage" %)
+(((
+$ rosbag play &amp;lt;recording-name>.bag
+)))
+
+So, this command will use the actual system time. But sometimes it is required to use the time stamps provides by the recorded .bag-file. For example to toggle the messages step by step. However, to publish the simulated time, use:
+
+(% class="box infomessage" %)
+(((
+$ rosbag play ~-~-clock &amp;lt;recording-name>.bag
+)))
+
+The option(% class="mark" %) ~-~-clock(%%) starts a clock server. To use a clock server the global parameter use_sim_time  has to be set to true (what parameters are and what they can be ued for will follow in a later section). Set this parameter with:
+
+(% class="box infomessage" %)
+(((
+rosparam set /use_sim_time true
+)))
+
+Now the timestamps from the .bag-file are used in the ROS-network instead of the wallclock.
+
+There are a lot of further options around (% class="mark" %)rosbag play.(%%) The most important are listet in the following table:
+
+
+
+pic
+
+
+
+**Remarks:**
+
+* ~-~-pause can be used to start the replay in paused mode. This means, just the first message will be send. Afterwards, the user has the option the resume the replay with hitting the spacebar (and to pause it later with hitting spacebar again) or to toggle the messages with the key 's'.
+* ~-~-keep-alive: The node stays alive even after the last message. This is important for so-called latched messages. Latched messages is a special option for publisher, for further informations see http:~/~/wiki.ros.org/roscpp/Overview/Publishers%20and%20Subscribers#Publisher_Options.
+
+
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+7.1
+log
+@@
+text
+@d10 1
+a10 1
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+d13 1
+a13 1
+  &lt;date>1550748791000&lt;/date>
+d15 1
+a15 1
+  &lt;version>7.1&lt;/version>
+d17 2
+a18 2
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+@
+
+
+6.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550748753000&lt;/date>
+  &lt;contentUpdateDate>1550748753000&lt;/contentUpdateDate>
+  &lt;version>6.1&lt;/version>
+a30 1
+----
+d32 2
+d36 1
+d57 1
+a57 1
+$ rosbag record –O &amp;lt;recording-name>.bag &amp;lt;topic&amp;gt;
+a129 1
+
+@
+
+
+5.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Projects.MoRoP.ROS GettingStarted.recording and replaying with rosbag.WebHome" locale="">
+  &lt;web>Projects.MoRoP.ROS GettingStarted.recording and replaying with rosbag&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language/>
+  &lt;defaultLanguage>en&lt;/defaultLanguage>
+  &lt;translation>0&lt;/translation>
+  &lt;creator>XWiki.DavidDudzik&lt;/creator>
+  &lt;creationDate>1549621169000&lt;/creationDate>
+  &lt;parent>Projects.MoRoP.ROS GettingStarted.WebHome&lt;/parent>
+  &lt;author>XWiki.DavidDudzik&lt;/author>
+  &lt;contentAuthor>XWiki.DavidDudzik&lt;/contentAuthor>
+  &lt;date>1550741237000&lt;/date>
+  &lt;contentUpdateDate>1550741237000&lt;/contentUpdateDate>
+  &lt;version>5.1&lt;/version>
+  &lt;title>recording and replaying with rosbag&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content> &amp;#xd;
+&amp;#xd;
+**Sitemap**&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+{{toc start="2"/}}&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+== Recording and replaying with rosbag ==&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+For the development of algorithms and general debugging, it can be very helpful to record the behavior or the information of the robot in certain situations and to analyze it afterwards. Fur this purpose ros provides the package "rosbag". This package makes it possible to to record and replay messages, that are published under the appropriate topics.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+=== Recording ===&amp;#xd;
+&amp;#xd;
+Usually, the reording will be launched by entering a command in the terminal. The basic command, without any options: is:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosbag record &amp;lt;topic>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The entry  has to be replaced with the topic, which should be recorded. rosbag records now every messages according to this topic and creates a file with the structure ".bag". To create a more clarifired name for the file, use the option -O. The usage of this option is as follows:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosbag record –O &amp;lt;recording-name>.bag &amp;lt;topic>&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The name of the .bag-file will be &amp;lt;recording_name>.bag. If a time stamp will be required additionally, use instead of -O the option with a lower case (-o).&amp;#xd;
+&amp;#xd;
+(% class="box" %)&amp;#xd;
+(((&amp;#xd;
+Note upper- and lowercase!&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The option -a will record all availible topic. But take care, depeing on the sensor setup of the robot the amount of data will increase rapidly. Generally, imaging sensors like cameras or multi-level laserscanners are critical with regard on amount of data.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+//For further options visit http:~/~/wiki.ros.org/rosbag or use//&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosbag record –h&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The following table will provide a quick-overview.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+pic&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+=== Replaying ===&amp;#xd;
+&amp;#xd;
+----&amp;#xd;
+&amp;#xd;
+One opportunity is to import the recorded .bag-files into matlab and then analyze them there (this is only possible with the appropriate toolbox). Another method is to replay the recording in the ROS-network. The recording will be published with the acutal time stamp of the system clock ("wall clock"). The general command is:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosbag play &amp;lt;recording-name>.bag&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+So, this command will use the actual system time. But sometimes it is required to use the time stamps provides by the recorded .bag-file. For example to toggle the messages step by step. However, to publish the simulated time, use:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+$ rosbag play ~-~-clock &amp;lt;recording-name>.bag&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+The option(% class="mark" %) ~-~-clock(%%) starts a clock server. To use a clock server the global parameter use_sim_time  has to be set to true (what parameters are and what they can be ued for will follow in a later section). Set this parameter with:&amp;#xd;
+&amp;#xd;
+(% class="box infomessage" %)&amp;#xd;
+(((&amp;#xd;
+rosparam set /use_sim_time true&amp;#xd;
+)))&amp;#xd;
+&amp;#xd;
+Now the timestamps from the .bag-file are used in the ROS-network instead of the wallclock.&amp;#xd;
+&amp;#xd;
+There are a lot of further options around (% class="mark" %)rosbag play.(%%) The most important are listet in the following table:&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+pic&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+**Remarks:**&amp;#xd;
+&amp;#xd;
+* ~-~-pause can be used to start the replay in paused mode. This means, just the first message will be send. Afterwards, the user has the option the resume the replay with hitting the spacebar (and to pause it later with hitting spacebar again) or to toggle the messages with the key 's'.&amp;#xd;
+* ~-~-keep-alive: The node stays alive even after the last message. This is important for so-called latched messages. Latched messages is a special option for publisher, for further informations see http:~/~/wiki.ros.org/roscpp/Overview/Publishers%20and%20Subscribers#Publisher_Options.&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+&amp;#xd;
+ &lt;/content>
+&lt;/xwikidoc>@
+
+
+4.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550741201000&lt;/date>
+  &lt;contentUpdateDate>1550741201000&lt;/contentUpdateDate>
+  &lt;version>4.1&lt;/version>
+d28 2
+d32 1
+a32 1
+= Recording and replaying with rosbag =&amp;#xd;
+d41 1
+a41 1
+== Recording ==&amp;#xd;
+d85 1
+a85 1
+== Replaying ==&amp;#xd;
+a128 1
+&amp;#xd;
+@
+
+
+3.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1550741168000&lt;/date>
+  &lt;contentUpdateDate>1550741168000&lt;/contentUpdateDate>
+  &lt;version>3.1&lt;/version>
+d30 1
+a30 1
+== Recording and replaying with rosbag ==&amp;#xd;
+d39 1
+a39 1
+=== Recording ===&amp;#xd;
+a127 1
+&amp;#xd;
+@
+
+
+2.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1549622828000&lt;/date>
+  &lt;contentUpdateDate>1549622828000&lt;/contentUpdateDate>
+  &lt;version>2.1&lt;/version>
+d21 108
+a128 112
+  &lt;content> 
+
+**Sitemap**
+
+
+
+* Recording and replaying with rosbag
+** Recording
+** Replaying
+
+----
+
+== Recording and replaying with rosbag ==
+
+
+For the development of algorithms and general debugging, it can be very helpful to record the behavior or the information of the robot in certain situations and to analyze it afterwards. Fur this purpose ros provides the package "rosbag". This package makes it possible to to record and replay messages, that are published under the appropriate topics.
+
+
+
+----
+
+=== Recording ===
+
+Usually, the reording will be launched by entering a command in the terminal. The basic command, without any options: is:
+
+(% class="box infomessage" %)
+(((
+$ rosbag record &amp;lt;topic>
+)))
+
+The entry  has to be replaced with the topic, which should be recorded. rosbag records now every messages according to this topic and creates a file with the structure ".bag". To create a more clarifired name for the file, use the option -O. The usage of this option is as follows:
+
+(% class="box infomessage" %)
+(((
+$ rosbag record –O &amp;lt;recording-name>.bag &amp;lt;topic>
+)))
+
+The name of the .bag-file will be &amp;lt;recording_name>.bag. If a time stamp will be required additionally, use instead of -O the option with a lower case (-o).
+
+(% class="box" %)
+(((
+Note upper- and lowercase!
+)))
+
+The option -a will record all availible topic. But take care, depeing on the sensor setup of the robot the amount of data will increase rapidly. Generally, imaging sensors like cameras or multi-level laserscanners are critical with regard on amount of data.
+
+
+//For further options visit http:~/~/wiki.ros.org/rosbag or use//
+
+(% class="box infomessage" %)
+(((
+$ rosbag record –h
+)))
+
+The following table will provide a quick-overview.
+
+
+
+
+pic
+
+
+
+
+
+Replaying
+
+----
+
+One opportunity is to import the recorded .bag-files into matlab and then analyze them there (this is only possible with the appropriate toolbox). Another method is to replay the recording in the ROS-network. The recording will be published with the acutal time stamp of the system clock ("wall clock"). The general command is:
+
+
+(% class="box infomessage" %)
+(((
+$ rosbag play &amp;lt;recording-name>.bag
+)))
+
+So, this command will use the actual system time. But sometimes it is required to use the time stamps provides by the recorded .bag-file. For example to toggle the messages step by step. However, to publish the simulated time, use:
+
+(% class="box infomessage" %)
+(((
+$ rosbag play ~-~-clock &amp;lt;recording-name>.bag
+)))
+
+The option(% class="mark" %) ~-~-clock(%%) starts a clock server. To use a clock server the global parameter use_sim_time  has to be set to true (what parameters are and what they can be ued for will follow in a later section). Set this parameter with:
+
+(% class="box infomessage" %)
+(((
+rosparam set /use_sim_time true
+)))
+
+Now the timestamps from the .bag-file are used in the ROS-network instead of the wallclock.
+
+There are a lot of further options around (% class="mark" %)rosbag play.(%%) The most important are listet in the following table:
+
+
+
+pic
+
+
+
+**Remarks:**
+
+* ~-~-pause can be used to start the replay in paused mode. This means, just the first message will be send. Afterwards, the user has the option the resume the replay with hitting the spacebar (and to pause it later with hitting spacebar again) or to toggle the messages with the key 's'.
+* ~-~-keep-alive: The node stays alive even after the last message. This is important for so-called latched messages. Latched messages is a special option for publisher, for further informations see http:~/~/wiki.ros.org/roscpp/Overview/Publishers%20and%20Subscribers#Publisher_Options.
+
+
+
+
+
+
+
+@
+
+
+1.1
+log
+@@
+text
+@d13 3
+a15 3
+  &lt;date>1549621169000&lt;/date>
+  &lt;contentUpdateDate>1549621169000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+a30 1
+
+d51 1
+d53 80
+@
+</versions>
+  <parent>xwiki:Allgemein.Hilfestellungen.ROS.ROS GettingStarted.WebHome</parent>
+  <author>XWiki.DavidDudzik</author>
+  <contentAuthor>XWiki.DavidDudzik</contentAuthor>
+  <date>1572525428000</date>
+  <contentUpdateDate>1550748791000</contentUpdateDate>
+  <version>7.2</version>
+  <title>recording and replaying with rosbag</title>
+  <comment>Updated parent field.</comment>
+  <minorEdit>true</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content> 
+
+**Sitemap**
+
+----
+
+{{toc start="2"/}}
+
+
+
+
+
+
+== Recording and replaying with rosbag ==
+
+----
+
+For the development of algorithms and general debugging, it can be very helpful to record the behavior or the information of the robot in certain situations and to analyze it afterwards. Fur this purpose ros provides the package "rosbag". This package makes it possible to to record and replay messages, that are published under the appropriate topics.
+
+
+
+----
+
+=== Recording ===
+
+Usually, the reording will be launched by entering a command in the terminal. The basic command, without any options: is:
+
+(% class="box infomessage" %)
+(((
+$ rosbag record &lt;topic>
+)))
+
+The entry  has to be replaced with the topic, which should be recorded. rosbag records now every messages according to this topic and creates a file with the structure ".bag". To create a more clarifired name for the file, use the option -O. The usage of this option is as follows:
+
+(% class="box infomessage" %)
+(((
+$ rosbag record –O &lt;recording-name>.bag &lt;topic>
+)))
+
+The name of the .bag-file will be &lt;recording_name>.bag. If a time stamp will be required additionally, use instead of -O the option with a lower case (-o).
+
+(% class="box" %)
+(((
+Note upper- and lowercase!
+)))
+
+The option -a will record all availible topic. But take care, depeing on the sensor setup of the robot the amount of data will increase rapidly. Generally, imaging sensors like cameras or multi-level laserscanners are critical with regard on amount of data.
+
+
+//For further options visit http:~/~/wiki.ros.org/rosbag or use//
+
+(% class="box infomessage" %)
+(((
+$ rosbag record –h
+)))
+
+The following table will provide a quick-overview.
+
+
+
+
+pic
+
+
+
+
+
+=== Replaying ===
+
+----
+
+One opportunity is to import the recorded .bag-files into matlab and then analyze them there (this is only possible with the appropriate toolbox). Another method is to replay the recording in the ROS-network. The recording will be published with the acutal time stamp of the system clock ("wall clock"). The general command is:
+
+
+(% class="box infomessage" %)
+(((
+$ rosbag play &lt;recording-name>.bag
+)))
+
+So, this command will use the actual system time. But sometimes it is required to use the time stamps provides by the recorded .bag-file. For example to toggle the messages step by step. However, to publish the simulated time, use:
+
+(% class="box infomessage" %)
+(((
+$ rosbag play ~-~-clock &lt;recording-name>.bag
+)))
+
+The option(% class="mark" %) ~-~-clock(%%) starts a clock server. To use a clock server the global parameter use_sim_time  has to be set to true (what parameters are and what they can be ued for will follow in a later section). Set this parameter with:
+
+(% class="box infomessage" %)
+(((
+rosparam set /use_sim_time true
+)))
+
+Now the timestamps from the .bag-file are used in the ROS-network instead of the wallclock.
+
+There are a lot of further options around (% class="mark" %)rosbag play.(%%) The most important are listet in the following table:
+
+
+
+pic
+
+
+
+**Remarks:**
+
+* ~-~-pause can be used to start the replay in paused mode. This means, just the first message will be send. Afterwards, the user has the option the resume the replay with hitting the spacebar (and to pause it later with hitting spacebar again) or to toggle the messages with the key 's'.
+* ~-~-keep-alive: The node stays alive even after the last message. This is important for so-called latched messages. Latched messages is a special option for publisher, for further informations see http:~/~/wiki.ros.org/roscpp/Overview/Publishers%20and%20Subscribers#Publisher_Options.
+
+
+ </content>
+</xwikidoc>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+   <master auto="start"/>
+ <!-- Run the map server --> 
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find heros_2dnav_t)/maps/hector.yaml"/>
+    <!--param name="frame_id" value="/odom" /-->
+    
+
+  <include file="$(find ts_alpha)/launch/ts_alpha_markers.launch"/>
+  <include file="$(find heros_2dnav_t)/launch/heros_configuration.launch"/>
+
+ <!--- Run AMCL --> 
+
+	<node pkg="amcl" type="amcl" name="amcl" output="screen">
+		<rosparam file="$(find heros_2dnav_t)/nav_param/amcl_params.yaml" command="load" />
+	</node>
+
+
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find heros_2dnav_t)/nav_param/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+    <rosparam file="$(find heros_2dnav_t)/nav_param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find heros_2dnav_t)/nav_param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find heros_2dnav_t)/nav_param/global_costmap_params.yaml" command="load" /> 
+    <rosparam file="$(find heros_2dnav_t)/nav_param/base_local_planner_params.yaml" command="load" />
+ </node>
+
+</launch> 

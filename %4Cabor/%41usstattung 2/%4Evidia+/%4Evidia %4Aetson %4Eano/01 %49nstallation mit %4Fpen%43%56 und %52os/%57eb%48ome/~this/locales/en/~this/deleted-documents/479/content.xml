@@ -1,0 +1,462 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<xwikidoc version="1.3" reference="Labor.Ausstattung 2.Nvidia .Nvidia Jetson Nano.01 Installation mit OpenCV und Ros.WebHome" locale="en">
+  <web>Labor.Ausstattung 2.Nvidia .Nvidia Jetson Nano.01 Installation mit OpenCV und Ros</web>
+  <name>WebHome</name>
+  <language>en</language>
+  <defaultLanguage/>
+  <translation>1</translation>
+  <creator>XWiki.makau005</creator>
+  <creationDate>1607431580000</creationDate>
+  <versions>head	1.1;
+access;
+symbols;
+locks; strict;
+comment	@# @;
+
+
+1.1
+date	2020.12.08.12.46.20;	author XWiki_2Emakau_30_30_35;	state full;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@@
+text
+@&lt;?xml version='1.1' encoding='UTF-8'?>
+&lt;xwikidoc version="1.3" reference="Labor.Ausstattung 2.Nvidia .Nvidia Jetson Nano.01 Installation mit OpenCV und Ros.WebHome" locale="en">
+  &lt;web>Labor.Ausstattung 2.Nvidia .Nvidia Jetson Nano.01 Installation mit OpenCV und Ros&lt;/web>
+  &lt;name>WebHome&lt;/name>
+  &lt;language>en&lt;/language>
+  &lt;defaultLanguage/>
+  &lt;translation>1&lt;/translation>
+  &lt;creator>XWiki.makau005&lt;/creator>
+  &lt;creationDate>1607431580000&lt;/creationDate>
+  &lt;author>XWiki.makau005&lt;/author>
+  &lt;contentAuthor>XWiki.makau005&lt;/contentAuthor>
+  &lt;date>1607431580000&lt;/date>
+  &lt;contentUpdateDate>1607431580000&lt;/contentUpdateDate>
+  &lt;version>1.1&lt;/version>
+  &lt;title>01 Installation mit OpenCV und Ros&lt;/title>
+  &lt;comment/>
+  &lt;minorEdit>false&lt;/minorEdit>
+  &lt;syntaxId>xwiki/2.1&lt;/syntaxId>
+  &lt;hidden>false&lt;/hidden>
+  &lt;content>= Nvidia Jetson Nano =&amp;#xd;
+&amp;#xd;
+{{toc/}}&amp;#xd;
+&amp;#xd;
+== Installation ==&amp;#xd;
+&amp;#xd;
+A detailed step-by-step startup guide can be found at [[https:~~/~~/developer.nvidia.com>>https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit]]. In the following, the most important steps are briefly summarized:&amp;#xd;
+&amp;#xd;
+1. Download the Image ([[https:~~/~~/developer.nvidia.com/jetson-nano-sd-card-image-r322>>https://developer.nvidia.com/jetson-nano-sd-card-image-r322]]). This is an Ubuntu 18.04 LTS with various additional components for hardware support (as of 07/2019). The image is compressed about 5 GB and unpacks about 12 GB.&amp;#xd;
+1. To flash on a μSD card, an SD card with at least 16GB (better 32GB or 64GB) is required. [[Etcher>>https://www.balena.io/etcher/]] is recommended as a Tool under Windows and [[dd>>https://wiki.ubuntuusers.de/dd/]] under Linux.&amp;#xd;
+1. AThen the μSD card is inserted (see picture below, no. 1) and for the first installation both a monitor via Hdmi or DisplayPort, as well as mouse and keyboard are connected.&amp;#xd;
+1. The power supply should ideally be made via the round plug (see fig. Below, no. 8). For the corresponding 5V power supply please contact the laboratory staff{{footnote}}Theoretisch kann das Board auch über den Micro-USB-Anschluss betrieben werden. Allerding ist dieser nur für 5V/2A (=10W) ausgelegt, sodass bei voller Auslastung des Nanos keine weitere Peripherie (z.B. Webcam) betrieben werden kann. Die von Nvidia spezifizierten 10W beziehen sich immer nur auf den Nano ohne weitere Peripherie!{{/footnote}}.&amp;#xd;
+1. Connect power supply to the house network and wait for booting. Subsequently, various agreements must be accepted and username, password and computer name must be set.&amp;#xd;
+**If these steps have not yet taken place, please contact the laboratory staff!**&amp;#xd;
+1. The default login is: user: **student**, password:** litpassword**&amp;#xd;
+&amp;#xd;
+(% style="text-align:center" %)&amp;#xd;
+[[image:https://developer.nvidia.com/sites/default/files/akamai/embedded/images/jetsonNano/gettingStarted/jetson-nano-dev-kit-top-r6-HR.png||height="400" width="459"]]&amp;#xd;
+&amp;#xd;
+In this image, all important CUDA drivers are already preinstalled by Nvidia, so there is not much to do here. However, the paths to the corresponding binaries and libraries still need to be maintained in the .bashrc file:&amp;#xd;
+&amp;#xd;
+{{code language="bash"}}&amp;#xd;
+#!/bin/bash&amp;#xd;
+&amp;#xd;
+set -e&amp;#xd;
+&amp;#xd;
+if ! grep 'cuda/bin' ${HOME}/.bashrc > /dev/null ; then&amp;#xd;
+  echo "** Add CUDA stuffs into ~/.bashrc"&amp;#xd;
+  echo >> ${HOME}/.bashrc&amp;#xd;
+  echo "export PATH=/usr/local/cuda/bin:\${PATH}" >> ${HOME}/.bashrc&amp;#xd;
+  echo "export LD_LIBRARY_PATH=/usr/local/cuda/lib64:\${LD_LIBRARY_PATH}" >> ${HOME}/.bashrc&amp;#xd;
+fi&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+Furthermore, with 4 GB of RAM, a sufficently large SWAP space (8 GB should suffice initially) should be considered:&amp;#xd;
+&amp;#xd;
+{{code}}&amp;#xd;
+$ sudo fallocate -l 8G /mnt/8GBi.swap&amp;#xd;
+$ sudo mkswap /mnt/8GBi.swap&amp;#xd;
+$ sudo swapon /mnt/8GBi.swap&amp;#xd;
+$ echo "/mnt/8GBi.swap  none  swap  sw 0  0" | sudo tee -a /etc/fstab > /dev/null &amp;#xd;
+&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+After a reboot, the SWAP space is available for the system.&amp;#xd;
+&amp;#xd;
+{{warning}}&amp;#xd;
+Without the expansion of the SWAP space, the failure of memory-intensive processes such as the creation of OpenCV is likely.&amp;#xd;
+{{/warning}}&amp;#xd;
+&amp;#xd;
+To conclude the installation, a few words to the // Jetson Clocks //, which are repeatedly mentioned in various descriptions. This is just a name for the four ARM cores and the GPU on the Nano. There are two different modes available, 5W and 10W modes. If an appropriately powerful power supply (see above) is used, the Nano can be configured for maximum power (= 10 W). To do this, execute the following command:&amp;#xd;
+&amp;#xd;
+{{code language="bash"}}&amp;#xd;
+sudo nvpmodel -m 1&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+Which mode is active, can be checked with&amp;#xd;
+&amp;#xd;
+{{code}}&amp;#xd;
+sudo nvpmodel -q&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+A somewhat detailed output, with, for example, the listing of the active CPU cores and the max. Frequencies, is achieved by the following command:&amp;#xd;
+&amp;#xd;
+{{code}}&amp;#xd;
+sudo jetson_clocks --show&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+== OpenCV 4.1.0 installation ==&amp;#xd;
+&amp;#xd;
+The current image (as of 07/19) will be delivered with OpenCV 3.3.1 (Release 10/2017).To be able to use all current functions, bug fixes and optimizations this version is removed and OpenCV 4.1.0 (release 04/2019) is installed. However, compiling the OpenCV library takes about 1-2 hours. Unless building options need to be changed, installation is preferable to an already compiled library.&amp;#xd;
+&amp;#xd;
+=== Recompile and installation ===&amp;#xd;
+&amp;#xd;
+If certain options for the construction process need to be reset or changed, recompiling is essential. A corresponding bash script, which takes over all necessary configurations{{footnote}}This script is originally from Nvidia, but has been adapted to the current release version of OpenCV.{{/footnote}}, can be downloaded [[here>>attach:install_opencv_4.1.0.sh]].&amp;#xd;
+&amp;#xd;
+Assuming that the downloaded script is in the home folder, the following commands must be executed in the terminal{{footnote}}Here it comes sometimes to mistakes. Occasionally, a CR has crept in from Windows. These must be removed!{{/footnote}}:&amp;#xd;
+&amp;#xd;
+{{code}}&amp;#xd;
+$ cd $HOME # Make sure we are in the correct folder&amp;#xd;
+$ sudo chmod +x install_opencv_4.1.0.sh # Set the rights that the script is executable&amp;#xd;
+$ ./install_opencv_4.1.0.sh &amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+The construction options can be customized in the bash script using any editor.&amp;#xd;
+&amp;#xd;
+=== Installation without recompile (Pre-Build) ===&amp;#xd;
+&amp;#xd;
+An already compiled OpenCV version 4.1.0 is available in the lab. The construction options used correspond to those in the [[above bash script>>attach:install_opencv_4.1.0.sh]]. To install, copy the archive //opencv-4.1.0.tar.gz //into the folder ///home/student// and open the bash script //install_opencv_4.1.0.sh //as follows:&amp;#xd;
+&amp;#xd;
+{{code}}&amp;#xd;
+sudo chmod +x install_prebuild_opencv4.1.0.sh&amp;#xd;
+. ./install_prebuild_opencv4.1.0.sh&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+The preceding point in line two must be observed!&amp;#xd;
+&amp;#xd;
+After successful installation, the path to the OpenCV libraries must still be announced in the system. For this purpose, the following configuration file is generated:&amp;#xd;
+&amp;#xd;
+{{code language="bash"}}&amp;#xd;
+sudo gedit /etc/ld.so.conf.d/opencv.conf&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+Then the path to the OpenCV-libs is inserted (///usr/local/lib//) and the configuration file is loaded:&amp;#xd;
+&amp;#xd;
+{{code language="bash"}}&amp;#xd;
+sudo ldconfig -v&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+== demo program ==&amp;#xd;
+&amp;#xd;
+=== compile and execute demo program ===&amp;#xd;
+&amp;#xd;
+The following [[demo program>>attach:example.cpp]] will allow you to check the installation of the library and to get a first impression of the use of CUDA in OpenCV (explanations below). After downloading the program, the building can be done:&amp;#xd;
+&amp;#xd;
+{{code language="bash"}}&amp;#xd;
+g++ example.cpp -L/usr/locale/lib  -I/usr/local/include/opencv4 -lopencv_core -lopencv_highgui -lopencv_videoio -lopencv_cudaimgproc -lopencv_imgproc -o example&amp;#xd;
+&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+By default, the display of the images is commented out, as the nano is often //headless// operated without graphical interface.&amp;#xd;
+&amp;#xd;
+If the program runs successfully, you should see the following console output:&amp;#xd;
+&amp;#xd;
+* Welcome to OpenCV 4.1.0&amp;#xd;
+* Number of GPUs: 1&amp;#xd;
+* GPU Time: xxx&amp;#xd;
+* CPU Time: xxx&amp;#xd;
+&amp;#xd;
+=== Explanation of the demo program ===&amp;#xd;
+&amp;#xd;
+In the following, some parts of the source code will be highlighted. For further explanations, please refer to the commentary in the source code.&amp;#xd;
+&amp;#xd;
+The function {{code language="c++"}}cv::cuda::getCudaEnabledDeviceCount(){{/code}} returns the number of existing or recognized GPUs, which can be used as sanity check:&amp;#xd;
+&amp;#xd;
+{{code language="C++"}}&amp;#xd;
+int num_gpu = cv::cuda::getCudaEnabledDeviceCount();&amp;#xd;
+std::cout &amp;lt;&amp;lt; "Number of GPUs: " &amp;lt;&amp;lt; num_gpu &amp;lt;&amp;lt; std::endl;&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+The processing of images on the GPU requires a different data type than that used by default in OpenCV. For calculations on the CPU, pictures typically use the {{code language="C++"}}cv::Mat{{/code}} data type:&amp;#xd;
+&amp;#xd;
+{{code language="C++"}}&amp;#xd;
+cv::Mat frame, Gframe, Gbuff_, Cframe;&amp;#xd;
+cv::cuda::GpuMat Gsrc, Gdst;&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+The top line displays the declaration of OpenCV matrices for use on CPU cores. Below is the datatype for matrices for use on GPU cores.&amp;#xd;
+&amp;#xd;
+To perform functions on the GPU, an //upload //is necessary in addition to the data type described above. This copies the data to the storage area of ​​the GPU:&amp;#xd;
+&amp;#xd;
+{{code language="C++"}}&amp;#xd;
+Gsrc.upload(Gframe_split[2]);&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+After all operations have been performed on the GPU, the data must be copied again from the storage area of ​​the GPU (//Download//):&amp;#xd;
+&amp;#xd;
+{{code language="C++"}}&amp;#xd;
+Gdst.download(Gbuff_);&amp;#xd;
+&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+When running the demo program, it may have already been noticed that the running time of the GPU process is only slightly faster or sometimes slower than on the CPU. The reason for this is the overhead in operations on the GPU and the lesser benefit of massive parallelization for smaller data sets.&amp;#xd;
+&amp;#xd;
+== ROS installation ==&amp;#xd;
+&amp;#xd;
+The Robot Operating System offers pre-builds for a variety of platforms. However, for Ubuntu 18.04 LTS only ROS distribution //Melodic Morenia// is available as LTS version. Since MoRoP currently has (as of 07/2019) //Kinetic Kame// installed, this will also be installed on the Nanos. For a variety of the necessary steps, there is a detailed guide [[here>>http://wiki.ros.org/Installation/Source]]. In the following, only those steps are explained in which the distribution has to be adapted. The first step is to install a package using Ubuntu Package Management:&amp;#xd;
+&amp;#xd;
+{{code language="bash"}}&amp;#xd;
+$ sudo apt-get install libtinyxml2-dev&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+It is recommended to limit the installation to the ROS-Comm version because GUI tools on the Nano, like all embedded systems, are not needed and the required memory requirements are lower. In the linked tutorial the installation for //Melodic Morenia// is described, so the following changes are necessary:&amp;#xd;
+&amp;#xd;
+{{code language="bash"}}$ rosinstall_generator ros_comm --rosdistro kinetic --deps --tar > kinetic-ros_comm.rosinstall&amp;#xd;
+$ wstool init -j2 src kinetic-ros_comm.rosinstall{{/code}}&amp;#xd;
+Before you can start the actual build process, you have to replace the package //ROS-Pack// in the ROS-Workspace (//~~/ros_catkin_ws//), otherwise there will most likly be an error. The following commands are used to exchange:&amp;#xd;
+&amp;#xd;
+{{code language="bash"}}&amp;#xd;
+cd ~/ros_catkin_ws/src&amp;#xd;
+rm -r rospack&amp;#xd;
+git clone https://github.com/ros/rospack.git&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+Subsequently, all necessary dependencies are resolved, whereby the change in the distribution must also be taken into account here:&amp;#xd;
+&amp;#xd;
+{{code}}$ rosdep install --from-paths src --ignore-src --rosdistro kinetic -y{{/code}}&amp;#xd;
+The following steps are the same for all distributions, so they can follow the above instructions.&amp;#xd;
+&amp;#xd;
+As a final step (after the building process has been completed), the source entry in the .bashrc is made persistent:&amp;#xd;
+&amp;#xd;
+{{code language="bash"}}&amp;#xd;
+echo "source ~/ros_catkin_ws/install_isolated/setup.bash" >> ~/.bashrc&amp;#xd;
+{{/code}}&amp;#xd;
+&amp;#xd;
+= Remote-Connection of the Nano =&amp;#xd;
+&amp;#xd;
+~{~{/code}}&amp;#xd;
+&amp;#xd;
+{{putFootnotes/}}&lt;/content>
+&lt;/xwikidoc>@
+</versions>
+  <author>XWiki.makau005</author>
+  <contentAuthor>XWiki.makau005</contentAuthor>
+  <date>1607431580000</date>
+  <contentUpdateDate>1607431580000</contentUpdateDate>
+  <version>1.1</version>
+  <title>01 Installation mit OpenCV und Ros</title>
+  <comment/>
+  <minorEdit>false</minorEdit>
+  <syntaxId>xwiki/2.1</syntaxId>
+  <hidden>false</hidden>
+  <content>= Nvidia Jetson Nano =&#xd;
+&#xd;
+{{toc/}}&#xd;
+&#xd;
+== Installation ==&#xd;
+&#xd;
+A detailed step-by-step startup guide can be found at [[https:~~/~~/developer.nvidia.com>>https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit]]. In the following, the most important steps are briefly summarized:&#xd;
+&#xd;
+1. Download the Image ([[https:~~/~~/developer.nvidia.com/jetson-nano-sd-card-image-r322>>https://developer.nvidia.com/jetson-nano-sd-card-image-r322]]). This is an Ubuntu 18.04 LTS with various additional components for hardware support (as of 07/2019). The image is compressed about 5 GB and unpacks about 12 GB.&#xd;
+1. To flash on a μSD card, an SD card with at least 16GB (better 32GB or 64GB) is required. [[Etcher>>https://www.balena.io/etcher/]] is recommended as a Tool under Windows and [[dd>>https://wiki.ubuntuusers.de/dd/]] under Linux.&#xd;
+1. AThen the μSD card is inserted (see picture below, no. 1) and for the first installation both a monitor via Hdmi or DisplayPort, as well as mouse and keyboard are connected.&#xd;
+1. The power supply should ideally be made via the round plug (see fig. Below, no. 8). For the corresponding 5V power supply please contact the laboratory staff{{footnote}}Theoretisch kann das Board auch über den Micro-USB-Anschluss betrieben werden. Allerding ist dieser nur für 5V/2A (=10W) ausgelegt, sodass bei voller Auslastung des Nanos keine weitere Peripherie (z.B. Webcam) betrieben werden kann. Die von Nvidia spezifizierten 10W beziehen sich immer nur auf den Nano ohne weitere Peripherie!{{/footnote}}.&#xd;
+1. Connect power supply to the house network and wait for booting. Subsequently, various agreements must be accepted and username, password and computer name must be set.&#xd;
+**If these steps have not yet taken place, please contact the laboratory staff!**&#xd;
+1. The default login is: user: **student**, password:** litpassword**&#xd;
+&#xd;
+(% style="text-align:center" %)&#xd;
+[[image:https://developer.nvidia.com/sites/default/files/akamai/embedded/images/jetsonNano/gettingStarted/jetson-nano-dev-kit-top-r6-HR.png||height="400" width="459"]]&#xd;
+&#xd;
+In this image, all important CUDA drivers are already preinstalled by Nvidia, so there is not much to do here. However, the paths to the corresponding binaries and libraries still need to be maintained in the .bashrc file:&#xd;
+&#xd;
+{{code language="bash"}}&#xd;
+#!/bin/bash&#xd;
+&#xd;
+set -e&#xd;
+&#xd;
+if ! grep 'cuda/bin' ${HOME}/.bashrc > /dev/null ; then&#xd;
+  echo "** Add CUDA stuffs into ~/.bashrc"&#xd;
+  echo >> ${HOME}/.bashrc&#xd;
+  echo "export PATH=/usr/local/cuda/bin:\${PATH}" >> ${HOME}/.bashrc&#xd;
+  echo "export LD_LIBRARY_PATH=/usr/local/cuda/lib64:\${LD_LIBRARY_PATH}" >> ${HOME}/.bashrc&#xd;
+fi&#xd;
+{{/code}}&#xd;
+&#xd;
+Furthermore, with 4 GB of RAM, a sufficently large SWAP space (8 GB should suffice initially) should be considered:&#xd;
+&#xd;
+{{code}}&#xd;
+$ sudo fallocate -l 8G /mnt/8GBi.swap&#xd;
+$ sudo mkswap /mnt/8GBi.swap&#xd;
+$ sudo swapon /mnt/8GBi.swap&#xd;
+$ echo "/mnt/8GBi.swap  none  swap  sw 0  0" | sudo tee -a /etc/fstab > /dev/null &#xd;
+&#xd;
+{{/code}}&#xd;
+&#xd;
+After a reboot, the SWAP space is available for the system.&#xd;
+&#xd;
+{{warning}}&#xd;
+Without the expansion of the SWAP space, the failure of memory-intensive processes such as the creation of OpenCV is likely.&#xd;
+{{/warning}}&#xd;
+&#xd;
+To conclude the installation, a few words to the // Jetson Clocks //, which are repeatedly mentioned in various descriptions. This is just a name for the four ARM cores and the GPU on the Nano. There are two different modes available, 5W and 10W modes. If an appropriately powerful power supply (see above) is used, the Nano can be configured for maximum power (= 10 W). To do this, execute the following command:&#xd;
+&#xd;
+{{code language="bash"}}&#xd;
+sudo nvpmodel -m 1&#xd;
+{{/code}}&#xd;
+&#xd;
+Which mode is active, can be checked with&#xd;
+&#xd;
+{{code}}&#xd;
+sudo nvpmodel -q&#xd;
+{{/code}}&#xd;
+&#xd;
+A somewhat detailed output, with, for example, the listing of the active CPU cores and the max. Frequencies, is achieved by the following command:&#xd;
+&#xd;
+{{code}}&#xd;
+sudo jetson_clocks --show&#xd;
+{{/code}}&#xd;
+&#xd;
+== OpenCV 4.1.0 installation ==&#xd;
+&#xd;
+The current image (as of 07/19) will be delivered with OpenCV 3.3.1 (Release 10/2017).To be able to use all current functions, bug fixes and optimizations this version is removed and OpenCV 4.1.0 (release 04/2019) is installed. However, compiling the OpenCV library takes about 1-2 hours. Unless building options need to be changed, installation is preferable to an already compiled library.&#xd;
+&#xd;
+=== Recompile and installation ===&#xd;
+&#xd;
+If certain options for the construction process need to be reset or changed, recompiling is essential. A corresponding bash script, which takes over all necessary configurations{{footnote}}This script is originally from Nvidia, but has been adapted to the current release version of OpenCV.{{/footnote}}, can be downloaded [[here>>attach:install_opencv_4.1.0.sh]].&#xd;
+&#xd;
+Assuming that the downloaded script is in the home folder, the following commands must be executed in the terminal{{footnote}}Here it comes sometimes to mistakes. Occasionally, a CR has crept in from Windows. These must be removed!{{/footnote}}:&#xd;
+&#xd;
+{{code}}&#xd;
+$ cd $HOME # Make sure we are in the correct folder&#xd;
+$ sudo chmod +x install_opencv_4.1.0.sh # Set the rights that the script is executable&#xd;
+$ ./install_opencv_4.1.0.sh &#xd;
+{{/code}}&#xd;
+&#xd;
+The construction options can be customized in the bash script using any editor.&#xd;
+&#xd;
+=== Installation without recompile (Pre-Build) ===&#xd;
+&#xd;
+An already compiled OpenCV version 4.1.0 is available in the lab. The construction options used correspond to those in the [[above bash script>>attach:install_opencv_4.1.0.sh]]. To install, copy the archive //opencv-4.1.0.tar.gz //into the folder ///home/student// and open the bash script //install_opencv_4.1.0.sh //as follows:&#xd;
+&#xd;
+{{code}}&#xd;
+sudo chmod +x install_prebuild_opencv4.1.0.sh&#xd;
+. ./install_prebuild_opencv4.1.0.sh&#xd;
+{{/code}}&#xd;
+&#xd;
+The preceding point in line two must be observed!&#xd;
+&#xd;
+After successful installation, the path to the OpenCV libraries must still be announced in the system. For this purpose, the following configuration file is generated:&#xd;
+&#xd;
+{{code language="bash"}}&#xd;
+sudo gedit /etc/ld.so.conf.d/opencv.conf&#xd;
+{{/code}}&#xd;
+&#xd;
+Then the path to the OpenCV-libs is inserted (///usr/local/lib//) and the configuration file is loaded:&#xd;
+&#xd;
+{{code language="bash"}}&#xd;
+sudo ldconfig -v&#xd;
+{{/code}}&#xd;
+&#xd;
+== demo program ==&#xd;
+&#xd;
+=== compile and execute demo program ===&#xd;
+&#xd;
+The following [[demo program>>attach:example.cpp]] will allow you to check the installation of the library and to get a first impression of the use of CUDA in OpenCV (explanations below). After downloading the program, the building can be done:&#xd;
+&#xd;
+{{code language="bash"}}&#xd;
+g++ example.cpp -L/usr/locale/lib  -I/usr/local/include/opencv4 -lopencv_core -lopencv_highgui -lopencv_videoio -lopencv_cudaimgproc -lopencv_imgproc -o example&#xd;
+&#xd;
+{{/code}}&#xd;
+&#xd;
+By default, the display of the images is commented out, as the nano is often //headless// operated without graphical interface.&#xd;
+&#xd;
+If the program runs successfully, you should see the following console output:&#xd;
+&#xd;
+* Welcome to OpenCV 4.1.0&#xd;
+* Number of GPUs: 1&#xd;
+* GPU Time: xxx&#xd;
+* CPU Time: xxx&#xd;
+&#xd;
+=== Explanation of the demo program ===&#xd;
+&#xd;
+In the following, some parts of the source code will be highlighted. For further explanations, please refer to the commentary in the source code.&#xd;
+&#xd;
+The function {{code language="c++"}}cv::cuda::getCudaEnabledDeviceCount(){{/code}} returns the number of existing or recognized GPUs, which can be used as sanity check:&#xd;
+&#xd;
+{{code language="C++"}}&#xd;
+int num_gpu = cv::cuda::getCudaEnabledDeviceCount();&#xd;
+std::cout &lt;&lt; "Number of GPUs: " &lt;&lt; num_gpu &lt;&lt; std::endl;&#xd;
+{{/code}}&#xd;
+&#xd;
+The processing of images on the GPU requires a different data type than that used by default in OpenCV. For calculations on the CPU, pictures typically use the {{code language="C++"}}cv::Mat{{/code}} data type:&#xd;
+&#xd;
+{{code language="C++"}}&#xd;
+cv::Mat frame, Gframe, Gbuff_, Cframe;&#xd;
+cv::cuda::GpuMat Gsrc, Gdst;&#xd;
+{{/code}}&#xd;
+&#xd;
+The top line displays the declaration of OpenCV matrices for use on CPU cores. Below is the datatype for matrices for use on GPU cores.&#xd;
+&#xd;
+To perform functions on the GPU, an //upload //is necessary in addition to the data type described above. This copies the data to the storage area of ​​the GPU:&#xd;
+&#xd;
+{{code language="C++"}}&#xd;
+Gsrc.upload(Gframe_split[2]);&#xd;
+{{/code}}&#xd;
+&#xd;
+After all operations have been performed on the GPU, the data must be copied again from the storage area of ​​the GPU (//Download//):&#xd;
+&#xd;
+{{code language="C++"}}&#xd;
+Gdst.download(Gbuff_);&#xd;
+&#xd;
+{{/code}}&#xd;
+&#xd;
+When running the demo program, it may have already been noticed that the running time of the GPU process is only slightly faster or sometimes slower than on the CPU. The reason for this is the overhead in operations on the GPU and the lesser benefit of massive parallelization for smaller data sets.&#xd;
+&#xd;
+== ROS installation ==&#xd;
+&#xd;
+The Robot Operating System offers pre-builds for a variety of platforms. However, for Ubuntu 18.04 LTS only ROS distribution //Melodic Morenia// is available as LTS version. Since MoRoP currently has (as of 07/2019) //Kinetic Kame// installed, this will also be installed on the Nanos. For a variety of the necessary steps, there is a detailed guide [[here>>http://wiki.ros.org/Installation/Source]]. In the following, only those steps are explained in which the distribution has to be adapted. The first step is to install a package using Ubuntu Package Management:&#xd;
+&#xd;
+{{code language="bash"}}&#xd;
+$ sudo apt-get install libtinyxml2-dev&#xd;
+{{/code}}&#xd;
+&#xd;
+It is recommended to limit the installation to the ROS-Comm version because GUI tools on the Nano, like all embedded systems, are not needed and the required memory requirements are lower. In the linked tutorial the installation for //Melodic Morenia// is described, so the following changes are necessary:&#xd;
+&#xd;
+{{code language="bash"}}$ rosinstall_generator ros_comm --rosdistro kinetic --deps --tar > kinetic-ros_comm.rosinstall&#xd;
+$ wstool init -j2 src kinetic-ros_comm.rosinstall{{/code}}&#xd;
+Before you can start the actual build process, you have to replace the package //ROS-Pack// in the ROS-Workspace (//~~/ros_catkin_ws//), otherwise there will most likly be an error. The following commands are used to exchange:&#xd;
+&#xd;
+{{code language="bash"}}&#xd;
+cd ~/ros_catkin_ws/src&#xd;
+rm -r rospack&#xd;
+git clone https://github.com/ros/rospack.git&#xd;
+{{/code}}&#xd;
+&#xd;
+Subsequently, all necessary dependencies are resolved, whereby the change in the distribution must also be taken into account here:&#xd;
+&#xd;
+{{code}}$ rosdep install --from-paths src --ignore-src --rosdistro kinetic -y{{/code}}&#xd;
+The following steps are the same for all distributions, so they can follow the above instructions.&#xd;
+&#xd;
+As a final step (after the building process has been completed), the source entry in the .bashrc is made persistent:&#xd;
+&#xd;
+{{code language="bash"}}&#xd;
+echo "source ~/ros_catkin_ws/install_isolated/setup.bash" >> ~/.bashrc&#xd;
+{{/code}}&#xd;
+&#xd;
+= Remote-Connection of the Nano =&#xd;
+&#xd;
+~{~{/code}}&#xd;
+&#xd;
+{{putFootnotes/}}</content>
+</xwikidoc>
